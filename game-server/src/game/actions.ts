@@ -5,6 +5,7 @@ import {
   Room,
   Player,
   StatusEffect,
+  Equipment,
 } from "../types/game";
 import { generateRoom } from "./state";
 import { openai } from "../lib/openai";
@@ -78,13 +79,13 @@ For item modifications, you can:
 Respond with a JSON object in this format:
 {
   "action": {
-    "type": "string (e.g. MOVE, ATTACK, INSPECT, USE_ITEM, etc.)",
+    "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, ITEM_MODIFICATION, GAIN_ITEM, LOSE_ITEM, MOVE_WITHIN_ROOM, MOVE_BETWEEN_ROOMS, KNOWLEDGE_GAIN, USE_ITEM, ATTACK, and more.)",
     "target": "optional string - what is being acted upon",
     "using": ["optional array of items being used"]
   },
   "effects": [
     {
-      "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, GAIN_ITEM, ITEM_MODIFICATION, etc.)",
+      "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, ITEM_MODIFICATION, GAIN_ITEM, LOSE_ITEM, MOVE_WITHIN_ROOM, MOVE_BETWEEN_ROOMS, KNOWLEDGE_GAIN, USE_ITEM, ATTACK, and more.)",
       "description": "string explaining the effect",
       "magnitude": "optional number for the size of the effect",
       "duration": "optional number of turns the effect lasts",
@@ -201,6 +202,9 @@ export async function processAction(
   console.log("\n=== Processing Action ===");
   console.log("Player Action:", action);
 
+  // Add player action to message history
+  newState.messageHistory.push(`> ${action}`);
+
   // Process existing status effects
   if (newState.player.statusEffects) {
     newState.player.statusEffects = newState.player.statusEffects
@@ -221,6 +225,8 @@ export async function processAction(
     // If there are no effects to process, just pass through the message
     if (!interpretation.effects || interpretation.effects.length === 0) {
       console.log("No effects to process - passing through message directly");
+      // Add response to message history
+      newState.messageHistory.push(interpretation.message);
       return {
         newState,
         message: interpretation.message,
@@ -240,6 +246,9 @@ export async function processAction(
       newState = enemyActions.newState;
     }
 
+    // Add response to message history
+    newState.messageHistory.push(result.message);
+
     console.log("\n--- Final Result ---");
     console.log("Message:", result.message);
     console.log("=== Action Processing Complete ===\n");
@@ -251,10 +260,13 @@ export async function processAction(
   } catch (error) {
     console.error("\n!!! Error Processing Action !!!");
     console.error(error);
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error occurred";
+    // Add error message to history
+    newState.messageHistory.push(`Error: ${errorMessage}`);
     return {
-      newState: state,
-      message:
-        error instanceof Error ? error.message : "Unknown error occurred",
+      newState,
+      message: errorMessage,
     };
   }
 }
@@ -381,6 +393,249 @@ async function applyEffects(
         }
         break;
 
+      case "MOVE_WITHIN_ROOM":
+        if (effect.target) {
+          console.log(`Moving within room to: ${effect.target}`);
+          // Update player's position within the current room
+          newState.player.position = effect.target;
+
+          // Check if this movement triggers any room events
+          const currentRoom = newState.rooms[newState.player.currentRoomId];
+          if (
+            currentRoom.events?.some(
+              (event) =>
+                event.trigger === "position" && event.position === effect.target
+            )
+          ) {
+            const triggeredEvent = currentRoom.events.find(
+              (event) =>
+                event.trigger === "position" && event.position === effect.target
+            );
+            message += `\n${triggeredEvent?.message || ""}`;
+          }
+        }
+        break;
+
+      case "MOVE_BETWEEN_ROOMS":
+        if (effect.target) {
+          console.log(`Moving to room: ${effect.target}`);
+          const targetRoomId = effect.target;
+
+          // Check if the room exists and is accessible
+          if (newState.rooms[targetRoomId]) {
+            newState.player.currentRoomId = targetRoomId;
+            newState.player.position = "entrance"; // Reset position in new room
+
+            // Discover connecting rooms
+            const newRoom = newState.rooms[targetRoomId];
+            Object.values(newRoom.doors).forEach((door) => {
+              if (!newState.rooms[door.destinationRoomId]) {
+                // Generate the new room if it doesn't exist
+                // Note: This would need to be made async if we want to generate rooms here
+                console.log(
+                  `Room ${door.destinationRoomId} discovered but not yet generated`
+                );
+              }
+            });
+          }
+        }
+        break;
+
+      case "KNOWLEDGE_GAIN":
+        if (effect.description) {
+          console.log(`Gaining knowledge: ${effect.description}`);
+          if (!newState.player.knowledge) {
+            newState.player.knowledge = [];
+          }
+
+          // Add the new knowledge
+          newState.player.knowledge.push({
+            type: effect.target || "general",
+            description: effect.description,
+            timestamp: Date.now(),
+          });
+
+          // Update any relevant game state based on knowledge
+          if (effect.target === "secret" || effect.target === "puzzle") {
+            newState.player.stats.wisdom =
+              (newState.player.stats.wisdom || 0) + 1;
+          }
+        }
+        break;
+
+      case "USE_ITEM":
+        if (effect.target) {
+          console.log(`Using item: ${effect.target}`);
+          const { item, location, index } = findItem(newState, effect.target);
+
+          if (item && location) {
+            // Apply item effects
+            if (item.effects) {
+              item.effects.forEach((itemEffect) => {
+                if (itemEffect.type === "STAT_CHANGE" && itemEffect.magnitude) {
+                  const stat = itemEffect.target?.toLowerCase() || "";
+                  if (stat in newState.player.stats) {
+                    newState.player.stats[stat] += itemEffect.magnitude;
+                  }
+                }
+              });
+            }
+
+            // Handle consumable items
+            if (item.consumable) {
+              if (location === "inventory") {
+                newState.player.inventory.splice(index, 1);
+              } else if (location === "room") {
+                newState.rooms[newState.player.currentRoomId].items.splice(
+                  index,
+                  1
+                );
+              }
+            }
+
+            // Update item state if it's not consumed
+            if (!item.consumable && effect.itemModification) {
+              const modifiedItem = {
+                ...item,
+                ...effect.itemModification,
+              };
+
+              if (location === "inventory") {
+                newState.player.inventory[index] = modifiedItem;
+              } else if (location === "room") {
+                newState.rooms[newState.player.currentRoomId].items[index] =
+                  modifiedItem;
+              }
+            }
+          }
+        }
+        break;
+
+      case "ATTACK":
+        if (effect.target) {
+          console.log(`Attacking target: ${effect.target}`);
+          const currentRoom = newState.rooms[newState.player.currentRoomId];
+          const targetEnemy = currentRoom.enemies.find(
+            (enemy) => enemy.name.toLowerCase() === effect.target?.toLowerCase()
+          );
+
+          if (targetEnemy) {
+            // Calculate damage based on player stats and equipped weapon
+            const baseDamage = newState.player.stats.strength || 1;
+            const weaponDamage =
+              newState.player.equipment?.weapon?.stats?.damage || 0;
+            const totalDamage = baseDamage + weaponDamage;
+
+            // Apply damage to enemy
+            targetEnemy.health -= totalDamage;
+            message += `\nYou deal ${totalDamage} damage to ${targetEnemy.name}.`;
+
+            // Check if enemy is defeated
+            if (targetEnemy.health <= 0) {
+              targetEnemy.isAlive = false;
+              message += `\n${targetEnemy.name} has been defeated!`;
+
+              // Handle enemy drops if any
+              if (targetEnemy.drops) {
+                targetEnemy.drops.forEach((drop) => {
+                  currentRoom.items.push(drop);
+                });
+                message += `\n${targetEnemy.name} dropped some items.`;
+              }
+            }
+          }
+        }
+        break;
+
+      case "EQUIP_ITEM":
+        if (effect.target) {
+          console.log(`Equipping item: ${effect.target}`);
+          const { item, location, index } = findItem(newState, effect.target);
+
+          if (item && location === "inventory") {
+            // Determine equipment slot based on item type
+            let slot: keyof Equipment | undefined;
+            switch (item.type) {
+              case "weapon":
+                slot = "weapon";
+                break;
+              case "armor":
+                slot = "armor";
+                break;
+              case "shield":
+                slot = "offhand";
+                break;
+              case "ring":
+              case "amulet":
+                slot = "accessory";
+                break;
+            }
+
+            if (slot) {
+              // If there's an item already equipped in that slot, move it to inventory
+              const currentEquipped = newState.player.equipment[slot];
+              if (currentEquipped) {
+                newState.player.inventory.push(currentEquipped);
+                message += `\nUnequipped ${currentEquipped.name}.`;
+              }
+
+              // Equip the new item
+              newState.player.equipment[slot] = item;
+              newState.player.inventory.splice(index, 1);
+              message += `\nEquipped ${item.name}.`;
+
+              // Update player stats based on equipped item
+              if (item.stats) {
+                Object.entries(item.stats).forEach(([stat, value]) => {
+                  if (value) {
+                    newState.player.stats[stat] =
+                      (newState.player.stats[stat] || 0) + value;
+                  }
+                });
+              }
+            }
+          }
+        }
+        break;
+
+      case "UNEQUIP_ITEM":
+        if (effect.target) {
+          console.log(`Unequipping item: ${effect.target}`);
+          // Find the equipped item
+          let unequippedItem: Item | undefined;
+          let slot: keyof Equipment | undefined;
+
+          Object.entries(newState.player.equipment).forEach(
+            ([equipSlot, item]) => {
+              if (
+                item &&
+                item.name.toLowerCase() === effect.target?.toLowerCase()
+              ) {
+                unequippedItem = item;
+                slot = equipSlot as keyof Equipment;
+              }
+            }
+          );
+
+          if (unequippedItem && slot) {
+            // Remove item's stat bonuses
+            if (unequippedItem.stats) {
+              Object.entries(unequippedItem.stats).forEach(([stat, value]) => {
+                if (value) {
+                  newState.player.stats[stat] =
+                    (newState.player.stats[stat] || 0) - value;
+                }
+              });
+            }
+
+            // Move item to inventory and clear equipment slot
+            newState.player.inventory.push(unequippedItem);
+            newState.player.equipment[slot] = undefined;
+            message += `\nUnequipped ${unequippedItem.name}.`;
+          }
+        }
+        break;
+
       case "MOVE":
         if (effect.target) {
           console.log(`Attempting to move: ${effect.target}`);
@@ -426,17 +681,6 @@ async function applyEffects(
             newState.player.currentRoomId = door.destinationRoomId;
           }
         }
-        break;
-
-      case "KNOWLEDGE_GAIN":
-        if (!newState.player.knowledge) {
-          newState.player.knowledge = [];
-        }
-        console.log(`Adding knowledge: ${effect.description}`);
-        newState.player.knowledge.push({
-          type: effect.target || "general",
-          description: effect.description,
-        });
         break;
 
       default:
