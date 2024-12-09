@@ -23,7 +23,12 @@ interface ActionEffect {
   description: string;
   magnitude?: number;
   duration?: number;
-  target?: string; // should be of form "enemy-<type>-<id>" or "item-<type>-<id>" or "room-<name>-<id>", etc.
+  targetId?: string; // should be of form "enemy-<type>-<id>" or "item-<type>-<id>" or "room-<name>-<id>", etc.
+  statChange?: {
+    statAffectedName?: string;
+    magnitude?: number;
+  };
+  statusEffect?: StatusEffect;
   itemModified?: {
     newDescription?: string;
     newState?: string;
@@ -74,43 +79,6 @@ interface StatusMapping {
     description: string;
   };
 }
-
-// Define status effect mappings
-const STATUS_MAPPINGS: StatusMapping = {
-  burning: {
-    statModifiers: [
-      { stat: "health", value: -2 },
-      { stat: "defense", value: -1 },
-    ],
-    duration: 3,
-    description: "Taking damage from flames",
-  },
-  frozen: {
-    statModifiers: [
-      { stat: "speed", value: -2 },
-      { stat: "dexterity", value: -2 },
-    ],
-    duration: 2,
-    description: "Movement and reactions slowed",
-  },
-  poisoned: {
-    statModifiers: [
-      { stat: "health", value: -1 },
-      { stat: "strength", value: -1 },
-    ],
-    duration: 4,
-    description: "Taking poison damage over time",
-  },
-  strengthened: {
-    statModifiers: [
-      { stat: "strength", value: 2 },
-      { stat: "damage", value: 1 },
-    ],
-    duration: 3,
-    description: "Enhanced physical power",
-  },
-  // Add more status effects as needed
-};
 
 // Helper function to find an item in either room or inventory
 function findItem(
@@ -334,45 +302,117 @@ async function applyEffects(
 
     switch (effect.type) {
       case "STAT_CHANGE":
-        if (effect.target && effect.magnitude) {
-          const target = effect.target.toLowerCase();
-          // Update both current and base ability scores if it's an ability score
-          if (target in newState.player.currentAbilityScores) {
-            console.log(
-              `Changing ability score ${target} by ${effect.magnitude}`
-            );
-            newState.player.currentAbilityScores[
-              target as keyof AbilityScores
-            ] += effect.magnitude;
-          }
-          // Update derived stats if needed
-          const derivedStats = calculateDerivedStats(
-            newState.player.currentAbilityScores,
-            newState.player.level
+        if (effect.targetId && effect.statChange) {
+          console.log(
+            `Applying stat change to ${effect.targetId}:`,
+            effect.statChange
           );
-          newState.player.currentDerivedStats = derivedStats;
+
+          // Handle player stats
+          if (effect.targetId === newState.player.id) {
+            if (
+              effect.statChange.statAffectedName &&
+              effect.statChange.magnitude
+            ) {
+              const stat = effect.statChange.statAffectedName.toLowerCase();
+              // Update ability scores if it's an ability score
+              if (stat in newState.player.currentAbilityScores) {
+                console.log(
+                  `Changing ability score ${stat} by ${effect.statChange.magnitude}`
+                );
+                newState.player.currentAbilityScores[
+                  stat as keyof AbilityScores
+                ] += effect.statChange.magnitude;
+              }
+              // Update derived stats if needed
+              const derivedStats = calculateDerivedStats(
+                newState.player.currentAbilityScores,
+                newState.player.level
+              );
+              newState.player.currentDerivedStats = derivedStats;
+            }
+          }
+          // Handle enemy stats
+          else if (effect.targetId.startsWith("enemy")) {
+            const currentRoom = newState.rooms[newState.player.currentRoomId];
+            const enemy = currentRoom.enemies.find(
+              (e) => e.id === effect.targetId
+            );
+            if (
+              enemy &&
+              effect.statChange.statAffectedName &&
+              effect.statChange.magnitude
+            ) {
+              const stat = effect.statChange.statAffectedName.toLowerCase();
+              if (stat === "hitpoints") {
+                enemy.currentStats.hitPoints += effect.statChange.magnitude;
+              } else if (stat in enemy.currentStats.abilityScores) {
+                enemy.currentStats.abilityScores[stat as keyof AbilityScores] +=
+                  effect.statChange.magnitude;
+              }
+            }
+          }
         }
         break;
 
       case "STATUS_EFFECT":
-        if (!newState.player.statusEffects) {
-          newState.player.statusEffects = [];
+        if (effect.targetId && effect.statusEffect) {
+          console.log(
+            `Applying status effect to ${effect.targetId}:`,
+            effect.statusEffect
+          );
+
+          const statusEffect: StatusEffect = {
+            name: effect.statusEffect.name,
+            description: effect.statusEffect.description,
+            source: "effect",
+            target: effect.targetId,
+            duration: effect.statusEffect.duration,
+            magnitude: effect.statusEffect.magnitude,
+            isActive: effect.statusEffect.isActive ?? true,
+            isPermanent: effect.statusEffect.isPermanent ?? false,
+          };
+
+          // Apply to player
+          if (effect.targetId === newState.player.id) {
+            if (!newState.player.statusEffects) {
+              newState.player.statusEffects = [];
+            }
+            newState.player.statusEffects.push(statusEffect);
+            message += `\nYou are affected by ${statusEffect.name}.`;
+          }
+          // Apply to enemy
+          else if (effect.targetId.startsWith("enemy")) {
+            const currentRoom = newState.rooms[newState.player.currentRoomId];
+            const enemy = currentRoom.enemies.find(
+              (e) => e.id === effect.targetId
+            );
+            if (enemy) {
+              if (!enemy.statusEffects) {
+                enemy.statusEffects = [];
+              }
+              enemy.statusEffects.push(statusEffect);
+              message += `\n${enemy.name} is affected by ${statusEffect.name}.`;
+            }
+          }
+          // Apply to item
+          else if (effect.targetId.startsWith("item")) {
+            const { item } = findItem(newState, effect.targetId);
+            if (item) {
+              if (!item.statusEffects) {
+                item.statusEffects = [];
+              }
+              item.statusEffects.push(statusEffect);
+              message += `\n${item.name} is affected by ${statusEffect.name}.`;
+            }
+          }
         }
-        console.log(`Adding status effect: ${effect.description}`);
-        newState.player.statusEffects.push({
-          name: effect.description,
-          description: effect.description,
-          source: "effect",
-          target: "player",
-          duration: effect.duration || EFFECT_DURATIONS.TEMPORARY,
-          magnitude: effect.magnitude || 1,
-        });
         break;
 
       case "ITEM_MODIFICATION":
-        if (effect.target && effect.itemModified) {
-          console.log(`Modifying item: ${effect.target}`);
-          const { item, location, index } = findItem(newState, effect.target);
+        if (effect.targetId && effect.itemModified) {
+          console.log(`Modifying item: ${effect.targetId}`);
+          const { item, location, index } = findItem(newState, effect.targetId);
 
           if (item && location && index !== -1) {
             const modifiedItem = {
@@ -406,7 +446,7 @@ async function applyEffects(
       case "GAIN_ITEM":
         if (effect.itemsMoved && Array.isArray(effect.itemsMoved)) {
           console.log(
-            `Processing GAIN_ITEM with itemsMoved:`,
+            `Processing GAIN_ITEM with itemsMoved array:`,
             effect.itemsMoved
           );
 
@@ -447,45 +487,88 @@ async function applyEffects(
                 targetLocation,
                 [moveData.itemId]
               );
+              message += `\nItem moved from ${moveData.from}${
+                moveData.fromSpecificId ? ` (${moveData.fromSpecificId})` : ""
+              } to ${moveData.to}.`;
             }
           }
-        } else if (effect.target) {
-          // Handle legacy format
-          console.log(`Attempting to gain item: ${effect.target}`);
-          const { item, location, index } = findItem(newState, effect.target);
+        } else if (effect.itemsMoved) {
+          // Handle single itemsMoved object (not in array)
+          console.log(
+            `Processing GAIN_ITEM with single itemsMoved:`,
+            effect.itemsMoved
+          );
+          const moveData = effect.itemsMoved;
 
-          if (item) {
-            if (location === "room") {
-              // Remove from room
-              newState.rooms[newState.player.currentRoomId].items.splice(
-                index,
-                1
-              );
-              // Add to inventory
-              newState.player.inventory.push(item);
-              console.log(`Moved item from room to inventory: ${item.name}`);
-            }
+          let sourceLocation =
+            moveData.fromSpecificId ||
+            (moveData.from === "player"
+              ? "inventory"
+              : moveData.from === "enemy"
+              ? moveData.fromSpecificId!
+              : moveData.from === "room"
+              ? newState.player.currentRoomId
+              : "");
+
+          let targetLocation =
+            moveData.to === "player"
+              ? "inventory"
+              : moveData.to === "enemy"
+              ? moveData.toSpecificId!
+              : moveData.to === "room"
+              ? newState.player.currentRoomId
+              : moveData.toSpecificId || "";
+
+          if (sourceLocation && targetLocation) {
+            console.log(
+              `Moving item from ${sourceLocation} to ${targetLocation}`
+            );
+            newState = handleItemsMoved(
+              newState,
+              sourceLocation,
+              targetLocation,
+              [moveData.itemId]
+            );
+            message += `\nItem moved from ${moveData.from}${
+              moveData.fromSpecificId ? ` (${moveData.fromSpecificId})` : ""
+            } to ${moveData.to}.`;
+          }
+        } else if (effect.targetId) {
+          // Legacy format where targetId is the item to gain
+          console.log(
+            `Attempting to gain item with legacy format: ${effect.targetId}`
+          );
+          const currentRoom = newState.rooms[newState.player.currentRoomId];
+          const itemIndex = currentRoom.items.findIndex(
+            (item) => item.id === effect.targetId
+          );
+
+          if (itemIndex !== -1) {
+            // Remove item from room
+            const [takenItem] = currentRoom.items.splice(itemIndex, 1);
+            // Add to inventory
+            newState.player.inventory.push(takenItem);
+            console.log(`Moved item from room to inventory: ${takenItem.name}`);
+            message += `\nYou pick up the ${takenItem.name}.`;
+          } else {
+            console.log(`Item ${effect.targetId} not found in current room`);
           }
         }
         break;
 
       case "LOSE_ITEM":
-        if (effect.target) {
-          console.log(`Removing item: ${effect.target}`);
+        if (effect.targetId) {
+          console.log(`Removing item: ${effect.targetId}`);
           newState.player.inventory = newState.player.inventory.filter(
-            (item) => item.name.toLowerCase() !== effect.target?.toLowerCase()
+            (item) => item.id !== effect.targetId
           );
         }
         break;
 
-      case "MOVE_WITHIN_ROOM":
-        // doesn't move player position really, just gives context to llm in the future
-        break;
-
       case "MOVE_BETWEEN_ROOMS":
-        if (effect.target) {
-          console.log(`Moving to room: ${effect.target}`);
-          const targetRoomId = effect.target;
+        if (effect.targetId) {
+          console.log(`Moving to room: ${effect.targetId}`);
+          const targetRoomId = effect.targetId;
 
           // Check if the room exists and is accessible
           if (newState.rooms[targetRoomId]) {
@@ -509,7 +592,7 @@ async function applyEffects(
           }
 
           // Add the new knowledge
-          const knowledgeType = effect.target || "general";
+          const knowledgeType = effect.targetId || "general";
           const knowledgeId = `knowledge-${knowledgeType}-${Math.random()
             .toString(36)
             .substring(2, 9)}`;
@@ -522,14 +605,14 @@ async function applyEffects(
           // Determine the target entity this knowledge is about
           let target = "general";
           if (
-            effect.target?.startsWith("enemy-") ||
-            effect.target?.startsWith("item-") ||
-            effect.target?.startsWith("room-")
+            effect.targetId?.startsWith("enemy-") ||
+            effect.targetId?.startsWith("item-") ||
+            effect.targetId?.startsWith("room-")
           ) {
-            target = effect.target;
-          } else if (effect.target) {
+            target = effect.targetId;
+          } else if (effect.targetId) {
             // If target doesn't have proper prefix, add one based on type
-            target = `${knowledgeType}-${effect.target}`;
+            target = `${knowledgeType}-${effect.targetId}`;
           }
 
           newState.player.knowledge.push({
@@ -542,26 +625,13 @@ async function applyEffects(
             isRumor,
             isLore,
           });
-
-          // Update any relevant game state based on knowledge
-          if (isFact) {
-            // Facts increase wisdom more than rumors
-            newState.player.currentAbilityScores.wisdom += 1;
-          } else if (isRumor) {
-            // Rumors provide a smaller wisdom boost
-            newState.player.currentAbilityScores.wisdom += 0.5;
-          } else if (isLore) {
-            // Lore increases both wisdom and intelligence
-            newState.player.currentAbilityScores.wisdom += 1;
-            newState.player.currentAbilityScores.intelligence += 1;
-          }
         }
         break;
 
       case "USE_ITEM":
-        if (effect.target) {
-          console.log(`Using item: ${effect.target}`);
-          const { item, location, index } = findItem(newState, effect.target);
+        if (effect.targetId) {
+          console.log(`Using item: ${effect.targetId}`);
+          const { item, location, index } = findItem(newState, effect.targetId);
 
           if (item && location) {
             // Apply item effects
@@ -674,11 +744,12 @@ async function applyEffects(
         break;
 
       case "ATTACK":
-        if (effect.target) {
-          console.log(`Attacking target: ${effect.target}`);
+        if (effect.targetId) {
+          console.log(`Attacking target: ${effect.targetId}`);
           const currentRoom = newState.rooms[newState.player.currentRoomId];
           const targetEnemy = currentRoom.enemies.find(
-            (enemy) => enemy.name.toLowerCase() === effect.target?.toLowerCase()
+            (enemy) =>
+              enemy.name.toLowerCase() === effect.targetId?.toLowerCase()
           );
 
           if (targetEnemy) {
@@ -713,9 +784,9 @@ async function applyEffects(
         break;
 
       case "EQUIP_ITEM":
-        if (effect.target) {
-          console.log(`Equipping item: ${effect.target}`);
-          const { item, location, index } = findItem(newState, effect.target);
+        if (effect.targetId) {
+          console.log(`Equipping item: ${effect.targetId}`);
+          const { item, location, index } = findItem(newState, effect.targetId);
 
           if (item && location === "inventory") {
             // Determine equipment slot based on item type
@@ -769,8 +840,8 @@ async function applyEffects(
         break;
 
       case "UNEQUIP_ITEM":
-        if (effect.target) {
-          console.log(`Unequipping item: ${effect.target}`);
+        if (effect.targetId) {
+          console.log(`Unequipping item: ${effect.targetId}`);
           // Find the equipped item
           let unequippedItem: Item | undefined;
           let slot: keyof Equipment | undefined;
@@ -779,7 +850,7 @@ async function applyEffects(
             ([equipSlot, item]) => {
               if (
                 item &&
-                item.name.toLowerCase() === effect.target?.toLowerCase()
+                item.name.toLowerCase() === effect.targetId?.toLowerCase()
               ) {
                 unequippedItem = item;
                 slot = equipSlot as keyof Equipment;
@@ -805,11 +876,11 @@ async function applyEffects(
         break;
 
       case "MOVE":
-        if (effect.target) {
-          console.log(`Attempting to move: ${effect.target}`);
+        if (effect.targetId) {
+          console.log(`Attempting to move: ${effect.targetId}`);
           const door =
             newState.rooms[newState.player.currentRoomId].doors[
-              effect.target.toLowerCase() as keyof Room["doors"]
+              effect.targetId.toLowerCase() as keyof Room["doors"]
             ];
           if (door && !door.isLocked) {
             console.log(`Moving to room: ${door.destinationRoomId}`);
@@ -820,7 +891,7 @@ async function applyEffects(
               const currentRoom = newState.rooms[newState.player.currentRoomId];
               const newPosition = { ...currentRoom.position };
 
-              switch (effect.target.toLowerCase()) {
+              switch (effect.targetId.toLowerCase()) {
                 case "north":
                   newPosition.y -= 1;
                   break;
@@ -968,11 +1039,11 @@ function interpretStatusEffect(
   description: string
 ): StatusMapping[keyof StatusMapping] | null {
   // Look for known status effects in the description
-  for (const [status, mapping] of Object.entries(STATUS_MAPPINGS)) {
-    if (description.toLowerCase().includes(status)) {
-      return mapping;
-    }
-  }
+  // for (const [status, mapping] of Object.entries(STATUS_MAPPINGS)) {
+  //   if (description.toLowerCase().includes(status)) {
+  //     return mapping;
+  //   }
+  // }
 
   // Try to interpret custom status effects
   const words = description.toLowerCase().split(" ");
@@ -1021,73 +1092,6 @@ function interpretStatChange(description: string): EffectModifier | null {
   return null;
 }
 
-function interpretItemChange(description: string): Partial<Item> | null {
-  const changes: Partial<Item> = {};
-
-  // Check for state changes
-  if (description.includes("broken")) {
-    changes.state = "broken";
-  } else if (description.includes("enhanced")) {
-    changes.state = "enhanced";
-  }
-
-  // Check for glowing property
-  if (description.includes("glowing")) {
-    changes.state = "glowing";
-  }
-
-  // Check for stat modifications
-  const statMatch = description.match(/(\+|-)(\d+)\s+to\s+(\w+)/);
-  if (statMatch) {
-    const statType = statMatch[3].toLowerCase();
-    const value = parseInt(statMatch[1] + statMatch[2]);
-
-    // Only add valid stats
-    if (
-      statType === "damage" ||
-      statType === "defense" ||
-      statType === "healing"
-    ) {
-      changes.stats = changes.stats || {};
-      changes.stats[statType] = value;
-    }
-  }
-
-  return Object.keys(changes).length > 0 ? changes : null;
-}
-
-function interpretRoomChange(description: string): any {
-  // Implement room state change interpretation
-  const changes: any = {};
-
-  if (description.includes("darkened")) {
-    changes.lighting = "dark";
-  } else if (description.includes("illuminated")) {
-    changes.lighting = "bright";
-  }
-
-  if (description.includes("flooded")) {
-    changes.environment = "flooded";
-  }
-
-  return Object.keys(changes).length > 0 ? changes : null;
-}
-
-// Helper functions for applying changes
-function applyStatModifier(target: any, modifier: EffectModifier): void {
-  if (target[modifier.stat] !== undefined) {
-    target[modifier.stat] += modifier.value;
-  }
-}
-
-function applyItemChange(item: Item, changes: Partial<Item>): void {
-  Object.assign(item, changes);
-}
-
-function applyRoomChange(room: Room, changes: any): void {
-  Object.assign(room, changes);
-}
-
 function interpretCustomStatus(
   effectWord: string,
   description: string
@@ -1126,6 +1130,21 @@ function interpretCustomStatus(
 function extractMagnitude(description: string): number | null {
   const match = description.match(/(\d+)/);
   return match ? parseInt(match[1]) : null;
+}
+
+// Helper functions for applying changes
+function applyStatModifier(target: any, modifier: EffectModifier): void {
+  if (target[modifier.stat] !== undefined) {
+    target[modifier.stat] += modifier.value;
+  }
+}
+
+function applyItemChange(item: Item, changes: Partial<Item>): void {
+  Object.assign(item, changes);
+}
+
+function applyRoomChange(room: Room, changes: any): void {
+  Object.assign(room, changes);
 }
 
 // Add helper function to calculate derived stats

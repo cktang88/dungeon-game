@@ -86,9 +86,19 @@ Respond with a JSON object in this format, and action followed by a LIST of all 
     {
       "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, ITEM_MODIFICATION, GAIN_ITEM, LOSE_ITEM, MOVE_WITHIN_ROOM, MOVE_BETWEEN_ROOMS, KNOWLEDGE_GAIN, USE_ITEM, ATTACK, and more.)",
       "description": "string explaining the effect",
-      "magnitude": "optional number for the size of the effect",
-      "duration": "optional number of turns the effect lasts",
-      "target": "optional string specifying what is affected",
+      "targetId": "string specifying what is affected",
+      "statChange": {
+        "statAffectedName": "optional string specifying what is affected",
+        "magnitude": "optional number for the size of the effect",
+      },
+      "statusEffect": {
+        "name": "string - short name of the status effect, eg. 'poisoned', 'frightened', 'stunned', 'blinded', 'confused', 'ashamed', etc.",
+        "description": "string - description of the status effect",
+        "duration": "number of turns the status effect lasts",
+        "magnitude": "number - magnitude of the status effect, eg. how much damage/healing is done per turn",
+        "isActive": "boolean",
+        "isPermanent": "boolean",
+      },
       "itemsModified": {
         {
           "id": "string - id of the item, eg. 'item-<type>-<id>'",

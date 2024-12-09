@@ -143,6 +143,8 @@ export interface StatusEffect {
   target: string;
   duration: number;
   magnitude: number;
+  isActive: boolean;
+  isPermanent: boolean;
 }
 
 export interface Equipment {
