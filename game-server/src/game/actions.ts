@@ -52,16 +52,22 @@ const ACTION_PROMPT = `You are the game master for a text-based dungeon crawler 
 
 Given the current game state and a player's command, determine:
 1. The core action being attempted
-2. Any items or objects involved
+2. Any items or objects involved. Each of these items should be in the player's inventory or in the room.
 3. The effects this should have on the game state
+NOTE: if the player doesn't have the item(s) required to perform the action, the action should be denied.
+NOTE: if the object of the action is not in the player inventory, the room, or environment, the action should be denied.
+NOTE: some items are implicitly owned by the player, such as body parts, unless those are damaged, stunned, or otherwise unusable.
+NOTE: ALWAYS take into account a player's status effects (and any items' and enemies' status effects) when determining the effects of an action.
 
 Effects can include:
 - Stat changes (health, stamina, strength, dexterity, etc.)
 - Status effects (tired, poisoned, strengthened, etc.)
+    - Status effects usually also have stat changes, eg. a player being hurt means health was lost.
 - Resource changes (gaining/losing items)
 - Item modifications (changing item descriptions, states, or usability)
 - Environmental changes
 - Knowledge gains
+- Effects on enemies (enemy health, giving enemy status effects, etc.)
 - Enemy reactions
 
 For item modifications, you can:
@@ -263,7 +269,7 @@ Player action: "${action}"`;
   console.log("Prompt sent to LLM:", prompt);
 
   const response = await openai.chat.completions.create({
-    model: "gpt-4",
+    model: "gpt-4o-2024-11-20",
     messages: [{ role: "system", content: prompt }],
     temperature: 0.7,
   });
@@ -376,6 +382,40 @@ async function applyEffects(
             ];
           if (door && !door.isLocked) {
             console.log(`Moving to room: ${door.destinationRoomId}`);
+
+            // Check if the destination room needs to be generated
+            if (!newState.rooms[door.destinationRoomId]) {
+              // Calculate new room position based on direction
+              const currentRoom = newState.rooms[newState.player.currentRoomId];
+              const newPosition = { ...currentRoom.position };
+
+              switch (effect.target.toLowerCase()) {
+                case "north":
+                  newPosition.y -= 1;
+                  break;
+                case "south":
+                  newPosition.y += 1;
+                  break;
+                case "east":
+                  newPosition.x += 1;
+                  break;
+                case "west":
+                  newPosition.x -= 1;
+                  break;
+              }
+
+              // Generate the new room
+              const newRoom = await generateRoom(
+                newState.currentFloor,
+                "dungeon", // You might want to pass a proper theme based on the floor
+                newPosition,
+                openai
+              );
+
+              // Add the room to the game state
+              newState.rooms[door.destinationRoomId] = newRoom;
+            }
+
             newState.player.currentRoomId = door.destinationRoomId;
           }
         }
@@ -507,9 +547,9 @@ function interpretItemChange(description: string): Partial<Item> | null {
 
   // Check for state changes
   if (description.includes("broken")) {
-    changes.condition = "broken";
+    changes.state = "broken";
   } else if (description.includes("enhanced")) {
-    changes.condition = "enhanced";
+    changes.state = "enhanced";
   }
 
   // Check for property changes

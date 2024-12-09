@@ -1,6 +1,7 @@
 import { Player } from "../types/game";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
 
 interface PlayerStatsProps {
   player: Player;
@@ -50,6 +51,31 @@ export default function PlayerStats({ player }: PlayerStatsProps) {
           </div>
         </CardContent>
       </Card>
+
+      {/* Status Effects */}
+      {player.statusEffects && player.statusEffects.length > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Status Effects</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-2">
+              {player.statusEffects.map((effect, index) => (
+                <Badge
+                  key={index}
+                  variant={effect.magnitude > 0 ? "default" : "destructive"}
+                  className="flex items-center gap-2"
+                >
+                  <span>{effect.name}</span>
+                  <span className="text-xs opacity-75">
+                    ({effect.duration} turns)
+                  </span>
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Ability Scores */}
       <Card>

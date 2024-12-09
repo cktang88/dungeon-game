@@ -3,6 +3,8 @@ export interface Item {
   name: string;
   description: string;
   type: "weapon" | "armor" | "key" | "consumable" | "quest";
+  state?: string;
+  isUsable?: boolean;
   stats?: {
     damage?: number;
     defense?: number;
@@ -37,6 +39,10 @@ export interface Room {
     west?: Door;
   };
   visited: boolean;
+  position: {
+    x: number;
+    y: number;
+  };
 }
 
 export interface Door {
@@ -72,7 +78,16 @@ export interface Player {
   currentRoomId: string;
   abilityScores: AbilityScores;
   derivedStats: DerivedStats;
-  // Skills and proficiencies could be added here
+  stats: Record<string, number>;
+  statusEffects?: Array<{
+    name: string;
+    duration: number;
+    magnitude: number;
+  }>;
+  knowledge?: Array<{
+    type: string;
+    description: string;
+  }>;
 }
 
 export interface GameState {

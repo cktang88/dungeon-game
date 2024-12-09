@@ -1,67 +1,47 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-import { OpenAI } from "openai";
-import { processAction } from "./game/actions";
 import { initializeGameState } from "./game/state";
-
-dotenv.config();
+import { processAction } from "./game/actions";
+import { OpenAI } from "openai";
 
 const app = express();
+const port = 3001;
 
 app.use(cors());
 app.use(express.json());
 
+// Initialize OpenAI client
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Game state for each player session
-const gameStates = new Map<string, any>();
+// Game state storage (in memory for now)
+const gameStates: Record<string, any> = {};
 
-// Initialize game state for a new player
 app.post("/api/game/start", (req, res) => {
   const sessionId = Math.random().toString(36).substring(7);
-  const gameState = initializeGameState();
-  gameStates.set(sessionId, gameState);
-  res.json({ sessionId, gameState });
+  gameStates[sessionId] = initializeGameState();
+  res.json({ sessionId, gameState: gameStates[sessionId] });
 });
 
-// Get current game state
-app.get("/api/game/state/:sessionId", (req, res) => {
-  const { sessionId } = req.params;
-  const gameState = gameStates.get(sessionId);
+app.post("/api/game/action", async (req, res) => {
+  const { sessionId, action } = req.body;
 
-  if (!gameState) {
-    return res.status(404).json({ error: "Game session not found" });
-  }
-
-  res.json(gameState);
-});
-
-// Handle game action
-app.post("/api/game/action/:sessionId", async (req, res) => {
-  const { sessionId } = req.params;
-  const { action } = req.body;
-
-  const currentState = gameStates.get(sessionId);
-  if (!currentState) {
-    return res.status(404).json({ error: "Game session not found" });
+  if (!gameStates[sessionId]) {
+    res.status(404).json({ error: "Game session not found" });
+    return;
   }
 
   try {
-    const { newState, message } = await processAction(currentState, action);
-    gameStates.set(sessionId, newState);
-    res.json({ gameState: newState, message });
+    const newState = await processAction(gameStates[sessionId], action, openai);
+    gameStates[sessionId] = newState;
+    res.json({ gameState: newState });
   } catch (error) {
-    console.error("Error handling game action:", error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while processing your action" });
+    console.error("Error processing action:", error);
+    res.status(500).json({ error: "Error processing action" });
   }
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Game server running at http://localhost:${port}`);
 });
