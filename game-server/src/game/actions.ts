@@ -9,7 +9,7 @@ import {
 } from "../types/game";
 import { generateRoom } from "./state";
 import { openai } from "../lib/openai";
-import { goodAndBadResponses } from "./generation/actionGen";
+import { ACTION_PROMPT } from "./generation/actionGen";
 interface StateChange {
   type: string;
   payload: any;
@@ -48,151 +48,6 @@ const EFFECT_DURATIONS = {
   MEDIUM: 10,
   LONG: 20,
 };
-
-const ACTION_PROMPT = `You are a humorous game master for a text-based dungeon crawler RPG. Your role is to interpret player actions in natural language and determine their effects.
-
-Your goal is to focus on emergent, unpredictable, and memorable experiences.
-Try to allow most actions as long as they're not absurd.
-
-Given the current game state and a player's command, determine:
-1. The core action being attempted
-2. Any items or objects involved. Each of these items should be in the player's inventory or in the room.
-3. The effects this should have on the game state
-NOTE: if the player doesn't have the item(s) required to perform the action, the action should be denied.
-NOTE: if the object of the action is not in the player inventory, the room, or environment, the action should be denied.
-NOTE: some items are implicitly owned by the player, such as body parts, unless those are damaged, stunned, or otherwise unusable.
-
-THINGS TO CONSIDER:
-  - a player's status effects (and any items' and enemies' status effects) when determining the effects of an action.
-  - what a player has done recently that may influence the outcome of an action.
-  - the player's stats and derived stats when determining the effects of an action.
-
-
-HOW THE PLAYER's STATS AFFECT ACTIONS:
-Strength (STR)
-Description: Measures physical power, athletic prowess, and the ability to exert force.
-Uses: Melee attack rolls, damage with strength-based weapons, carrying capacity, and certain physical skills (e.g., Athletics).
-
-Dexterity (DEX)
-Description: Represents agility, reflexes, and balance.
-Uses: Ranged attack rolls, Armor Class (AC), initiative, and dexterity-based skills (e.g., Acrobatics, Stealth).
-
-Constitution (CON)
-Description: Reflects health, stamina, and vital force.
-Uses: Hit points (HP), concentration checks for maintaining spells, and constitution-based skills (e.g., Survival).
-
-Intelligence (INT)
-Description: Denotes mental acuity, memory, and analytical ability.
-Uses: Intelligence-based skills (e.g., Arcana, History, Investigation), spellcasting for certain classes.
-
-Wisdom (WIS)
-Description: Indicates perception, intuition, and insight.
-Uses: Wisdom-based skills (e.g., Perception, Insight, Medicine), saving throws against certain effects, and spellcasting for certain classes.
-
-Charisma (CHA)
-Description: Represents force of personality, persuasiveness, and leadership.
-Uses: Charisma-based skills (e.g., Persuasion, Deception, Intimidation), spellcasting for certain classes, and social interactions.
-
-BE SURE TO NOTE WHICH RELEVANT STATS AFFECTED THE OUTCOME OF AN ACTION.
-
-
-Effects can include:
-- Player stat changes (health, stamina, strength, dexterity, etc.)
-- Player status effects (tired, poisoned, strengthened, stunned, frightened, charmed, blinded, etc.)
-    - Status effects usually also have stat changes, eg. a player being hurt means health was lost, frightened means they have a penalty to initiative, and MORE.
-- Resource changes (gaining/losing items)
-- Item modifications (changing item descriptions, states, or usability)
-- Items may be created or destroyed
-- Environmental changes
-- Knowledge gains
-- Effects on enemies (enemy health, giving enemy status effects, etc.)
-- Enemy reactions (think from enemy's point of view, based on their abilities, current stats, statuses, senses)
-
-Think step by step, and consider all the possible effects of an action.
-
-For item modifications, you can:
-- Change an item's description to reflect its new state
-- Mark items as unusable if they've been damaged/destroyed
-- Update item states (e.g., "lit" to "unlit" for a torch)
-
-Any new items should be added to the room or player's inventory, depending on the context.
-
-If KNOWLEDGE_GAIN is an effect, be very descriptive and note any unusual or interesting details that weren't known before.
-
-The "MESSAGE" field should be a string that describes what happens. It is extremely important that this field is descriptive and engaging.
-
-Examples of good and bad messages:
-
-${goodAndBadResponses}
-
-
-Respond with a JSON object in this format, and action followed by a LIST of all effects:
-{
-  "action": {
-    "type": "<small 3-5 word phrase describing the action, eg. 'conjure an apple', 'hit the wolf', 'pick up the key', 'use the torch', etc.>",
-    "target": "optional string - what is being acted upon",
-    "using": ["optional array of items being used"]
-  },
-  "effects": [
-    {
-      "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, ITEM_MODIFICATION, GAIN_ITEM, LOSE_ITEM, MOVE_WITHIN_ROOM, MOVE_BETWEEN_ROOMS, KNOWLEDGE_GAIN, USE_ITEM, ATTACK, and more.)",
-      "description": "string explaining the effect",
-      "magnitude": "optional number for the size of the effect",
-      "duration": "optional number of turns the effect lasts",
-      "target": "optional string specifying what is affected",
-      "itemsModified": {
-        {
-          "name": "string - name of the item",
-          "description": "string - description of the item",
-          "type": "string - type of the item (e.g., 'weapon', 'armor', 'key', 'consumable', 'quest', 'misc', 'treasure', 'material')",
-          "state": "optional string - state of the item (e.g., 'lit', 'unlit', 'broken')",
-          "isUsable": "optional boolean - whether the item can still be used",
-          "stats": {
-            "damage": "optional number - damage of the item",
-            "defense": "optional number - defense of the item",
-            "healing": "optional number - healing of the item"
-          },
-          "statusEffects": [
-            {
-              "name": "string - name of the status effect",
-              "duration": "number - duration of the status effect",
-              "magnitude": "number - magnitude of the status effect"
-            }
-          ],
-        }
-      },
-      "itemsCreated": [
-        {
-          "name": "string - name of the item",
-          "description": "string - description of the item",
-          "type": "string - type of the item (e.g., 'weapon', 'armor', 'key', 'consumable', 'quest', 'misc', 'treasure', 'material')",
-          "state": "optional string - state of the item (e.g., 'lit', 'unlit', 'broken')",
-          "isUsable": "optional boolean - whether the item can still be used",
-          "stats": {
-            "damage": "optional number - damage of the item",
-            "defense": "optional number - defense of the item",
-            "healing": "optional number - healing of the item"
-          },
-          "statusEffects": [
-            {
-              "name": "string - name of the status effect",
-              "duration": "number - duration of the status effect",
-              "magnitude": "number - magnitude of the status effect"
-            }
-          ],
-        }
-      ],
-      "itemsDestroyed": [
-        "optional array of strings - items destroyed"
-      ],
-      "conditions": {
-        "requires": ["optional array of required items/states"],
-        "consumes": ["optional array of items consumed"]
-      }
-    }
-  ],
-  "message": "string describing what happens"
-}`;
 
 // Add new interfaces for effect processing
 interface EffectModifier {
@@ -484,6 +339,9 @@ async function applyEffects(
         console.log(`Adding status effect: ${effect.description}`);
         newState.player.statusEffects.push({
           name: effect.description,
+          description: effect.description,
+          source: "effect",
+          target: "player",
           duration: effect.duration || EFFECT_DURATIONS.TEMPORARY,
           magnitude: effect.magnitude || 1,
         });
@@ -525,9 +383,29 @@ async function applyEffects(
 
       case "GAIN_ITEM":
         if (effect.target) {
-          console.log(`Generating item: ${effect.target}`);
-          const item = await generateItem(effect.target);
-          newState.player.inventory.push(item);
+          console.log(`Attempting to gain item: ${effect.target}`);
+          const { item, location, index } = findItem(newState, effect.target);
+
+          if (item) {
+            if (location === "room") {
+              // Remove from room
+              newState.rooms[newState.player.currentRoomId].items.splice(
+                index,
+                1
+              );
+              // Add to inventory
+              newState.player.inventory.push(item);
+              console.log(`Moved item from room to inventory: ${item.name}`);
+            } else if (!location) {
+              // If item doesn't exist in room or inventory, generate a new one
+              console.log(`Generating new item: ${effect.target}`);
+              const newItem = await generateItem(effect.target);
+              newState.player.inventory.push(newItem);
+              console.log(
+                `Generated and added new item to inventory: ${newItem.name}`
+              );
+            }
+          }
         }
         break;
 
@@ -544,22 +422,11 @@ async function applyEffects(
         if (effect.target) {
           console.log(`Moving within room to: ${effect.target}`);
           // Update player's position within the current room
-          newState.player.position = effect.target;
-
-          // Check if this movement triggers any room events
-          const currentRoom = newState.rooms[newState.player.currentRoomId];
-          if (
-            currentRoom.events?.some(
-              (event) =>
-                event.trigger === "position" && event.position === effect.target
-            )
-          ) {
-            const triggeredEvent = currentRoom.events.find(
-              (event) =>
-                event.trigger === "position" && event.position === effect.target
-            );
-            message += `\n${triggeredEvent?.message || ""}`;
-          }
+          newState.player.position = {
+            x: typeof effect.target === "object" ? effect.target.x : 0,
+            y: typeof effect.target === "object" ? effect.target.y : 0,
+            floor: newState.currentFloor,
+          };
         }
         break;
 
@@ -571,7 +438,11 @@ async function applyEffects(
           // Check if the room exists and is accessible
           if (newState.rooms[targetRoomId]) {
             newState.player.currentRoomId = targetRoomId;
-            newState.player.position = "entrance"; // Reset position in new room
+            newState.player.position = {
+              x: newState.rooms[targetRoomId].position.x,
+              y: newState.rooms[targetRoomId].position.y,
+              floor: newState.rooms[targetRoomId].position.floor,
+            };
 
             // Discover connecting rooms
             const newRoom = newState.rooms[targetRoomId];
@@ -617,12 +488,36 @@ async function applyEffects(
 
           if (item && location) {
             // Apply item effects
-            if (item.effects) {
-              item.effects.forEach((itemEffect) => {
-                if (itemEffect.type === "STAT_CHANGE" && itemEffect.magnitude) {
-                  const stat = itemEffect.target?.toLowerCase() || "";
-                  if (stat in newState.player.stats) {
-                    newState.player.stats[stat] += itemEffect.magnitude;
+            if (item.statusEffects) {
+              item.statusEffects.forEach((statusEffect) => {
+                if (!newState.player.statusEffects) {
+                  newState.player.statusEffects = [];
+                }
+                newState.player.statusEffects.push({
+                  ...statusEffect,
+                  duration: statusEffect.duration || EFFECT_DURATIONS.TEMPORARY,
+                });
+              });
+            }
+
+            // Apply stat changes from item
+            if (item.stats) {
+              Object.entries(item.stats).forEach(([stat, value]) => {
+                if (value) {
+                  if (stat === "healing") {
+                    newState.player.health = Math.min(
+                      newState.player.health + value,
+                      newState.player.derivedStats.maxHealth
+                    );
+                    message += `\nHealed for ${value} HP.`;
+                  } else {
+                    newState.player.stats[stat] =
+                      (newState.player.stats[stat] || 0) + value;
+                    message += `\n${
+                      stat.charAt(0).toUpperCase() + stat.slice(1)
+                    } ${value >= 0 ? "increased" : "decreased"} by ${Math.abs(
+                      value
+                    )}.`;
                   }
                 }
               });
@@ -645,6 +540,7 @@ async function applyEffects(
                   `Consumed and removed item from room: ${item.name}`
                 );
               }
+              message += `\nConsumed ${item.name}.`;
             } else {
               // Update item state if it's not consumed
               if (effect.itemModification) {
@@ -659,6 +555,38 @@ async function applyEffects(
                   newState.rooms[newState.player.currentRoomId].items[index] =
                     modifiedItem;
                 }
+                message += `\nUsed ${item.name}.`;
+              }
+            }
+
+            // Handle charges if the item has them
+            if (item.additionalAttributes?.charges !== undefined) {
+              const charges = item.additionalAttributes.charges - 1;
+              if (charges <= 0) {
+                message += `\n${item.name} has been depleted.`;
+                if (location === "inventory") {
+                  newState.player.inventory.splice(index, 1);
+                } else if (location === "room") {
+                  newState.rooms[newState.player.currentRoomId].items.splice(
+                    index,
+                    1
+                  );
+                }
+              } else {
+                const updatedItem = {
+                  ...item,
+                  additionalAttributes: {
+                    ...item.additionalAttributes,
+                    charges,
+                  },
+                };
+                if (location === "inventory") {
+                  newState.player.inventory[index] = updatedItem;
+                } else if (location === "room") {
+                  newState.rooms[newState.player.currentRoomId].items[index] =
+                    updatedItem;
+                }
+                message += `\n${item.name} has ${charges} charges remaining.`;
               }
             }
           }

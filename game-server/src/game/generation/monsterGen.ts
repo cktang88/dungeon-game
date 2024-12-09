@@ -96,12 +96,6 @@ Generate an enemy with the following schema:
   "immunities": [
     "String"
   ],
-  "senses": {
-    "darkvision": "Number",
-    "blindsight": "Number",
-    "tremorsense": "Number",
-    "truesight": "Number"
-  },
   "languages": "String",
   "cr": "Number"
 }
@@ -170,10 +164,6 @@ k. **Immunities**
    - **Purpose:** Denotes damage types or conditions the enemy is immune to.
    - **Examples:** Poison, Psychic, Charm.
 
-l. **Senses**
-   - **Purpose:** Describes the sensory capabilities of the enemy.
-   - **Elements:** Darkvision, Blindsight, Tremorsense, Truesight.
-
 m. **Languages**
    - **Purpose:** Indicates what languages the enemy can speak or understand.
 
@@ -232,12 +222,6 @@ Examples of enemies that fit the schema:
     "Radiant"
   ],
   "immunities": [],
-  "senses": {
-    "darkvision": 60,
-    "blindsight": 0,
-    "tremorsense": 0,
-    "truesight": 0
-  },
   "languages": "Common, Elvish",
   "cr": 5
 }
@@ -295,12 +279,6 @@ Examples of enemies that fit the schema:
     "Fire",
     "Poison"
   ],
-  "senses": {
-    "darkvision": 60,
-    "blindsight": 0,
-    "tremorsense": 0,
-    "truesight": 0
-  },
   "languages": "Ignan",
   "cr": 5
 }
@@ -381,12 +359,6 @@ Examples of enemies that fit the schema:
     "Fire",
     "Poison"
   ],
-  "senses": {
-    "darkvision": 120,
-    "blindsight": 60,
-    "tremorsense": 0,
-    "truesight": 0
-  },
   "languages": "Common, Draconic",
   "cr": 10
 }
@@ -441,12 +413,6 @@ Examples of enemies that fit the schema:
     "Poison",
     "Condition Immunities": "Charmed, Exhausted, Frightened"
   ],
-  "senses": {
-    "darkvision": 60,
-    "blindsight": 0,
-    "tremorsense": 0,
-    "truesight": 0
-  },
   "languages": "Common",
   "cr": 7
 }`;

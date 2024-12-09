@@ -20,20 +20,73 @@ export interface Item {
     defense?: number;
     healing?: number;
   };
+  statusEffects?: StatusEffect[]; // status effects that the item is currently afflicted with
+  additionalAttributes?: {
+    spellLevels?: {
+      [key: string]: number;
+    };
+    charges?: number;
+  };
+  requirements?: {
+    attunement?: string;
+    class?: string[];
+    abilityScores?: {
+      [key in keyof AbilityScores]?: number;
+    };
+  };
+  weight?: string;
+  value?: number;
+  properties?: string[];
+  rarity?: string;
+  isUnique?: boolean;
+  isQuestItem?: boolean;
+  isMagic?: boolean;
+  isArtifact?: boolean;
+  isRare?: boolean;
+  isUncommon?: boolean;
+  isCommon?: boolean;
+}
+
+export interface EnemyAction {
+  name: string;
+  description: string;
+  damage: {
+    amount: number;
+    type: string;
+  };
 }
 
 export interface Enemy {
   id: string;
   name: string;
   description: string;
-  health: number;
-  maxHealth: number;
   level: number;
-  damage: number;
-  defense: number;
   isAlive: boolean;
   isBoss?: boolean;
   drops?: Item[];
+  stats: {
+    armorClass: number;
+    hitPoints: number;
+    speed: {
+      walk?: number;
+      fly?: number;
+      swim?: number;
+    };
+    strength: number;
+    dexterity: number;
+    constitution: number;
+    intelligence: number;
+    wisdom: number;
+    charisma: number;
+  };
+  actions: EnemyAction[];
+  legendaryActions: EnemyAction[];
+  resistances: string[];
+  weaknesses: string[];
+  immunities: string[];
+  languages: string;
+  cr: number;
+  statusEffects?: StatusEffect[]; // status effects that the enemy is currently afflicted with
 }
 
 export interface Room {
@@ -52,6 +105,7 @@ export interface Room {
   position: {
     x: number;
     y: number;
+    floor: number;
   };
 }
 
@@ -61,6 +115,7 @@ export interface Door {
   isLocked: boolean;
   requiredKeyId?: string;
   destinationRoomId: string;
+  isOpen: boolean;
 }
 
 export interface AbilityScores {
@@ -82,6 +137,9 @@ export interface DerivedStats {
 
 export interface StatusEffect {
   name: string;
+  description: string;
+  source: string;
+  target: string;
   duration: number;
   magnitude: number;
 }
@@ -114,13 +172,7 @@ export interface Player {
 export interface Position {
   x: number;
   y: number;
-}
-
-export interface RoomEvent {
-  trigger: "position" | "item" | "enemy";
-  position?: string;
-  message: string;
-  effect?: string;
+  floor: number;
 }
 
 export interface GameState {
@@ -141,4 +193,9 @@ export interface Knowledge {
   type: string;
   description: string;
   timestamp: number;
+  source?: string;
+  target?: string;
+  isFact?: boolean;
+  isRumor?: boolean;
+  isLore?: boolean;
 }

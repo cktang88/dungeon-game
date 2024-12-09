@@ -5,6 +5,8 @@
 
 - each knowledge gain is specific to a room/theme/enemy/item/etc. (needs a target)
 
+- the dungeon master over time learns the kind of player you are and verbalizes appropriately or tiny references or inside jokes later
+
 ## technical
 
 - use prompt caching

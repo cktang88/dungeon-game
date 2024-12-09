@@ -2,14 +2,49 @@ export interface Item {
   id: string;
   name: string;
   description: string;
-  type: "weapon" | "armor" | "key" | "consumable" | "quest";
+  type:
+    | "weapon"
+    | "armor"
+    | "key"
+    | "consumable"
+    | "quest"
+    | "misc"
+    | "treasure"
+    | "material"
+    | string;
   state?: string;
   isUsable?: boolean;
+  isConsumable?: boolean;
   stats?: {
     damage?: number;
     defense?: number;
     healing?: number;
   };
+  statusEffects?: StatusEffect[];
+  additionalAttributes?: {
+    spellLevels?: {
+      [key: string]: number;
+    };
+    charges?: number;
+  };
+  requirements?: {
+    attunement?: string;
+    class?: string[];
+    abilityScores?: {
+      [key in keyof AbilityScores]?: number;
+    };
+  };
+  weight?: string;
+  value?: number;
+  properties?: string[];
+  rarity?: string;
+  isUnique?: boolean;
+  isQuestItem?: boolean;
+  isMagic?: boolean;
+  isArtifact?: boolean;
+  isRare?: boolean;
+  isUncommon?: boolean;
+  isCommon?: boolean;
 }
 
 export interface Enemy {
@@ -44,6 +79,13 @@ export interface Room {
     west?: Door;
   };
   visited: boolean;
+  position: Position;
+  events?: Array<{
+    trigger: string;
+    position?: string;
+    message?: string;
+    effects?: any[];
+  }>;
 }
 
 export interface Door {
@@ -72,23 +114,20 @@ export interface DerivedStats {
 }
 
 export interface Player {
+  id?: string;
+  name?: string;
   health: number;
   level: number;
   experience: number;
   inventory: Item[];
   currentRoomId: string;
+  position: Position;
   abilityScores: AbilityScores;
   derivedStats: DerivedStats;
   stats: Record<string, number>;
-  statusEffects?: Array<{
-    name: string;
-    duration: number;
-    magnitude: number;
-  }>;
-  knowledge?: Array<{
-    type: string;
-    description: string;
-  }>;
+  equipment: Equipment;
+  statusEffects?: StatusEffect[];
+  knowledge?: Knowledge[];
 }
 
 export interface GameState {
@@ -108,4 +147,24 @@ export interface GameResponse {
 export interface StartGameResponse {
   sessionId: string;
   gameState: GameState;
+}
+
+export interface StatusEffect {
+  name: string;
+  description: string;
+  source: string;
+  target: string;
+  duration: number;
+  magnitude: number;
+}
+
+export interface Position {
+  x: number;
+  y: number;
+}
+
+export interface Knowledge {
+  type: string;
+  description: string;
+  timestamp?: number;
 }
