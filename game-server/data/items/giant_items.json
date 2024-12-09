@@ -1,0 +1,1002 @@
+[
+    {
+        "id": 601,
+        "name": "Titan’s Heart Engine",
+        "description": "A massive biomechanical heart harvested from a colossal automaton, pulsating with faint, rhythmic vibrations.",
+        "uses": [
+            "Powering entire cities if properly integrated",
+            "Fueling grand steampunk constructs",
+            "Component in forging legendary golems"
+        ]
+    },
+    {
+        "id": 602,
+        "name": "Ancient Leviathan Skull",
+        "description": "A gargantuan skull of a mythical sea-beast, its empty eye sockets said to reflect lost civilizations.",
+        "uses": [
+            "Centerpiece of grand maritime rituals",
+            "Studying extinct giant species’ biology",
+            "Anchoring formidable oceanic enchantments"
+        ]
+    },
+    {
+        "id": 603,
+        "name": "Celestial Orrery Core",
+        "description": "A vast, gear-laden sphere that once modeled entire star systems within its delicate clockwork.",
+        "uses": [
+            "Charting cosmic ley lines for advanced mages",
+            "Predicting celestial events centuries in advance",
+            "Inspiring new starship navigation techniques"
+        ]
+    },
+    {
+        "id": 604,
+        "name": "Eldritch Tree of Whispers",
+        "description": "A towering, ancient tree grown from twisted roots and faintly glowing bark, rumored to store aeons of forgotten knowledge.",
+        "uses": [
+            "Consulting for cryptic prophecies",
+            "Source of rare druidic materials",
+            "Housing spirits seeking to communicate wisdom"
+        ]
+    },
+    {
+        "id": 605,
+        "name": "Astral Navigation Mast",
+        "description": "A colossal mast carved from starsteel, capable of stabilizing floating islands or airships in cosmic currents.",
+        "uses": [
+            "Securing sky-fortresses against dimensional drift",
+            "Focusing interstellar travel spells",
+            "Keystone for building gravity-defying structures"
+        ]
+    },
+    {
+        "id": 606,
+        "name": "Primordial Earthshell",
+        "description": "A titanic carapace fragment from an extinct terrestrial titan, heavily etched with runes of mountain-making power.",
+        "uses": [
+            "Foundation for forging continents or massive golem armor",
+            "Raw source of tectonic-energy enchantments",
+            "Fortifying grand citadels against catastrophic quakes"
+        ]
+    },
+    {
+        "id": 607,
+        "name": "Time-Phasing Crystal Monolith",
+        "description": "A towering crystal spire that flickers between eras, revealing glimpses of vanished worlds.",
+        "uses": [
+            "Constructing a time-anchor for temporal research",
+            "Navigating time rifts to retrieve lost artifacts",
+            "Forming stable temporal sanctuaries"
+        ]
+    },
+    {
+        "id": 608,
+        "name": "God-Forge Anvil",
+        "description": "A colossal anvil rumored to have been used by divine smiths, its surface etched with cosmos-forging glyphs.",
+        "uses": [
+            "Crafting relics of immense magical potency",
+            "Mending fractures in legendary armors (non-weapon armor)",
+            "Shaping materials from fallen stars"
+        ]
+    },
+    {
+        "id": 609,
+        "name": "Colossus Eye Lens",
+        "description": "A massive, perfectly convex lens extracted from a fallen colossus, distorting reality as one peers through it.",
+        "uses": [
+            "Projecting grand illusions over miles",
+            "Amplifying scrying spells for distant realms",
+            "Key component in building giant optical arrays"
+        ]
+    },
+    {
+        "id": 610,
+        "name": "Arcane Whale Blubber",
+        "description": "A vast chunk of oily tissue from a mythical flying whale, shimmering with residual magic.",
+        "uses": [
+            "Fueling entire fleets of airships",
+            "Base for ultra-potent healing salves",
+            "Raw material for gravity-defying polymers"
+        ]
+    },
+    {
+        "id": 611,
+        "name": "Crystal Spine of the World",
+        "description": "A monumental crystal spine that once anchored a floating continent, its facets refracting primal energies.",
+        "uses": [
+            "Stabilizing entire ecosystems in midair",
+            "Power source for continent-scale barrier spells",
+            "Focus for geo-mantic rituals at grand scale"
+        ]
+    },
+    {
+        "id": 612,
+        "name": "Eternal Glacier Core",
+        "description": "A massive chunk of ice so cold and ancient it never melts, even in volcanic heat.",
+        "uses": [
+            "Cooling megastructures or forging frost-latticed cities",
+            "Sustaining arctic-life terrariums in deserts",
+            "Forming the nexus of ice-based spell networks"
+        ]
+    },
+    {
+        "id": 613,
+        "name": "Living City Seed",
+        "description": "A seed large as a cottage, rumored to sprout into a sentient city that rearranges its own streets.",
+        "uses": [
+            "Growing a mobile metropolis in barren lands",
+            "Producing architectural materials that self-repair",
+            "Housing a civilization that can traverse continents"
+        ]
+    },
+    {
+        "id": 614,
+        "name": "Orb of Infinite Reflections",
+        "description": "A grand sphere that reflects a million realities, each glimpse revealing alternate histories.",
+        "uses": [
+            "Gaining strategic insight from parallel worlds",
+            "Fueling reality-warping enchantments",
+            "Key to understanding cosmic narrative threads"
+        ]
+    },
+    {
+        "id": 615,
+        "name": "Gigafungus Mycelium Network",
+        "description": "A massive fungal root system, pulsating with bio-luminescent spores, spanning miles underground.",
+        "uses": [
+            "Creating biospheres that communicate telepathically",
+            "Supplying potent medicinal extracts at large scale",
+            "Forming living foundations for enormous ecological projects"
+        ]
+    },
+    {
+        "id": 616,
+        "name": "Starbeast Carapace",
+        "description": "A fragment of a titanic space-dwelling creature’s shell, studded with cosmic barnacles.",
+        "uses": [
+            "Constructing hulls for star-traversing vessels",
+            "Inspiring eldritch biotech ecosystems",
+            "Anchoring portals to astral planes"
+        ]
+    },
+    {
+        "id": 617,
+        "name": "Aeonwyrm Egg",
+        "description": "An enormous egg rumored to hatch a creature that drifts through galaxies, warping reality as it matures.",
+        "uses": [
+            "Inspiring genetic splicing for colossal fauna",
+            "Catalyzing interstellar fertility rites",
+            "Focus point for cosmic druidic magic"
+        ]
+    },
+    {
+        "id": 618,
+        "name": "Living Gear Colossus Frame",
+        "description": "A metal frame the size of a fortress, designed to house a mechanical colossus with a soul.",
+        "uses": [
+            "Building a continent-guarding automaton",
+            "Enabling unprecedented engineering feats",
+            "Becoming the core of a steampunk metropolis"
+        ]
+    },
+    {
+        "id": 619,
+        "name": "Sun-Devouring Blossom",
+        "description": "A bloom larger than a barn, said to absorb sunlight and store it as tangible energy nectar.",
+        "uses": [
+            "Illuminating dark worlds for centuries",
+            "Sustaining farmland in perpetual twilight",
+            "Raw source of solar-infused alchemical reagents"
+        ]
+    },
+    {
+        "id": 620,
+        "name": "Transcendent Dragon Fossil",
+        "description": "A massive skeleton of a dragon that existed before recorded time, bones humming with primordial power.",
+        "uses": [
+            "Enshrining draconic rituals of renewal",
+            "Harvesting endless streams of raw magical essence",
+            "Building frameworks for airborne cities"
+        ]
+    },
+    {
+        "id": 621,
+        "name": "Abyssal Mirror Portal",
+        "description": "A colossal mirror that when activated, reveals the depths of infinite voids between stars.",
+        "uses": [
+            "Gateway for interstellar exploration",
+            "Summoning cosmic entities (non-violent uses only)",
+            "Studying the invisible fabric of spacetime"
+        ]
+    },
+    {
+        "id": 622,
+        "name": "Giant’s Seed Vault",
+        "description": "An immense chamber grown from living wood, storing seeds of extinct, legendary flora.",
+        "uses": [
+            "Reforesting entire continents",
+            "Resurrecting ancient plant species",
+            "Centerpiece of botanical sanctuaries"
+        ]
+    },
+    {
+        "id": 623,
+        "name": "Chronoforge Bellows",
+        "description": "Enormous bellows that inflate with time itself, able to temper materials with temporal flux.",
+        "uses": [
+            "Crafting time-resistant artifacts",
+            "Repairing breaks in the chronological continuum",
+            "Imbuing creations with ageless durability"
+        ]
+    },
+    {
+        "id": 624,
+        "name": "Eternal Gravity Anchor",
+        "description": "A monumental anchor forged of unknown metal that can moor even floating continents in place.",
+        "uses": [
+            "Securing airborne infrastructures",
+            "Preventing drifting islands from scattering",
+            "Stabilizing gravitational anomalies"
+        ]
+    },
+    {
+        "id": 625,
+        "name": "Bio-Lattice Heartwood",
+        "description": "A trunk-sized lattice grown from gene-spliced trees, resonating with lifeforce.",
+        "uses": [
+            "Forming the living core of bio-architectural megastructures",
+            "Channeling healing energy across entire kingdoms",
+            "Integrating nature and city into one organism"
+        ]
+    },
+    {
+        "id": 626,
+        "name": "Phoenix Ash Crucible",
+        "description": "A towering crucible formed from immortal phoenix ashes, eternally hot and pure.",
+        "uses": [
+            "Refining materials into legendary alloys",
+            "Sustaining high-level enchantment processes",
+            "Incinerating curses and purifying relics"
+        ]
+    },
+    {
+        "id": 627,
+        "name": "Skywhale Baleen Harvester",
+        "description": "Massive baleen plates from a mythic skywhale, filtering magical aether from cloud streams.",
+        "uses": [
+            "Collecting airborne mana to irrigate floating fields",
+            "Distilling potent elixirs from aerial plankton",
+            "Foundation for cloud-based agriculture"
+        ]
+    },
+    {
+        "id": 628,
+        "name": "Forgotten Titan’s Gauntlet",
+        "description": "A colossal gauntlet, empty and still, rumored to once shape continents by hand.",
+        "uses": [
+            "Holding entire fortresses steady during reconstruction",
+            "Amplifying geokinetic rituals",
+            "Inspiring legendary sculptors of stone and land"
+        ]
+    },
+    {
+        "id": 629,
+        "name": "Aether-Wyrd Conductor",
+        "description": "A large, coiling apparatus that channels ethereal currents, shimmering in shifting spectrums.",
+        "uses": [
+            "Stabilizing chaotic magical weather patterns",
+            "Powering dimension-bridging crafts",
+            "Facilitating controlled planar experiments"
+        ]
+    },
+    {
+        "id": 630,
+        "name": "Golem Brain Forge",
+        "description": "A gargantuan forge shaped like a skull, designed to temper and infuse intelligence into constructs.",
+        "uses": [
+            "Granting sentience to city-sized guardians",
+            "Creating networks of autonomous worker-golems",
+            "Enabling empathetic constructs for peaceful societies"
+        ]
+    },
+    {
+        "id": 631,
+        "name": "Void-Bending Obelisk",
+        "description": "A titanic obelisk carved from voidstone, casting no shadow and absorbing all sound.",
+        "uses": [
+            "Silencing regions to isolate magical anomalies",
+            "Rerouting void energies for stable wormholes",
+            "Anchoring negative space in cosmic rituals"
+        ]
+    },
+    {
+        "id": 632,
+        "name": "Dragonfurnace Core",
+        "description": "An immense furnace core that once fueled the hatching grounds of fire drakes.",
+        "uses": [
+            "Smelting materials impossible to melt elsewhere",
+            "Energizing volcanic forges",
+            "Channeling geothermal power on continental scales"
+        ]
+    },
+    {
+        "id": 633,
+        "name": "Living Stone Coliseum Seed",
+        "description": "A seed-like stone, huge as a tower’s base, that can sprout into a living, changing coliseum.",
+        "uses": [
+            "Hosting grand cultural events in shifting arenas",
+            "Forming natural amphitheaters for diplomatic gatherings",
+            "Catalyzing peace treaties through shared spectacles"
+        ]
+    },
+    {
+        "id": 634,
+        "name": "Undersea Monolith Pillar",
+        "description": "A pillar from an ancient undersea city, etched with glyphs that command ocean currents.",
+        "uses": [
+            "Controlling tides for entire coastlines",
+            "Stabilizing aquatic habitats",
+            "Serving as a nexus for maritime alliances"
+        ]
+    },
+    {
+        "id": 635,
+        "name": "God-Tongue Altar",
+        "description": "A sprawling altar carved from unknown minerals, said to let mortals speak words that reshape reality.",
+        "uses": [
+            "Negotiating terms with divine entities",
+            "Rewriting local laws of physics",
+            "Enabling cultural renaissances with empowered speech"
+        ]
+    },
+    {
+        "id": 636,
+        "name": "Mothership Hull Shard",
+        "description": "A chunk of ancient alien flagship hull, grander than a mansion, humming with dormant circuits.",
+        "uses": [
+            "Building interstellar trade stations",
+            "Studying advanced alien materials science",
+            "Reverse-engineering cosmic transportation methods"
+        ]
+    },
+    {
+        "id": 637,
+        "name": "Lunar Glass Dome",
+        "description": "A dome-sized lens forged on a moon’s surface, reflecting starlight into focused lunar energy.",
+        "uses": [
+            "Creating nocturnal farms fed by moonlight",
+            "Powering gentle night-based industries",
+            "Channeling subtle healing energies over large regions"
+        ]
+    },
+    {
+        "id": 638,
+        "name": "Elemental Titan Core",
+        "description": "A giant crystalline heart infused with elemental powers, pulsing in shifting hues.",
+        "uses": [
+            "Balancing elemental forces of entire landscapes",
+            "Fueling rituals that harmonize fire, water, earth, and air",
+            "Constructing colossal protective wards"
+        ]
+    },
+    {
+        "id": 639,
+        "name": "Arcspore Grove Trunk",
+        "description": "The massive trunk of a mythical fungal tree that spawns luminescent spores the size of boulders.",
+        "uses": [
+            "Cultivating entire forests of glowing mushrooms",
+            "Harvesting bio-luminescent spore-lamps",
+            "Establishing underground ecologies in caverns"
+        ]
+    },
+    {
+        "id": 640,
+        "name": "Rift-Stabilizing Arch",
+        "description": "A monumental archway carved from astral stone, capable of holding dimensional rifts steady.",
+        "uses": [
+            "Bridging worlds safely for trade and diplomacy",
+            "Preventing catastrophic portal collapses",
+            "Enabling stable inter-planar tourism"
+        ]
+    },
+    {
+        "id": 641,
+        "name": "Ghost Titan Rib Cage",
+        "description": "Enormous translucent bones that once housed an ethereal giant, phasing in and out of reality.",
+        "uses": [
+            "Creating sanctuaries safe from corporeal threats",
+            "Anchoring ghostly energy flows",
+            "Channeling protective wards against intangible entities"
+        ]
+    },
+    {
+        "id": 642,
+        "name": "Dawn-Bringer Beacon",
+        "description": "A spire-like beacon that, when lit, extends perpetual twilight or perpetual dawn across vast regions.",
+        "uses": [
+            "Controlling seasonal cycles for agriculture",
+            "Setting mood for decades-long festivals",
+            "Taming nocturnal predators or day-blazing droughts"
+        ]
+    },
+    {
+        "id": 643,
+        "name": "Giant Empathic Brain Coral",
+        "description": "A coral formation as large as a castle, said to telepathically connect minds across oceans.",
+        "uses": [
+            "Mediating truces between distant civilizations",
+            "Broadcasting calming influences during crises",
+            "Researching pan-species communication"
+        ]
+    },
+    {
+        "id": 644,
+        "name": "Time-Locked Tower Segment",
+        "description": "A tower segment trapped in a temporal stasis, unmoved by centuries.",
+        "uses": [
+            "Preserving relics or archives forever fresh",
+            "Creating stable safe zones in shifting timelines",
+            "Studying time-free architecture for stability"
+        ]
+    },
+    {
+        "id": 645,
+        "name": "Biome-Seed Engine",
+        "description": "A colossal, seed-like machine able to terraform entire continents with tailored ecosystems.",
+        "uses": [
+            "Restoring barren worlds into lush habitats",
+            "Creating balanced environments from scratch",
+            "Manufacturing climate solutions on planetary scales"
+        ]
+    },
+    {
+        "id": 646,
+        "name": "Whale-Fall Chamber",
+        "description": "A hollow chamber grown from calcified whale bones, rumored to spawn rare deep-sea lifeforms.",
+        "uses": [
+            "Fostering sustainable aquatic resources",
+            "Studying evolution of marine species in isolation",
+            "Catalyzing symbiotic ecosystems for food supply"
+        ]
+    },
+    {
+        "id": 647,
+        "name": "Bloodstone Cathedral Heart",
+        "description": "A massive red gem pulsing like a heart, once powering an entire cathedral of living stone.",
+        "uses": [
+            "Providing energy to animate grand architectural wonders",
+            "Healing lands blighted by centuries of war",
+            "Focus for immensely powerful sacramental rituals"
+        ]
+    },
+    {
+        "id": 648,
+        "name": "Aurora Conductor Spire",
+        "description": "A tall, crystalline spire that tunes and directs auroras into patterns of magical significance.",
+        "uses": [
+            "Creating sky-written runes spanning horizons",
+            "Empowering long-distance communication spells",
+            "Fueling ambient magic for entire regions"
+        ]
+    },
+    {
+        "id": 649,
+        "name": "Worldroot Tap",
+        "description": "A giant root segment rumored to reach the planet’s core, connecting all forests as one entity.",
+        "uses": [
+            "Synchronizing natural cycles planet-wide",
+            "Distributing mana through global root networks",
+            "Facilitating diplomacy between distant druidic groves"
+        ]
+    },
+    {
+        "id": 650,
+        "name": "Mirrorstone Citadel Fragment",
+        "description": "A chunk of a legendary citadel wall made of reflective stone that shows possible futures.",
+        "uses": [
+            "Planning generations of city-building efforts",
+            "Preventing disasters by foreseeing outcomes",
+            "Refining moral decisions through panoramic foresight"
+        ]
+    },
+    {
+        "id": 651,
+        "name": "Leviathan Pearl",
+        "description": "A pearl the size of a carriage, grown inside a mythical leviathan, glowing with hidden constellations.",
+        "uses": [
+            "Illuminating underwater kingdoms",
+            "Storing cosmic knowledge gleaned from ocean floors",
+            "Enhancing harmony between maritime species"
+        ]
+    },
+    {
+        "id": 652,
+        "name": "Storm Titan’s Battery",
+        "description": "A gargantuan apparatus that can store lightning from entire storms for millennia.",
+        "uses": [
+            "Empowering colossal electrified monorails",
+            "Feeding energy to anti-cataclysmic shields",
+            "Catalyzing abundant sustainable power sources"
+        ]
+    },
+    {
+        "id": 653,
+        "name": "Aeon-Leaved World Tree Branch",
+        "description": "A branch from a cosmic tree that outlived galaxies, each leaf a miniature cosmos.",
+        "uses": [
+            "Seeding pocket universes for refuge",
+            "Providing infinite wisdom across epochs",
+            "Harnessing energy from primal cosmic lifecycles"
+        ]
+    },
+    {
+        "id": 654,
+        "name": "Anti-Entropy Dynamo",
+        "description": "A colossal device that negates entropy in a bounded area, preserving perfection indefinitely.",
+        "uses": [
+            "Maintaining ideal conditions for artifact crafting",
+            "Preventing decay of historical archives",
+            "Sustaining eternal youth for chosen ecosystems"
+        ]
+    },
+    {
+        "id": 655,
+        "name": "Shimmering Aurora Whale Fin",
+        "description": "The preserved fin of a mythical flying whale that channeled auroras through its body.",
+        "uses": [
+            "Crafting airborne platforms that sparkle with light",
+            "Filtering atmospheric magic into healing energies",
+            "Enabling floating sanctuaries of serenity"
+        ]
+    },
+    {
+        "id": 656,
+        "name": "Elder Brain Matrix",
+        "description": "A colossal matrix of neural tissue from an ancient telepathic entity, spanning a valley’s breadth.",
+        "uses": [
+            "Coordinating continent-wide networks of thought",
+            "Storing grand libraries of mental constructs",
+            "Mediating peace among diverse intelligences"
+        ]
+    },
+    {
+        "id": 657,
+        "name": "Astral Forge Wheel",
+        "description": "An enormous rotating ring that forges metals infused with starlight, suspended in zero gravity.",
+        "uses": [
+            "Smelting alloys that glow with eternal brilliance",
+            "Crafting frameworks for star-bound vessels",
+            "Channeling astral patterns into tangible materials"
+        ]
+    },
+    {
+        "id": 658,
+        "name": "Living Storm Keystone",
+        "description": "A giant crystal that can tether a living storm in place, keeping it eternally swirling.",
+        "uses": [
+            "Studying weather patterns for centuries",
+            "Harnessing lightning and rain for mega-farms",
+            "Stabilizing climate in volatile regions"
+        ]
+    },
+    {
+        "id": 659,
+        "name": "Planar Weave Loom",
+        "description": "A loom the size of a fortress that weaves fabrics from inter-planar threads.",
+        "uses": [
+            "Creating tapestries that shift through dimensions",
+            "Forming protective curtains around fragile realities",
+            "Weaving garments for entities that transcend worlds"
+        ]
+    },
+    {
+        "id": 660,
+        "name": "Moon-Engine Catalyst",
+        "description": "A large metallic core that once powered a lunar terraforming engine.",
+        "uses": [
+            "Terraforming barren moons into habitable lands",
+            "Refining lunar dust into fertile soil",
+            "Balancing cosmic energies in orbital stations"
+        ]
+    },
+    {
+        "id": 661,
+        "name": "Light-Well Colonnade",
+        "description": "A series of colossal pillars channeling sunlight into subterranean realms.",
+        "uses": [
+            "Supporting subterranean agriculture at large scale",
+            "Illuminating deep cities hidden underground",
+            "Fueling photosynthetic magic beneath the earth"
+        ]
+    },
+    {
+        "id": 662,
+        "name": "World-Circling Serpent Husk",
+        "description": "The shed skin of a serpent said to encircle entire worlds, shimmering with cosmic patterns.",
+        "uses": [
+            "Crafting barrier belts around planets",
+            "Fashioning membranes that filter cosmic radiation",
+            "Inspiring the creation of world-protective wards"
+        ]
+    },
+    {
+        "id": 663,
+        "name": "Quantum Gravity Anchor Chain",
+        "description": "A colossal chain forged from quantum-stable metals, tethering floating laboratories or islands.",
+        "uses": [
+            "Ensuring stable orbital research stations",
+            "Mooring drifting cities in unpredictable gravity fields",
+            "Facilitating sky-mining operations"
+        ]
+    },
+    {
+        "id": 664,
+        "name": "Dimensional Atlas Core",
+        "description": "A planet-sized crystal ball that maps all known dimensions in shifting holograms.",
+        "uses": [
+            "Navigating interdimensional trade routes",
+            "Predicting planar conjunctions decades in advance",
+            "Charting safe passages for peaceful interrealm voyages"
+        ]
+    },
+    {
+        "id": 665,
+        "name": "Eternal Rain Tree",
+        "description": "A towering tree that constantly sheds gentle rain from its leaves, sustaining lush forests below.",
+        "uses": [
+            "Irrigating dry lands perpetually",
+            "Hosting ecosystems that never know drought",
+            "Providing ambiance for eternal spring festivals"
+        ]
+    },
+    {
+        "id": 666,
+        "name": "Abyssal Whale Heart Core",
+        "description": "A heart larger than a building, from a leviathan of the deepest trenches, pulsating with bioluminescence.",
+        "uses": [
+            "Generating bio-energy for megastructures",
+            "Healing oceanic rifts and scars",
+            "Empowering aquatic research complexes"
+        ]
+    },
+    {
+        "id": 667,
+        "name": "Dragonbone Resonance Harp",
+        "description": "A harp formed from colossal dragon bones, whose sound carries meaning across continents.",
+        "uses": [
+            "Spreading messages of peace or warnings globally",
+            "Inspiring cultural unity through melodic resonance",
+            "Calming rampant magical beasts with soothing tunes"
+        ]
+    },
+    {
+        "id": 668,
+        "name": "Chronicle-Tower Spire",
+        "description": "A monumental tower segment that records events in runes of light, logging eons of history.",
+        "uses": [
+            "Preserving unbiased historical accounts",
+            "Providing an archive for scholarly civilizations",
+            "Preventing cultural amnesia after cataclysms"
+        ]
+    },
+    {
+        "id": 669,
+        "name": "Neural Nexus Grove",
+        "description": "A grove of giant, interconnected bio-trees storing collective memories of past civilizations.",
+        "uses": [
+            "Consulting ancient wisdom for new eras",
+            "Reuniting lost knowledge scattered over millennia",
+            "Empowering mages to learn languages long dead"
+        ]
+    },
+    {
+        "id": 670,
+        "name": "Geo-Fusion Reactor",
+        "description": "A reactor the size of a fortress, fusing raw elemental energies into stable matter.",
+        "uses": [
+            "Creating new mineral resources at massive scale",
+            "Stabilizing tectonic faults",
+            "Fueling global industrial boons ethically"
+        ]
+    },
+    {
+        "id": 671,
+        "name": "Crystal City Anchor",
+        "description": "A massive crystal deep beneath a city, keeping it anchored in a stable pocket dimension.",
+        "uses": [
+            "Safeguarding cities from worldly disasters",
+            "Allowing planar-hopping trade centers",
+            "Maintaining timeless enclaves of culture"
+        ]
+    },
+    {
+        "id": 672,
+        "name": "Runesphere of Eternal Harmony",
+        "description": "A sphere so large it forms a building itself, etched with runes that foster everlasting peace.",
+        "uses": [
+            "Diffusing conflicts across entire regions",
+            "Inspiring era-long truces between rival nations",
+            "Enhancing empathy and cooperation globally"
+        ]
+    },
+    {
+        "id": 673,
+        "name": "Astral Whale Skeleton",
+        "description": "The colossal skeleton of a whale that swam through the void of space, bones glinting with stardust.",
+        "uses": [
+            "Studying astro-fauna anatomy",
+            "Building frameworks for space-labs inside its ribcage",
+            "Channeling cosmic energies to distant colonies"
+        ]
+    },
+    {
+        "id": 674,
+        "name": "Magma Heart Crucible",
+        "description": "A giant crucible formed at a volcano’s core, holding molten rock as pure as creation’s dawn.",
+        "uses": [
+            "Forging unbreakable building materials",
+            "Vast geothermal power generation",
+            "Nourishing flame-based lifeforms"
+        ]
+    },
+    {
+        "id": 675,
+        "name": "Lattice of Living Steel",
+        "description": "A building-sized network of self-regenerating metal strands, singing softly.",
+        "uses": [
+            "Creating self-repairing city infrastructures",
+            "Fortifying mega-bridges across continents",
+            "Hosting mechanical ecosystems in synergy with organic life"
+        ]
+    },
+    {
+        "id": 676,
+        "name": "Starwood Council Table",
+        "description": "A colossal round table grown from star-infused wood, whispering consensus and fairness.",
+        "uses": [
+            "Holding diplomatic summits that never end in conflict",
+            "Mediating cosmic treaties",
+            "Stabilizing political climates between star-nations"
+        ]
+    },
+    {
+        "id": 677,
+        "name": "Worldshard Prism",
+        "description": "A prism large as a tower, refracting reality into myriad microcosms.",
+        "uses": [
+            "Studying parallel evolutions of civilizations",
+            "Testing hypothetical policies in safe sub-realities",
+            "Fueling philosophical enlightenment on grand scales"
+        ]
+    },
+    {
+        "id": 678,
+        "name": "Auric Skybridge Segment",
+        "description": "A segment of a legendary bridge made of sunlight solidified, spanning clouds and rainbows.",
+        "uses": [
+            "Linking distant floating islands",
+            "Channeling solar energy to remote locales",
+            "Hosting festivals above the clouds"
+        ]
+    },
+    {
+        "id": 679,
+        "name": "Causal Engine Core",
+        "description": "A giant mechanism that stabilizes cause-and-effect in unstable magic zones.",
+        "uses": [
+            "Preventing paradoxes and reality tears",
+            "Ensuring stable societal development in tricky regions",
+            "Enabling safe temporal research"
+        ]
+    },
+    {
+        "id": 680,
+        "name": "Phantom Lighthouse Lens",
+        "description": "A building-sized lens that guides lost travelers across dimensions rather than oceans.",
+        "uses": [
+            "Navigating interdimensional labyrinths",
+            "Rescuing stranded beings from void pockets",
+            "Illuminating paths in metaphysical journeys"
+        ]
+    },
+    {
+        "id": 681,
+        "name": "Harmony Grove Antenna",
+        "description": "A vast antenna grown from crystalline trees, attuning local minds to harmonious frequencies.",
+        "uses": [
+            "Preventing mental illnesses en masse",
+            "Encouraging cooperative problem-solving",
+            "Stabilizing chaotic psychic fields"
+        ]
+    },
+    {
+        "id": 682,
+        "name": "Star-Quenched Forge Gate",
+        "description": "A colossal gate quenched in dying starlight, rumored to open only for noble causes.",
+        "uses": [
+            "Securing utopian enclaves from invaders",
+            "Granting passage to heroes on grand quests",
+            "Ensuring moral integrity in cosmic alliances"
+        ]
+    },
+    {
+        "id": 683,
+        "name": "Singing Mesa Segment",
+        "description": "A massive slab of rock that sings haunting melodies when touched by the wind.",
+        "uses": [
+            "Cultural landmark fostering unity through music",
+            "Map-reading tool translating wind patterns into notes",
+            "Inspiring composers with infinite sonic variations"
+        ]
+    },
+    {
+        "id": 684,
+        "name": "Echo-Chambered Astral Shell",
+        "description": "A shell as tall as a tower, echoing the quiet hum of distant stars.",
+        "uses": [
+            "Listening to cosmic signals for prophecy",
+            "Calming conflicts with cosmic lullabies",
+            "Identifying star-frequencies beneficial to crops"
+        ]
+    },
+    {
+        "id": 685,
+        "name": "Genesis Egg Incubator",
+        "description": "A colossal incubator that can hatch mythical eggs of unknown origin.",
+        "uses": [
+            "Reviving extinct mega-fauna or legendary beasts (non-weapon use)",
+            "Seeding biomes with guardian creatures",
+            "Spawning symbiotic lifeforms to stabilize ecosystems"
+        ]
+    },
+    {
+        "id": 686,
+        "name": "Sunken Titan Anchorstone",
+        "description": "A submerged stone block that once held a giant in place, saturated with ancient ocean magic.",
+        "uses": [
+            "Raising sunken cities to the surface",
+            "Calming tsunamis and violent sea currents",
+            "Creating stable aquatic sanctuaries"
+        ]
+    },
+    {
+        "id": 687,
+        "name": "Memory Library Sphere",
+        "description": "A floating sphere the size of a temple, holding archived thoughts of entire civilizations.",
+        "uses": [
+            "Consulting ancient cultural memories",
+            "Avoiding past mistakes by referencing recorded minds",
+            "Guiding moral progress through ancestral knowledge"
+        ]
+    },
+    {
+        "id": 688,
+        "name": "Fissionwood Reactor Bark",
+        "description": "Bark from a colossal tree that can harness nuclear reactions safely.",
+        "uses": [
+            "Providing infinite clean energy",
+            "Growing power plants that heal rather than pollute",
+            "Empowering global infrastructural booms"
+        ]
+    },
+    {
+        "id": 689,
+        "name": "Sealed Sun-Forge Gate",
+        "description": "A massive gateway sealed with molten sunlight, rumored to unlock solar forges.",
+        "uses": [
+            "Unleashing creativity in solar-based craftsmanship",
+            "Accessing a dimension of eternal daylight",
+            "Purifying regions plagued by darkness"
+        ]
+    },
+    {
+        "id": 690,
+        "name": "Worldscale Puzzle Lock",
+        "description": "A lock large as a fortress door, needing entire communities to solve its glyphic riddles.",
+        "uses": [
+            "Guarding a vault of universal secrets",
+            "Forcing nations to cooperate to open it",
+            "Testing collective intelligence on grand scales"
+        ]
+    },
+    {
+        "id": 691,
+        "name": "Cosmic Rift Arbor",
+        "description": "A tree grown around a stable cosmic rift, its branches drifting into parallel realities.",
+        "uses": [
+            "Harvesting fruits that hold glimpses of other worlds",
+            "Enabling inter-realm pollination",
+            "Creating stable migration paths for cosmic fauna"
+        ]
+    },
+    {
+        "id": 692,
+        "name": "Anti-Matter Bloom",
+        "description": "A flower larger than a house that blossoms with anti-matter petals, contained by subtle fields.",
+        "uses": [
+            "Generating pure energy for advanced civilizations",
+            "Destroying harmful anomalies safely",
+            "Fueling grand-scale scientific advancements"
+        ]
+    },
+    {
+        "id": 693,
+        "name": "Giga-Fresnel Lens",
+        "description": "A lens larger than a cathedral that concentrates light into star-like intensity.",
+        "uses": [
+            "Empowering solar foundries to craft rare materials",
+            "Igniting massive ritual fires for cleansing events",
+            "Signaling far-off planets with beams of pure light"
+        ]
+    },
+    {
+        "id": 694,
+        "name": "Graviton Core Pillar",
+        "description": "A pillar that controls local gravity, allowing chunks of land to float gracefully.",
+        "uses": [
+            "Building layered sky-cities",
+            "Gentle transportation of heavy goods",
+            "Constructing gravity-balanced ecosystems"
+        ]
+    },
+    {
+        "id": 695,
+        "name": "Mana Whale Skeleton Frame",
+        "description": "A skeleton of a mana whale, an ethereal beast that filtered arcane energies through its bones.",
+        "uses": [
+            "Refining raw magic into stable forms",
+            "Supporting continent-spanning magical workshops",
+            "Powering schools of wizardry with infinite mana"
+        ]
+    },
+    {
+        "id": 696,
+        "name": "Eon-Gearing Titan Cog",
+        "description": "A cog so vast it can only fit in colossal machinery that measures epochs.",
+        "uses": [
+            "Timing long-term planetary mechanisms",
+            "Regulating climate shifts over centuries",
+            "Harmonizing seasonal cycles with cosmic rhythms"
+        ]
+    },
+    {
+        "id": 697,
+        "name": "Runed Moon-Filament Bridge",
+        "description": "A bridge woven from moonlight filaments, suspended between two lunar outposts.",
+        "uses": [
+            "Enabling easy travel across lunar canyons",
+            "Channeling subtle lunar magic for healing",
+            "Creating a trade route in low-gravity environments"
+        ]
+    },
+    {
+        "id": 698,
+        "name": "Godseed Reactor",
+        "description": "A reactor core grown from a godseed, emanating divine energy that nurtures entire ecosystems.",
+        "uses": [
+            "Blessing lands with perpetual growth",
+            "Creating safe havens against blight or famine",
+            "Empowering grand rituals of renewal"
+        ]
+    },
+    {
+        "id": 699,
+        "name": "Void Coral Citadel",
+        "description": "A coral formation large as a city, grown in void-space, stabilizing edges of reality.",
+        "uses": [
+            "Hosting embassies between worlds",
+            "Preventing collapse of fragile dimensions",
+            "Enabling interstellar trade routes"
+        ]
+    },
+    {
+        "id": 700,
+        "name": "Starheart Dynamo",
+        "description": "A device containing the condensed heart of a neutron star, channeling infinite cosmic energy.",
+        "uses": [
+            "Powering civilizations for millennia without depletion",
+            "Driving cosmic-scale terraforming projects",
+            "Fueling peaceful expansion into the galaxy"
+        ]
+    }
+]

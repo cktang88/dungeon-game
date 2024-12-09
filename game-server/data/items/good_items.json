@@ -1,0 +1,1002 @@
+[
+    {
+        "id": 701,
+        "name": "Glimmering Starcore Shard",
+        "description": "A fist-sized crystal that seems to contain a tiny, swirling nebula.",
+        "uses": [
+            "Channeling starlight into potent enchantments",
+            "Fueling advanced telescopic devices",
+            "Bartering at astronomical guilds"
+        ]
+    },
+    {
+        "id": 702,
+        "name": "Whispering Sap Idol",
+        "description": "A wooden carving exuding sticky sap that murmurs incomprehensible lullabies.",
+        "uses": [
+            "Sparking subtle dreams of hidden forests",
+            "Aiding druids in coaxing ancient trees",
+            "Calming agitated wildlife"
+        ]
+    },
+    {
+        "id": 703,
+        "name": "Coiled Leviathan Scale",
+        "description": "A curled, palm-sized scale shimmering in deep-sea hues, heavier than expected.",
+        "uses": [
+            "Inspiring resilient armor designs (non-weapon)",
+            "Catalyzing oceanic healing rituals",
+            "As a rare trade good among merfolk"
+        ]
+    },
+    {
+        "id": 704,
+        "name": "Crystalized Moon Dew",
+        "description": "A small flask of dew droplets turned to gleaming crystals under lunar light.",
+        "uses": [
+            "Infusing potions with nocturnal energies",
+            "Illuminating hidden glyphs on moonlit paths",
+            "Purifying cursed tools"
+        ]
+    },
+    {
+        "id": 705,
+        "name": "Antique Time-Knot",
+        "description": "A knot of braided silken threads locked in an endless loop of gentle temporal distortion.",
+        "uses": [
+            "Slowing decay of fragile manuscripts",
+            "Aiding chronomancers in subtle time spells",
+            "Safekeeping perishable cargo during long voyages"
+        ]
+    },
+    {
+        "id": 706,
+        "name": "Golem’s Heart Gem",
+        "description": "A fist-sized gem once powering a mighty golem, now cool and silent.",
+        "uses": [
+            "Re-igniting dormant constructs",
+            "Amplifying earth-based enchantments",
+            "Offered as a trophy to master craftsmen"
+        ]
+    },
+    {
+        "id": 707,
+        "name": "Bottled Mirage Essence",
+        "description": "A stoppered glass vial containing shifting, illusory shapes in pastel hues.",
+        "uses": [
+            "Creating brief, harmless illusions",
+            "Enhancing theatrical performances",
+            "Distracting beasts or foes without violence"
+        ]
+    },
+    {
+        "id": 708,
+        "name": "Tiny Clockwork Planetarium",
+        "description": "A hand-sized mechanical model of celestial bodies that orbit when wound.",
+        "uses": [
+            "Charting simple star paths",
+            "Teaching novice astronomers",
+            "A decorative centerpiece at scholarly gatherings"
+        ]
+    },
+    {
+        "id": 709,
+        "name": "Moth Queen’s Cocoon Shard",
+        "description": "A piece of silky, iridescent cocoon rumored to grant nocturnal insight.",
+        "uses": [
+            "Enhancing vision in dim environments",
+            "Attracting beneficial night-flying creatures",
+            "Bargaining chip among collectors of rare insects"
+        ]
+    },
+    {
+        "id": 710,
+        "name": "Runic Chalk Sphere",
+        "description": "A compressed ball of runic chalk that never breaks apart unless willed.",
+        "uses": [
+            "Drawing runic circles on rough terrain",
+            "Marking safe paths in labyrinths",
+            "A spell focus for protective wards"
+        ]
+    },
+    {
+        "id": 711,
+        "name": "Caged Will-o’-Wisp",
+        "description": "A small metal lantern holding a trapped, benign wisp of ghostly light.",
+        "uses": [
+            "Illuminating magical darkness",
+            "Guiding lost travelers in labyrinthine forests",
+            "Selling to spirit-wranglers for study"
+        ]
+    },
+    {
+        "id": 712,
+        "name": "Living Ink Jar",
+        "description": "A heavy inkpot whose contents shift color to match the writer’s emotions.",
+        "uses": [
+            "Inscribing emotionally charged spell scrolls",
+            "Recording secrets that reveal authenticity of the scribe",
+            "Currency among poet-sorcerers"
+        ]
+    },
+    {
+        "id": 713,
+        "name": "Fossilized Etherfish Fin",
+        "description": "A fin-like fossil laced with traces of etheric plasma.",
+        "uses": [
+            "Enhancing aerial buoyancy charms",
+            "Studying ancient planar ecosystems",
+            "Offering to planar biologists"
+        ]
+    },
+    {
+        "id": 714,
+        "name": "Phoenix Quill (Ashen)",
+        "description": "A pen-sized feather from a phoenix after rebirth, still warm to the touch.",
+        "uses": [
+            "Scribing texts resistant to fire",
+            "Cleansing minor curses when used as a writing tool",
+            "Valued by archivists preserving fragile tomes"
+        ]
+    },
+    {
+        "id": 715,
+        "name": "Songstone Tuning Fork",
+        "description": "A carved stone fork that resonates with hidden melodies when struck softly.",
+        "uses": [
+            "Tuning complex magical instruments",
+            "Revealing sonic illusions in ruins",
+            "Trade among bardic academies"
+        ]
+    },
+    {
+        "id": 716,
+        "name": "Faint Dragonwhisper Scale",
+        "description": "A scale etched with faint runes rumored to convey dragon-like patience.",
+        "uses": [
+            "Aiding meditative practices",
+            "Stabilizing frenzied magical experiments",
+            "Symbol of peace in draconic negotiations"
+        ]
+    },
+    {
+        "id": 717,
+        "name": "Aethervane Compass",
+        "description": "A chunky compass that points to the nearest source of pure magical energy instead of north.",
+        "uses": [
+            "Locating hidden ley lines",
+            "Navigating mana-rich forests",
+            "Valued by itinerant spellcasters"
+        ]
+    },
+    {
+        "id": 718,
+        "name": "Thunder Pearl",
+        "description": "A cloudy pearl that crackles with tiny sparks when shaken.",
+        "uses": [
+            "Infusing potions with storm-like vigor",
+            "Powering small static machinery",
+            "Impressing elemental scholars"
+        ]
+    },
+    {
+        "id": 719,
+        "name": "Melted Moon Coin",
+        "description": "A lump of silvery metal rumored to be minted from lunar ore, half melted and oddly heavy.",
+        "uses": [
+            "A component in lunar alchemy",
+            "Enhancing night-based illusions",
+            "As a rare currency in secretive markets"
+        ]
+    },
+    {
+        "id": 720,
+        "name": "Cinderseed Pod",
+        "description": "A seed pod that remains warm, occasionally releasing sparks.",
+        "uses": [
+            "Starting campfires in damp conditions",
+            "Ember for forging delicate fire runes",
+            "Bartered among mountain hermits"
+        ]
+    },
+    {
+        "id": 721,
+        "name": "Translucent Gravity Anchor",
+        "description": "A polished stone that slightly alters the weight of objects nearby.",
+        "uses": [
+            "Making heavy packs lighter temporarily",
+            "Assisting in delicate construction projects",
+            "Curiosity for gravity mages"
+        ]
+    },
+    {
+        "id": 722,
+        "name": "Aurora Smoke Orb",
+        "description": "A sphere of condensed vapors that mimic northern lights inside.",
+        "uses": [
+            "Ambient lighting at grand feasts",
+            "Inspiring visionary art under dim conditions",
+            "Rarity among illusion crafters"
+        ]
+    },
+    {
+        "id": 723,
+        "name": "Whale-Tune Shell",
+        "description": "A hand-sized shell that, when held to the ear, echoes distant whale songs.",
+        "uses": [
+            "Sourcing calming background hums",
+            "Communicating with undersea tribes subtly",
+            "A nostalgic collectible for mariners"
+        ]
+    },
+    {
+        "id": 724,
+        "name": "Distilled Rainbow Draught",
+        "description": "A vial of shifting, liquid colors that never mix into a single hue.",
+        "uses": [
+            "Crafting prismatic dyes for rare textiles",
+            "Ingredient in chameleon-like cloaks",
+            "Valued by high-end illusionists"
+        ]
+    },
+    {
+        "id": 725,
+        "name": "Ironroot Spindle",
+        "description": "A spindle carved from ironwood roots, unbreakable and faintly humming.",
+        "uses": [
+            "Spinning magical thread that resists decay",
+            "Stabilizing enchanted fabrics",
+            "Trade item among weaver covens"
+        ]
+    },
+    {
+        "id": 726,
+        "name": "Basilisk Eye Lens",
+        "description": "A lens ground from a petrified basilisk eye, now safe but unsettling.",
+        "uses": [
+            "Revealing hidden weaknesses in stone structures",
+            "Detecting traces of petrification magic",
+            "Collectors’ delight among crypt explorers"
+        ]
+    },
+    {
+        "id": 727,
+        "name": "Ghostfang Ivory Chip",
+        "description": "A small piece of ivory from a ghostfang beast, cool and silent.",
+        "uses": [
+            "Refining spectral inks",
+            "Focus for necromantic healing (rather than harming)",
+            "Talisman against restless spirits"
+        ]
+    },
+    {
+        "id": 728,
+        "name": "Crystallized Dream Tether",
+        "description": "A shard of crystal that anchors a fragment of a distant dream world.",
+        "uses": [
+            "Aiding lucid dreamers to retrieve dream knowledge",
+            "Fueling subtle mental enchantments",
+            "Highly prized by oneiromancers"
+        ]
+    },
+    {
+        "id": 729,
+        "name": "Nightbloom Honeycomb",
+        "description": "A waxy honeycomb filled with dark, glittering honey that glows at midnight.",
+        "uses": [
+            "Sweetening potions for nocturnal focus",
+            "Baiting gentle forest spirits",
+            "Exotic treat in royal feasts"
+        ]
+    },
+    {
+        "id": 730,
+        "name": "Clockwork Neural Node",
+        "description": "A brass-cased node of delicate gears and silken threads, simulating thought patterns.",
+        "uses": [
+            "Assisting artificers in designing thinking constructs",
+            "Storing complex music or literature as gear-turn patterns",
+            "Sought by philosophers"
+        ]
+    },
+    {
+        "id": 731,
+        "name": "Gravemoss Lantern Core",
+        "description": "A chunk of moss that glows softly in the presence of old spirits.",
+        "uses": [
+            "Lighting crypt paths without disturbing the dead",
+            "Revealing lingering ancestral echoes",
+            "Traded among spirit guides"
+        ]
+    },
+    {
+        "id": 732,
+        "name": "Harmonic Crystal Chime",
+        "description": "A crystal shard that chimes gentle notes when moved, never off-key.",
+        "uses": [
+            "Tuning complex spell harmonics",
+            "Calming arguments in crowded halls",
+            "Artisan’s piece in bardic academies"
+        ]
+    },
+    {
+        "id": 733,
+        "name": "Magnetic Amber Lodestone",
+        "description": "A lump of amber that magnetizes wood rather than metal.",
+        "uses": [
+            "Strange carpentry manipulations",
+            "Arranging enchanted wooden puzzles",
+            "Curiosity in wizard labs"
+        ]
+    },
+    {
+        "id": 734,
+        "name": "Bottled Silence",
+        "description": "A stoppered flask containing an eerie hush, dampening nearby sounds.",
+        "uses": [
+            "Quieting noisy workshops temporarily",
+            "Facilitating concentration in libraries",
+            "Priced by stealth-minded scouts"
+        ]
+    },
+    {
+        "id": 735,
+        "name": "Inkblot Familiar Egg",
+        "description": "A small egg-shaped lump of ink that can animate into a helpful blob creature.",
+        "uses": [
+            "Messengers that slip through narrow gaps",
+            "Temporary aide in scribing tasks",
+            "Pet for arcane scholars"
+        ]
+    },
+    {
+        "id": 736,
+        "name": "Hearthstone Core",
+        "description": "A warm, pebble-like stone that never cools, smelling faintly of home-cooked meals.",
+        "uses": [
+            "Comfort in cold camps",
+            "A focus for homecoming spells",
+            "Valued in nomadic cultures"
+        ]
+    },
+    {
+        "id": 737,
+        "name": "Phantom Chalk Arrow",
+        "description": "A chalky arrow that points to whatever you’re quietly thinking of.",
+        "uses": [
+            "Guiding explorers to hidden goals",
+            "Practical tool in large treasure hunts",
+            "A trick item in puzzle-solving"
+        ]
+    },
+    {
+        "id": 738,
+        "name": "Calcified Mermaid Tear",
+        "description": "A teardrop-shaped pearl, milky white with tiny oceanic echoes inside.",
+        "uses": [
+            "Enhancing potions for water-breathing",
+            "Decorating ceremonial crowns",
+            "Nostalgic symbol among sailor clans"
+        ]
+    },
+    {
+        "id": 739,
+        "name": "Clockflower Bulb",
+        "description": "A dried flower bulb covered in fine filigree gears, unfurling at precise times.",
+        "uses": [
+            "Accurate time-keeping device in wild lands",
+            "Triggering scheduled magical effects",
+            "Collector’s item in horologist societies"
+        ]
+    },
+    {
+        "id": 740,
+        "name": "Prismatic Smoke Marble",
+        "description": "A marble-size orb swirling with colorful fumes inside.",
+        "uses": [
+            "Unleashing harmless rainbow smoke signals",
+            "Enchanting stage performances",
+            "Currency among trickster-folk"
+        ]
+    },
+    {
+        "id": 741,
+        "name": "Grounded Cloud Puff",
+        "description": "A fluffy lump of solidified cloud that’s surprisingly dense.",
+        "uses": [
+            "Crafting soft insulation materials",
+            "Subtle weather rituals",
+            "Curio for airship navigators"
+        ]
+    },
+    {
+        "id": 742,
+        "name": "Amber-Encased Honey Bee",
+        "description": "A bee fossilized in amber, rumored to hum quietly at dusk.",
+        "uses": [
+            "Inspiring ancient insect revival attempts",
+            "Enriching rare honey scrying spells",
+            "Traded among entomologist mages"
+        ]
+    },
+    {
+        "id": 743,
+        "name": "Silent Echo Shell",
+        "description": "A small shell that only produces an echo if held in absolute silence.",
+        "uses": [
+            "Testing soundless chambers",
+            "Tuning meditation rooms",
+            "A key to unlocking sonic puzzles"
+        ]
+    },
+    {
+        "id": 744,
+        "name": "Evertwisting Twine",
+        "description": "A loop of twine that slowly braids and unbraids itself.",
+        "uses": [
+            "Demonstrating subtle knot magic",
+            "Component in self-repairing rope tools",
+            "Barter item among cunning scouts"
+        ]
+    },
+    {
+        "id": 745,
+        "name": "Mothwing Compass Rose",
+        "description": "A compass rose made from layered moth wings, guiding travelers by unknown magnetics.",
+        "uses": [
+            "Navigation in magically obscured forests",
+            "Finding hidden groves or secret glens",
+            "Treasure among nature-worshipping druids"
+        ]
+    },
+    {
+        "id": 746,
+        "name": "Bottled Aurora Tears",
+        "description": "Tiny droplets reflecting auroras, collected in a crystal vial.",
+        "uses": [
+            "Enhancing night-vision potions",
+            "Fueling illusions of northern lights indoors",
+            "Prize for alchemical painters"
+        ]
+    },
+    {
+        "id": 747,
+        "name": "Runed Salt Cube",
+        "description": "A cube of salt etched with runes that keep it from dissolving.",
+        "uses": [
+            "Seasoning feasts in the wild",
+            "Warding off minor spirits",
+            "Rare seasoning for gourmet alchemists"
+        ]
+    },
+    {
+        "id": 748,
+        "name": "Thundertree Bark Chip",
+        "description": "A bark chip crackling with faint static electricity.",
+        "uses": [
+            "Adding spark to potions",
+            "Recharging small mechanical trinkets",
+            "Token among storm druids"
+        ]
+    },
+    {
+        "id": 749,
+        "name": "Ghostberry Seed",
+        "description": "A translucent seed that glows faintly when no one looks at it.",
+        "uses": [
+            "Growing faintly ethereal plants",
+            "Attracting shy forest spirits",
+            "Curiosity for stealth gardeners"
+        ]
+    },
+    {
+        "id": 750,
+        "name": "Chameleon Quartz Shard",
+        "description": "A shard of crystal that changes color to match its surroundings, albeit slowly.",
+        "uses": [
+            "Camouflaging small containers",
+            "Ingredient in subtle invisibility charms",
+            "Collectible in stealth mage circles"
+        ]
+    },
+    {
+        "id": 751,
+        "name": "Fey-Ring Mushroom Cap",
+        "description": "A mushroom cap that retains a ring pattern of glowing spores.",
+        "uses": [
+            "Guiding travelers through fairy realms",
+            "Component in dream-inducing potions",
+            "Treat among elusive fey merchants"
+        ]
+    },
+    {
+        "id": 752,
+        "name": "Aeon-Grain Nugget",
+        "description": "A tiny golden lump that rattles with the echo of ancient eras.",
+        "uses": [
+            "Focusing long-duration enchantments",
+            "Communing with ancestral spirits",
+            "Currency in time-wizard bazaars"
+        ]
+    },
+    {
+        "id": 753,
+        "name": "Rainbow Glass Shard",
+        "description": "A shard of glass that refracts even dim light into vibrant rainbows.",
+        "uses": [
+            "Decorating shrines of hope",
+            "Fueling prism-based illusions",
+            "Sought by art-mages"
+        ]
+    },
+    {
+        "id": 754,
+        "name": "Tiny Bone Golem Core",
+        "description": "A knuckle-sized core of bone fragments fused into a stable, silent nucleus.",
+        "uses": [
+            "Animating harmless, tiny bone constructs",
+            "Security system for wizard’s shelves",
+            "Bonecrafters’ rare component"
+        ]
+    },
+    {
+        "id": 755,
+        "name": "Iridescent Jelly Orb",
+        "description": "A squishy orb of bioluminescent jelly, warm to the touch.",
+        "uses": [
+            "Portable gentle night-light",
+            "Ingredient in glow-in-the-dark dyes",
+            "Traded among deep-forest merchants"
+        ]
+    },
+    {
+        "id": 756,
+        "name": "Abyss Pearl Fragment",
+        "description": "A chipped piece of a pearl once claimed to be from the deepest trenches of the sea.",
+        "uses": [
+            "Aiding navigation in dark waters",
+            "Basing dark-vision spells",
+            "Valuable token among deep-sea explorers"
+        ]
+    },
+    {
+        "id": 757,
+        "name": "Lumina Clay Ball",
+        "description": "A lump of pale clay that glows softly after soaking in sunlight.",
+        "uses": [
+            "Marking safe passage in dark mines",
+            "Enabling glow-in-dark pottery",
+            "Ingredient in luminescent sculptures"
+        ]
+    },
+    {
+        "id": 758,
+        "name": "Snowsilk Cocoon",
+        "description": "A silken cocoon from alpine moths that never melts snowflakes off its surface.",
+        "uses": [
+            "Weaving frost-resistant garments",
+            "Infusing winter potions with gentle chill",
+            "Trade among ice mages"
+        ]
+    },
+    {
+        "id": 759,
+        "name": "Murmurstone Pebble",
+        "description": "A pebble that, when pressed to one’s ear, whispers comforting nonsense.",
+        "uses": [
+            "Soothing anxiety on long journeys",
+            "Focus object in meditative practices",
+            "Quaint charm among traveling monks"
+        ]
+    },
+    {
+        "id": 760,
+        "name": "Scent-Shift Petal",
+        "description": "A dried petal that changes its scent depending on who holds it.",
+        "uses": [
+            "Identifying emotional states of holders",
+            "Crafting potpourri that never grows stale",
+            "Traded by perfumers of renown"
+        ]
+    },
+    {
+        "id": 761,
+        "name": "Nethersteel Filing",
+        "description": "A small shaving of a rare metal from infernal planes, surprisingly cool.",
+        "uses": [
+            "Tempering protective charms against demons",
+            "Alloy ingredient in high-tier tools",
+            "Token in planar blacksmith guilds"
+        ]
+    },
+    {
+        "id": 762,
+        "name": "Hummingbird Feather Quill",
+        "description": "A quill that vibrates gently as if alive, ink flows effortlessly.",
+        "uses": [
+            "Writing swift runes that fade fast",
+            "Scribing musical notes that hum on paper",
+            "Valued by calligraphers"
+        ]
+    },
+    {
+        "id": 763,
+        "name": "Witch-Willow Knot",
+        "description": "A knotted piece of willow root that resists all attempts to untie it.",
+        "uses": [
+            "Ward against unraveling spells",
+            "Focus for knot-based enchantments",
+            "Curiosity in hedge-witch rituals"
+        ]
+    },
+    {
+        "id": 764,
+        "name": "Glasscat’s Eye Marble",
+        "description": "A marble that, when rolled, seems followed by a faint ghostly feline.",
+        "uses": [
+            "Charming animal familiars",
+            "Finding hidden felines or lost pets",
+            "Amusement in traveling shows"
+        ]
+    },
+    {
+        "id": 765,
+        "name": "Grain of Petrified Song",
+        "description": "A tiny grain of sand that, when flicked, emits a single musical note.",
+        "uses": [
+            "Tuning instruments on the go",
+            "Triggering sound-based puzzle locks",
+            "Music collectors’ trinket"
+        ]
+    },
+    {
+        "id": 766,
+        "name": "Coral-Runed Bead",
+        "description": "A bead etched with coral runes that shifts color near hidden reefs.",
+        "uses": [
+            "Guiding divers to secret underwater groves",
+            "Enhancing water-breathing spells",
+            "Token among maritime druids"
+        ]
+    },
+    {
+        "id": 767,
+        "name": "Volcanic Bubble Stone",
+        "description": "A pumice-like stone capturing a single bubble of ancient volcanic gas.",
+        "uses": [
+            "Heating small alchemical baths",
+            "Subtle fire element rituals",
+            "Memento from volcano traversers"
+        ]
+    },
+    {
+        "id": 768,
+        "name": "Thread of Lunar Silk",
+        "description": "A strand of silk spun under full moonlight, faintly glowing.",
+        "uses": [
+            "Stitching robes of subtle light",
+            "Attuning tools to moon phases",
+            "Sought by nocturnal tailors"
+        ]
+    },
+    {
+        "id": 769,
+        "name": "Deepwood Truffle",
+        "description": "A fragrant truffle that, when sliced, shows shifting tree-ring patterns.",
+        "uses": [
+            "Spicing rare gourmet dishes",
+            "Base for forest communion potions",
+            "Valuable in druidic feasts"
+        ]
+    },
+    {
+        "id": 770,
+        "name": "Star-Scribed Leaf",
+        "description": "A leaf inscribed with tiny star maps, never wilting.",
+        "uses": [
+            "Guiding travelers by starlight",
+            "Component in celestial navigation charms",
+            "Priced by wanderer clans"
+        ]
+    },
+    {
+        "id": 771,
+        "name": "Aerial Jelly Spore",
+        "description": "A jelly-like spore that floats in mid-air, bobbing gently.",
+        "uses": [
+            "Creating hovering terrariums",
+            "Ingredient in levitation potions",
+            "Oddity among sky-walkers"
+        ]
+    },
+    {
+        "id": 772,
+        "name": "Twilight Feather Charm",
+        "description": "A feather charm that glows at dusk and dims at dawn.",
+        "uses": [
+            "Telling time in dense forests",
+            "Key in twilight-themed rituals",
+            "Token of peace in dusk ceremonies"
+        ]
+    },
+    {
+        "id": 773,
+        "name": "Silent Echo Pebble",
+        "description": "A pebble that, when dropped, makes no sound but leaves a faint echo minutes later.",
+        "uses": [
+            "Puzzle-solving in sound-based temples",
+            "Confusing would-be trackers",
+            "Curious trade item among crypt-raiders"
+        ]
+    },
+    {
+        "id": 774,
+        "name": "Sunsap Resin Drop",
+        "description": "A bead of golden resin that glows under direct sunlight.",
+        "uses": [
+            "Sun-powered talismans",
+            "Sweetening teas with solar essence",
+            "Currency in sun-worshipping cultures"
+        ]
+    },
+    {
+        "id": 775,
+        "name": "Moon-Shadow Berry",
+        "description": "A berry that tastes different under moonlight and sunlight.",
+        "uses": [
+            "Culinary ingredient in dual-flavor dishes",
+            "Used in rituals that shift day/night energies",
+            "Traded by gourmet alchemists"
+        ]
+    },
+    {
+        "id": 776,
+        "name": "Silverroot Sprig",
+        "description": "A twig of a plant with silvery bark, rumored to calm restless minds.",
+        "uses": [
+            "Brewed into tranquility elixirs",
+            "Wand core for peacekeepers (non-weapon focus)",
+            "Bartered for mental clarity potions"
+        ]
+    },
+    {
+        "id": 777,
+        "name": "Phasing Amber Shard",
+        "description": "A shard of amber that becomes translucent during thunderstorms.",
+        "uses": [
+            "Detecting approaching magical storms",
+            "Embedding into storm-scrying devices",
+            "Curiosity for weather shamans"
+        ]
+    },
+    {
+        "id": 778,
+        "name": "Glasswhisper Flower Head",
+        "description": "A dried flower whose petals resemble frosted glass, tinking faintly if tapped.",
+        "uses": [
+            "Creating delicate sound charms",
+            "Ingredient in shimmer potions",
+            "Gift among glassblowers"
+        ]
+    },
+    {
+        "id": 779,
+        "name": "Liquid Sun Drop",
+        "description": "A droplet of alchemical fluid that feels warm and bright on the skin.",
+        "uses": [
+            "Concocting solar-charged tonics",
+            "Curing certain light-sensitive ailments",
+            "Bartered in radiant temples"
+        ]
+    },
+    {
+        "id": 780,
+        "name": "Umbral Feather",
+        "description": "A feather that darkens shadows cast by its owner.",
+        "uses": [
+            "Enhancing stealth in dim alleys",
+            "Fueling shadow-based illusions",
+            "Sought by stage magicians"
+        ]
+    },
+    {
+        "id": 781,
+        "name": "Spiderglass Amulet",
+        "description": "A small amulet of spun glass threads, fragile but strangely resilient.",
+        "uses": [
+            "Catching subtle magical currents",
+            "Filtering fine arcane particles",
+            "A curiosity in enchanter markets"
+        ]
+    },
+    {
+        "id": 782,
+        "name": "Marrowglass Pebble",
+        "description": "A pebble that looks like glass filled with bone-white swirls.",
+        "uses": [
+            "Focus for life-detection spells",
+            "Distilling bone essence in necro-herbology",
+            "Odd trinket for bonecrafters"
+        ]
+    },
+    {
+        "id": 783,
+        "name": "Sunken Leaf Rune",
+        "description": "A leaf etched with runes visible only underwater.",
+        "uses": [
+            "Revealing hidden directions in submerged temples",
+            "Brewing potions to breathe underwater",
+            "Valued by reef-scouts"
+        ]
+    },
+    {
+        "id": 784,
+        "name": "Polychrome Slime Bead",
+        "description": "A bead of slime that changes texture and hue hourly.",
+        "uses": [
+            "Ingredient in adaptive potions",
+            "Enigma in puzzle-box crafting",
+            "Toy for illusionist apprentices"
+        ]
+    },
+    {
+        "id": 785,
+        "name": "Dewspun Cotton Ball",
+        "description": "A cotton ball that never dries, always slightly moist with morning dew.",
+        "uses": [
+            "Hydrating small seedlings in arid travels",
+            "Infusing gentle water energy into spells",
+            "Currency among oasis nomads"
+        ]
+    },
+    {
+        "id": 786,
+        "name": "Rune-Carved Pine Cone",
+        "description": "A pine cone inscribed with tiny protective runes.",
+        "uses": [
+            "Placing near camps to deter small pests",
+            "Minor ward against ill luck",
+            "Folk charm in woodland villages"
+        ]
+    },
+    {
+        "id": 787,
+        "name": "Melded Gem Husk",
+        "description": "A hollow gem casing fused from multiple crystals, rattling softly.",
+        "uses": [
+            "Encasing fragile magic cores",
+            "Storing condensed mana droplets",
+            "Collector’s piece in gem markets"
+        ]
+    },
+    {
+        "id": 788,
+        "name": "Inkbound Beetle Carapace",
+        "description": "A small beetle shell stained with permanent ink patterns.",
+        "uses": [
+            "Scribing hidden runes inside hollow shells",
+            "Component in ink-preservation potions",
+            "Curbio item for scrivener guilds"
+        ]
+    },
+    {
+        "id": 789,
+        "name": "Feathered Leaf Token",
+        "description": "A leaf that has sprouted tiny downy feathers.",
+        "uses": [
+            "Symbol of safe passages in avian forests",
+            "Crafting air-touched herbal remedies",
+            "Trade good among sky druid circles"
+        ]
+    },
+    {
+        "id": 790,
+        "name": "Moonroot Twig",
+        "description": "A twig glowing faintly only on cloudless nights.",
+        "uses": [
+            "Subtle nocturnal navigation",
+            "Ingredient in gentle sleep draughts",
+            "Charm among lunar cultists"
+        ]
+    },
+    {
+        "id": 791,
+        "name": "Ashen Pollen Pouch",
+        "description": "A pouch of pollen ash that can revive wilted flowers momentarily.",
+        "uses": [
+            "Temporary floral rejuvenation in rituals",
+            "Testing soil fertility",
+            "Commodity in gardener enclaves"
+        ]
+    },
+    {
+        "id": 792,
+        "name": "Spiral Coral Fragment",
+        "description": "A spiral of coral that hums softly in humid air.",
+        "uses": [
+            "Aiding water-tuned chants",
+            "Focus for marine enchantments",
+            "Jewelry among reef dwellers"
+        ]
+    },
+    {
+        "id": 793,
+        "name": "Mirrorleaf Segment",
+        "description": "A piece of leaf with a reflective surface, like a tiny mirror.",
+        "uses": [
+            "Signaling light in dense forests",
+            "Ingredient in reflective spell components",
+            "Novel gift among herbalists"
+        ]
+    },
+    {
+        "id": 794,
+        "name": "Phantom Spice Grain",
+        "description": "A single grain of spice that tastes different to each person.",
+        "uses": [
+            "Tasting tests in culinary academies",
+            "Base for flavor-adaptive seasonings",
+            "Coveted by gourmet chefs"
+        ]
+    },
+    {
+        "id": 795,
+        "name": "Vortex Shell Fragment",
+        "description": "A shell piece that, when spun, creates a tiny, harmless air current.",
+        "uses": [
+            "Cooling a cramped campsite",
+            "Fueling small wind-based cantrips",
+            "Curiosity in wind mage circles"
+        ]
+    },
+    {
+        "id": 796,
+        "name": "Abyssal Moss Puff",
+        "description": "A ball of moss said to have grown in a deep cave, dimly phosphorescent.",
+        "uses": [
+            "Caving lantern substitute",
+            "Ingredient in glow-potions",
+            "Trade item among spelunkers"
+        ]
+    },
+    {
+        "id": 797,
+        "name": "Clock-Sap Droplet",
+        "description": "A droplet of sap that drips at an exact interval, like a natural metronome.",
+        "uses": [
+            "Setting pace in ritual chanting",
+            "Measuring short spans accurately",
+            "Curiosity in time-obsessed guilds"
+        ]
+    },
+    {
+        "id": 798,
+        "name": "Star-Cinder Chip",
+        "description": "A tiny sliver of blackened material that glows faintly under starlight.",
+        "uses": [
+            "Enhancing night vision charms",
+            "Ingredient in star-attuned potions",
+            "Fetish for astronomer-mages"
+        ]
+    },
+    {
+        "id": 799,
+        "name": "Misted Quill Shell",
+        "description": "A shell that exudes a faint mist when warmed by a hand.",
+        "uses": [
+            "Moisturizing dry scrolls for safe writing",
+            "Cooling small apparatuses",
+            "Collector’s piece among scribes"
+        ]
+    },
+    {
+        "id": 800,
+        "name": "Dawnpetal Husk",
+        "description": "A petal husk that glimmers slightly at sunrise and withers at noon, then revives by dawn.",
+        "uses": [
+            "Time-sensitive rituals",
+            "Brewing short-lived elixirs",
+            "Trade good in dawn ceremonies"
+        ]
+    }
+]

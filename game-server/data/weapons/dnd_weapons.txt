@@ -1,0 +1,100 @@
+Flametongue Sword: Flaming longsword. Quirk: Whispers ancient battle hymns when ignited.
+Frost Brand Blade: Ice-infused sword. Quirk: Sizzles softly in warm air, calming its wielder.
+Sword of Wounding: Blade that causes lingering wounds. Quirk: Drips phantom blood under a full moon.
+Dwarven Thrower Hammer: Throwing warhammer. Quirk: Returns to hand, grumbling in Dwarvish.
+Holy Avenger Sword: Paladin’s sacred blade. Quirk: Glows brighter when smiting evil outsiders.
+Nine Lives Stealer Sword: Steals souls on critical hits. Quirk: Purrs like a cat when claiming a life.
+Vorpal Sword: Keen-edged decapitator. Quirk: Giggles faintly after a clean beheading.
+Sun Blade: Sword of pure radiant energy. Quirk: Sings dawn hymns at sunrise.
+Oathbow: Magical bow sworn to slay a chosen foe. Quirk: Whispers the foe’s name until they’re dead.
+Dancing Sword: Sword that fights on its own. Quirk: Hums a jaunty tune while floating mid-air.
+Sword of Life Stealing: Drains vitality on hit. Quirk: Handle grows warm after feeding on life.
+Javelin of Lightning: Turns into a lightning bolt. Quirk: Crackles with static before throw.
+Trident of Fish Command: Controls aquatic life. Quirk: Smells like fresh trout when near water.
+Dwarven Battleaxe: Hefty axe. Quirk: Scrapes stone lovingly, as if greeting kin.
+Hammer of Thunderbolts: Amplifies strength. Quirk: Thunderous clap echoes on a good strike.
+Mace of Disruption: Burns undead with radiant energy. Quirk: Mumbles prayers in Celestial.
+Dragon Slayer Sword: Extra damage vs dragons. Quirk: Blade vibrates near draconic lairs.
+Mariner’s Sword: Grants water-breathing. Quirk: Drips salty water when swung.
+Sword of Sharpness: Slices limbs clean off. Quirk: Makes a crisp snick sound on hits.
+Scimitar of Speed: Extra swift strikes. Quirk: Hilt feels like a racing heartbeat in combat.
+Spear of Backbiting: Attacks those behind wielder. Quirk: Snaps at shadows even when sheathed.
+Flame Tongue Whip: Flaming whip. Quirk: Crackles like burning logs.
+Dragonbone Bow: Made from dragon bone. Quirk: Roars softly when arrow hits true.
+Staff of Striking: Stores force charges. Quirk: Taps rhythmically on its own late at night.
+Wand of Magic Missiles: Fires unerring bolts. Quirk: Glows faintly in presence of magic.
+Mace of Terror: Instills fear. Quirk: Low moan rattles the handle on a swing.
+Drow Poison Dagger: Coated in sleeping poison. Quirk: Blade darkens further as poison sets in.
+Giant Slayer Axe: Strong vs giants. Quirk: Vibrates when giants approach.
+Life-Draining Spear: Absorbs enemy health. Quirk: Shaft pulses like a living vein after a kill.
+Shillelagh-Enhanced Club: Magic-infused druid weapon. Quirk: Leaves glowing footprints of moss.
+Staff of the Woodlands: Summons nature magic. Quirk: Rustles leaves even indoors.
+Ogre Gauntlets: Fist weapons for brute strength. Quirk: Knuckles crack like distant thunder.
+Sword of Warning: Alerts of danger. Quirk: Whispers “Careful…” before ambushes.
+Heward’s Handy Crossbow: Compact repeating crossbow. Quirk: Soft whirring gears reset bolts quietly.
+Chime of Opening: Sonic device to open locks. Quirk: Chime hums lullabies when bored.
+Wand of Fireballs: Launches explosive fire. Quirk: Warm to the touch, sneezes sparks occasionally.
+Wand of Polymorph: Changes creatures’ shapes. Quirk: Emits odd giggles when transformations fail.
+Wand of Lightning Bolts: Shoots lightning. Quirk: Smells like ozone after use.
+Wand of Web: Shoots sticky strands. Quirk: Vibrates like a spider’s thread in a breeze.
+Wand of Fear: Induces terror. Quirk: Whispers nightmares in holder’s dreams.
+Sword of the Planes: Adapts damage type. Quirk: Faint echoes of distant realms ring through it.
+Glamoured Studded Leather (Weaponized Spikes): Armor spikes. Quirk: Shifts colors to blend with surroundings.
+Wand of Wonder: Random magic effects. Quirk: Buzzes excitedly before randomizing outcomes.
+Mace of Smiting: More potent vs constructs. Quirk: Sparks when hitting metal foes.
+Scorpion Tail Rapier: Injects poison. Quirk: Handle rattles like a tail before striking.
+Maul of the Titans: Huge hammer. Quirk: Thumps heavily, shaking ground slightly.
+Sunforged Pike: Radiant damage vs undead. Quirk: Grows unbearably bright near liches.
+Feywild Bow: Arrows become illusions. Quirk: Chirps like a pixie on a critical hit.
+Net of Entrapment: Ensnares foes. Quirk: Twitches like a living thing when folded.
+Staff of Frost: Ice magic. Quirk: Tip leaves frosty breath in warm air.
+Arrow of Slaying: Kills certain creature types. Quirk: Vibrates when near its designated target.
+Slayer’s Axe: Enhanced vs chosen foe. Quirk: Whispers the name of the target race.
+Sword of Giants’ Might: Grows larger mid-fight. Quirk: Handle stretches, surprising the wielder.
+Dancing Halberd: Halberd that floats and fights. Quirk: Dances elegantly with eerie grace.
+Luck Blade: Contains wishes. Quirk: Hilt feels lucky, coins jingle faintly inside.
+Blood Spear: Grants temp HP on kills. Quirk: Grows heavier with spilled blood.
+Shield of Missile Attraction: Draws ranged attacks. Quirk: Dings melodically when arrows hit.
+Sword of Etherealness: Shift into Ethereal Plane. Quirk: Blade blurs at edges, fading in and out.
+Mace of the Black Crown: Summons undead helpers. Quirk: Low raspy chanting from within.
+Rod of Lordly Might: Multifunctional weapon. Quirk: Clicks gears inside when changing forms.
+Pipe of the Sewers (Weaponized Air): Summons rats. Quirk: Smells faintly of rotting cheese.
+Horn of Blasting (As a club): Thunder damage. Quirk: Muffles distant cries of battle.
+Sentinel Shield (Spiked): Improves perception. Quirk: Eye motif blinks occasionally.
+Trident of Warning: Alerts to deep dangers. Quirk: Gurgles underwater, signaling threats.
+Sword of Decay: Inflicts necrotic damage. Quirk: Handle grows cold in graveyards.
+Giant Crab Claw Gauntlet: Grants crushing grip. Quirk: Snaps excitedly near salted fish.
+Axe of the Bloodied Moon: Stronger during full moon. Quirk: Emits a low growl under moonlight.
+Helm of Telekinesis (Used as headbutt weapon): Forces push. Quirk: Humming static in helm’s interior.
+Corsair’s Cutlass: Bonus at sea. Quirk: Smells of rum and seaweed at dawn.
+War Pick of Rotting: Inflicts rot. Quirk: Damp odor, drips blackish ichor occasionally.
+Sword of Illumination: Shines in darkness. Quirk: Murmurs comfortingly in pitch-black.
+Net of Snaring Lights: Glows to disorient foes. Quirk: Pulses in rhythm with wielder’s heartbeat.
+Berserker Axe: Induces frenzy. Quirk: Handle pulses angrily, urging violence.
+Dagger of Venom: Poisoned blade. Quirk: Hisses softly when unsheathed.
+Mithral Spear: Light and swift. Quirk: Ringing clarity when struck against metal.
+Adamantine Warhammer: Breaks objects easily. Quirk: Sparkles when striking hard surfaces.
+Needle Dagger: Extremely thin blade. Quirk: Whistles at high pitch, unnerving small creatures.
+Boomerang Blade: Returns after throw. Quirk: Giggles impishly mid-flight.
+Sickle of Harvesting Souls: Collects life essence. Quirk: Blade drips spectral dew after kills.
+Sword of Silent Steps: Muffles wielder’s movements. Quirk: Absorbs sound, leaving eerie quiet.
+Gorgon Horn Spear: May petrify on critical hit. Quirk: Tip grinds stone when near statues.
+Farsight Crossbow: See distant targets. Quirk: Scope hums quietly, focusing the mind.
+Orb Wand (Arcane Focus): Fires force bolts. Quirk: Orbs swirl with galaxies inside.
+Ring Blade: Circular throwing weapon. Quirk: Rings like a bell when caught.
+Blink Dagger: Teleports wielder short distance. Quirk: Blade flickers in and out of sight.
+Spell Storing Sword: Holds a spell charge. Quirk: Glows with runes that fade after a spell’s release.
+Reaver’s Harpoon: Chains foes in place. Quirk: Chain rattles, eager for a catch.
+Flail of Confusion: Disorients enemies. Quirk: Heads babble nonsense when swung.
+Blade of the Unseen Servant: Invisible edge. Quirk: Handle hovers slightly when at rest.
+Shielding Staff: Blocks incoming spells. Quirk: Wooden knots rearrange into startled faces.
+Poisoner’s Blowgun: Delivers toxins. Quirk: Tube sighs softly when poison is loaded.
+Wand of Enemy Detection: Points to nearest foe. Quirk: Vibrates and hums directionally.
+Club of Giant Strength: Temporarily boosts strength. Quirk: Handle throbs like a muscle.
+Lantern of Revealing (As a blunt weapon): Shows invisible. Quirk: Flickers excitedly near hidden foes.
+Rope Dart (Magical): Extends length at will. Quirk: Rope squirms serpent-like in hand.
+Cutlass of Ethereal Sailors: Summons ghostly crew. Quirk: Smells of old rum and tar.
+Crossbow of Speed: Faster reload. Quirk: Twangs with jaunty energy each shot.
+Alchemist’s Fire Launcher: Throws alchemical fire. Quirk: Gurgles when shaken, like a potion bottle.
+Shatterspike Sword: Breaks other weapons. Quirk: Chimes loudly after snapping an opponent’s blade.
+Spear of the Hunt: Improves tracking. Quirk: Tip points toward wounded prey unerringly.

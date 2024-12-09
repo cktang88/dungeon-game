@@ -1,0 +1,100 @@
+9mm Handgun: Standard sidearm. Quirk: Slight gunpowder scent clings after cleaning.
+.45 ACP Pistol: Heavier handgun round. Quirk: Distinct bark-like muzzle flash shape.
+Combat Knife: Sturdy steel blade. Quirk: Handle warms slightly in tense grips.
+Tactical Shotgun: Pump-action, close quarters. Quirk: Shells rattle comfortingly when pumped.
+Bolt-Action Sniper Rifle: High precision. Quirk: Scope glint reassures steady aim.
+M4 Carbine: Standard assault rifle. Quirk: Subtle click of internal parts at ready.
+AK-47: Classic rugged rifle. Quirk: Slight metallic tang after sustained fire.
+Grenade (Frag): Shrapnel explosive. Quirk: Pins rattle softly before throw.
+Smoke Grenade: Obscures vision. Quirk: Fuse emits a faint hissing before smoke.
+Flashbang: Blinds and deafens. Quirk: High-pitched whine seconds before detonation.
+Claymore Mine: Directional explosive. Quirk: Inscribed “Front Toward Enemy” feels like a grim reminder.
+RPG-7 Launcher: Anti-armor rocket. Quirk: Backblast leaves a sulfur smell.
+Flamethrower: Projects burning fuel. Quirk: Crackles like a campfire after each burst.
+Light Machine Gun (LMG): Sustained fire. Quirk: Belt jingles like wind chimes at run.
+Minigun: Gatling-style rapid fire. Quirk: Whirring barrels sound menacingly cheerful.
+Revolver (.357): Classic wheel gun. Quirk: Cylinder spin clicks soothingly.
+Taser/Stun Gun: Electrical incapacitation. Quirk: Light crackle precedes discharge.
+Beanbag Shotgun: Less-lethal round. Quirk: Impact thud oddly muffled yet firm.
+Riot Shield: Defensive shield. Quirk: Dull thump resonates when struck.
+Baton (Telescopic): Extendable melee. Quirk: Satisfying snap when extended.
+Pepper Spray: Irritant spray. Quirk: Sharp chemical scent lingers.
+Tear Gas Launcher: Disperses irritant gas. Quirk: Pungent odor clings to barrel.
+Submachine Gun (MP5): Close quarters automatic. Quirk: Smooth cycling sounds like a sewing machine.
+UMP45: Modern SMG. Quirk: Muffled clacking inside polymer frame.
+Tomahawk: Modern tactical axe. Quirk: Blade sings a faint high tone through air.
+Throwing Knife (Modern): Balanced blade. Quirk: Metallic ringing when blade sticks into wood.
+Crossbow (Modern Hunting): Silent bolt. Quirk: Subtle twang of synthetic bowstring.
+Compound Bow: High-tech archery. Quirk: Cam wheels whisper on draw.
+Machete (Modern): Thick jungle blade. Quirk: Clears brush with a satisfying swish.
+Ballistic Knife: Spring-loaded blade. Quirk: Faint click as blade ejects.
+Hunting Rifle (.30-06): Precision bolt-action. Quirk: Wood stock creaks slightly in damp weather.
+Scoped .50 Cal Sniper: Anti-material rifle. Quirk: Deep chest-thumping recoil.
+Shotgun (Semi-Auto): Rapid follow-ups. Quirk: Cycling shells produce crisp clicks.
+Derringer: Tiny concealable pistol. Quirk: Light, almost toy-like trigger snap.
+Combat Hatchet: Multipurpose tool. Quirk: Blade hums low on a clean chop.
+Police Baton (Fixed): Solid and reliable. Quirk: Rubberized handle squeaks in sweaty palm.
+Grenade Launcher (M203): Launches 40mm grenades. Quirk: Thunk of grenade leaving barrel sounds hollow.
+Flares (Hand-Launched): Signaling device. Quirk: Sputtering sparks before bright illumination.
+Incendiary Grenade: Ignites intense fire. Quirk: Crackling embers sound like distant popcorn.
+C4 Explosive: Plastic explosive charge. Quirk: Pliable texture slightly warms with handling.
+Clay Baton Rounds: Less-lethal ammo. Quirk: Soft thud almost friendly on impact.
+Rubber Bullets: Non-lethal rounds. Quirk: Subdued slap rather than crack on impact.
+Electroshock Grenade: Shocks target area. Quirk: Blue sparks dancing inside fuse.
+Grappling Hook Gun: Launches hook. Quirk: Zing of cable unwinding.
+Harpoon Gun: For marine use. Quirk: Wet thrum as harpoon plunges forward.
+Slingshot (Modern High-Tension): Silent projectile. Quirk: Rubber bands twang with energetic snap.
+Bolt Cutters (As weapon): Heavy jaws. Quirk: Metallic gnash when closed forcefully.
+Throwing Tomahawk: Balanced for throwing. Quirk: Blade hum upon release.
+Pistol Crossbow: Miniature bolt weapon. Quirk: Tiny “ping” as bolt is released.
+Air Rifle (High-Power): Pressurized pellet gun. Quirk: Pneumatic hiss on trigger.
+Beanbag Grenade: Non-lethal toss. Quirk: Dull thud and fabric rustle on impact.
+Stingball Grenade: Rubber pellets blast. Quirk: Rattle like a maraca before explosion.
+Flashlight (Weaponized): Heavy torch for striking. Quirk: Glass lens chimes when struck hard.
+Nightstick: Classic police baton. Quirk: Hollow ring if tapped on metal.
+Kubotan: Small striking tool. Quirk: Slight vibration felt up arm on impact.
+Battering Ram (Portable): Breaches doors. Quirk: Low echoing boom resonates after use.
+Entrenching Tool (Shovel): Dig or hit. Quirk: Clang on hard surfaces.
+Chainsaw (Improvised): Brutal cutting tool. Quirk: Deafening roar and scent of sawdust.
+Pepper Ball Gun: Launches irritant balls. Quirk: Balls crack softly on impact, releasing pepper scent.
+Smoke Sticks: Hand-thrown smoke bombs. Quirk: Faint herbal smell mixed with burning.
+Flare Gun: Launches signal flares. Quirk: Popping fireworks sound at launch.
+Nunchaku (Modern): Lightweight metal rods. Quirk: Metallic clinks echo in quick succession.
+Cattle Prod: Electrical shock device. Quirk: Static snap and animal barn smell faintly recalled.
+Crowbar: Heavy metal bar. Quirk: Metallic scrape sets teeth on edge.
+Tire Iron: Improvised melee. Quirk: Dull clang on concrete.
+Fire Extinguisher (As weapon): Blunt spray. Quirk: Hissing foam and cold metal canister.
+Molotov Cocktail: Fire bomb. Quirk: Glass clink before whoosh of flame.
+Bowling Pin (Improvised): Weighted club. Quirk: Hollow ring and scuff marks.
+Baseball Bat: Wooden or aluminum club. Quirk: Crisp crack on a solid hit.
+Telescopic Spear (Survival Gear): Collapsible spear. Quirk: Snaps into place with a satisfying click.
+Garrote Wire: Strangling wire. Quirk: Twangs lightly, tension noticeable.
+Butterfly Knife: Folding blade. Quirk: Clicking and clacking flips.
+Switchblade: Spring-release knife. Quirk: Sharp snap as blade springs out.
+Mace (Spray): Chemical irritant. Quirk: Sharp chemical scent that stings eyes.
+Flare Stick (Improvised): Burning club. Quirk: Hissing flame and bright sparks.
+Tactical Pen: Sturdy pen for defense. Quirk: Subtle metallic rasp on impact.
+Glass Bottle (Broken): Sharp improvised blade. Quirk: Tinkling glass shards falling away.
+Keychain Knuckles: Small brass knuckles. Quirk: Keys jingle nervously.
+Dart Gun: Tranquilizer darts. Quirk: Soft puff of air on firing.
+Rubber Slings: Non-lethal launcher. Quirk: Snappy elastic sound.
+Electric Cattle Whip: Shocks livestock. Quirk: Crackling sparks and animal odor memory.
+Marine Signal Horn (As weapon): Deafening blast. Quirk: Echoes disturbingly long.
+Fire Hose (Jet of water): High-pressure stream. Quirk: Powerful whoosh, damp mist.
+Fishing Spear (Harpoon): Barbed spear. Quirk: Metal tip scraping along fish scales.
+Machete (Sawback): Versatile cutting. Quirk: Rough saw rasp on tough wood.
+Nail Gun: Pneumatic nail driver. Quirk: Sharp hiss and metallic thunk.
+Folding Spade (Military): Sharpened shovel edge. Quirk: Hinges creak at odd angles.
+Boxing Gloves (Weighted): Added punching force. Quirk: Soft leather creak at clench.
+Whip (Modern Leather): Cracks loudly. Quirk: Echoing snap sends small shockwave of air.
+Tire Chains (Swung): Weighted metal chain. Quirk: Chain rattles ominously.
+Golf Club: Iron or wood driver. Quirk: Clean ping on solid strike.
+Monkey Wrench: Heavy adjustable wrench. Quirk: Threads squeal when adjusting size.
+Homemade Pipe Bomb: Crude explosive. Quirk: Shaky rattle of loose nails inside.
+Sledgehammer: Heavy demolition tool. Quirk: Deep, solid thud felt in chest.
+Folding Pocket Knife: Compact blade. Quirk: Smooth click closing, comforting in hand.
+Screwdriver (Stabbing): Simple pointed tool. Quirk: Scraping metal tip on metal surfaces.
+Hatchet (Tactical): Light but deadly. Quirk: Blade sings a short, sharp note on impact.
+Chains (Handheld): Swinging metal links. Quirk: Rhythmic clink, sparks if struck on stone.
+Mallet (Rubber): Soft blunt force. Quirk: Muffled thump, almost comical.
+Hunting Slingshot: Launches stones. Quirk: Stones whistle sharply past targets.

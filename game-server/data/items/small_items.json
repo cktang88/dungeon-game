@@ -1,0 +1,5002 @@
+[
+    {
+        "id": 1,
+        "name": "Leather Boots",
+        "description": "Sturdy footwear crafted from cured animal hide.",
+        "uses": [
+            "Protecting feet on rough terrain",
+            "Enhancing grip on slippery surfaces",
+            "Light armor for non-combative exploration"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Healing Salve",
+        "description": "A fragrant paste of crushed herbs and oils.",
+        "uses": [
+            "Treating minor wounds",
+            "Reducing skin irritation",
+            "Trade with local healers"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Mana Crystal",
+        "description": "A faintly glowing gem that hums with arcane energy.",
+        "uses": [
+            "Replenishing magical reserves",
+            "Powering arcane devices",
+            "Infusing enchantments into gear"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Clockwork Cog",
+        "description": "A small brass gear with intricate teeth.",
+        "uses": [
+            "Repairing steampunk machinery",
+            "Building automaton components",
+            "Fashioning decorative accessories"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Ancient Tablet",
+        "description": "A stone slab etched with indecipherable runes.",
+        "uses": [
+            "Clue for archaeological expeditions",
+            "Material for scholarly research",
+            "Ritual focus in old-world ceremonies"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Bio-Luminescent Fungus",
+        "description": "A glowing mushroom commonly found in damp caverns.",
+        "uses": [
+            "Natural light source",
+            "Ingredient in alchemical brews",
+            "Bartering with curious traders"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Copper Wire",
+        "description": "Thin strands of conductive metal.",
+        "uses": [
+            "Crafting electrical circuits",
+            "Repairing steampunk contraptions",
+            "Bartering with tinkerers"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Crystal Lens",
+        "description": "A polished crystal disc that refracts light.",
+        "uses": [
+            "Enhancing vision devices",
+            "Focusing magical energies",
+            "Upgrading optical scanners"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Mechanical Spring",
+        "description": "A tightly coiled metal spring.",
+        "uses": [
+            "Providing tension in clockwork",
+            "Stabilizing trap mechanisms",
+            "Serving as a trade good for inventors"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Earthen Clay",
+        "description": "A malleable natural material found near riverbeds.",
+        "uses": [
+            "Shaping pots and vessels",
+            "Building rudimentary kilns",
+            "Forming molds for casting metals"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Paper Scroll",
+        "description": "A rolled parchment sheet used for writing.",
+        "uses": [
+            "Recording maps and diagrams",
+            "Writing down arcane formulas",
+            "Making trade agreements official"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Herbal Poultice",
+        "description": "A bundle of aromatic leaves wrapped in cloth.",
+        "uses": [
+            "Soothing bruises and sprains",
+            "Reducing feverish symptoms",
+            "Offering as a gift to healers"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Whetstone",
+        "description": "A flat stone used for sharpening non-weapon tools.",
+        "uses": [
+            "Maintaining edges on farming implements",
+            "Smoothing construction chisels",
+            "Ensuring clean cuts on carving knives"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Lantern",
+        "description": "A metal frame holding a glass pane and a candle inside.",
+        "uses": [
+            "Illuminating dark corridors",
+            "Guiding travelers through forests",
+            "Decorating festive gatherings"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Rope",
+        "description": "Twisted fibers forming a sturdy cord.",
+        "uses": [
+            "Climbing steep cliffs",
+            "Securing cargo on airships",
+            "Creating snares for wildlife (for non-violent capture)"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Alchemy Flask",
+        "description": "A heat-resistant glass container with a narrow neck.",
+        "uses": [
+            "Brewing potions",
+            "Distilling essential oils",
+            "Measuring ingredients in magical experiments"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Star Chart",
+        "description": "A parchment depicting constellations and celestial bodies.",
+        "uses": [
+            "Navigating by night",
+            "Predicting seasonal changes",
+            "Consulting for astrological guidance"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Feather Quill",
+        "description": "A writing tool fashioned from a large bird feather.",
+        "uses": [
+            "Inscribing arcane runes",
+            "Recording historical texts",
+            "Drafting architectural blueprints"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Protective Amulet",
+        "description": "A talisman engraved with protective sigils.",
+        "uses": [
+            "Warding off minor curses",
+            "Enhancing spiritual well-being",
+            "Serving as a symbol of faith"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Dried Berries",
+        "description": "Sweet and chewy dehydrated forest fruits.",
+        "uses": [
+            "Quick energy boosts",
+            "Ingredient in simple meals",
+            "Bartering with nomadic traders"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Mossy Lichen",
+        "description": "A spongy green plant that thrives in damp shade.",
+        "uses": [
+            "Padding in bedding",
+            "Basic alchemical component",
+            "Dye for fabric when processed"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Silver Chalice",
+        "description": "A gleaming cup carved with ornate patterns.",
+        "uses": [
+            "Holding ritual drinks",
+            "Symbol of status in feasts",
+            "Melting down for raw silver"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Magnetic Compass",
+        "description": "A handheld device with a needle that points north.",
+        "uses": [
+            "Orienting oneself in unknown lands",
+            "Guiding airship navigation",
+            "Essential tool for explorers"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Goggles",
+        "description": "Protective eyewear with adjustable straps.",
+        "uses": [
+            "Shielding eyes from debris",
+            "Improving vision in sandstorms",
+            "Part of steampunk attire"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Hemp Fibers",
+        "description": "Strong plant fibers used in various crafts.",
+        "uses": [
+            "Weaving sturdy cloth",
+            "Making rope or twine",
+            "Trade material for weavers"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Glass Beaker",
+        "description": "A cylindrical container used in alchemical labs.",
+        "uses": [
+            "Mixing potions or chemicals",
+            "Measuring magical ingredients",
+            "Crafting delicate apparatus"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Runic Pendant",
+        "description": "A necklace etched with mysterious runes.",
+        "uses": [
+            "Channeling minor magical energy",
+            "Enhancing meditation sessions",
+            "Bartering with mystics"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Iron Ore",
+        "description": "A chunk of stone rich in iron minerals.",
+        "uses": [
+            "Refining into metal bars",
+            "Construction of sturdy structures",
+            "Trade with blacksmiths"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Tanned Hide",
+        "description": "Cured animal skin, flexible and durable.",
+        "uses": [
+            "Crafting clothing or boots",
+            "Making protective gear",
+            "Trading in frontier settlements"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Cured Tobacco Leaves",
+        "description": "Dried leaves with a rich, earthy scent.",
+        "uses": [
+            "Smoking in pipes (social habit)",
+            "Trading with travelers",
+            "Bartering in distant markets"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Honeycomb",
+        "description": "A waxy structure filled with sweet honey.",
+        "uses": [
+            "Flavoring food and drinks",
+            "Base for medicinal salves",
+            "Trade with local apothecaries"
+        ]
+    },
+    {
+        "id": 32,
+        "name": "Dowsing Rod",
+        "description": "A forked wooden branch rumored to find water.",
+        "uses": [
+            "Locating hidden wells",
+            "Finding underground streams",
+            "Folk tool among rural communities"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Corked Bottle",
+        "description": "A glass container sealed with a stopper.",
+        "uses": [
+            "Storing liquids safely",
+            "Transporting alchemical extracts",
+            "Keeping rare oils and essences fresh"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Clay Brick",
+        "description": "A block of hardened clay.",
+        "uses": [
+            "Building basic structures",
+            "Constructing ovens and kilns",
+            "Trading with builders and masons"
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Flax Seeds",
+        "description": "Small seeds known for their oily content.",
+        "uses": [
+            "Pressing into linseed oil",
+            "Baking nutritious breads",
+            "Feeding domesticated animals"
+        ]
+    },
+    {
+        "id": 36,
+        "name": "Elven Silk",
+        "description": "A rare, shimmering fabric woven by artisans.",
+        "uses": [
+            "Crafting luxurious garments",
+            "Decorating noble halls",
+            "Bartering with wealthy traders"
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Aetheric Ink",
+        "description": "A shimmering ink visible only under moonlight.",
+        "uses": [
+            "Writing secret messages",
+            "Marking magical maps",
+            "Bartering with spellcasters"
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Wormwood Leaves",
+        "description": "Bitter, green foliage used in potions.",
+        "uses": [
+            "Brewing herbal tonics",
+            "Deterring certain pests",
+            "Bartering with herbalists"
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Mithril Thread",
+        "description": "A silvery thread that shimmers with inner light.",
+        "uses": [
+            "Sewing reinforced garments",
+            "Embroidering runic symbols",
+            "Bartering with master tailors"
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Obsidian Shard",
+        "description": "A piece of volcanic glass with razor edges.",
+        "uses": [
+            "Crafting non-weapon cutting tools",
+            "Decorating ritual altars",
+            "Bartering with collectors"
+        ]
+    },
+    {
+        "id": 41,
+        "name": "Pressed Flower",
+        "description": "A dried bloom flattened between sheets of paper.",
+        "uses": [
+            "Decorating personal journals",
+            "Gift in sentimental exchanges",
+            "Component in delicate perfumes"
+        ]
+    },
+    {
+        "id": 42,
+        "name": "Willow Bark",
+        "description": "Strips of bark from a willow tree.",
+        "uses": [
+            "Soothing teas and poultices",
+            "Tannin source for leatherwork",
+            "Trade with herbal vendors"
+        ]
+    },
+    {
+        "id": 43,
+        "name": "Bronze Gear",
+        "description": "A sturdy gear made of bronze alloy.",
+        "uses": [
+            "Replacing parts in clockwork automata",
+            "Upgrading steam engines",
+            "Bartering with machinists"
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Wax Candle",
+        "description": "A cylinder of solidified wax with a wick.",
+        "uses": [
+            "Providing gentle light",
+            "Marking passage of time",
+            "Used in simple rituals"
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Compass Rose",
+        "description": "An ornate diagram showing cardinal directions.",
+        "uses": [
+            "Decorating navigational charts",
+            "Aiding explorers in orientation",
+            "Gift for ship captains"
+        ]
+    },
+    {
+        "id": 46,
+        "name": "Clay Mug",
+        "description": "A simple drinking vessel shaped from clay.",
+        "uses": [
+            "Holding beverages",
+            "Trading in rural markets",
+            "Crafting material if broken down"
+        ]
+    },
+    {
+        "id": 47,
+        "name": "Iridescent Scale",
+        "description": "A shimmering scale from a mythical creature.",
+        "uses": [
+            "Embedding in ceremonial robes",
+            "Ingredient in high-tier potions",
+            "Collectors’ item among nobles"
+        ]
+    },
+    {
+        "id": 48,
+        "name": "Dewdrop Pearl",
+        "description": "A tiny pearl that glistens like morning dew.",
+        "uses": [
+            "Inlaying in jewelry",
+            "Channeling minor healing magic",
+            "Trading in high-end markets"
+        ]
+    },
+    {
+        "id": 49,
+        "name": "Nettle Fibers",
+        "description": "Coarse plant fibers from stinging nettles.",
+        "uses": [
+            "Weaving rough fabrics",
+            "Creating sturdy twine",
+            "Bartering with textile makers"
+        ]
+    },
+    {
+        "id": 50,
+        "name": "Fossil Fragment",
+        "description": "A piece of ancient bone preserved in stone.",
+        "uses": [
+            "Study by historians",
+            "Decorative curiosity",
+            "Component in rare magical rituals"
+        ]
+    },
+    {
+        "id": 51,
+        "name": "Enchanted Quill",
+        "description": "A feather that scribes by itself under spoken command.",
+        "uses": [
+            "Recording oral tales",
+            "Taking notes during experiments",
+            "Bartering with scholars"
+        ]
+    },
+    {
+        "id": 52,
+        "name": "Barnacle Shell",
+        "description": "A small crustacean shell found on ship hulls.",
+        "uses": [
+            "Crushed into lime for construction",
+            "Decorating maritime souvenirs",
+            "Trade with seafaring merchants"
+        ]
+    },
+    {
+        "id": 53,
+        "name": "Dried Kelp",
+        "description": "Seaweed preserved by the sun.",
+        "uses": [
+            "Cooking broths and soups",
+            "Fertilizer for crops",
+            "Trade with coastal villages"
+        ]
+    },
+    {
+        "id": 54,
+        "name": "Crystal Prism",
+        "description": "A geometric glass piece that splits light into rainbows.",
+        "uses": [
+            "Light-based puzzles",
+            "Creating decorative rainbows",
+            "Bartering with illusionists"
+        ]
+    },
+    {
+        "id": 55,
+        "name": "Sage Leaves",
+        "description": "Aromatic leaves valued for their flavor.",
+        "uses": [
+            "Seasoning savory dishes",
+            "Brewing calming teas",
+            "Bartering with herbal healers"
+        ]
+    },
+    {
+        "id": 56,
+        "name": "Holographic Card",
+        "description": "A thin, flexible card displaying shifting holograms.",
+        "uses": [
+            "Identification in cyber cities",
+            "Proof of guild membership",
+            "Trade token in futuristic markets"
+        ]
+    },
+    {
+        "id": 57,
+        "name": "Crystal Bell",
+        "description": "A small bell that emits a clear, resonant tone.",
+        "uses": [
+            "Signaling shifts in workshops",
+            "Participating in ceremonies",
+            "Ornamental item for collectors"
+        ]
+    },
+    {
+        "id": 58,
+        "name": "Pressed Insect",
+        "description": "A strange bug carefully preserved under glass.",
+        "uses": [
+            "Study by entomologists",
+            "Curiosity in oddity shops",
+            "Component in exotic crafts"
+        ]
+    },
+    {
+        "id": 59,
+        "name": "Beeswax",
+        "description": "A natural wax produced by honey bees.",
+        "uses": [
+            "Candlemaking",
+            "Sealing containers",
+            "Polishing wood surfaces"
+        ]
+    },
+    {
+        "id": 60,
+        "name": "Dragonfruit",
+        "description": "A vibrant, scaly fruit with sweet pulp.",
+        "uses": [
+            "Exotic dessert ingredient",
+            "Nutrient-rich travel food",
+            "Trade with gourmet chefs"
+        ]
+    },
+    {
+        "id": 61,
+        "name": "Runic Chalk",
+        "description": "A stick of chalk infused with magical pigments.",
+        "uses": [
+            "Drawing protective circles",
+            "Sketching arcane diagrams",
+            "Marking hidden passages"
+        ]
+    },
+    {
+        "id": 62,
+        "name": "Woven Reed Basket",
+        "description": "A handwoven container made from dried reeds.",
+        "uses": [
+            "Carrying gathered herbs",
+            "Storing personal belongings",
+            "Trade with rural communities"
+        ]
+    },
+    {
+        "id": 63,
+        "name": "Salt Crystals",
+        "description": "White crystalline mineral with preservative properties.",
+        "uses": [
+            "Seasoning foods",
+            "Curing meats and fish",
+            "Trade staple in desert towns"
+        ]
+    },
+    {
+        "id": 64,
+        "name": "Phoenix Ash",
+        "description": "Grey powder from a mythical bird’s rebirth.",
+        "uses": [
+            "Key ingredient in revival potions",
+            "Enhancing healing salves",
+            "Rare trade item for magi"
+        ]
+    },
+    {
+        "id": 65,
+        "name": "Magnetic Gloves",
+        "description": "Gloves embedded with magnetized plates.",
+        "uses": [
+            "Climbing metal structures",
+            "Holding onto metallic surfaces",
+            "Trade with airship mechanics"
+        ]
+    },
+    {
+        "id": 66,
+        "name": "Nectar Flask",
+        "description": "A glass vial containing sweet flower nectar.",
+        "uses": [
+            "Brewing delicate wines",
+            "Attracting beneficial insects",
+            "Bartering with herbalists"
+        ]
+    },
+    {
+        "id": 67,
+        "name": "Steamed Rice",
+        "description": "Soft, fluffy grains prepared in hot steam.",
+        "uses": [
+            "Staple food in many regions",
+            "Base ingredient for simple meals",
+            "Trade commodity in fertile valleys"
+        ]
+    },
+    {
+        "id": 68,
+        "name": "Fragrant Incense",
+        "description": "Dried aromatic resins rolled into a slender stick.",
+        "uses": [
+            "Purifying rooms and shrines",
+            "Calming the mind during meditation",
+            "Offering during ceremonies"
+        ]
+    },
+    {
+        "id": 69,
+        "name": "Silver Filigree",
+        "description": "Delicate metalwork formed into intricate patterns.",
+        "uses": [
+            "Decorating precious artifacts",
+            "Inlaying into jewelry",
+            "Bartering with nobility"
+        ]
+    },
+    {
+        "id": 70,
+        "name": "Bone Needle",
+        "description": "A sewing implement carved from bone.",
+        "uses": [
+            "Stitching leather and cloth",
+            "Mending sails and tents",
+            "Trade with rural tailors"
+        ]
+    },
+    {
+        "id": 71,
+        "name": "Amber Resin",
+        "description": "Translucent golden sap hardened over ages.",
+        "uses": [
+            "Decorative ornaments",
+            "Sealing small containers",
+            "Alchemical binding agent"
+        ]
+    },
+    {
+        "id": 72,
+        "name": "Cybernetic Implant",
+        "description": "A sleek device designed to interface with neural tissue.",
+        "uses": [
+            "Enhancing cognitive abilities",
+            "Integrating with cybernetic prosthetics",
+            "Highly sought in futuristic markets"
+        ]
+    },
+    {
+        "id": 73,
+        "name": "Ancient Papyrus",
+        "description": "A fragile sheet marked with old-world symbols.",
+        "uses": [
+            "Decoding forgotten spells",
+            "Archival study by historians",
+            "Bartering with scribes"
+        ]
+    },
+    {
+        "id": 74,
+        "name": "Electric Coil",
+        "description": "A spool of copper wire used in electric circuits.",
+        "uses": [
+            "Powering cybernetic engines",
+            "Repairing futuristic machinery",
+            "Bartering with tech-savvy merchants"
+        ]
+    },
+    {
+        "id": 75,
+        "name": "Ceramic Plate",
+        "description": "A fired clay dish for holding food.",
+        "uses": [
+            "Serving meals",
+            "Decorating banquet tables",
+            "Trade in settled communities"
+        ]
+    },
+    {
+        "id": 76,
+        "name": "Silk Ribbon",
+        "description": "A smooth, colorful strip of woven silk.",
+        "uses": [
+            "Tying up scrolls neatly",
+            "Ornamenting formal attire",
+            "Bartering with dressmakers"
+        ]
+    },
+    {
+        "id": 77,
+        "name": "Neon Tubes",
+        "description": "Glowing glass tubes filled with luminescent gas.",
+        "uses": [
+            "Illuminating cyberpunk markets",
+            "Decorating futuristic billboards",
+            "Trade with tech artisans"
+        ]
+    },
+    {
+        "id": 78,
+        "name": "Diving Mask",
+        "description": "A face-covering glass piece for underwater viewing.",
+        "uses": [
+            "Exploring submerged ruins",
+            "Observing aquatic life",
+            "Bartering with maritime explorers"
+        ]
+    },
+    {
+        "id": 79,
+        "name": "Clockwork Heart",
+        "description": "A mechanical core that powers automatons.",
+        "uses": [
+            "Animating golems",
+            "Repairing complex machinery",
+            "Sought by steampunk engineers"
+        ]
+    },
+    {
+        "id": 80,
+        "name": "Dried Seaweed",
+        "description": "Salted marine plant dried for storage.",
+        "uses": [
+            "Seasoning soups",
+            "Crafting simple paper",
+            "Trade with coastal merchants"
+        ]
+    },
+    {
+        "id": 81,
+        "name": "Lotus Petals",
+        "description": "Delicate flower petals with calming fragrance.",
+        "uses": [
+            "Brewing soothing teas",
+            "Decorating ritual baths",
+            "Bartering in spiritual enclaves"
+        ]
+    },
+    {
+        "id": 82,
+        "name": "Parchment Sheet",
+        "description": "A writing surface made from animal skin.",
+        "uses": [
+            "Recording historical events",
+            "Transcribing spell formulas",
+            "Bartering with scribes"
+        ]
+    },
+    {
+        "id": 83,
+        "name": "Crystal Matrix",
+        "description": "A geometric lattice infused with energy.",
+        "uses": [
+            "Storing magical spells",
+            "Stabilizing arcane reactors",
+            "Trade with arcane engineers"
+        ]
+    },
+    {
+        "id": 84,
+        "name": "Beetle Carapace",
+        "description": "A hardened shell from a large insect.",
+        "uses": [
+            "Crafting decorative jewelry",
+            "Grinding into pigments",
+            "Bartering with collectors"
+        ]
+    },
+    {
+        "id": 85,
+        "name": "Cured Leather",
+        "description": "Supple hide treated for durability.",
+        "uses": [
+            "Making footwear and belts",
+            "Lining protective garments",
+            "Trade with leatherworkers"
+        ]
+    },
+    {
+        "id": 86,
+        "name": "Clock Key",
+        "description": "A small, ornate key for winding clockwork devices.",
+        "uses": [
+            "Winding mechanical clocks",
+            "Activating steampunk gadgets",
+            "Bartering with timekeepers"
+        ]
+    },
+    {
+        "id": 87,
+        "name": "Plasma Vial",
+        "description": "A sealed container holding glowing ionized gas.",
+        "uses": [
+            "Fueling advanced energy weapons (not for direct use as a weapon)",
+            "Powering starship consoles",
+            "Bartering in alien markets"
+        ]
+    },
+    {
+        "id": 88,
+        "name": "Saffron Threads",
+        "description": "Delicate red strands with a rich aroma.",
+        "uses": [
+            "Flavoring gourmet dishes",
+            "Creating vivid yellow dyes",
+            "Bartering with spice traders"
+        ]
+    },
+    {
+        "id": 89,
+        "name": "Nano Gel",
+        "description": "A futuristic gel with self-repairing properties.",
+        "uses": [
+            "Healing minor structural damage",
+            "Sealing microfractures in equipment",
+            "Valuable trade in cybernetic markets"
+        ]
+    },
+    {
+        "id": 90,
+        "name": "Alien Spore",
+        "description": "A glowing seed-like particle from an unknown world.",
+        "uses": [
+            "Cultivating off-world flora",
+            "Component in xenobiology research",
+            "Bartering with alien botanists"
+        ]
+    },
+    {
+        "id": 91,
+        "name": "Wool Thread",
+        "description": "A soft yarn spun from sheep’s wool.",
+        "uses": [
+            "Knitting warm garments",
+            "Crafting bed linens",
+            "Trade with rural weavers"
+        ]
+    },
+    {
+        "id": 92,
+        "name": "Marble Tile",
+        "description": "A polished stone slab with natural veining.",
+        "uses": [
+            "Flooring in grand halls",
+            "Sculpting statues",
+            "Bartering with masons"
+        ]
+    },
+    {
+        "id": 93,
+        "name": "Air Crystal",
+        "description": "A transparent crystal that resonates with wind energy.",
+        "uses": [
+            "Fueling levitation spells",
+            "Stabilizing skyship sails",
+            "Trade with elemental mages"
+        ]
+    },
+    {
+        "id": 94,
+        "name": "Granite Mortar",
+        "description": "A heavy bowl for grinding ingredients.",
+        "uses": [
+            "Crushing spices and herbs",
+            "Preparing alchemical powders",
+            "Essential kitchen tool"
+        ]
+    },
+    {
+        "id": 95,
+        "name": "Velvet Cloth",
+        "description": "A plush fabric prized for its softness.",
+        "uses": [
+            "Luxury clothing",
+            "Upholstering fine furniture",
+            "Bartering with noble tailors"
+        ]
+    },
+    {
+        "id": 96,
+        "name": "Mechanical Pencil",
+        "description": "A futuristic writing tool with replaceable graphite.",
+        "uses": [
+            "Drafting precise schematics",
+            "Recording notes in cyber labs",
+            "Trade with scholars"
+        ]
+    },
+    {
+        "id": 97,
+        "name": "Alien Eggshell",
+        "description": "A translucent shell that once housed alien life.",
+        "uses": [
+            "Study by xenobiologists",
+            "Material for strange crafts",
+            "Bartering with off-world traders"
+        ]
+    },
+    {
+        "id": 98,
+        "name": "Corn Husk",
+        "description": "The leafy outer covering of a corn cob.",
+        "uses": [
+            "Weaving lightweight mats",
+            "Kindling for campfires",
+            "Feeding domesticated animals"
+        ]
+    },
+    {
+        "id": 99,
+        "name": "Ink Vial",
+        "description": "A small container filled with dark ink.",
+        "uses": [
+            "Writing documents",
+            "Drawing runic symbols",
+            "Bartering with scribes"
+        ]
+    },
+    {
+        "id": 100,
+        "name": "Magnetic Lodestone",
+        "description": "A naturally magnetized rock fragment.",
+        "uses": [
+            "Primitive navigation tool",
+            "Aligning mechanical compasses",
+            "Bartering with explorers"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Dried Lavender",
+        "description": "Purple buds known for their calming scent.",
+        "uses": [
+            "Scenting linens",
+            "Brewing relaxing teas",
+            "Bartering with perfumers"
+        ]
+    },
+    {
+        "id": 102,
+        "name": "Clay Figurine",
+        "description": "A small statue sculpted from clay.",
+        "uses": [
+            "Decorative keepsake",
+            "Archaeological curiosity",
+            "Trade with collectors"
+        ]
+    },
+    {
+        "id": 103,
+        "name": "Quicksilver Flask",
+        "description": "A sealed container of liquid mercury.",
+        "uses": [
+            "Conducting arcane experiments",
+            "Adjusting clockwork balances",
+            "Bartering with alchemists"
+        ]
+    },
+    {
+        "id": 104,
+        "name": "Woven Tapestry",
+        "description": "A large, handwoven decorative cloth.",
+        "uses": [
+            "Adorning castle halls",
+            "Documenting historical events",
+            "Bartering with collectors"
+        ]
+    },
+    {
+        "id": 105,
+        "name": "Umbral Ink",
+        "description": "Dark ink visible only in complete darkness.",
+        "uses": [
+            "Secret nocturnal writings",
+            "Marking hidden passages",
+            "Bartering with spies"
+        ]
+    },
+    {
+        "id": 106,
+        "name": "Fresh Watermelon",
+        "description": "A juicy, sweet fruit with a hard rind.",
+        "uses": [
+            "Refreshing snack",
+            "Ingredient in fruit salads",
+            "Trade with farmers"
+        ]
+    },
+    {
+        "id": 107,
+        "name": "Algae Paste",
+        "description": "A green mush made from freshwater algae.",
+        "uses": [
+            "Nutrient-rich food supplement",
+            "Base for certain dyes",
+            "Bartering with swamp dwellers"
+        ]
+    },
+    {
+        "id": 108,
+        "name": "Electrum Filament",
+        "description": "A thin wire made from gold-silver alloy.",
+        "uses": [
+            "Powering arcane lamps",
+            "Conducting magical currents",
+            "Trade with arcane engineers"
+        ]
+    },
+    {
+        "id": 109,
+        "name": "Silicone Sealant",
+        "description": "A modern synthetic compound used to bond surfaces.",
+        "uses": [
+            "Sealing mechanical joints",
+            "Waterproofing containers",
+            "Bartering in cyber-industrial complexes"
+        ]
+    },
+    {
+        "id": 110,
+        "name": "Cinnamon Bark",
+        "description": "A fragrant spice from tree bark.",
+        "uses": [
+            "Flavoring sweet dishes",
+            "Brewing aromatic teas",
+            "Bartering with spice merchants"
+        ]
+    },
+    {
+        "id": 111,
+        "name": "Jade Shard",
+        "description": "A piece of smooth, green gemstone.",
+        "uses": [
+            "Carving small sculptures",
+            "Focusing elemental energies",
+            "Trade with gem dealers"
+        ]
+    },
+    {
+        "id": 112,
+        "name": "Astral Chart",
+        "description": "A star map that shifts as constellations move.",
+        "uses": [
+            "Navigating interstellar travel",
+            "Astrological predictions",
+            "Bartering with star-gazers"
+        ]
+    },
+    {
+        "id": 113,
+        "name": "Rainwater Flask",
+        "description": "A bottle of naturally collected rainwater.",
+        "uses": [
+            "Drinking water source",
+            "Irrigating small herb gardens",
+            "Ingredient in alchemical solutions"
+        ]
+    },
+    {
+        "id": 114,
+        "name": "Electrolytic Capacitor",
+        "description": "A small device storing electric charge.",
+        "uses": [
+            "Regulating energy flow in circuits",
+            "Repairing cybernetic implants",
+            "Bartering in tech markets"
+        ]
+    },
+    {
+        "id": 115,
+        "name": "Polished Amber",
+        "description": "Transparent golden resin encasing ancient matter.",
+        "uses": [
+            "Jewelry crafting",
+            "Magical focus in rituals",
+            "Trade with artisans"
+        ]
+    },
+    {
+        "id": 116,
+        "name": "Dried Tea Leaves",
+        "description": "Leafy plant material used for brewing tea.",
+        "uses": [
+            "Making hot beverages",
+            "Soothing the mind",
+            "Bartering with travelers"
+        ]
+    },
+    {
+        "id": 117,
+        "name": "Gravity Coil",
+        "description": "A futuristic device that manipulates local gravity fields.",
+        "uses": [
+            "Stabilizing hovercraft",
+            "Adjusting cargo weight",
+            "Bartering in advanced markets"
+        ]
+    },
+    {
+        "id": 118,
+        "name": "Rosemary Sprigs",
+        "description": "Aromatic herbs with a piney scent.",
+        "uses": [
+            "Seasoning roasted meats",
+            "Fragrant sachets",
+            "Trade with herb gatherers"
+        ]
+    },
+    {
+        "id": 119,
+        "name": "Silicon Chip",
+        "description": "A tiny electronic component etched with circuits.",
+        "uses": [
+            "Powering logic-based devices",
+            "Upgrading robotic assistants",
+            "Bartering with technomancers"
+        ]
+    },
+    {
+        "id": 120,
+        "name": "Terra Cotta Shard",
+        "description": "A piece of fired clay pottery.",
+        "uses": [
+            "Historical study",
+            "Reconstructing ancient vessels",
+            "Trade with archaeologists"
+        ]
+    },
+    {
+        "id": 121,
+        "name": "Ink Mushroom",
+        "description": "A fungus that exudes dark ink-like fluid.",
+        "uses": [
+            "Natural dye extraction",
+            "Marking secret messages",
+            "Bartering in underground markets"
+        ]
+    },
+    {
+        "id": 122,
+        "name": "Crystal Compass",
+        "description": "A magical navigation device that points to mystical ley lines.",
+        "uses": [
+            "Finding hidden magical loci",
+            "Guiding spellcasters on quests",
+            "Bartering with arcane explorers"
+        ]
+    },
+    {
+        "id": 123,
+        "name": "Meteoric Iron Chunk",
+        "description": "A piece of iron from a fallen meteor.",
+        "uses": [
+            "Crafting star-infused alloys",
+            "Historical study of cosmic materials",
+            "Bartering with celestial forgers"
+        ]
+    },
+    {
+        "id": 124,
+        "name": "Dried Peppers",
+        "description": "Spicy fruits preserved for long storage.",
+        "uses": [
+            "Flavoring stews and sauces",
+            "Trading with spice caravans",
+            "Bartering in culinary markets"
+        ]
+    },
+    {
+        "id": 125,
+        "name": "Abyssal Coral",
+        "description": "A deep-sea coral that glows faintly.",
+        "uses": [
+            "Decorative aquarium piece",
+            "Crafting magical underwater charms",
+            "Trade with deep-sea merchants"
+        ]
+    },
+    {
+        "id": 126,
+        "name": "Antique Timepiece",
+        "description": "A clock of intricate gears, long since unwound.",
+        "uses": [
+            "Historical artifact for collectors",
+            "Spare parts for steampunk devices",
+            "Bartering in vintage markets"
+        ]
+    },
+    {
+        "id": 127,
+        "name": "Canvas Sheet",
+        "description": "A sturdy woven cloth used as a painting surface.",
+        "uses": [
+            "Painting landscapes",
+            "Crafting sails",
+            "Trade with artists"
+        ]
+    },
+    {
+        "id": 128,
+        "name": "Chiseled Stone Block",
+        "description": "A carefully shaped block of stone.",
+        "uses": [
+            "Building temples or towers",
+            "Carving runic inscriptions",
+            "Trading with masons"
+        ]
+    },
+    {
+        "id": 129,
+        "name": "Medicinal Herbs",
+        "description": "A bundle of dried plants with healing properties.",
+        "uses": [
+            "Brewing healing teas",
+            "Creating herbal compresses",
+            "Bartering with apothecaries"
+        ]
+    },
+    {
+        "id": 130,
+        "name": "Pressed Algae Sheet",
+        "description": "Thin, dried sheets of algae resembling paper.",
+        "uses": [
+            "Making rudimentary maps",
+            "Wrapping small items",
+            "Trade in coastal settlements"
+        ]
+    },
+    {
+        "id": 131,
+        "name": "Neural Interface",
+        "description": "A cybernetic device linking mind to machine.",
+        "uses": [
+            "Controlling drones mentally",
+            "Enhancing cognitive tasks",
+            "Bartering in cybernetic enclaves"
+        ]
+    },
+    {
+        "id": 132,
+        "name": "Mithril Chain",
+        "description": "A delicate yet strong metal chain of silver-blue hue.",
+        "uses": [
+            "Fastening important gear",
+            "Decorating elaborate attire",
+            "Bartering with blacksmiths"
+        ]
+    },
+    {
+        "id": 133,
+        "name": "Dried Apricots",
+        "description": "Sweet, chewy preserved fruit.",
+        "uses": [
+            "Nutritious travel snack",
+            "Ingredient in baked treats",
+            "Bartering with farmers"
+        ]
+    },
+    {
+        "id": 134,
+        "name": "Bioluminescent Resin",
+        "description": "A glowing sap harvested from alien flora.",
+        "uses": [
+            "Natural source of soft light",
+            "Component in alien crafts",
+            "Bartering with xenobotanists"
+        ]
+    },
+    {
+        "id": 135,
+        "name": "Powdered Bone",
+        "description": "Finely ground bone dust.",
+        "uses": [
+            "Fertilizing crops",
+            "Crafting certain pigments",
+            "Trade with necromancers"
+        ]
+    },
+    {
+        "id": 136,
+        "name": "Rag Cloth",
+        "description": "A small piece of worn fabric.",
+        "uses": [
+            "Cleaning tools and surfaces",
+            "Bandaging minor injuries",
+            "Bartering with common folk"
+        ]
+    },
+    {
+        "id": 137,
+        "name": "Arcane Focus Crystal",
+        "description": "A prism that amplifies magical energies.",
+        "uses": [
+            "Boosting spell potency",
+            "Stabilizing magical constructs",
+            "Bartering with sorcerers"
+        ]
+    },
+    {
+        "id": 138,
+        "name": "Ceremonial Mask",
+        "description": "A handcrafted mask used in sacred rituals.",
+        "uses": [
+            "Performing cultural ceremonies",
+            "Artistic display in galleries",
+            "Trade with spiritual leaders"
+        ]
+    },
+    {
+        "id": 139,
+        "name": "Wheat Grain",
+        "description": "A small kernel of a staple crop.",
+        "uses": [
+            "Milling into flour",
+            "Brewing light ales",
+            "Bartering with farmers"
+        ]
+    },
+    {
+        "id": 140,
+        "name": "Sunstone Fragment",
+        "description": "A crystal that gleams under sunlight.",
+        "uses": [
+            "Focusing solar energy",
+            "Crafting light-based charms",
+            "Trade with desert nomads"
+        ]
+    },
+    {
+        "id": 141,
+        "name": "Silk Cocoon",
+        "description": "A protective casing spun by silkworms.",
+        "uses": [
+            "Harvesting silk threads",
+            "Studying insect life cycles",
+            "Trade with textile merchants"
+        ]
+    },
+    {
+        "id": 142,
+        "name": "Dried Sea Salt",
+        "description": "Crystalline salt harvested from evaporated seawater.",
+        "uses": [
+            "Preserving fish and meats",
+            "Seasoning dishes",
+            "Trade with inland settlements"
+        ]
+    },
+    {
+        "id": 143,
+        "name": "Aromatic Resin",
+        "description": "Solidified tree sap with a pleasant scent.",
+        "uses": [
+            "Incense for ceremonies",
+            "Resin-based glues",
+            "Bartering with herbalists"
+        ]
+    },
+    {
+        "id": 144,
+        "name": "Pressurized Steam Canister",
+        "description": "A metal container holding high-pressure steam.",
+        "uses": [
+            "Powering steampunk engines",
+            "Operating pneumatic doors",
+            "Trade with machinists"
+        ]
+    },
+    {
+        "id": 145,
+        "name": "Diving Suit",
+        "description": "A waterproof suit with reinforced joints.",
+        "uses": [
+            "Exploring underwater ruins",
+            "Protecting against deep-sea pressure",
+            "Bartering with maritime explorers"
+        ]
+    },
+    {
+        "id": 146,
+        "name": "Ambergris",
+        "description": "A rare waxy substance from ocean creatures.",
+        "uses": [
+            "Creating fine perfumes",
+            "Bartering in upscale markets",
+            "Ingredient in exotic elixirs"
+        ]
+    },
+    {
+        "id": 147,
+        "name": "Quantum Chip",
+        "description": "An advanced computational unit for quantum operations.",
+        "uses": [
+            "Enhancing AI intelligence",
+            "Running complex simulations",
+            "Bartering in ultra-tech cities"
+        ]
+    },
+    {
+        "id": 148,
+        "name": "Coconut Husk",
+        "description": "Fibrous outer shell of a tropical fruit.",
+        "uses": [
+            "Crafting rudimentary bowls",
+            "Fuel for simple fires",
+            "Trade in tropical markets"
+        ]
+    },
+    {
+        "id": 149,
+        "name": "Charcoal Stick",
+        "description": "Burned wood used for drawing and filtering.",
+        "uses": [
+            "Sketching rough maps",
+            "Purifying drinking water",
+            "Bartering with artists"
+        ]
+    },
+    {
+        "id": 150,
+        "name": "Hover Disk",
+        "description": "A levitating platform that defies gravity.",
+        "uses": [
+            "Transporting cargo easily",
+            "Crossing chasms",
+            "Trade in futuristic bazaars"
+        ]
+    },
+    {
+        "id": 151,
+        "name": "Dried Moss",
+        "description": "Soft, green plant material dried and preserved.",
+        "uses": [
+            "Cushioning fragile items",
+            "Insulating simple dwellings",
+            "Bartering in forest regions"
+        ]
+    },
+    {
+        "id": 152,
+        "name": "Exotic Spice Blend",
+        "description": "A fragrant mixture of rare spices.",
+        "uses": [
+            "Enhancing culinary dishes",
+            "Appeasing royal palates",
+            "Trading in bustling bazaars"
+        ]
+    },
+    {
+        "id": 153,
+        "name": "Beaded Necklace",
+        "description": "An ornament strung with colorful beads.",
+        "uses": [
+            "Fashion accessory",
+            "Cultural symbol in rituals",
+            "Bartering with villagers"
+        ]
+    },
+    {
+        "id": 154,
+        "name": "Porcelain Teacup",
+        "description": "A delicate cup with elegant patterns.",
+        "uses": [
+            "Serving refined beverages",
+            "Ornamenting noble gatherings",
+            "Trade with antique collectors"
+        ]
+    },
+    {
+        "id": 155,
+        "name": "Burlap Sack",
+        "description": "A coarse bag made from plant fibers.",
+        "uses": [
+            "Carrying grains or produce",
+            "Storing bulky items",
+            "Bartering with traders"
+        ]
+    },
+    {
+        "id": 156,
+        "name": "Snakeskin Strip",
+        "description": "A dried piece of reptilian hide.",
+        "uses": [
+            "Crafting exotic attire",
+            "Decorative trims on clothing",
+            "Trade with tailors"
+        ]
+    },
+    {
+        "id": 157,
+        "name": "Magnetic Tape Reel",
+        "description": "A spool of tape used for data storage.",
+        "uses": [
+            "Archiving knowledge in cyber-libraries",
+            "Recording machine instructions",
+            "Bartering with archivists"
+        ]
+    },
+    {
+        "id": 158,
+        "name": "Ginseng Root",
+        "description": "A medicinal root known for its energizing properties.",
+        "uses": [
+            "Brewing restorative teas",
+            "Herbal remedies",
+            "Trade with healers"
+        ]
+    },
+    {
+        "id": 159,
+        "name": "Alien Fruit Pod",
+        "description": "A strange, spiky fruit from an off-world plant.",
+        "uses": [
+            "Exotic food source",
+            "Fermenting into rare drinks",
+            "Bartering with alien traders"
+        ]
+    },
+    {
+        "id": 160,
+        "name": "Metal Rivets",
+        "description": "Small metal pins for fastening parts together.",
+        "uses": [
+            "Reinforcing mechanical joints",
+            "Building airship hulls",
+            "Bartering with engineers"
+        ]
+    },
+    {
+        "id": 161,
+        "name": "Pressed Flower Bookmark",
+        "description": "A dried flower pressed into a flat marker.",
+        "uses": [
+            "Marking pages in tomes",
+            "Sentimental gift",
+            "Trade with scholars"
+        ]
+    },
+    {
+        "id": 162,
+        "name": "Sugared Almonds",
+        "description": "Sweet nuts coated in a sugar shell.",
+        "uses": [
+            "Tasty travel snack",
+            "Wedding feast treats",
+            "Bartering with confectioners"
+        ]
+    },
+    {
+        "id": 163,
+        "name": "Clay Pipe",
+        "description": "A simple smoking instrument formed from clay.",
+        "uses": [
+            "Enjoying tobacco leaves",
+            "Bartering in rural pubs",
+            "Ceremonial smoke rituals"
+        ]
+    },
+    {
+        "id": 164,
+        "name": "Feather Duster",
+        "description": "A cleaning tool made from soft feathers.",
+        "uses": [
+            "Dusting shelves",
+            "Cleaning delicate artifacts",
+            "Bartering with innkeepers"
+        ]
+    },
+    {
+        "id": 165,
+        "name": "Magitech Battery",
+        "description": "A power cell blending arcane and electric energy.",
+        "uses": [
+            "Running magitech lanterns",
+            "Fueling advanced robotics",
+            "Bartering in arcanotech markets"
+        ]
+    },
+    {
+        "id": 166,
+        "name": "Graphite Stick",
+        "description": "A pure carbon rod used for writing and drawing.",
+        "uses": [
+            "Sketching blueprints",
+            "Marking cave walls",
+            "Bartering with artists"
+        ]
+    },
+    {
+        "id": 167,
+        "name": "Coral Beads",
+        "description": "Small beads carved from ocean coral.",
+        "uses": [
+            "Jewelry making",
+            "Decorative crafts",
+            "Trade with coastal artisans"
+        ]
+    },
+    {
+        "id": 168,
+        "name": "Incense Burner",
+        "description": "A decorated bowl for burning aromatic incense.",
+        "uses": [
+            "Purifying rooms",
+            "Enhancing meditations",
+            "Bartering with spiritualists"
+        ]
+    },
+    {
+        "id": 169,
+        "name": "Green Tea Leaves",
+        "description": "Fresh leaves with a mild, grassy flavor.",
+        "uses": [
+            "Brewing soothing tea",
+            "Base for herbal remedies",
+            "Bartering with tea merchants"
+        ]
+    },
+    {
+        "id": 170,
+        "name": "Carbon Fiber Cloth",
+        "description": "A lightweight, ultra-strong woven material.",
+        "uses": [
+            "Reinforcing vehicle parts",
+            "Crafting advanced gear",
+            "Trade in high-tech markets"
+        ]
+    },
+    {
+        "id": 171,
+        "name": "Sagebrush",
+        "description": "A woody plant with silvery leaves and pungent smell.",
+        "uses": [
+            "Making smudge sticks",
+            "Flavoring certain dishes",
+            "Bartering with herbalists"
+        ]
+    },
+    {
+        "id": 172,
+        "name": "Glow Ink Sac",
+        "description": "A luminescent fluid extracted from deep-sea creatures.",
+        "uses": [
+            "Creating glowing writings",
+            "Highlighting underwater maps",
+            "Bartering with oceanic traders"
+        ]
+    },
+    {
+        "id": 173,
+        "name": "Cactus Spine",
+        "description": "A stiff, sharp thorn from a desert cactus.",
+        "uses": [
+            "Primitive sewing needle",
+            "Decorating tribal crafts",
+            "Trading with desert nomads"
+        ]
+    },
+    {
+        "id": 174,
+        "name": "Peppermint Leaves",
+        "description": "Aromatic leaves with a cooling taste.",
+        "uses": [
+            "Flavoring confectioneries",
+            "Soothing herbal teas",
+            "Trade with apothecaries"
+        ]
+    },
+    {
+        "id": 175,
+        "name": "Holographic Paint",
+        "description": "A futuristic coating that shifts colors in light.",
+        "uses": [
+            "Decorating cybernetic armor (not a weapon)",
+            "Creating mesmerizing art pieces",
+            "Bartering with techno-artists"
+        ]
+    },
+    {
+        "id": 176,
+        "name": "Saddle Blanket",
+        "description": "A woolen mat placed beneath a riding saddle.",
+        "uses": [
+            "Comfort for mounts",
+            "Insulating seating",
+            "Trade with nomadic tribes"
+        ]
+    },
+    {
+        "id": 177,
+        "name": "Sulfur Crystals",
+        "description": "Yellow mineral chunks with a distinctive smell.",
+        "uses": [
+            "Component in basic chemicals",
+            "Curing certain hides",
+            "Bartering with alchemists"
+        ]
+    },
+    {
+        "id": 178,
+        "name": "Bamboo Shoot",
+        "description": "A tender, edible part of a young bamboo plant.",
+        "uses": [
+            "Ingredient in stir-fries",
+            "Building simple containers",
+            "Trade with eastern traders"
+        ]
+    },
+    {
+        "id": 179,
+        "name": "Glowing Moss",
+        "description": "Soft moss emitting a faint luminescent hue.",
+        "uses": [
+            "Subtle natural lighting",
+            "Component in bioluminescent gardens",
+            "Bartering with botanists"
+        ]
+    },
+    {
+        "id": 180,
+        "name": "Cured Meat Strips",
+        "description": "Preserved meat slices packed with protein.",
+        "uses": [
+            "Travel rations",
+            "Feeding exploration teams",
+            "Trade with wilderness hunters"
+        ]
+    },
+    {
+        "id": 181,
+        "name": "Enchanted Thread",
+        "description": "A thread imbued with a faint magical glow.",
+        "uses": [
+            "Stitching runic garments",
+            "Binding spell pages",
+            "Bartering with enchanters"
+        ]
+    },
+    {
+        "id": 182,
+        "name": "Obsidian Glass",
+        "description": "A smooth, black volcanic glass.",
+        "uses": [
+            "Decorative tiles",
+            "Crafting mirrors",
+            "Trade with stoneworkers"
+        ]
+    },
+    {
+        "id": 183,
+        "name": "Cybernetic Lens",
+        "description": "An artificial lens enhancing vision.",
+        "uses": [
+            "Improving optical implants",
+            "Analyzing microscopic details",
+            "Bartering in cybernetic districts"
+        ]
+    },
+    {
+        "id": 184,
+        "name": "Juniper Berries",
+        "description": "Small, dark berries with a spicy, piney flavor.",
+        "uses": [
+            "Flavoring certain liquors",
+            "Creating herbal remedies",
+            "Trade with herb gatherers"
+        ]
+    },
+    {
+        "id": 185,
+        "name": "Ornate Hairpin",
+        "description": "A decorative pin inlaid with gemstones.",
+        "uses": [
+            "Styling hair elegantly",
+            "Bartering in noble courts",
+            "Decorative gift for festivals"
+        ]
+    },
+    {
+        "id": 186,
+        "name": "Ivory Comb",
+        "description": "A finely carved comb from animal tusk.",
+        "uses": [
+            "Grooming hair",
+            "Collector’s item",
+            "Trade with wealthy patrons"
+        ]
+    },
+    {
+        "id": 187,
+        "name": "Magnetic Clamp",
+        "description": "A clamp that secures metal parts using magnetism.",
+        "uses": [
+            "Holding machinery in place",
+            "Aligning metal structures",
+            "Bartering with machinists"
+        ]
+    },
+    {
+        "id": 188,
+        "name": "Black Truffle",
+        "description": "A rare, earthy fungus prized in gourmet cooking.",
+        "uses": [
+            "Enhancing fine dishes",
+            "High-value trade item",
+            "Sought by culinary masters"
+        ]
+    },
+    {
+        "id": 189,
+        "name": "Runed Clay Bowl",
+        "description": "A bowl etched with runes that keep contents warm.",
+        "uses": [
+            "Serving hot meals",
+            "Storing magically influenced potions",
+            "Bartering with mages"
+        ]
+    },
+    {
+        "id": 190,
+        "name": "Titanium Rod",
+        "description": "A lightweight, durable metal rod.",
+        "uses": [
+            "Structural support in builds",
+            "Constructing advanced tools",
+            "Trade in industrial sectors"
+        ]
+    },
+    {
+        "id": 191,
+        "name": "Aloe Leaves",
+        "description": "Succulent leaves with soothing gel inside.",
+        "uses": [
+            "Treating burns and cuts",
+            "Skincare remedies",
+            "Bartering with healers"
+        ]
+    },
+    {
+        "id": 192,
+        "name": "Bioplastic Sheet",
+        "description": "A flexible sheet made from organic polymers.",
+        "uses": [
+            "Crafting eco-friendly containers",
+            "Lining hydroponic modules",
+            "Trade in green-tech markets"
+        ]
+    },
+    {
+        "id": 193,
+        "name": "Pollen Satchel",
+        "description": "A small pouch containing collected pollen.",
+        "uses": [
+            "Cross-pollinating gardens",
+            "Ingredient in perfumes",
+            "Bartering with apiarists"
+        ]
+    },
+    {
+        "id": 194,
+        "name": "Glowing Coral Dust",
+        "description": "Powdered coral that shimmers in the dark.",
+        "uses": [
+            "Illuminating potions",
+            "Decorative body paint",
+            "Trade in mystic markets"
+        ]
+    },
+    {
+        "id": 195,
+        "name": "Reed Flute",
+        "description": "A simple wind instrument fashioned from reeds.",
+        "uses": [
+            "Playing gentle melodies",
+            "Cultural folk music",
+            "Bartering with traveling minstrels"
+        ]
+    },
+    {
+        "id": 196,
+        "name": "Coconut Fiber",
+        "description": "Coarse fibers from coconut husks.",
+        "uses": [
+            "Weaving sturdy mats",
+            "Crafting rope",
+            "Trade with tropical dwellers"
+        ]
+    },
+    {
+        "id": 197,
+        "name": "Solar Panel Shard",
+        "description": "A fragment of photovoltaic material.",
+        "uses": [
+            "Generating small amounts of power",
+            "Repairing solar-powered devices",
+            "Bartering with eco-tech engineers"
+        ]
+    },
+    {
+        "id": 198,
+        "name": "Starflower Petals",
+        "description": "Pale-blue petals that bloom under starlight.",
+        "uses": [
+            "Decorating moonlit rituals",
+            "Brewing calming teas",
+            "Bartering with night-herbalists"
+        ]
+    },
+    {
+        "id": 199,
+        "name": "Chitin Plates",
+        "description": "Hard plates from insect-like creatures.",
+        "uses": [
+            "Crafting protective wear",
+            "Reinforcing simple shields (not a weapon)",
+            "Trade with entomologists"
+        ]
+    },
+    {
+        "id": 200,
+        "name": "Astral Seed",
+        "description": "A seed that can only germinate under a certain constellation.",
+        "uses": [
+            "Growing rare celestial plants",
+            "Ritual offerings",
+            "Bartering with star druids"
+        ]
+    },
+    {
+        "id": 201,
+        "name": "Fungal Leather",
+        "description": "A flexible material grown from mushroom mycelium.",
+        "uses": [
+            "Crafting eco-friendly clothing",
+            "Lightweight upholstery",
+            "Bartering in green-tech communities"
+        ]
+    },
+    {
+        "id": 202,
+        "name": "Ornamental Fan",
+        "description": "A folding fan decorated with intricate patterns.",
+        "uses": [
+            "Cooling oneself in warm climates",
+            "Performing graceful dances",
+            "Bartering with traveling entertainers"
+        ]
+    },
+    {
+        "id": 203,
+        "name": "Bioluminescent Oil",
+        "description": "A glowing oil distilled from rare marine organisms.",
+        "uses": [
+            "Fueling soft-glowing lanterns",
+            "Highlighting hidden inscriptions",
+            "Trade with deep-sea merchants"
+        ]
+    },
+    {
+        "id": 204,
+        "name": "Electro Vine",
+        "description": "A rare plant that conducts mild electric currents.",
+        "uses": [
+            "Powering small bio-devices",
+            "Crafting organic wiring",
+            "Bartering with bio-engineers"
+        ]
+    },
+    {
+        "id": 205,
+        "name": "Cranberry Tonic",
+        "description": "A tart, red beverage with health-boosting properties.",
+        "uses": [
+            "Restoring minor stamina",
+            "Mixing into festive drinks",
+            "Bartering with innkeepers"
+        ]
+    },
+    {
+        "id": 206,
+        "name": "Asteroid Debris",
+        "description": "Fragments of rock and metal from deep space.",
+        "uses": [
+            "Smelting into rare alloys",
+            "Studying cosmic composition",
+            "Bartering with starship forgers"
+        ]
+    },
+    {
+        "id": 207,
+        "name": "Ivory Dice",
+        "description": "A pair of dice carved from pale tusk, etched with symbols.",
+        "uses": [
+            "Gambling in taverns",
+            "Fortune-telling rituals",
+            "Bartering with collectors"
+        ]
+    },
+    {
+        "id": 208,
+        "name": "Feywing Leaves",
+        "description": "Glittering leaves said to come from mystical forests.",
+        "uses": [
+            "Brewing fae-inspired teas",
+            "Forming fairy-tale charms",
+            "Bartering with druidic circles"
+        ]
+    },
+    {
+        "id": 209,
+        "name": "Bio-Ceramic Plate",
+        "description": "A synthetic plate grown from organic minerals.",
+        "uses": [
+            "Serving sterile meals",
+            "Crafting advanced lab equipment",
+            "Trading in biotech sectors"
+        ]
+    },
+    {
+        "id": 210,
+        "name": "Stone Amulet",
+        "description": "A simple carved stone on a cord, often worn for luck.",
+        "uses": [
+            "Ward off minor misfortunes",
+            "Focal point in low-tier rituals",
+            "Bartering in rural markets"
+        ]
+    },
+    {
+        "id": 211,
+        "name": "Vacuum-Sealed Beans",
+        "description": "Roasted coffee beans preserved in a vacuum pouch.",
+        "uses": [
+            "Brewing invigorating coffee",
+            "Trading with caffeine-loving travelers",
+            "Stocking long space voyages"
+        ]
+    },
+    {
+        "id": 212,
+        "name": "Alien Feather",
+        "description": "A strange, translucent plume from an off-world avian.",
+        "uses": [
+            "Decorative quills for scribes",
+            "Ingredients in xenobiotic potions",
+            "Bartering in alien bazaars"
+        ]
+    },
+    {
+        "id": 213,
+        "name": "Silk Veil",
+        "description": "A delicate, translucent fabric worn over the face.",
+        "uses": [
+            "Cultural attire in grand ceremonies",
+            "Filtering dust in dry climates",
+            "Bartering with fashion merchants"
+        ]
+    },
+    {
+        "id": 214,
+        "name": "Compressed Air Cartridge",
+        "description": "A small canister holding pressurized air.",
+        "uses": [
+            "Inflating hover-sled bags",
+            "Cleaning delicate machinery",
+            "Trade with airship mechanics"
+        ]
+    },
+    {
+        "id": 215,
+        "name": "Lunar Sugar",
+        "description": "A sparkling sweetener processed under moonlight.",
+        "uses": [
+            "Enhancing desserts’ flavors",
+            "Ritual offerings during eclipses",
+            "Bartering with pastry chefs"
+        ]
+    },
+    {
+        "id": 216,
+        "name": "Living Moss Carpet",
+        "description": "A patch of soft moss that remains alive indoors.",
+        "uses": [
+            "Natural flooring in eco-homes",
+            "Purifying indoor air",
+            "Trade with environmentalists"
+        ]
+    },
+    {
+        "id": 217,
+        "name": "Etched Glass Orb",
+        "description": "A hollow sphere engraved with intricate scenes.",
+        "uses": [
+            "Decorating shelves and halls",
+            "Focusing minor light spells",
+            "Bartering with artisans"
+        ]
+    },
+    {
+        "id": 218,
+        "name": "Alien Nori Sheet",
+        "description": "Dried, edible seaweed from an extraterrestrial ocean.",
+        "uses": [
+            "Wrapping exotic meals",
+            "Nutrient supplement for travelers",
+            "Bartering with cosmic gourmets"
+        ]
+    },
+    {
+        "id": 219,
+        "name": "Thorny Vine Fibers",
+        "description": "Rough fibers extracted from a prickly vine.",
+        "uses": [
+            "Weaving robust ropes",
+            "Crafting sturdy baskets",
+            "Trading with frontier settlers"
+        ]
+    },
+    {
+        "id": 220,
+        "name": "Quantum Lens",
+        "description": "A lens that shifts focus between dimensions.",
+        "uses": [
+            "Observing hidden spectrums",
+            "Enhancing research instruments",
+            "Bartering with dimension-walkers"
+        ]
+    },
+    {
+        "id": 221,
+        "name": "Dried Mint Leaves",
+        "description": "Aromatic leaves with a refreshing scent.",
+        "uses": [
+            "Brewing soothing teas",
+            "Freshening living spaces",
+            "Trading with herbalists"
+        ]
+    },
+    {
+        "id": 222,
+        "name": "Copper Tubing",
+        "description": "Hollow metal pipes used in various contraptions.",
+        "uses": [
+            "Channeling steam or fluids",
+            "Forming mechanical conduits",
+            "Bartering with engineers"
+        ]
+    },
+    {
+        "id": 223,
+        "name": "Ancient Coin",
+        "description": "A weathered coin from a lost civilization.",
+        "uses": [
+            "Collecting as an antique",
+            "Clue in historical quests",
+            "Bartering with historians"
+        ]
+    },
+    {
+        "id": 224,
+        "name": "Fiber Optic Strand",
+        "description": "A thin filament transmitting light-based data.",
+        "uses": [
+            "High-speed data transfer",
+            "Upgrading cybernetic interfaces",
+            "Trade in ultra-tech hubs"
+        ]
+    },
+    {
+        "id": 225,
+        "name": "Mushroom Spore Packet",
+        "description": "Tiny spores sealed in a pouch, ready for cultivation.",
+        "uses": [
+            "Growing edible fungi",
+            "Biological research",
+            "Bartering with farmers"
+        ]
+    },
+    {
+        "id": 226,
+        "name": "Runic Chalkboard",
+        "description": "A smooth slate that retains magical markings longer.",
+        "uses": [
+            "Teaching arcane lessons",
+            "Planning spell formulas",
+            "Trade with spell tutors"
+        ]
+    },
+    {
+        "id": 227,
+        "name": "Ancestral Totem",
+        "description": "A carved wooden figure connecting to ancestral spirits.",
+        "uses": [
+            "Invoking familial guidance",
+            "Decorating tribal shrines",
+            "Bartering with spiritual clans"
+        ]
+    },
+    {
+        "id": 228,
+        "name": "Biotech Patch",
+        "description": "A regenerative adhesive bandage infused with nanites.",
+        "uses": [
+            "Accelerating wound healing",
+            "Stabilizing injured travelers",
+            "Trade in medical districts"
+        ]
+    },
+    {
+        "id": 229,
+        "name": "Honeyed Dates",
+        "description": "Sweet, sticky fruits preserved in honey.",
+        "uses": [
+            "High-energy trail snacks",
+            "Ingredient in sweet sauces",
+            "Bartering with desert traders"
+        ]
+    },
+    {
+        "id": 230,
+        "name": "Glass Mosaic Tile",
+        "description": "A colorful piece of glass used in detailed mosaics.",
+        "uses": [
+            "Creating beautiful murals",
+            "Decorating upscale architecture",
+            "Trade with artisans"
+        ]
+    },
+    {
+        "id": 231,
+        "name": "Scented Candles",
+        "description": "Wax candles infused with calming fragrances.",
+        "uses": [
+            "Relaxation therapy",
+            "Improving indoor ambience",
+            "Bartering with innkeepers"
+        ]
+    },
+    {
+        "id": 232,
+        "name": "Alien Grain",
+        "description": "Small, luminescent kernels from an extraterrestrial crop.",
+        "uses": [
+            "Baking off-world bread",
+            "Studying alien agriculture",
+            "Bartering in cosmic markets"
+        ]
+    },
+    {
+        "id": 233,
+        "name": "Magnetic Compass Chip",
+        "description": "A tiny chip that always aligns to true north.",
+        "uses": [
+            "Navigating digital maps",
+            "Stabilizing robotic scouts",
+            "Trade in cyber-travel equipment"
+        ]
+    },
+    {
+        "id": 234,
+        "name": "Dew Leaf",
+        "description": "A leaf that naturally collects and purifies morning dew.",
+        "uses": [
+            "Providing fresh drinking water",
+            "Moisturizing cosmetic creams",
+            "Bartering with herbalists"
+        ]
+    },
+    {
+        "id": 235,
+        "name": "Ceramic Shard",
+        "description": "A fragment from a broken pottery piece.",
+        "uses": [
+            "Mosaic art material",
+            "Studying pottery techniques",
+            "Trade with crafters"
+        ]
+    },
+    {
+        "id": 236,
+        "name": "Aurora Dust",
+        "description": "A fine powder collected from polar auroras.",
+        "uses": [
+            "Enhancing illusion spells",
+            "Creating ethereal pigments",
+            "Bartering with arctic traders"
+        ]
+    },
+    {
+        "id": 237,
+        "name": "Synth-Fiber Blanket",
+        "description": "A lightweight blanket made from synthetic threads.",
+        "uses": [
+            "Insulating sleeping quarters",
+            "Protecting fragile goods",
+            "Trade in futuristic colonies"
+        ]
+    },
+    {
+        "id": 238,
+        "name": "Crystalized Honey",
+        "description": "Amber-colored honey hardened into sugar-like crystals.",
+        "uses": [
+            "Sweetening teas",
+            "Long-term food storage",
+            "Bartering with merchants"
+        ]
+    },
+    {
+        "id": 239,
+        "name": "Lamellar Scales",
+        "description": "Flat, interlocking plates from a large creature.",
+        "uses": [
+            "Crafting segmented armor (not a weapon)",
+            "Decorative home accents",
+            "Bartering with craftsmen"
+        ]
+    },
+    {
+        "id": 240,
+        "name": "Runic Stencil",
+        "description": "A thin sheet carved with magical symbols.",
+        "uses": [
+            "Applying runes to equipment",
+            "Marking ritual circles",
+            "Trade with enchanters"
+        ]
+    },
+    {
+        "id": 241,
+        "name": "Solar Infuser",
+        "description": "A small device that concentrates sunlight into energy.",
+        "uses": [
+            "Powering portable devices",
+            "Charging solar crystals",
+            "Bartering in advanced markets"
+        ]
+    },
+    {
+        "id": 242,
+        "name": "Molded Plastic Frame",
+        "description": "A lightweight frame commonly used in construction.",
+        "uses": [
+            "Building portable shelters",
+            "Creating makeshift containers",
+            "Trade with engineers"
+        ]
+    },
+    {
+        "id": 243,
+        "name": "Xeno Jelly",
+        "description": "A vibrant, gelatinous substance from alien flora.",
+        "uses": [
+            "Exotic dessert topping",
+            "Nutrient-rich supplement",
+            "Bartering with alien food vendors"
+        ]
+    },
+    {
+        "id": 244,
+        "name": "Silk Sash",
+        "description": "A soft strip of woven silk, dyed in vibrant hues.",
+        "uses": [
+            "Tying garments",
+            "Decorative accessory",
+            "Trade with tailors"
+        ]
+    },
+    {
+        "id": 245,
+        "name": "Encrypted Data Cube",
+        "description": "A compact cube storing secure information.",
+        "uses": [
+            "Storing secret records",
+            "Exchanging confidential intel",
+            "Bartering in hacker dens"
+        ]
+    },
+    {
+        "id": 246,
+        "name": "Thorn Extract",
+        "description": "A potent fluid distilled from poisonous thorns.",
+        "uses": [
+            "Creating antidotes",
+            "Infusing certain medical salves",
+            "Trade with herbal apothecaries"
+        ]
+    },
+    {
+        "id": 247,
+        "name": "Magnetic Sand",
+        "description": "Dark, glittering grains that react to magnetism.",
+        "uses": [
+            "Filling hourglasses with unique patterns",
+            "Demonstrating magnetic fields",
+            "Bartering with scientists"
+        ]
+    },
+    {
+        "id": 248,
+        "name": "Dried Cranberries",
+        "description": "Tart red berries preserved for long journeys.",
+        "uses": [
+            "Flavorful trail snack",
+            "Ingredient in baked goods",
+            "Trade with travelers"
+        ]
+    },
+    {
+        "id": 249,
+        "name": "Ceramic Filter",
+        "description": "A porous ceramic disk used to purify liquids.",
+        "uses": [
+            "Filtering drinking water",
+            "Clarifying experimental fluids",
+            "Bartering in survival camps"
+        ]
+    },
+    {
+        "id": 250,
+        "name": "Runed Candle",
+        "description": "A wax candle inscribed with subtle magical glyphs.",
+        "uses": [
+            "Enhancing focus in rituals",
+            "Providing stable magical light",
+            "Trade with sorcerers"
+        ]
+    },
+    {
+        "id": 251,
+        "name": "Bamboo Mat",
+        "description": "A flat surface woven from bamboo strips.",
+        "uses": [
+            "Sleeping on rough ground",
+            "Picnic surface",
+            "Bartering in eastern villages"
+        ]
+    },
+    {
+        "id": 252,
+        "name": "Xenon Capsule",
+        "description": "A sealed tube filled with the noble gas xenon.",
+        "uses": [
+            "Illuminating neon-like signs",
+            "High-tech lab experiments",
+            "Trade with advanced engineers"
+        ]
+    },
+    {
+        "id": 253,
+        "name": "Frost Lotus",
+        "description": "A rare flower blooming in icy climates.",
+        "uses": [
+            "Brewing chilling teas",
+            "Ingredient in frost-based spells",
+            "Bartering with ice mages"
+        ]
+    },
+    {
+        "id": 254,
+        "name": "Pressed Linen",
+        "description": "A neatly folded piece of fine linen cloth.",
+        "uses": [
+            "Tailoring clothing",
+            "Wrapping fragile items",
+            "Trade with cloth merchants"
+        ]
+    },
+    {
+        "id": 255,
+        "name": "Magical Primer",
+        "description": "A small handbook introducing basic spell theory.",
+        "uses": [
+            "Educating novice wizards",
+            "Referencing simple incantations",
+            "Bartering with apprentice mages"
+        ]
+    },
+    {
+        "id": 256,
+        "name": "Beekeeper’s Hood",
+        "description": "A protective hood with mesh to keep insects out.",
+        "uses": [
+            "Harvesting honey safely",
+            "Exploring bug-filled forests",
+            "Bartering with apiarists"
+        ]
+    },
+    {
+        "id": 257,
+        "name": "Alien Algae",
+        "description": "Stringy green organisms from a distant planet’s water.",
+        "uses": [
+            "Creating nutrient pastes",
+            "Studying alien ecosystems",
+            "Trade with xenobiologists"
+        ]
+    },
+    {
+        "id": 258,
+        "name": "Laser Etched Crystal",
+        "description": "A crystal engraved with precise, laser-cut patterns.",
+        "uses": [
+            "Focusing beam-based devices",
+            "Decorating advanced apparatus",
+            "Bartering in hi-tech markets"
+        ]
+    },
+    {
+        "id": 259,
+        "name": "Ritual Bowl",
+        "description": "A shallow dish carved with occult symbols.",
+        "uses": [
+            "Holding offerings",
+            "Collecting alchemical reagents",
+            "Trade with mystics"
+        ]
+    },
+    {
+        "id": 260,
+        "name": "Dried Citrus Peel",
+        "description": "Sun-dried rind of oranges or lemons.",
+        "uses": [
+            "Flavoring teas and dishes",
+            "Repelling certain insects",
+            "Bartering with cooks"
+        ]
+    },
+    {
+        "id": 261,
+        "name": "Elastic Band",
+        "description": "A stretchable band used to hold objects together.",
+        "uses": [
+            "Bundling items",
+            "Crafting simple slings (not weapons, just carriers)",
+            "Bartering with merchants"
+        ]
+    },
+    {
+        "id": 262,
+        "name": "Glacial Shard",
+        "description": "A piece of perpetually cold ice crystal.",
+        "uses": [
+            "Cooling perishable goods",
+            "Elemental focus in frost magic",
+            "Bartering in icy regions"
+        ]
+    },
+    {
+        "id": 263,
+        "name": "Hemp Oil",
+        "description": "A versatile oil pressed from hemp seeds.",
+        "uses": [
+            "Cooking ingredient",
+            "Lubricating simple tools",
+            "Trade with farmers"
+        ]
+    },
+    {
+        "id": 264,
+        "name": "Encrypted Scroll",
+        "description": "A parchment bearing encrypted magical text.",
+        "uses": [
+            "Solving puzzle quests",
+            "Translating secret spells",
+            "Bartering with code-breakers"
+        ]
+    },
+    {
+        "id": 265,
+        "name": "Feathered Cloak",
+        "description": "A cloak adorned with layers of colorful feathers.",
+        "uses": [
+            "Warm clothing",
+            "Ceremonial attire",
+            "Trade with tribal leaders"
+        ]
+    },
+    {
+        "id": 266,
+        "name": "Glowberry Jam",
+        "description": "A sweet preserve made from luminescent berries.",
+        "uses": [
+            "Spreading on bread",
+            "Subtle illumination in darkness",
+            "Bartering with gourmet chefs"
+        ]
+    },
+    {
+        "id": 267,
+        "name": "Clay Tablet",
+        "description": "A baked slab of clay used for early writing.",
+        "uses": [
+            "Recording simple messages",
+            "Studying ancient languages",
+            "Bartering with archaeologists"
+        ]
+    },
+    {
+        "id": 268,
+        "name": "Synthetic Feather",
+        "description": "An artificial feather engineered for durability.",
+        "uses": [
+            "Eco-friendly quills",
+            "Lightweight insulation",
+            "Trade with artisans"
+        ]
+    },
+    {
+        "id": 269,
+        "name": "Jade Figurine",
+        "description": "A small carving of jade, often depicting mythical beasts.",
+        "uses": [
+            "Decoration in noble homes",
+            "Focus in certain rituals",
+            "Bartering in gem markets"
+        ]
+    },
+    {
+        "id": 270,
+        "name": "Smoked Fish",
+        "description": "Preserved fish with a rich, smoky flavor.",
+        "uses": [
+            "Nutritious travel rations",
+            "Ingredient in hearty stews",
+            "Trade with coastal towns"
+        ]
+    },
+    {
+        "id": 271,
+        "name": "Quantum Regulator",
+        "description": "A device stabilizing quantum-level fluctuations.",
+        "uses": [
+            "Ensuring stable teleportation",
+            "Refining particle research",
+            "Bartering in advanced tech hubs"
+        ]
+    },
+    {
+        "id": 272,
+        "name": "Lotus Incense",
+        "description": "Incense sticks crafted from lotus petals.",
+        "uses": [
+            "Aiding meditation",
+            "Purifying ceremonial spaces",
+            "Bartering in spiritual enclaves"
+        ]
+    },
+    {
+        "id": 273,
+        "name": "Conductive Resin",
+        "description": "Tree sap that conducts small electrical currents.",
+        "uses": [
+            "Sealing circuit boards",
+            "Crafting organic electronics",
+            "Trade with techno-druids"
+        ]
+    },
+    {
+        "id": 274,
+        "name": "Linen Wrap",
+        "description": "A strip of linen cloth used for various bindings.",
+        "uses": [
+            "Bandaging wounds",
+            "Wrapping fragile relics",
+            "Bartering in medical caravans"
+        ]
+    },
+    {
+        "id": 275,
+        "name": "Alien Clay",
+        "description": "Malleable soil from an off-world environment.",
+        "uses": [
+            "Sculpting exotic pottery",
+            "Studying alien soil chemistry",
+            "Bartering in xenocraft markets"
+        ]
+    },
+    {
+        "id": 276,
+        "name": "Scriber's Stylus",
+        "description": "A pointed tool made of bone or metal for writing on clay.",
+        "uses": [
+            "Marking wet tablets",
+            "Engraving soft materials",
+            "Bartering with scribes"
+        ]
+    },
+    {
+        "id": 277,
+        "name": "Brass Trinket",
+        "description": "A small item of brass, polished and engraved.",
+        "uses": [
+            "Decorative keepsake",
+            "Good-luck charm",
+            "Trade in market stalls"
+        ]
+    },
+    {
+        "id": 278,
+        "name": "Freeze-Dried Fruits",
+        "description": "Fruits dehydrated to preserve flavor and nutrients.",
+        "uses": [
+            "Lightweight travel snacks",
+            "Ingredient in trail mixes",
+            "Bartering with explorers"
+        ]
+    },
+    {
+        "id": 279,
+        "name": "Kelp Fiber Rope",
+        "description": "A rope woven from durable kelp strands.",
+        "uses": [
+            "Maritime rigging",
+            "Binding underwater cargo",
+            "Trade with seafaring traders"
+        ]
+    },
+    {
+        "id": 280,
+        "name": "Glass Bead",
+        "description": "A small bead made from molten glass.",
+        "uses": [
+            "Stringing decorative jewelry",
+            "Currency in remote villages",
+            "Bartering with artisans"
+        ]
+    },
+    {
+        "id": 281,
+        "name": "Polished Granite",
+        "description": "A smooth, reflective stone slab.",
+        "uses": [
+            "Flooring in grand halls",
+            "Sculpting robust statues",
+            "Trade with stoneworkers"
+        ]
+    },
+    {
+        "id": 282,
+        "name": "Antimicrobial Wipes",
+        "description": "Modern wipes that kill bacteria and viruses.",
+        "uses": [
+            "Sanitizing equipment",
+            "Cleaning wounds",
+            "Bartering in medical outposts"
+        ]
+    },
+    {
+        "id": 283,
+        "name": "Hollow Reed",
+        "description": "A simple hollow plant stem.",
+        "uses": [
+            "Primitive straw",
+            "Musical instrument component",
+            "Trade with rural settlements"
+        ]
+    },
+    {
+        "id": 284,
+        "name": "Glowing Moss Spores",
+        "description": "Spore clusters from luminescent moss.",
+        "uses": [
+            "Seeding bioluminescent gardens",
+            "Ingredient in luminous potions",
+            "Bartering with horticulturists"
+        ]
+    },
+    {
+        "id": 285,
+        "name": "Silken Robe",
+        "description": "A luxurious garment made from fine silk.",
+        "uses": [
+            "Formal attire in courts",
+            "Comfortable lounge wear",
+            "Trade with nobility"
+        ]
+    },
+    {
+        "id": 286,
+        "name": "Circuit Board",
+        "description": "A thin board etched with electronic pathways.",
+        "uses": [
+            "Repairing cybernetic devices",
+            "Upgrading mechanical companions",
+            "Bartering in tech markets"
+        ]
+    },
+    {
+        "id": 287,
+        "name": "Rose Petals",
+        "description": "Soft, fragrant petals from a rose flower.",
+        "uses": [
+            "Brewing scented teas",
+            "Decorating ceremonies",
+            "Trading with perfumers"
+        ]
+    },
+    {
+        "id": 288,
+        "name": "Alien Moss Mat",
+        "description": "A patch of moss from an extraterrestrial forest.",
+        "uses": [
+            "Soft bedding material",
+            "Filtering alien toxins",
+            "Bartering with xenobotanists"
+        ]
+    },
+    {
+        "id": 289,
+        "name": "Encrypted Hologram",
+        "description": "A holographic recording that requires a decryption key.",
+        "uses": [
+            "Transmitting secret messages",
+            "Clue in cybernetic mysteries",
+            "Bartering in hacker markets"
+        ]
+    },
+    {
+        "id": 290,
+        "name": "Barley Grains",
+        "description": "A hardy cereal grain grown in various climates.",
+        "uses": [
+            "Brewing ales",
+            "Making bread",
+            "Trade with farmers"
+        ]
+    },
+    {
+        "id": 291,
+        "name": "Porous Stone",
+        "description": "A rock riddled with tiny holes.",
+        "uses": [
+            "Filtering water",
+            "Decorative garden element",
+            "Bartering with masons"
+        ]
+    },
+    {
+        "id": 292,
+        "name": "Incense Cones",
+        "description": "Cone-shaped incense that release aromatic smoke.",
+        "uses": [
+            "Calming rituals",
+            "Masking unpleasant odors",
+            "Trade with spiritual seekers"
+        ]
+    },
+    {
+        "id": 293,
+        "name": "Cinnamon Sugar",
+        "description": "A sweet mix of sugar and ground cinnamon.",
+        "uses": [
+            "Topping pastries",
+            "Flavoring hot drinks",
+            "Bartering with bakers"
+        ]
+    },
+    {
+        "id": 294,
+        "name": "Driftwood Plank",
+        "description": "A worn piece of wood washed ashore.",
+        "uses": [
+            "Crafting rustic furniture",
+            "Fuel for campfires",
+            "Trade with seaside artisans"
+        ]
+    },
+    {
+        "id": 295,
+        "name": "Cybernetic Joint",
+        "description": "A mechanical joint for synthetic limbs.",
+        "uses": [
+            "Repairing prosthetics",
+            "Building robotic helpers",
+            "Bartering in cybernetic clinics"
+        ]
+    },
+    {
+        "id": 296,
+        "name": "Berry Wine",
+        "description": "A fruity alcoholic beverage fermented from berries.",
+        "uses": [
+            "Enjoying at feasts",
+            "Ingredient in gourmet sauces",
+            "Bartering with innkeepers"
+        ]
+    },
+    {
+        "id": 297,
+        "name": "Green Jade Powder",
+        "description": "Finely ground jade used as a pigment.",
+        "uses": [
+            "Coloring ceramics",
+            "Crafting mystical inks",
+            "Trade with artisans"
+        ]
+    },
+    {
+        "id": 298,
+        "name": "Adamantine Filings",
+        "description": "Microscopic shavings of a nearly unbreakable metal.",
+        "uses": [
+            "Reinforcing delicate constructs",
+            "Component in advanced alloys",
+            "Bartering with master smiths"
+        ]
+    },
+    {
+        "id": 299,
+        "name": "Dried Mango Slices",
+        "description": "Sweet tropical fruit preserved for travel.",
+        "uses": [
+            "Nutritious snack",
+            "Adding sweetness to dishes",
+            "Trade with travelers"
+        ]
+    },
+    {
+        "id": 300,
+        "name": "Bio-Filter Mask",
+        "description": "A mask that filters toxins using organic membranes.",
+        "uses": [
+            "Breathing in polluted zones",
+            "Exploring alien jungles",
+            "Bartering with med-tech vendors"
+        ]
+    },
+    {
+        "id": 301,
+        "name": "Rose Quartz Crystal",
+        "description": "A pinkish gemstone associated with gentle energy.",
+        "uses": [
+            "Crafting jewelry",
+            "Focus in healing rituals",
+            "Trade with gem dealers"
+        ]
+    },
+    {
+        "id": 302,
+        "name": "Compressed Nutrient Brick",
+        "description": "A dense block of essential nutrients.",
+        "uses": [
+            "Survival ration",
+            "Emergency food supply",
+            "Bartering with explorers"
+        ]
+    },
+    {
+        "id": 303,
+        "name": "Cured Olive",
+        "description": "A salty, brined olive preserved for flavor.",
+        "uses": [
+            "Garnishing dishes",
+            "Mediterranean ingredient",
+            "Trade with food merchants"
+        ]
+    },
+    {
+        "id": 304,
+        "name": "Clay Roof Tile",
+        "description": "A baked clay tile used for roofing.",
+        "uses": [
+            "Constructing sturdy roofs",
+            "Decorative garden accents",
+            "Bartering with builders"
+        ]
+    },
+    {
+        "id": 305,
+        "name": "Refined Silicon",
+        "description": "Purified silicon for electronics.",
+        "uses": [
+            "Crafting microchips",
+            "Upgrading cyber systems",
+            "Trade with tech artisans"
+        ]
+    },
+    {
+        "id": 306,
+        "name": "Pressed Apple Cider",
+        "description": "A tangy drink made from crushed apples.",
+        "uses": [
+            "Refreshing beverage",
+            "Base for warm spiced drinks",
+            "Bartering with orchard farmers"
+        ]
+    },
+    {
+        "id": 307,
+        "name": "Steel Spring",
+        "description": "A spring that provides tension and recoil.",
+        "uses": [
+            "Mechanisms in gadgets",
+            "Clockwork automaton parts",
+            "Trade with tinkers"
+        ]
+    },
+    {
+        "id": 308,
+        "name": "Healing Herb Poultice",
+        "description": "A mix of crushed leaves and roots bandaged together.",
+        "uses": [
+            "Soothing inflammations",
+            "Speeding natural recovery",
+            "Bartering with healers"
+        ]
+    },
+    {
+        "id": 309,
+        "name": "Quantum Algorithm Chip",
+        "description": "A chip that runs quantum-based calculations.",
+        "uses": [
+            "Enhancing AI reasoning",
+            "Solving complex equations",
+            "Trade in advanced labs"
+        ]
+    },
+    {
+        "id": 310,
+        "name": "Maple Syrup",
+        "description": "A sweet, sticky syrup tapped from maple trees.",
+        "uses": [
+            "Sweetening pancakes",
+            "Flavoring baked goods",
+            "Bartering in forest villages"
+        ]
+    },
+    {
+        "id": 311,
+        "name": "Iridescent Feather",
+        "description": "A feather that shimmers with multiple colors.",
+        "uses": [
+            "Decorating fine garments",
+            "Focus for minor illusions",
+            "Trade with collectors"
+        ]
+    },
+    {
+        "id": 312,
+        "name": "Shimmering Sea Glass",
+        "description": "Smoothed glass fragments collected from shores.",
+        "uses": [
+            "Crafting jewelry",
+            "Decorating aquariums",
+            "Bartering in coastal towns"
+        ]
+    },
+    {
+        "id": 313,
+        "name": "Petrified Wood",
+        "description": "Ancient wood turned to stone over eons.",
+        "uses": [
+            "Decorative sculptures",
+            "Studying ancient forests",
+            "Trade with historians"
+        ]
+    },
+    {
+        "id": 314,
+        "name": "Droid Lubricant",
+        "description": "A synthetic oil to maintain robotic joints.",
+        "uses": [
+            "Smoothing mechanical movements",
+            "Extending droid lifespans",
+            "Bartering with mech operators"
+        ]
+    },
+    {
+        "id": 315,
+        "name": "Safflower Petals",
+        "description": "Bright orange-red petals used as a dye.",
+        "uses": [
+            "Coloring textiles",
+            "Brewing herbal teas",
+            "Trade with dyers"
+        ]
+    },
+    {
+        "id": 316,
+        "name": "Lunar Dust",
+        "description": "Fine particles collected from a moon’s surface.",
+        "uses": [
+            "Fueling lunar rituals",
+            "Analyzing extraterrestrial minerals",
+            "Bartering with star scholars"
+        ]
+    },
+    {
+        "id": 317,
+        "name": "Wicker Basket",
+        "description": "A container woven from thin, flexible branches.",
+        "uses": [
+            "Carrying produce",
+            "Storing small items",
+            "Trade with villagers"
+        ]
+    },
+    {
+        "id": 318,
+        "name": "Runic Lexicon",
+        "description": "A reference book containing ancient runes and meanings.",
+        "uses": [
+            "Translating old texts",
+            "Teaching rune-crafting",
+            "Bartering with scholars"
+        ]
+    },
+    {
+        "id": 319,
+        "name": "Cactus Pulp",
+        "description": "Moist pulp extracted from cactus flesh.",
+        "uses": [
+            "Hydrating desert travelers",
+            "Ingredient in survival rations",
+            "Trade with nomadic tribes"
+        ]
+    },
+    {
+        "id": 320,
+        "name": "Shell Powder",
+        "description": "Crushed seashells ground into a fine powder.",
+        "uses": [
+            "Source of calcium in diets",
+            "Material for certain paints",
+            "Bartering with artisans"
+        ]
+    },
+    {
+        "id": 321,
+        "name": "Infrared Filter Lens",
+        "description": "A lens that blocks visible light, revealing IR patterns.",
+        "uses": [
+            "Nighttime scouting",
+            "Detecting heat sources",
+            "Bartering in surveillance markets"
+        ]
+    },
+    {
+        "id": 322,
+        "name": "Dried Lilac",
+        "description": "Purple blossoms preserved to retain their fragrance.",
+        "uses": [
+            "Scenting linens",
+            "Floral teas and potpourri",
+            "Trade with perfumers"
+        ]
+    },
+    {
+        "id": 323,
+        "name": "Recycled Plastic Pellet",
+        "description": "Small granules made from reclaimed plastic.",
+        "uses": [
+            "Molding eco-friendly products",
+            "Printing 3D components",
+            "Bartering in eco-tech enclaves"
+        ]
+    },
+    {
+        "id": 324,
+        "name": "Alien Honeydew",
+        "description": "A sweet, viscous fluid secreted by alien insects.",
+        "uses": [
+            "High-energy sweetener",
+            "Component in xenobiotic medicines",
+            "Trade with alien apiarists"
+        ]
+    },
+    {
+        "id": 325,
+        "name": "Metal Mesh",
+        "description": "A flexible sheet of interlinked metal wires.",
+        "uses": [
+            "Filtering large particles",
+            "Reinforcing structures",
+            "Bartering with builders"
+        ]
+    },
+    {
+        "id": 326,
+        "name": "Salted Butter",
+        "description": "Cream churned and preserved with salt.",
+        "uses": [
+            "Cooking rich meals",
+            "Baking pastries",
+            "Trade with dairy farmers"
+        ]
+    },
+    {
+        "id": 327,
+        "name": "Fae Dust",
+        "description": "Iridescent powder rumored to come from fairy wings.",
+        "uses": [
+            "Glimmering decorations",
+            "Amplifying minor enchantments",
+            "Bartering with mystic vendors"
+        ]
+    },
+    {
+        "id": 328,
+        "name": "Ironwood Plank",
+        "description": "A hardwood plank known for its density and strength.",
+        "uses": [
+            "Building durable structures",
+            "Carving sturdy bowls",
+            "Trade with carpenters"
+        ]
+    },
+    {
+        "id": 329,
+        "name": "Bioadhesive",
+        "description": "A strong, organic glue harvested from fungal secretions.",
+        "uses": [
+            "Repairing organic materials",
+            "Crafting eco-friendly tools",
+            "Bartering in green-tech markets"
+        ]
+    },
+    {
+        "id": 330,
+        "name": "Jasmine Tea Leaves",
+        "description": "Fragrant tea leaves infused with jasmine flowers.",
+        "uses": [
+            "Brewing soothing teas",
+            "Aromatherapy sessions",
+            "Trade with tea connoisseurs"
+        ]
+    },
+    {
+        "id": 331,
+        "name": "Insulated Flask",
+        "description": "A container designed to keep liquids hot or cold.",
+        "uses": [
+            "Storing warm soup",
+            "Preserving cool drinks",
+            "Bartering with travelers"
+        ]
+    },
+    {
+        "id": 332,
+        "name": "Coral Fragment",
+        "description": "A small piece of reef coral.",
+        "uses": [
+            "Marine decorations",
+            "Examining ocean ecosystems",
+            "Trade with coastal collectors"
+        ]
+    },
+    {
+        "id": 333,
+        "name": "Spellbinding Ribbon",
+        "description": "A ribbon enchanted to hold magical energy.",
+        "uses": [
+            "Wrapping gifts with magical surprise",
+            "Tying spell scrolls securely",
+            "Bartering with enchanters"
+        ]
+    },
+    {
+        "id": 334,
+        "name": "Alkaline Solution",
+        "description": "A basic solution used in various chemical processes.",
+        "uses": [
+            "Neutralizing acidic compounds",
+            "Cleansing laboratory apparatus",
+            "Trade with alchemists"
+        ]
+    },
+    {
+        "id": 335,
+        "name": "Woven Wool Scarf",
+        "description": "A warm scarf knitted from woolen yarn.",
+        "uses": [
+            "Protecting against cold",
+            "Accessory in fashion",
+            "Bartering in chilly regions"
+        ]
+    },
+    {
+        "id": 336,
+        "name": "Mica Shard",
+        "description": "A thin, shimmering layer of mineral mica.",
+        "uses": [
+            "Adding sparkle to paints",
+            "Reflective surfaces in crafts",
+            "Trade with artisans"
+        ]
+    },
+    {
+        "id": 337,
+        "name": "Nutrient Gel Pack",
+        "description": "A gelatinous pack providing balanced nutrition.",
+        "uses": [
+            "Emergency field rations",
+            "Feeding space colonists",
+            "Bartering in off-world stations"
+        ]
+    },
+    {
+        "id": 338,
+        "name": "Spun Silk Thread",
+        "description": "A fine thread spun from pure silk fibers.",
+        "uses": [
+            "Tailoring delicate garments",
+            "Embroidering intricate patterns",
+            "Trade with weavers"
+        ]
+    },
+    {
+        "id": 339,
+        "name": "Magnetic Ink",
+        "description": "Ink that responds to magnetic fields.",
+        "uses": [
+            "Drawing hidden runes readable by magnetism",
+            "Marking cargo for automated sorting",
+            "Bartering with tech scribes"
+        ]
+    },
+    {
+        "id": 340,
+        "name": "Starflower Oil",
+        "description": "A fragrant oil pressed from starflower seeds.",
+        "uses": [
+            "Aromatherapy massage",
+            "Enhancing magical salves",
+            "Trade with herbal apothecaries"
+        ]
+    },
+    {
+        "id": 341,
+        "name": "Wooden Prosthetic",
+        "description": "A simple limb replacement carved from wood.",
+        "uses": [
+            "Restoring basic mobility",
+            "Basis for cybernetic upgrades",
+            "Bartering in frontier towns"
+        ]
+    },
+    {
+        "id": 342,
+        "name": "Encrypted Data Scroll",
+        "description": "A scroll containing coded magical text.",
+        "uses": [
+            "Hiding secret spells",
+            "Challenging puzzle for scholars",
+            "Trade with code-breakers"
+        ]
+    },
+    {
+        "id": 343,
+        "name": "Dried Hibiscus",
+        "description": "Red petals used for tart herbal teas.",
+        "uses": [
+            "Brewing refreshing beverages",
+            "Creating natural dyes",
+            "Bartering with tea merchants"
+        ]
+    },
+    {
+        "id": 344,
+        "name": "Composite Fiber Plate",
+        "description": "A lightweight, strong plate made of composite fibers.",
+        "uses": [
+            "Reinforcing gear",
+            "Crafting durable shields (not weapons)",
+            "Trade with engineers"
+        ]
+    },
+    {
+        "id": 345,
+        "name": "Etheric Antenna",
+        "description": "A spindly antenna tapping into ethereal signals.",
+        "uses": [
+            "Receiving arcane transmissions",
+            "Amplifying magical communication",
+            "Bartering with signal-mages"
+        ]
+    },
+    {
+        "id": 346,
+        "name": "Turmeric Root",
+        "description": "A bright yellow root spice.",
+        "uses": [
+            "Flavoring curries",
+            "Medicinal tonic",
+            "Trade in spice markets"
+        ]
+    },
+    {
+        "id": 347,
+        "name": "Solar Thread",
+        "description": "A thread infused with solar energy.",
+        "uses": [
+            "Weaving radiant fabrics",
+            "Storing sunlight in cloth",
+            "Bartering with solar mages"
+        ]
+    },
+    {
+        "id": 348,
+        "name": "Alien Wax",
+        "description": "A waxy substance secreted by extraterrestrial plants.",
+        "uses": [
+            "Making unusual candles",
+            "Polishing alien relics",
+            "Trade with xeno-artisans"
+        ]
+    },
+    {
+        "id": 349,
+        "name": "Palm Leaf",
+        "description": "A broad leaf from a tropical palm.",
+        "uses": [
+            "Weaving simple mats",
+            "Wrapping food parcels",
+            "Bartering with beach locals"
+        ]
+    },
+    {
+        "id": 350,
+        "name": "Lunar Blossom",
+        "description": "A flower that only blooms under the full moon.",
+        "uses": [
+            "Ingredient in lunar potions",
+            "Decoration in night festivals",
+            "Trade with moon-worshippers"
+        ]
+    },
+    {
+        "id": 351,
+        "name": "Carbon Nanotube Sheet",
+        "description": "A sheet woven from microscopic carbon tubes.",
+        "uses": [
+            "Strengthening vehicle hulls",
+            "Crafting lightweight gear",
+            "Bartering in ultra-tech circles"
+        ]
+    },
+    {
+        "id": 352,
+        "name": "Salted Cod",
+        "description": "Fish salted for preservation and travel.",
+        "uses": [
+            "Staple food in seafaring journeys",
+            "Ingredient in hearty stews",
+            "Trade with coastal merchants"
+        ]
+    },
+    {
+        "id": 353,
+        "name": "Puzzle Box",
+        "description": "A wooden box with hidden mechanisms.",
+        "uses": [
+            "Entertaining guests",
+            "Hiding small valuables",
+            "Bartering in puzzle shops"
+        ]
+    },
+    {
+        "id": 354,
+        "name": "Alien Clay Tablet",
+        "description": "A tablet of extraterrestrial clay, marked with strange glyphs.",
+        "uses": [
+            "Archaeological research",
+            "Clue in alien mysteries",
+            "Trade with xenolinguists"
+        ]
+    },
+    {
+        "id": 355,
+        "name": "Arcane Glowstick",
+        "description": "A rod that glows when infused with minor magic.",
+        "uses": [
+            "Lighting dark paths",
+            "Signaling allies silently",
+            "Bartering with adventurers"
+        ]
+    },
+    {
+        "id": 356,
+        "name": "Spiced Chai Mix",
+        "description": "A blend of fragrant spices ready to brew in hot water.",
+        "uses": [
+            "Warm, comforting drink",
+            "Cultural exchange token",
+            "Trade with spice merchants"
+        ]
+    },
+    {
+        "id": 357,
+        "name": "Crystal Spindle",
+        "description": "A thin crystal rod balanced for delicate tasks.",
+        "uses": [
+            "Measuring magical currents",
+            "Focusing fine enchantments",
+            "Bartering with spellcrafters"
+        ]
+    },
+    {
+        "id": 358,
+        "name": "Dried Shiitake",
+        "description": "A dried mushroom with a rich, savory flavor.",
+        "uses": [
+            "Adding depth to broths",
+            "Nutrient source in travels",
+            "Trade in culinary markets"
+        ]
+    },
+    {
+        "id": 359,
+        "name": "Futuristic Polymer Sheet",
+        "description": "A synthetic sheet stronger than steel yet flexible.",
+        "uses": [
+            "Reinforcing structures",
+            "Creating lightweight panels",
+            "Bartering in advanced enclaves"
+        ]
+    },
+    {
+        "id": 360,
+        "name": "Ocarina",
+        "description": "A small wind instrument producing ethereal tones.",
+        "uses": [
+            "Playing soothing music",
+            "Signaling to companions",
+            "Trade with traveling minstrels"
+        ]
+    },
+    {
+        "id": 361,
+        "name": "Ash Bark",
+        "description": "Bark from ash trees known for its resilience.",
+        "uses": [
+            "Brewing medicinal teas",
+            "Crafting basic containers",
+            "Bartering with healers"
+        ]
+    },
+    {
+        "id": 362,
+        "name": "Reinforced Leather Strap",
+        "description": "A strip of leather reinforced with strong fibers.",
+        "uses": [
+            "Securing heavy loads",
+            "Adding stability to gear",
+            "Trade with pack traders"
+        ]
+    },
+    {
+        "id": 363,
+        "name": "Dried Lotus Root",
+        "description": "A crunchy, edible root dried for storage.",
+        "uses": [
+            "Steeping in soups",
+            "Healthy snack for travelers",
+            "Bartering with herbalists"
+        ]
+    },
+    {
+        "id": 364,
+        "name": "Glimmerdust",
+        "description": "A sparkling dust that refracts light beautifully.",
+        "uses": [
+            "Enhancing festival decor",
+            "Ingredient in illusion potions",
+            "Trade with illusionists"
+        ]
+    },
+    {
+        "id": 365,
+        "name": "Magnetic Gloves (Heavy-Duty)",
+        "description": "Rugged gloves that cling to metal surfaces firmly.",
+        "uses": [
+            "Scaling metallic walls",
+            "Handling magnetized cargo",
+            "Bartering with salvage crews"
+        ]
+    },
+    {
+        "id": 366,
+        "name": "Distilled Water",
+        "description": "Pure, filtered water with no impurities.",
+        "uses": [
+            "Mixing accurate potions",
+            "Drinking in emergencies",
+            "Trade with alchemists"
+        ]
+    },
+    {
+        "id": 367,
+        "name": "Alien Silk Cocoon",
+        "description": "A cocoon spun by extraterrestrial larvae.",
+        "uses": [
+            "Harvesting strong silk fibers",
+            "Weaving unique fabrics",
+            "Bartering with xenotailors"
+        ]
+    },
+    {
+        "id": 368,
+        "name": "Compressed Coal Brick",
+        "description": "A compact lump of processed coal.",
+        "uses": [
+            "Fueling forges and ovens",
+            "Heating remote camps",
+            "Trade with smiths"
+        ]
+    },
+    {
+        "id": 369,
+        "name": "Neon Ink",
+        "description": "A bright, glowing ink visible in low light.",
+        "uses": [
+            "Making signs in cyber cities",
+            "Highlighting critical documents",
+            "Bartering with tech designers"
+        ]
+    },
+    {
+        "id": 370,
+        "name": "Foxglove Leaves",
+        "description": "A plant leaf with properties both healing and toxic.",
+        "uses": [
+            "Brewing careful medicinal teas",
+            "Component in certain alchemical reagents",
+            "Trade with apothecaries"
+        ]
+    },
+    {
+        "id": 371,
+        "name": "Ceramic Insulator",
+        "description": "A block used to prevent heat or electrical conduction.",
+        "uses": [
+            "Protecting circuits",
+            "Lining reactors",
+            "Bartering with engineers"
+        ]
+    },
+    {
+        "id": 372,
+        "name": "Candied Ginger",
+        "description": "Sugary, spicy preserved ginger slices.",
+        "uses": [
+            "Soothing nausea",
+            "Flavoring desserts",
+            "Trade with travelers"
+        ]
+    },
+    {
+        "id": 373,
+        "name": "Sapphire Dust",
+        "description": "Finely ground sapphire used as a vibrant pigment.",
+        "uses": [
+            "Creating brilliant paints",
+            "Fueling certain magical inks",
+            "Bartering with jewelcrafters"
+        ]
+    },
+    {
+        "id": 374,
+        "name": "Spider Silk Thread",
+        "description": "A thin, remarkably strong silk harvested from spiders.",
+        "uses": [
+            "Weaving fine, resilient garments",
+            "Stringing high-quality instruments",
+            "Trade in artisan markets"
+        ]
+    },
+    {
+        "id": 375,
+        "name": "Glacial Water",
+        "description": "Crystal-clear meltwater from ancient glaciers.",
+        "uses": [
+            "Refreshing drink",
+            "Base for pure potions",
+            "Bartering in desert regions"
+        ]
+    },
+    {
+        "id": 376,
+        "name": "Cork Stopper",
+        "description": "A piece of cork used to seal bottles.",
+        "uses": [
+            "Keeping liquids fresh",
+            "Preventing spills",
+            "Trade with brewers"
+        ]
+    },
+    {
+        "id": 377,
+        "name": "Bio-Resin Figurine",
+        "description": "A small statue molded from plant-based resin.",
+        "uses": [
+            "Decorative curiosity",
+            "Eco-friendly art piece",
+            "Bartering with artisans"
+        ]
+    },
+    {
+        "id": 378,
+        "name": "Metallic Foam",
+        "description": "A lightweight metal with a spongy structure.",
+        "uses": [
+            "Shock absorption in devices",
+            "Insulating structures",
+            "Trade in engineering circles"
+        ]
+    },
+    {
+        "id": 379,
+        "name": "Cactus Flower Petals",
+        "description": "Brightly colored petals from a desert cactus.",
+        "uses": [
+            "Brewing floral teas",
+            "Decoration in desert feasts",
+            "Bartering with nomads"
+        ]
+    },
+    {
+        "id": 380,
+        "name": "Cherry Blossom Leaves",
+        "description": "Soft green leaves from a cherry tree.",
+        "uses": [
+            "Wrapping delicate foods",
+            "Brewing calming teas",
+            "Trade with orchard keepers"
+        ]
+    },
+    {
+        "id": 381,
+        "name": "Mycelium Block",
+        "description": "A block of fungal mycelium that fosters growth.",
+        "uses": [
+            "Cultivating mushrooms",
+            "Biodegradable building material",
+            "Bartering with eco-builders"
+        ]
+    },
+    {
+        "id": 382,
+        "name": "Spark Powder",
+        "description": "A powder that produces sparks when compressed.",
+        "uses": [
+            "Lighting campfires easily",
+            "Triggering certain mechanisms",
+            "Bartering with adventurers"
+        ]
+    },
+    {
+        "id": 383,
+        "name": "Dried Blueberries",
+        "description": "Sweet-tart berries dried for storage.",
+        "uses": [
+            "Healthy snack",
+            "Adding flavor to cereals",
+            "Trade with fruit merchants"
+        ]
+    },
+    {
+        "id": 384,
+        "name": "Copper Filigree Ornament",
+        "description": "A delicate copper decoration with intricate patterns.",
+        "uses": [
+            "Enhancing architectural details",
+            "Gifting as a token of respect",
+            "Bartering with crafters"
+        ]
+    },
+    {
+        "id": 385,
+        "name": "Runic Embroidery Thread",
+        "description": "Thread that weaves runes into fabric.",
+        "uses": [
+            "Enchanted clothing enhancements",
+            "Embroidering magical symbols",
+            "Trade with tailors and enchanters"
+        ]
+    },
+    {
+        "id": 386,
+        "name": "Hemp Paper",
+        "description": "A durable paper made from hemp fibers.",
+        "uses": [
+            "Recording documents",
+            "Creating art prints",
+            "Bartering with scribes"
+        ]
+    },
+    {
+        "id": 387,
+        "name": "Neural Lace",
+        "description": "A biotech mesh interfacing with the nervous system.",
+        "uses": [
+            "Enhancing cognitive abilities",
+            "Integrating with prosthetic limbs",
+            "Bartering in bio-cyber markets"
+        ]
+    },
+    {
+        "id": 388,
+        "name": "Mandrake Root",
+        "description": "A root rumored to have magical properties.",
+        "uses": [
+            "Brewing potent potions",
+            "Ritual ingredient",
+            "Trade with witches"
+        ]
+    },
+    {
+        "id": 389,
+        "name": "Obsidian Gravel",
+        "description": "Small, sharp pieces of volcanic glass.",
+        "uses": [
+            "Filling decorative mosaics",
+            "Grinding into pigment",
+            "Bartering with stonemasons"
+        ]
+    },
+    {
+        "id": 390,
+        "name": "Fiber Optic Brush",
+        "description": "A brush with strands that glow when lit by a source.",
+        "uses": [
+            "Cleaning sensitive devices",
+            "Decorative light performances",
+            "Trade with tech artists"
+        ]
+    },
+    {
+        "id": 391,
+        "name": "Pickled Vegetables",
+        "description": "A variety of veggies preserved in brine.",
+        "uses": [
+            "Long-lasting travel food",
+            "Adding tang to meals",
+            "Bartering in farmsteads"
+        ]
+    },
+    {
+        "id": 392,
+        "name": "Polished Horn",
+        "description": "A horn segment buffed to a smooth finish.",
+        "uses": [
+            "Carving small ornaments",
+            "Making musical mouthpieces",
+            "Trade with craftsmen"
+        ]
+    },
+    {
+        "id": 393,
+        "name": "Aromatic Wood Chip",
+        "description": "A small piece of fragrant wood.",
+        "uses": [
+            "Smoking foods for flavor",
+            "Perfuming living spaces",
+            "Bartering with cooks and perfumers"
+        ]
+    },
+    {
+        "id": 394,
+        "name": "Photovoltaic Cell",
+        "description": "A device converting light into electricity.",
+        "uses": [
+            "Powering small gadgets",
+            "Charging micro-batteries",
+            "Trade with green-tech merchants"
+        ]
+    },
+    {
+        "id": 395,
+        "name": "Opalescent Shell",
+        "description": "A shell with iridescent layers resembling opal.",
+        "uses": [
+            "Crafting jewelry",
+            "Decorative display piece",
+            "Bartering with beachcombers"
+        ]
+    },
+    {
+        "id": 396,
+        "name": "Crystal Bottle",
+        "description": "A transparent bottle cut from crystal glass.",
+        "uses": [
+            "Storing rare liquids",
+            "Showcasing fine beverages",
+            "Trade with sommeliers"
+        ]
+    },
+    {
+        "id": 397,
+        "name": "Star Anise",
+        "description": "A star-shaped spice with a licorice-like flavor.",
+        "uses": [
+            "Flavoring teas and stews",
+            "Brewing medicinal tonics",
+            "Bartering in spice caravans"
+        ]
+    },
+    {
+        "id": 398,
+        "name": "Runed Clay Disc",
+        "description": "A flat disc etched with protective runes.",
+        "uses": [
+            "Placing in doorways to ward off spirits",
+            "Focusing low-tier enchantments",
+            "Trade with rune-carvers"
+        ]
+    },
+    {
+        "id": 399,
+        "name": "Nano-Wire Coil",
+        "description": "An ultra-thin wire coil with high conductivity.",
+        "uses": [
+            "High-speed data links",
+            "Repairing delicate implants",
+            "Bartering with nano-engineers"
+        ]
+    },
+    {
+        "id": 400,
+        "name": "Dried Apple Rings",
+        "description": "Chewy, sweet slices of dried apple.",
+        "uses": [
+            "Tasty travel snack",
+            "Ingredient in compotes",
+            "Trade with orchard traders"
+        ]
+    },
+    {
+        "id": 401,
+        "name": "Blossom Honey",
+        "description": "Golden honey harvested from spring blossoms.",
+        "uses": [
+            "Sweetening teas and pastries",
+            "Crafting herbal remedies",
+            "Bartering in countryside markets"
+        ]
+    },
+    {
+        "id": 402,
+        "name": "Feather Quill (Synthetic)",
+        "description": "A synthetic quill mimicking a feather’s shape.",
+        "uses": [
+            "Eco-friendly writing instrument",
+            "Durable scribing tool",
+            "Trade with scholars"
+        ]
+    },
+    {
+        "id": 403,
+        "name": "Clay Amulet",
+        "description": "A simple amulet formed from baked clay.",
+        "uses": [
+            "Folk protective charm",
+            "Ritual object in rural villages",
+            "Bartering with common folk"
+        ]
+    },
+    {
+        "id": 404,
+        "name": "Ionic Gel",
+        "description": "A viscous gel that conducts ions efficiently.",
+        "uses": [
+            "Fueling bio-batteries",
+            "Enhancing energy transfer in circuits",
+            "Trade with energy techs"
+        ]
+    },
+    {
+        "id": 405,
+        "name": "Dried Pine Needles",
+        "description": "Evergreen needles dried for storage.",
+        "uses": [
+            "Brewing pine-flavored tea",
+            "Aromatic sachets",
+            "Bartering with herbalists"
+        ]
+    },
+    {
+        "id": 406,
+        "name": "Oiled Leather",
+        "description": "Leather treated with oils for flexibility and water resistance.",
+        "uses": [
+            "Crafting weatherproof clothing",
+            "Lining protective gear",
+            "Trade with tanners"
+        ]
+    },
+    {
+        "id": 407,
+        "name": "Ceramic Filter Straw",
+        "description": "A straw made with a ceramic core to filter water.",
+        "uses": [
+            "Safe drinking from streams",
+            "Emergency hydration tool",
+            "Bartering with survivalists"
+        ]
+    },
+    {
+        "id": 408,
+        "name": "Fluorescent Ink",
+        "description": "An ink that glows under UV light.",
+        "uses": [
+            "Hidden messages",
+            "Party decorations",
+            "Trade with illusionists"
+        ]
+    },
+    {
+        "id": 409,
+        "name": "Black Rice",
+        "description": "A dark-colored rice rich in antioxidants.",
+        "uses": [
+            "Nutritious meals",
+            "Exotic culinary ingredient",
+            "Bartering with gourmet cooks"
+        ]
+    },
+    {
+        "id": 410,
+        "name": "Jade Bead",
+        "description": "A small, polished jade sphere.",
+        "uses": [
+            "Stringing into jewelry",
+            "Decorative in runic patterns",
+            "Trade with gem merchants"
+        ]
+    },
+    {
+        "id": 411,
+        "name": "Steamed Dumplings",
+        "description": "Delicate dough parcels filled with savory goodness.",
+        "uses": [
+            "Hearty meal on journeys",
+            "Staple food in eastern markets",
+            "Bartering with traveling cooks"
+        ]
+    },
+    {
+        "id": 412,
+        "name": "Runic Ink (Invisible)",
+        "description": "Ink visible only under specific magical conditions.",
+        "uses": [
+            "Secret runic messages",
+            "Hidden magical contracts",
+            "Bartering with secretive mages"
+        ]
+    },
+    {
+        "id": 413,
+        "name": "Velvet Ribbon",
+        "description": "A soft ribbon of plush velvet.",
+        "uses": [
+            "Ornamenting hats and dresses",
+            "Tying elegant packages",
+            "Trade with tailors"
+        ]
+    },
+    {
+        "id": 414,
+        "name": "Bio-Fertilizer",
+        "description": "A nutrient-rich compost accelerating plant growth.",
+        "uses": [
+            "Boosting crop yields",
+            "Sustaining rooftop gardens",
+            "Bartering with farmers"
+        ]
+    },
+    {
+        "id": 415,
+        "name": "Glacier Mint",
+        "description": "A mint leaf infused with icy essence.",
+        "uses": [
+            "Cooling herbal teas",
+            "Soothing sore throats",
+            "Trade with herbal healers"
+        ]
+    },
+    {
+        "id": 416,
+        "name": "Linen Cloak",
+        "description": "A lightweight cloak woven from flax fibers.",
+        "uses": [
+            "Sun protection in deserts",
+            "Minimalist travel attire",
+            "Bartering with cloth merchants"
+        ]
+    },
+    {
+        "id": 417,
+        "name": "Ceramic Mortar & Pestle",
+        "description": "A bowl and grinder set for crushing ingredients.",
+        "uses": [
+            "Grinding herbs into powders",
+            "Mixing alchemical components",
+            "Trade with apothecaries"
+        ]
+    },
+    {
+        "id": 418,
+        "name": "Xeno Grain Flour",
+        "description": "A flour milled from alien grains.",
+        "uses": [
+            "Baking off-world bread",
+            "Testing culinary experiments",
+            "Bartering in interstellar markets"
+        ]
+    },
+    {
+        "id": 419,
+        "name": "Polished Marble Fragment",
+        "description": "A smooth piece of marble with polished sheen.",
+        "uses": [
+            "Inlaying decorative floors",
+            "Carving small sculptures",
+            "Trade with masons"
+        ]
+    },
+    {
+        "id": 420,
+        "name": "Powdered Charcoal",
+        "description": "Finely ground charcoal useful in many processes.",
+        "uses": [
+            "Filtering water",
+            "Creating black pigments",
+            "Bartering with craftsmen"
+        ]
+    },
+    {
+        "id": 421,
+        "name": "Barnacle Cluster",
+        "description": "A group of barnacles fused on driftwood.",
+        "uses": [
+            "Decorative marine-themed ornament",
+            "Crushed into lime source",
+            "Trade with coastal artisans"
+        ]
+    },
+    {
+        "id": 422,
+        "name": "Aloe Gel",
+        "description": "Cooling gel extracted from aloe leaves.",
+        "uses": [
+            "Healing minor burns",
+            "Soothing skincare treatments",
+            "Bartering with healers"
+        ]
+    },
+    {
+        "id": 423,
+        "name": "Glass Rod",
+        "description": "A slender rod of clear glass.",
+        "uses": [
+            "Stirring chemicals",
+            "Crafting delicate instruments",
+            "Trade with alchemists"
+        ]
+    },
+    {
+        "id": 424,
+        "name": "Mallow Flowers",
+        "description": "Soft-hued blossoms used in soothing infusions.",
+        "uses": [
+            "Brewing calming teas",
+            "Colorful salad garnish",
+            "Bartering with herbalists"
+        ]
+    },
+    {
+        "id": 425,
+        "name": "Solidified Resin Block",
+        "description": "A hardened block of tree resin.",
+        "uses": [
+            "Carving small ornaments",
+            "Fueling resin-based lamps",
+            "Trade with artisans"
+        ]
+    },
+    {
+        "id": 426,
+        "name": "Canvas Rug",
+        "description": "A floor covering made of sturdy canvas.",
+        "uses": [
+            "Protecting floors in camps",
+            "Picnic surface",
+            "Bartering with travelers"
+        ]
+    },
+    {
+        "id": 427,
+        "name": "Cybernetic Tendril",
+        "description": "A flexible, artificial extension for machinery.",
+        "uses": [
+            "Manipulating delicate parts",
+            "Enhancing robotic reach",
+            "Trade with cyborg technicians"
+        ]
+    },
+    {
+        "id": 428,
+        "name": "Rosehip",
+        "description": "The fruit of a rose, rich in vitamin C.",
+        "uses": [
+            "Brewing healthful teas",
+            "Making jams and syrups",
+            "Bartering with healers"
+        ]
+    },
+    {
+        "id": 429,
+        "name": "Woven Grass Mat",
+        "description": "A simple mat woven from dried grass.",
+        "uses": [
+            "Sleeping off the ground",
+            "Temporary floor covering",
+            "Trade with rural communities"
+        ]
+    },
+    {
+        "id": 430,
+        "name": "Petrified Leaf",
+        "description": "A fossilized leaf preserved in stone.",
+        "uses": [
+            "Study of ancient flora",
+            "Collectors’ item",
+            "Bartering with historians"
+        ]
+    },
+    {
+        "id": 431,
+        "name": "Runic Paper",
+        "description": "Paper treated to hold magical inscriptions firmly.",
+        "uses": [
+            "Writing stable spells",
+            "Creating talismans",
+            "Trade with mages"
+        ]
+    },
+    {
+        "id": 432,
+        "name": "Ginger Root",
+        "description": "A spicy, aromatic root.",
+        "uses": [
+            "Flavoring meals",
+            "Soothing upset stomachs",
+            "Bartering with cooks"
+        ]
+    },
+    {
+        "id": 433,
+        "name": "Corkwood Bark",
+        "description": "Bark that’s lightweight and buoyant.",
+        "uses": [
+            "Fashioning floats for fishing",
+            "Crafting buoyant containers",
+            "Trade with sailors"
+        ]
+    },
+    {
+        "id": 434,
+        "name": "Platinum Thread",
+        "description": "A fine thread spun from platinum filaments.",
+        "uses": [
+            "Embroidering luxurious garments",
+            "Conducting subtle energies",
+            "Bartering with nobility"
+        ]
+    },
+    {
+        "id": 435,
+        "name": "Crystal Chimes",
+        "description": "Hanging ornaments that produce a gentle, chiming sound.",
+        "uses": [
+            "Decorating gardens",
+            "Soothing ambient music",
+            "Trade with minstrels"
+        ]
+    },
+    {
+        "id": 436,
+        "name": "Ground Nutmeg",
+        "description": "A fragrant spice ground into powder.",
+        "uses": [
+            "Flavoring baked goods",
+            "Seasoning savory dishes",
+            "Bartering with spice traders"
+        ]
+    },
+    {
+        "id": 437,
+        "name": "Runestone Shard",
+        "description": "A fragment of a larger magical stone.",
+        "uses": [
+            "Minor enchantments",
+            "Focus for beginner mages",
+            "Trade with spell apprentices"
+        ]
+    },
+    {
+        "id": 438,
+        "name": "Rubber Sap",
+        "description": "A latex-like sap collected from certain trees.",
+        "uses": [
+            "Producing elastic materials",
+            "Making waterproof gear",
+            "Bartering with craftsmen"
+        ]
+    },
+    {
+        "id": 439,
+        "name": "Mint Oil",
+        "description": "Concentrated essence of mint leaves.",
+        "uses": [
+            "Aromatherapy",
+            "Flavoring confections",
+            "Trade with herbal vendors"
+        ]
+    },
+    {
+        "id": 440,
+        "name": "Sand Crystal",
+        "description": "A crystalline structure formed in desert conditions.",
+        "uses": [
+            "Focus in sand-based magic",
+            "Decorative gem substitute",
+            "Bartering with desert mages"
+        ]
+    },
+    {
+        "id": 441,
+        "name": "Holographic Map",
+        "description": "A map that projects a three-dimensional landscape.",
+        "uses": [
+            "Navigating complex terrain",
+            "Planning strategic routes",
+            "Trade in high-tech cities"
+        ]
+    },
+    {
+        "id": 442,
+        "name": "Preserved Rosemary",
+        "description": "Herb sprigs stored to maintain flavor.",
+        "uses": [
+            "Seasoning roasts",
+            "Aromatherapeutic sachets",
+            "Bartering with cooks"
+        ]
+    },
+    {
+        "id": 443,
+        "name": "Bio-Glass Shard",
+        "description": "Glass derived from organic materials.",
+        "uses": [
+            "Eco-friendly architecture",
+            "Crafting sustainable ornaments",
+            "Trade in green-tech markets"
+        ]
+    },
+    {
+        "id": 444,
+        "name": "Dried Sea Cucumber",
+        "description": "A rehydrated delicacy with a chewy texture.",
+        "uses": [
+            "Exotic culinary ingredient",
+            "Nutrient-rich travel food",
+            "Bartering with gourmet merchants"
+        ]
+    },
+    {
+        "id": 445,
+        "name": "Embroidered Handkerchief",
+        "description": "A cloth square adorned with intricate patterns.",
+        "uses": [
+            "Personal accessory",
+            "Sentimental gift",
+            "Trade with tailors"
+        ]
+    },
+    {
+        "id": 446,
+        "name": "Arcane Focusing Lens",
+        "description": "A lens specifically crafted to sharpen spell focus.",
+        "uses": [
+            "Improving spell accuracy",
+            "Channeling precise magic",
+            "Bartering with spellcasters"
+        ]
+    },
+    {
+        "id": 447,
+        "name": "Gourd Flask",
+        "description": "A hollowed gourd used as a container.",
+        "uses": [
+            "Holding water or wine",
+            "Rudimentary cooking vessel",
+            "Trade with nomadic tribes"
+        ]
+    },
+    {
+        "id": 448,
+        "name": "Dried Sunflower Petals",
+        "description": "Yellow petals dried for decorative or culinary use.",
+        "uses": [
+            "Garnishing salads",
+            "Brightening home decor",
+            "Bartering with florists"
+        ]
+    },
+    {
+        "id": 449,
+        "name": "Fiber Mask",
+        "description": "A mask woven from plant fibers to filter dust.",
+        "uses": [
+            "Protecting lungs in dusty conditions",
+            "Disguising identity",
+            "Trade with travelers"
+        ]
+    },
+    {
+        "id": 450,
+        "name": "Bamboo Flute",
+        "description": "A simple flute made from hollow bamboo.",
+        "uses": [
+            "Playing soothing tunes",
+            "Accompanying festivals",
+            "Bartering with musicians"
+        ]
+    },
+    {
+        "id": 451,
+        "name": "Ceramic Tweezers",
+        "description": "Non-conductive tweezers made from fired clay.",
+        "uses": [
+            "Handling fragile samples",
+            "Electrical repairs safely",
+            "Trade with lab technicians"
+        ]
+    },
+    {
+        "id": 452,
+        "name": "Fermented Bean Paste",
+        "description": "A savory paste used in cooking.",
+        "uses": [
+            "Flavoring soups and stews",
+            "Base for sauces",
+            "Bartering with cooks"
+        ]
+    },
+    {
+        "id": 453,
+        "name": "Magic Conduit Crystal",
+        "description": "A crystal that helps channel magical energy.",
+        "uses": [
+            "Improving spell flow",
+            "Stabilizing unstable enchantments",
+            "Trade with arcane engineers"
+        ]
+    },
+    {
+        "id": 454,
+        "name": "Stained Glass Fragment",
+        "description": "A colorful shard of stained glass.",
+        "uses": [
+            "Repairing mosaic windows",
+            "Crafting decorative charms",
+            "Bartering with artisans"
+        ]
+    },
+    {
+        "id": 455,
+        "name": "Cocoa Beans",
+        "description": "Raw beans used to produce chocolate.",
+        "uses": [
+            "Making chocolate treats",
+            "Brewing hot cocoa",
+            "Trade in sweet markets"
+        ]
+    },
+    {
+        "id": 456,
+        "name": "Mechanical Counter",
+        "description": "A small device that increments numbers with a click.",
+        "uses": [
+            "Tallying inventory",
+            "Tracking repetitive tasks",
+            "Bartering with merchants"
+        ]
+    },
+    {
+        "id": 457,
+        "name": "Mossy Pebble",
+        "description": "A small stone covered in soft moss.",
+        "uses": [
+            "Decorating terrariums",
+            "Feng shui garden element",
+            "Trade with horticulturists"
+        ]
+    },
+    {
+        "id": 458,
+        "name": "Runic Wax Seal",
+        "description": "A seal used to imprint runes into molten wax.",
+        "uses": [
+            "Authenticating magical letters",
+            "Sealing spell scrolls",
+            "Bartering with scribes"
+        ]
+    },
+    {
+        "id": 459,
+        "name": "Cured Bacon Strip",
+        "description": "Savory meat preserved with salt and smoke.",
+        "uses": [
+            "Hearty breakfast component",
+            "Flavor booster for dishes",
+            "Trade with rural farms"
+        ]
+    },
+    {
+        "id": 460,
+        "name": "Pearl Powder",
+        "description": "Finely ground pearls for medicinal and cosmetic use.",
+        "uses": [
+            "Skin care treatments",
+            "Mixed into luxury teas",
+            "Bartering with nobility"
+        ]
+    },
+    {
+        "id": 461,
+        "name": "Transparent Film",
+        "description": "A thin, clear sheet of synthetic material.",
+        "uses": [
+            "Wrapping goods for protection",
+            "Overlaying maps with notes",
+            "Trade with archivists"
+        ]
+    },
+    {
+        "id": 462,
+        "name": "Spirit Lantern",
+        "description": "A lantern that glows with an eerie, ghostly light.",
+        "uses": [
+            "Lighting haunted corridors",
+            "Guiding spirits in rituals",
+            "Bartering with medium guilds"
+        ]
+    },
+    {
+        "id": 463,
+        "name": "Alien Grain Paste",
+        "description": "A paste made from unknown off-world cereals.",
+        "uses": [
+            "Energy-rich meal component",
+            "Experimenting with alien cuisine",
+            "Trade in cosmic outposts"
+        ]
+    },
+    {
+        "id": 464,
+        "name": "Lubrication Spray",
+        "description": "A pressurized spray can of friction-reducing fluid.",
+        "uses": [
+            "Maintaining mechanical parts",
+            "Ensuring smooth hinges",
+            "Bartering with tinkerers"
+        ]
+    },
+    {
+        "id": 465,
+        "name": "Honeysuckle Nectar",
+        "description": "Sweet nectar extracted from honeysuckle blooms.",
+        "uses": [
+            "Flavoring drinks and desserts",
+            "Attracting friendly fauna",
+            "Trade with herbal enthusiasts"
+        ]
+    },
+    {
+        "id": 466,
+        "name": "Whetleaf",
+        "description": "A leaf used like a strop to hone edges of non-weapon tools.",
+        "uses": [
+            "Sharpening farming implements",
+            "Polishing carving knives",
+            "Bartering with villagers"
+        ]
+    },
+    {
+        "id": 467,
+        "name": "Ceramic Bead",
+        "description": "A small bead formed from fired clay.",
+        "uses": [
+            "Making simple jewelry",
+            "Decorative curtain accents",
+            "Trade with craftspeople"
+        ]
+    },
+    {
+        "id": 468,
+        "name": "Magic Nullifier Crystal",
+        "description": "A crystal that dampens nearby magical fields.",
+        "uses": [
+            "Stabilizing volatile spells",
+            "Protecting areas from magic",
+            "Bartering with mage hunters"
+        ]
+    },
+    {
+        "id": 469,
+        "name": "Elderberry Syrup",
+        "description": "A sweet, immune-boosting berry syrup.",
+        "uses": [
+            "Soothing colds",
+            "Flavoring drinks",
+            "Trade in herbal markets"
+        ]
+    },
+    {
+        "id": 470,
+        "name": "Shale Fragment",
+        "description": "A thin piece of layered sedimentary rock.",
+        "uses": [
+            "Historical geological study",
+            "Crushed for pigments",
+            "Bartering with stonemasons"
+        ]
+    },
+    {
+        "id": 471,
+        "name": "Enchanted Spindle",
+        "description": "A spindle that spins thread autonomously with minor magic.",
+        "uses": [
+            "Effortless thread making",
+            "Crafting magical fabrics",
+            "Bartering with tailors"
+        ]
+    },
+    {
+        "id": 472,
+        "name": "Tungsten Rod",
+        "description": "A heavy, heat-resistant metal rod.",
+        "uses": [
+            "High-temperature forging",
+            "Reinforcing critical components",
+            "Trade with industrial smiths"
+        ]
+    },
+    {
+        "id": 473,
+        "name": "Almond Flour",
+        "description": "A fine flour ground from almonds.",
+        "uses": [
+            "Gluten-free baking",
+            "Sweet pastry ingredients",
+            "Bartering in health-conscious markets"
+        ]
+    },
+    {
+        "id": 474,
+        "name": "Glowcap Mushroom",
+        "description": "A mushroom with a faint, natural glow.",
+        "uses": [
+            "Dim lighting in shelters",
+            "Ingredient in subtle potions",
+            "Trade with herbalists"
+        ]
+    },
+    {
+        "id": 475,
+        "name": "Fiber Tape",
+        "description": "A strong adhesive tape made from plant fibers.",
+        "uses": [
+            "Securing cracked containers",
+            "Temporary repairs",
+            "Bartering with travelers"
+        ]
+    },
+    {
+        "id": 476,
+        "name": "Lilypad Fiber",
+        "description": "Fibrous strands harvested from lilypad stems.",
+        "uses": [
+            "Weaving lightweight fabrics",
+            "Biodegradable rope",
+            "Trade with lake settlements"
+        ]
+    },
+    {
+        "id": 477,
+        "name": "Dried Banana Chips",
+        "description": "Crisp, sweet slices of dehydrated banana.",
+        "uses": [
+            "Snacks on long trips",
+            "Ingredient in trail mixes",
+            "Bartering with travelers"
+        ]
+    },
+    {
+        "id": 478,
+        "name": "Nano-Healing Patch",
+        "description": "A patch that delivers nanobots to heal tissues.",
+        "uses": [
+            "Rapid wound healing",
+            "Stabilizing injuries",
+            "Trade in med-tech facilities"
+        ]
+    },
+    {
+        "id": 479,
+        "name": "Fungal Spore Syrup",
+        "description": "A thick syrup derived from fungal spores.",
+        "uses": [
+            "Nutrient boost in potions",
+            "Fermentation starter",
+            "Bartering with fermenters"
+        ]
+    },
+    {
+        "id": 480,
+        "name": "Crystaline Sand",
+        "description": "Tiny crystals resembling sand grains.",
+        "uses": [
+            "Filling hourglasses",
+            "Reflective art in vials",
+            "Trade with artisans"
+        ]
+    },
+    {
+        "id": 481,
+        "name": "Pressed Rice Cake",
+        "description": "A compact cake made from puffed rice.",
+        "uses": [
+            "Light snack",
+            "Base for simple meals",
+            "Bartering with farmers"
+        ]
+    },
+    {
+        "id": 482,
+        "name": "Biofoam",
+        "description": "A foam that hardens into a biodegradable material.",
+        "uses": [
+            "Temporary building repair",
+            "Emergency splints",
+            "Trade in eco-settlements"
+        ]
+    },
+    {
+        "id": 483,
+        "name": "Rose Water",
+        "description": "A fragrant liquid distilled from rose petals.",
+        "uses": [
+            "Flavoring desserts",
+            "Skin care routines",
+            "Bartering with perfumers"
+        ]
+    },
+    {
+        "id": 484,
+        "name": "Cinnamon Stick",
+        "description": "A rolled bark stick with a warm, sweet aroma.",
+        "uses": [
+            "Flavoring teas and ciders",
+            "Infusing stews",
+            "Trade with spice merchants"
+        ]
+    },
+    {
+        "id": 485,
+        "name": "Magnetized Needle",
+        "description": "A tiny needle that always orients to magnetic north.",
+        "uses": [
+            "Primitive compass construction",
+            "Magnetic field experiments",
+            "Bartering with explorers"
+        ]
+    },
+    {
+        "id": 486,
+        "name": "Powdered Sapphire",
+        "description": "Finely ground sapphire dust with a brilliant hue.",
+        "uses": [
+            "High-grade pigments",
+            "Arcane ink component",
+            "Trade with jewelcrafters"
+        ]
+    },
+    {
+        "id": 487,
+        "name": "Kombu Seaweed",
+        "description": "A thick, edible seaweed used in broths.",
+        "uses": [
+            "Adding umami flavor to dishes",
+            "Iodine source in diets",
+            "Bartering with coastal markets"
+        ]
+    },
+    {
+        "id": 488,
+        "name": "Quantum Fragment",
+        "description": "A tiny particle trapped in a stable quantum state.",
+        "uses": [
+            "Fuel for quantum experiments",
+            "Key part in advanced circuits",
+            "Bartering in ultra-tech labs"
+        ]
+    },
+    {
+        "id": 489,
+        "name": "Apple Cider Vinegar",
+        "description": "Sour vinegar made from fermented apple cider.",
+        "uses": [
+            "Pickling vegetables",
+            "Health tonics",
+            "Trade with culinarians"
+        ]
+    },
+    {
+        "id": 490,
+        "name": "Carved Amber Idol",
+        "description": "A small figurine sculpted from amber.",
+        "uses": [
+            "Ritual focus",
+            "Decoration in shrines",
+            "Bartering with collectors"
+        ]
+    },
+    {
+        "id": 491,
+        "name": "Glowing Reed",
+        "description": "A reed that softly glows when waved.",
+        "uses": [
+            "Subtle illumination in swamps",
+            "Ingredient in light potions",
+            "Trade with mystic botanists"
+        ]
+    },
+    {
+        "id": 492,
+        "name": "Dried Cherry",
+        "description": "A sweet-tart fruit preserved by drying.",
+        "uses": [
+            "Snacking on journeys",
+            "Baking into pastries",
+            "Bartering with fruit vendors"
+        ]
+    },
+    {
+        "id": 493,
+        "name": "Polished Amber Lens",
+        "description": "A lens carved from amber, giving a warm hue.",
+        "uses": [
+            "Warm-tinted vision",
+            "Focusing weak sunlight",
+            "Trade with opticians"
+        ]
+    },
+    {
+        "id": 494,
+        "name": "Magical Stabilizer Rod",
+        "description": "A rod that keeps nearby magic fields balanced.",
+        "uses": [
+            "Preventing spell surges",
+            "Calibrating arcane machines",
+            "Bartering with magi"
+        ]
+    },
+    {
+        "id": 495,
+        "name": "Herbal Vinegar",
+        "description": "Vinegar infused with aromatic herbs.",
+        "uses": [
+            "Salad dressing",
+            "Preserving medicinal herbs",
+            "Trade with herbalists"
+        ]
+    },
+    {
+        "id": 496,
+        "name": "Steam Valve",
+        "description": "A valve controlling the flow of steam.",
+        "uses": [
+            "Regulating steampunk machinery",
+            "Preventing pressure buildup",
+            "Bartering with engineers"
+        ]
+    },
+    {
+        "id": 497,
+        "name": "Dried Cranberry Leaves",
+        "description": "Leaves with a subtle tart flavor.",
+        "uses": [
+            "Brewing mild teas",
+            "Flavoring light broths",
+            "Trade with herbal traders"
+        ]
+    },
+    {
+        "id": 498,
+        "name": "Glass Fiber",
+        "description": "Fine strands of glass used in optics.",
+        "uses": [
+            "High-speed data lines",
+            "Precision instruments",
+            "Bartering in tech markets"
+        ]
+    },
+    {
+        "id": 499,
+        "name": "Ritual Feather",
+        "description": "A feather symbolically used in sacred rites.",
+        "uses": [
+            "Cleansing rituals",
+            "Symbolic offerings",
+            "Bartering with shamans"
+        ]
+    },
+    {
+        "id": 500,
+        "name": "Algae-Based Ink",
+        "description": "Ink derived from algae, eco-friendly and rich in pigment.",
+        "uses": [
+            "Sustainable writing medium",
+            "Dyeing eco-textiles",
+            "Trade in green-artisan districts"
+        ]
+    }
+]

@@ -1,0 +1,100 @@
+Plasma Rifle: Shoots superheated ionized gas. Quirk: Barrel glows neon blue after use.
+Laser Pistol: Focused light beam. Quirk: Emits a chirp on trigger pull.
+Photon Saber: Energy blade cutting at subatomic level. Quirk: Low hum changes pitch with swing speed.
+Ion Cannon: Fires charged particles. Quirk: Ion residue leaves hair static-charged.
+Gauss Gun: Accelerates projectiles via magnets. Quirk: Soft hum as coils energize.
+Particle Beam Rifle: High-energy beam. Quirk: Leaves a faint afterimage in the air.
+Antimatter Grenade: Matter-annihilating bomb. Quirk: Quiet, eerie silence before detonation.
+Railgun: Hypervelocity metal slugs. Quirk: Barrel rattles slightly from intense acceleration.
+Fusion Cutter: High-energy blade. Quirk: Sparks that smell faintly of ozone.
+Gravity Hammer: Manipulates gravity fields. Quirk: Swings feel weightless mid-arc.
+Neutron Blaster: Neutron radiation bursts. Quirk: Metallic taste in the air after firing.
+Nano-Needler: Injects nanites. Quirk: Needles hum like tiny insects in flight.
+Sonic Disruptor: Loud sonic pulses. Quirk: Leaves ears ringing with alien tones.
+Cryo Ray Gun: Freezes targets. Quirk: Frost forms on handle after extended use.
+EMP Launcher: Disables electronics. Quirk: Crackles and dims nearby lights.
+Proton Pike: Charged melee polearm. Quirk: Tip glows bright when near energy fields.
+Bio-Plasma Grenade: Organic explosive. Quirk: Pulses like a heartbeat before detonation.
+Holo-Bow: Fires hard-light arrows. Quirk: Arrows fade into rainbow static on impact.
+Phase Blade: Shifts matter phases. Quirk: Blade flickers in and out of visible spectrum.
+Dark Matter Rifle: Shots cause tiny gravity wells. Quirk: Shots warp light slightly around impacts.
+Chemthrower: Sprays corrosive chemicals. Quirk: Gurgles ominously between sprays.
+Quantum Flail: Warps probability on hit. Quirk: Strikes sometimes unpredictable, phasing through objects.
+Psycho-Emitter Gun: Mental assaults. Quirk: Whispers faint telepathic voices to wielder.
+Pulse Shotgun: Wide energy blasts. Quirk: Recoil feels oddly rubbery.
+Temporal Blade: Cuts through time. Quirk: Afterimages of past swings linger.
+Antigrav Net: Suspends targets mid-air. Quirk: Net vibrates with a faint gravitational hum.
+Plasma Lance: Focused plasma beam. Quirk: Hisses like steam, leaving scorch marks.
+Zero-Point Rifle: Fires vacuum blasts. Quirk: Ambient whoosh of air fills emptiness.
+Neural Spike Gun: Shocks nervous systems. Quirk: High-pitched whine before each neural strike.
+Mass Driver Cannon: Launches metal slugs at extreme speeds. Quirk: Deep bass thump shakes surroundings.
+Fusion Grenade: Compact fusion reaction. Quirk: Faint glow and gentle warmth before explosion.
+Holographic Whip: Projected energy lash. Quirk: Crackles with pixel-like flickers.
+Psi-Sword: Blade powered by psionic energy. Quirk: Hilt warms with wielder’s emotional state.
+Plasma Mace: Ball of contained plasma. Quirk: Plasma arcs off occasionally, singing hair.
+Molecular Dagger: Splits atoms on contact. Quirk: Air smells ionized after a stab.
+Beam Scattergun: Multiple light beams. Quirk: Each beam hums a different note.
+Fusion Bolt Launcher: Fires unstable fusion bolts. Quirk: Soft popping noise as bolts form.
+Nano-Sword: Blade of assembling nanites. Quirk: Blade repairs itself, shifting patterns continuously.
+Chemical Laser Gun: High-energy chemical reaction. Quirk: Leaves a tangy chemical scent in the air.
+Leviton Spear: Anti-gravity field at tip. Quirk: Tip hovers a millimeter above ground when set down.
+Photon Disruptor: Disassembles photons. Quirk: Darkness briefly flickers around muzzle flashes.
+Subspace Bow: Arrows slip through dimensional rifts. Quirk: Twang echoes strangely as if from afar.
+Graviton Hammer: Increases target’s mass briefly. Quirk: Distorts sound, deepening voices nearby.
+Ion Saber: Charged ionic plasma blade. Quirk: Ion trails shimmer behind swings.
+Spectral Gun: Fires intangible bullets. Quirk: Bullets pass through walls but hum faintly.
+Chrono Rifle: Slows or speeds target’s time. Quirk: Tick-tock sound accompanies shots.
+Bioplasmic Blade: Organic-energy sword. Quirk: Blade ‘breathes’, slightly expanding/contracting.
+Stasis Grenade: Freezes targets in time field. Quirk: In quiet moments, ticking backward can be heard.
+Wormhole Rifle: Creates tiny wormholes. Quirk: Distant whispers from another place.
+Neutrino Blade: Passes through matter. Quirk: Leaves faint auroras in dark rooms.
+Quantum Whip: Uncertain strike positions. Quirk: Whip position flickers between two spots.
+Plasma Chakram: Spinning plasma disc. Quirk: Whirls with a soft electronic tune.
+Hologram Sword: Light-constructed sword. Quirk: Blade flickers when wielder doubts themselves.
+Anti-Particle Pistol: Collides antiparticles. Quirk: Tiny lightning arcs race over the barrel.
+Crystal Laser Staff: Focused laser through crystal. Quirk: Prismatic rainbows dance at the beam’s edge.
+Plasma Flamethrower: Superhot plasma stream. Quirk: Melts surfaces silently, leaving dripping metal.
+Antigrav Hammer: Light in wielder’s hand, heavy on impact. Quirk: Makes a strange hollow boom.
+EMP Sword: Shuts down electronics on hit. Quirk: Blade hums with electric static.
+Bio-Needler Gun: Organic darts. Quirk: Darts chirp faintly as they fly.
+Sonic Lance: Focused sound beam. Quirk: Leaves ears buzzing with alien melodies.
+Leviton Shield (weaponized edge): Gravity-deflecting shield. Quirk: Shield hums softly, objects orbit around it briefly.
+Warp Maul: Distorts local space. Quirk: Hammerhead appears slightly out of place.
+Photonic Spear: Coherent light blade on a spear. Quirk: Spear tip leaves afterimages when swung.
+Morphing Blade: Shape-shifts blade form. Quirk: Metallic whispering as it reconfigures.
+Gravitic Net Launcher: Traps foes in gravity fields. Quirk: Net droops oddly even when unsupported.
+Singularity Grenade: Tiny black hole. Quirk: Warps sound, voices echo weirdly before detonation.
+Chromatic Ray Gun: Fires colorful energy beams. Quirk: Beam color changes with wielder’s mood.
+Plasma Nunchaku: Twin plasma rods. Quirk: Crackles and fizzles on chain rotation.
+Void Lance: Fires dark energy. Quirk: Feels colder when charging a shot.
+Psychoactive Knife: Reacts to mental state. Quirk: Blade color shifts with wielder’s emotions.
+Liquid-Metal Sword: Blade of shifting liquid metal. Quirk: Blade ripples calmly at rest.
+Disruptor Cannon: Breaks molecular bonds. Quirk: Air crackles like popping candy.
+Holographic Whip Blade: Blade flickers into a whip. Quirk: Hilt giggles with digital laughter.
+Quantum Bolas: Entangle foes in quantum uncertainty. Quirk: Bolas rattle out of sync with reality.
+Null-Gun: Cancels energy and matter in a small area. Quirk: Leaves a sensation of emptiness behind.
+Bio-Whip: Living tissue whip. Quirk: Whip squirms in wielder’s hand, seeking prey.
+Crystal Bolter: Fires shard-like projectiles. Quirk: Shards chime like glass bells at impact.
+Dark Energy Blade: Absorbs light. Quirk: Nearby lights dim slightly when drawn.
+Telekinetic Gun: Fires bullets guided by mind. Quirk: Weapon trembles slightly, responding to thoughts.
+Plasma Halberd: Energy halberd. Quirk: Leaves glowing cuts in metal surfaces.
+Force Shield Gauntlet (Punch): Punch reinforced by force field. Quirk: Punches leave rippling distortions in air.
+Stasis Staff: Holds targets in temporal stasis. Quirk: Staff head glows a soft cyan on activation.
+EM Blade: Electromagnetic blade. Quirk: Steel objects hum and tilt toward it.
+Nano Whip: Swarm of nanites forming a whip. Quirk: Tiny mechanical chirps as it changes length.
+Gravity Bow: Arrows warp gravity around them. Quirk: Arrows curving unnaturally mid-flight.
+Ion Flail: Charged ionic heads. Quirk: Flail heads float slightly off the chain.
+Phase Rifle: Shots phase through barriers. Quirk: Low whoosh as beam passes through matter.
+Mindspike Dagger: Mental assault on stab. Quirk: Blade’s surface swirls with dreamlike colors.
+Antimatter Lance: Pure annihilation tip. Quirk: Lance tip leaves a void-like black dot in vision.
+Holographic Shield (Offensive edge): Light shield with razor-thin edges. Quirk: Flickers if wielder’s concentration breaks.
+Dimensional Cutter: Slices through dimensions. Quirk: Cuts leave shimmering rifts for a second.
+Bio-Laser Gun: Grown from engineered coral. Quirk: Smells salty when firing.
+Plasma Trident: Three plasma blades. Quirk: Each blade hums a different harmonic tone.
+Quantum Rapier: Perfectly precise cuts. Quirk: Blade feels weightless, adjusting micro-intelligently.
+Overload Gun: Overcharges energy blasts. Quirk: Weapon shakes violently before release.
+Neural Lash: Overstimulates nerves. Quirk: Targets hear phantom laughter upon hit.
+Warp Sling: Slingshots projectiles through mini-wormholes. Quirk: Projectiles vanish then reappear unexpectedly.
+Graviton Blade: Heavier strikes on impact. Quirk: Leaves a brief gravitational lensing effect in vision.
+Subdermal Spike Gun: Implant-fired spikes. Quirk: Weapon hums in sync with wielder’s heartbeat.
+Biophoton Staff: Organic photons form beam. Quirk: Staff petals bloom under UV light.

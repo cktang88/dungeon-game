@@ -1,0 +1,499 @@
+1. **Starlit Draught:**  
+   - **Appearance:** A dark blue liquid with tiny, shimmering specks like distant stars.  
+   - **Aroma:** Crisp night air mixed with a hint of lavender.  
+   - **Effect:** Grants improved night vision and the ability to see faint auras around living creatures for one hour.
+
+2. **Sunburst Elixir:**  
+   - **Appearance:** A bright, golden fluid that glows like sunlight.  
+   - **Aroma:** Warm citrus and honey.  
+   - **Effect:** Fills the drinker with vitality, restoring moderate health and boosting mood for half a day.
+
+3. **Moondew Infusion:**  
+   - **Appearance:** Pale, silvery liquid with swirling wisps of white fog inside.  
+   - **Aroma:** Cool dew and fresh linen.  
+   - **Effect:** Induces calm clarity, allowing the drinker to resist fear and panic for a few hours.
+
+4. **Dragon’s Ember Tonic:**  
+   - **Appearance:** A thick, ruby-red concoction flecked with ash.  
+   - **Aroma:** Smells like smoky cinnamon and charred wood.  
+   - **Effect:** Grants the ability to breathe small spurts of flame for five minutes.
+
+5. **Whisperleaf Brew:**  
+   - **Appearance:** Murky green, with tiny leaves floating within.  
+   - **Aroma:** Crushed herbs and damp earth.  
+   - **Effect:** Enhances the drinker’s hearing, letting them pick up hushed whispers up to a great distance for an hour.
+
+6. **Frostglade Cordial:**  
+   - **Appearance:** Pale blue liquid with delicate ice crystals forming at the top.  
+   - **Aroma:** Crisp peppermint and pine needles.  
+   - **Effect:** Grants resistance to extreme cold and allows the drinker to walk on icy surfaces without slipping.
+
+7. **Silverthorn Sap:**  
+   - **Appearance:** A milky-white fluid that sparkles under the light.  
+   - **Aroma:** Clean linen and fresh rain.  
+   - **Effect:** Heals minor wounds rapidly and neutralizes common poisons.
+
+8. **Cinderbloom Distillate:**  
+   - **Appearance:** Fiery orange with tiny sparks flickering within.  
+   - **Aroma:** Hot metal and spicy peppers.  
+   - **Effect:** Boosts physical strength and aggression for a short burst of intense combat prowess.
+
+9. **Mirrorpetal Extract:**  
+   - **Appearance:** Clear and reflective, like liquid glass.  
+   - **Aroma:** Almost scentless, with a faint hint of soap.  
+   - **Effect:** Renders the drinker invisible for a few minutes, though faint reflections remain in bright light.
+
+10. **Gloaming Pollen Infusion:**  
+    - **Appearance:** A purple, slightly phosphorescent fluid dusted with golden pollen.  
+    - **Aroma:** Wildflowers at dusk and warm pollen.  
+    - **Effect:** Heightens intuition and grants the ability to sense nearby illusions.
+
+11. **Mothwing Decoction:**  
+    - **Appearance:** A soft, beige liquid with tiny, iridescent flakes.  
+    - **Aroma:** Musty attic and dried leaves.  
+    - **Effect:** Lightens the body, letting the drinker glide short distances or fall slowly.
+
+12. **Dawnpetal Syrup:**  
+    - **Appearance:** Pale pink, syrupy liquid that glistens like morning dew.  
+    - **Aroma:** Rose petals and honey.  
+    - **Effect:** Restores mild health and makes the drinker’s voice soothing, improving persuasion for an hour.
+
+13. **Thunderhead Draught:**  
+    - **Appearance:** Opaque gray fluid that crackles with tiny static sparks.  
+    - **Aroma:** Damp ozone and distant rain.  
+    - **Effect:** Temporarily grants immunity to lightning and the ability to produce small static shocks from fingertips.
+
+14. **Willowhisp Liquor:**  
+    - **Appearance:** Translucent green with ghostly lights drifting within.  
+    - **Aroma:** Sweet grass and faint candle smoke.  
+    - **Effect:** Enhances empathy, allowing the drinker to sense the emotions of those nearby.
+
+15. **Marrowmelt Tincture:**  
+    - **Appearance:** Thick, off-white fluid with chalky sediment.  
+    - **Aroma:** Bone-dry dust and stale air.  
+    - **Effect:** Grants the ability to pass through thin walls or fences as if semi-ethereal for a minute.
+
+16. **Seraph’s Tear:**  
+    - **Appearance:** Clear, shimmering droplet that refracts light into rainbows.  
+    - **Aroma:** Crisp morning air and a faint, holy incense.  
+    - **Effect:** Cures curses and dark enchantments, leaving the drinker feeling serene.
+
+17. **Oceansong Elixir:**  
+    - **Appearance:** Turquoise liquid with gentle, swirling currents inside.  
+    - **Aroma:** Salty sea breeze and kelp.  
+    - **Effect:** Lets the drinker breathe underwater and swim gracefully for an hour.
+
+18. **Ashviper Serum:**  
+    - **Appearance:** Dark, inky fluid swirling with gray smoke.  
+    - **Aroma:** Charcoal and bitter herbs.  
+    - **Effect:** Grants resistance to poison and allows the drinker to secrete a mild venom from their fingertips.
+
+19. **Copperleaf Cordial:**  
+    - **Appearance:** Bright copper-colored fluid with metallic sheen.  
+    - **Aroma:** Tangy metal and crushed pennies.  
+    - **Effect:** Temporarily grants skin the hardness of bronze, improving defense for a short period.
+
+20. **Blossomfog Draught:**  
+    - **Appearance:** A pastel pink fluid that releases wisps of sweet-smelling mist.  
+    - **Aroma:** Cherry blossoms and warm sugar.  
+    - **Effect:** Causes mild euphoria and increases creativity, inspiring artistic visions for a few hours.
+
+21. **Ironroot Essence:**  
+    - **Appearance:** Dark brown and earthy, with fibrous strands suspended inside.  
+    - **Aroma:** Damp soil and mushroom caps.  
+    - **Effect:** Grants enhanced stamina and endurance, reducing fatigue significantly for a day.
+
+22. **Feyberry Cordial:**  
+    - **Appearance:** Sparkling green with tiny berry seeds floating at the bottom.  
+    - **Aroma:** Tart berries and mossy bark.  
+    - **Effect:** Sharply boosts agility and reflexes, making movements nimble and swift.
+
+23. **Silentmist Potion:**  
+    - **Appearance:** Pale gray, semi-translucent liquid that muffles sound when shaken.  
+    - **Aroma:** Damp wool and old parchment.  
+    - **Effect:** Renders the drinker completely silent—no footsteps, no rustle of clothes—for half an hour.
+
+24. **Giant’s Milk Elixir:**  
+    - **Appearance:** A creamy, off-white mixture with a thick consistency.  
+    - **Aroma:** Warm milk and a hint of barley.  
+    - **Effect:** Temporarily increases the drinker’s size and strength, though clothing may not enlarge.
+
+25. **Violetto Ichor:**  
+    - **Appearance:** Deep purple fluid with faint bioluminescent motes.  
+    - **Aroma:** Rich, fermented grapes and old wine.  
+    - **Effect:** Increases magical sensitivity, making it easier to channel spells but also more sensitive to magical backlash.
+
+26. **Heartflow Brew:**  
+    - **Appearance:** Crimson liquid with a gentle pulse visible in the bottle.  
+    - **Aroma:** Metallic tang and rose petals.  
+    - **Effect:** Synchronizes the drinker’s heart with another willing target, allowing shared emotions or mild healing over distance.
+
+27. **Stickywhisper Tonic:**  
+    - **Appearance:** A pale green, syrupy solution that clings to the glass.  
+    - **Aroma:** Mint and pine resin.  
+    - **Effect:** Grants the ability to climb walls and ceilings for a short time, like an insect.
+
+28. **Corpseflower Draught:**  
+    - **Appearance:** Brownish-green, slightly chunky.  
+    - **Aroma:** Overripe fruit and decay.  
+    - **Effect:** Masks the drinker’s living scent and presence from undead, making them seem like another corpse.
+
+29. **Darksilk Elixir:**  
+    - **Appearance:** Black as ink, reflecting no light.  
+    - **Aroma:** Bitter cocoa and black tea leaves.  
+    - **Effect:** Sharpens the mind at night, increasing stealth and cunning under darkness.
+
+30. **Glowspore Cordial:**  
+    - **Appearance:** Soft amber liquid with tiny glowing spores drifting inside.  
+    - **Aroma:** Warm mushroom broth.  
+    - **Effect:** Grants low-light vision and the ability to see faint traces of magical residues.
+
+31. **Rosequartz Solution:**  
+    - **Appearance:** Pale pink, slightly translucent with crystal shards at the bottom.  
+    - **Aroma:** Rosewater and quartz dust.  
+    - **Effect:** Increases emotional resilience, making the drinker immune to charm effects for a short period.
+
+32. **Myrrhfire Elixir:**  
+    - **Appearance:** Golden and thick like honey, with sparks of ember.  
+    - **Aroma:** Spiced resin and frankincense.  
+    - **Effect:** Grants mild fire resistance and a comforting warmth that soothes pain.
+
+33. **Nighteye Draught:**  
+    - **Appearance:** Dark purple with tiny silver flecks.  
+    - **Aroma:** Fresh lavender and moonlit air.  
+    - **Effect:** Grants perfect darkvision for a few hours, with no penalty in pitch-black conditions.
+
+34. **Boulderlash Tonic:**  
+    - **Appearance:** Muddy brown with tiny gravel particles suspended.  
+    - **Aroma:** Damp stone and moss.  
+    - **Effect:** Enhances physical resilience, making skin tougher and blows feel less damaging.
+
+35. **Grinseed Extract:**  
+    - **Appearance:** Yellowish-green liquid with a single floating seed.  
+    - **Aroma:** Overripe melon and cumin.  
+    - **Effect:** Induces uncontrollable laughter in the drinker, curing sadness or despair, but making speech difficult.
+
+36. **Windsong Infusion:**  
+    - **Appearance:** Pale sky-blue fluid with swirling, airy patterns.  
+    - **Aroma:** Fresh mountain air and wildflowers.  
+    - **Effect:** Lightens burdens, allowing the drinker to run faster and jump higher.
+
+37. **Honeybile Solution:**  
+    - **Appearance:** Amber-hued and viscous, with swirling honey-like texture.  
+    - **Aroma:** Sweet honey mixed with a bitter tang.  
+    - **Effect:** Attracts insects and small creatures, commanding their mild assistance.
+
+38. **Emberfern Draught:**  
+    - **Appearance:** A glowing orange fluid with fern-like patterns.  
+    - **Aroma:** Burnt wood and citrus peel.  
+    - **Effect:** Protects the drinker from mild burns and allows them to handle hot objects without pain.
+
+39. **Cloudberry Cordial:**  
+    - **Appearance:** Light green with small white “cloud” shapes floating.  
+    - **Aroma:** Sweet berries and distant rain.  
+    - **Effect:** Grants the ability to form a small, fluffy cloud platform underfoot, floating a few feet off the ground.
+
+40. **Moonvine Essence:**  
+    - **Appearance:** Pearly white with slender vine fibers inside.  
+    - **Aroma:** Sweet nighttime blooms and dew.  
+    - **Effect:** Heightens intuition and grants mild telepathic connections with woodland creatures.
+
+41. **Trollsap Tonic:**  
+    - **Appearance:** Thick, greenish-brown sludge with bubbles.  
+    - **Aroma:** Damp cave and mildew.  
+    - **Effect:** Grants rapid regeneration of small wounds for a short duration, at the cost of feeling sluggish.
+
+42. **Starberry Wine:**  
+    - **Appearance:** Deep blue with tiny silver seeds that look like stars.  
+    - **Aroma:** Ripe berries and cool night air.  
+    - **Effect:** Enhances dream recall and permits brief lucid dreaming if consumed before sleep.
+
+43. **Ironbone Potion:**  
+    - **Appearance:** Metallic gray with tiny iron shavings visible.  
+    - **Aroma:** Rust and old steel.  
+    - **Effect:** Temporarily hardens the drinker’s bones, reducing risk of fractures and breakage.
+
+44. **Crackleberry Juice:**  
+    - **Appearance:** Electric blue with sparks jumping above the surface.  
+    - **Aroma:** Tart blueberry and static electricity.  
+    - **Effect:** Grants a burst of speed and energy, making movements quicker and dodges easier.
+
+45. **Gloomcap Brew:**  
+    - **Appearance:** Dark greenish-brown, murky.  
+    - **Aroma:** Damp moss and cave fungus.  
+    - **Effect:** Dampens the drinker’s presence, making them harder to notice or remember for several hours.
+
+46. **Feyspark Syrup:**  
+    - **Appearance:** A shimmering pink liquid that glistens like candy.  
+    - **Aroma:** Cotton candy and strawberry jam.  
+    - **Effect:** Briefly grants the drinker a charming aura, making others more inclined to help or trust them.
+
+47. **Mallowmist Distillate:**  
+    - **Appearance:** Milky white with slow-moving swirls.  
+    - **Aroma:** Warm milk and chamomile.  
+    - **Effect:** Relaxes the mind and body, granting resistance to fear and anxiety-based magic.
+
+48. **Rustfeather Concoction:**  
+    - **Appearance:** Reddish-brown with fine metallic flakes.  
+    - **Aroma:** Old feathers, iron, and clay.  
+    - **Effect:** Allows short bursts of levitation, as if hovering a foot above the ground.
+
+49. **Inkbloom Elixir:**  
+    - **Appearance:** Black with shifting patterns of purple and blue.  
+    - **Aroma:** Ink and wild violets.  
+    - **Effect:** Grants the ability to understand written text in any language for a limited time.
+
+50. **Sunsap Extract:**  
+    - **Appearance:** Warm golden liquid, thick as syrup.  
+    - **Aroma:** Honeyed hayfields and sun-warmed straw.  
+    - **Effect:** Fills the drinker with courage and dispels magical fear effects.
+
+51. **Phantomroot Juice:**  
+    - **Appearance:** Translucent gray with faint silhouettes drifting within.  
+    - **Aroma:** Dusty attic and faint vanilla.  
+    - **Effect:** Allows partial incorporeality, letting arms pass through thin barriers.
+
+52. **Silverlily Infusion:**  
+    - **Appearance:** Translucent silver with lily petals floating on top.  
+    - **Aroma:** Fresh lilies and cool ponds.  
+    - **Effect:** Cleanses the body of minor toxins and impurities, brightening complexion and mood.
+
+53. **Hawkdream Draught:**  
+    - **Appearance:** Brownish-gold with a feather floating inside.  
+    - **Aroma:** Dry grass and distant campfire smoke.  
+    - **Effect:** Sharpens vision to a hawk-like acuity for an hour, aiding in long-range sight.
+
+54. **Drowsywillow Syrup:**  
+    - **Appearance:** Greenish-brown, sluggishly thick.  
+    - **Aroma:** Muted florals and old bark.  
+    - **Effect:** Induces deep sleep and restful dreams, restoring energy as if after a full night’s rest.
+
+55. **Razorfang Decoction:**  
+    - **Appearance:** Deep red with tiny, sharp flecks of bone.  
+    - **Aroma:** Metallic blood and hot spices.  
+    - **Effect:** Grants enhanced biting strength and intimidation, though at risk of aggression.
+
+56. **Angel’s Chorus Elixir:**  
+    - **Appearance:** Opalescent white, swirling pastel hues inside.  
+    - **Aroma:** Delicate incense and sugarcane.  
+    - **Effect:** Improves singing voice and can calm hostile creatures by singing for a few minutes.
+
+57. **Murkmoss Essence:**  
+    - **Appearance:** Brown-green ooze with black specks.  
+    - **Aroma:** Swamp gas and pond algae.  
+    - **Effect:** Grants immunity to disease and parasites for several days.
+
+58. **Crystalfade Liquor:**  
+    - **Appearance:** Clear and sparkling as if full of crushed gemstones.  
+    - **Aroma:** Slightly mineral, like a cool cave spring.  
+    - **Effect:** Increases mental focus and spellcasting precision, but also makes the drinker more susceptible to loud noises.
+
+59. **Demon’s Tongue Syrup:**  
+    - **Appearance:** Viscous, dark red with a flickering black swirl.  
+    - **Aroma:** Sulfur and fermented cherries.  
+    - **Effect:** Grants short-term ability to understand demonic speech and resist hellish flames.
+
+60. **Marigold Tonic:**  
+    - **Appearance:** Bright yellow with flower petals.  
+    - **Aroma:** Freshly cut grass and dandelions.  
+    - **Effect:** Speeds recovery from fatigue, making wounds heal slightly faster over the next few hours.
+
+61. **Coldfang Infusion:**  
+    - **Appearance:** Pale blue with frosty crystals forming inside.  
+    - **Aroma:** Crisp mint and a hint of menthol.  
+    - **Effect:** Numbs pain and provides mild resistance to frost attacks.
+
+62. **Silentwhisper Extract:**  
+    - **Appearance:** Almost colorless, with a faint silvery shimmer.  
+    - **Aroma:** Barely perceptible, like distant rain.  
+    - **Effect:** Allows communication via telepathy with nearby allies for a short while.
+
+63. **Goldenrind Liquor:**  
+    - **Appearance:** Amber fluid with flakes of gold leaf.  
+    - **Aroma:** Citrus zest and oak barrel.  
+    - **Effect:** Boosts confidence and makes social negotiations more favorable.
+
+64. **Bileblossom Brew:**  
+    - **Appearance:** Greenish-yellow, slightly thick.  
+    - **Aroma:** Bitter bile and dandelion greens.  
+    - **Effect:** Purges poisons from the system, though causing brief nausea.
+
+65. **Arcansheen Elixir:**  
+    - **Appearance:** Radiant violet, shimmering with magical energy.  
+    - **Aroma:** Sweet ozone and crushed amethyst.  
+    - **Effect:** Temporarily heightens magical prowess, increasing spell power but also spell volatility.
+
+66. **Charmbloom Essence:**  
+    - **Appearance:** Light pink, with floating flower petals.  
+    - **Aroma:** Wild roses and lilac.  
+    - **Effect:** Increases natural charisma, making the drinker more persuasive and likable.
+
+67. **Muckmire Potion:**  
+    - **Appearance:** Thick, dark green sludge with lumps of unknown origin.  
+    - **Aroma:** Rotten vegetation and bog water.  
+    - **Effect:** Grants immunity to swamp-borne diseases and lets the drinker wade effortlessly through mud.
+
+68. **Rockrose Cordial:**  
+    - **Appearance:** Dusty rose-colored liquid with tiny stone chips.  
+    - **Aroma:** Dry earth and faint roses.  
+    - **Effect:** Increases resilience to physical trauma and reduces pain sensitivity.
+
+69. **Shiversilk Draught:**  
+    - **Appearance:** Pale gray with silky strands suspended inside.  
+    - **Aroma:** Old linen and damp cellar.  
+    - **Effect:** Grants the ability to detect tremors and vibrations through walls, helpful in darkness.
+
+70. **Hiveberry Juice:**  
+    - **Appearance:** Bright yellow with tiny black seeds resembling bees.  
+    - **Aroma:** Sweet honey and ripe mango.  
+    - **Effect:** Attracts and pacifies insect swarms, allowing safe passage or mild control over them.
+
+71. **Ravensong Distillate:**  
+    - **Appearance:** Blackish-purple with iridescent sheen.  
+    - **Aroma:** Blackcurrant and burnt feathers.  
+    - **Effect:** Grants the ability to mimic any sound heard and produce convincing birdcalls.
+
+72. **Mandrake Soothe:**  
+    - **Appearance:** Muddy brown with root fragments floating.  
+    - **Aroma:** Earthy root and bitter herbs.  
+    - **Effect:** Relieves severe pain and mental anguish, inducing a calm, numb serenity.
+
+73. **Glasswing Infusion:**  
+    - **Appearance:** Clear, faintly iridescent, as if distilled from butterfly wings.  
+    - **Aroma:** Light jasmine and fresh rain.  
+    - **Effect:** Temporarily grants delicate, translucent wings that allow slow, graceful gliding.
+
+74. **Honeyrose Elixir:**  
+    - **Appearance:** Rich amber with rose petals suspended inside.  
+    - **Aroma:** Sweet honey and rosy perfume.  
+    - **Effect:** Boosts romantic confidence and empathy, easing courting or mending relationships.
+
+75. **Umbral Sap:**  
+    - **Appearance:** Thick black with swirls of dark violet.  
+    - **Aroma:** Charcoal and blackberries.  
+    - **Effect:** Grants the ability to slip into shadows and move unseen, though bright lights cause discomfort.
+
+76. **Skylark Tonic:**  
+    - **Appearance:** Pale azure with a floating white tuft like a cloud.  
+    - **Aroma:** Fresh linens and distant singing birds.  
+    - **Effect:** Improves mood and grants the ability to imitate musical notes perfectly.
+
+77. **Gorevine Juice:**  
+    - **Appearance:** Dark red, fibrous strands drifting inside.  
+    - **Aroma:** Iron-rich and tangy.  
+    - **Effect:** Temporarily bolsters blood production and stamina, making the drinker harder to knock out.
+
+78. **Faesugar Syrup:**  
+    - **Appearance:** Sparkling multicolored fluid thick as syrup.  
+    - **Aroma:** Cotton candy and orchard fruits.  
+    - **Effect:** Causes mild hallucinations of friendly sprites and enhances imagination.
+
+79. **Bonebloom Elixir:**  
+    - **Appearance:** Pale ivory liquid with wispy petals inside.  
+    - **Aroma:** Chalk dust and lilies.  
+    - **Effect:** Strengthens the bones and teeth, making them nearly unbreakable for a day.
+
+80. **Thunderbud Brew:**  
+    - **Appearance:** Murky gray with small, fizzing bubbles like storm clouds.  
+    - **Aroma:** Damp wool and static.  
+    - **Effect:** Grants the ability to shout with the force of thunder, disorienting foes.
+
+81. **Foxglove Essence:**  
+    - **Appearance:** Purple fluid with bell-shaped petals floating.  
+    - **Aroma:** Bitter floral and mild poison.  
+    - **Effect:** Slows the drinker’s heartbeat and metabolism, useful for feigning death or enduring low oxygen.
+
+82. **Glimmerdew Draught:**  
+    - **Appearance:** Crystal-clear water droplet that sparkles in any light.  
+    - **Aroma:** Pure mountain spring.  
+    - **Effect:** Restores mental clarity, curing confusion and mild madness.
+
+83. **Shadowmint Infusion:**  
+    - **Appearance:** Dark green with drifting black specks.  
+    - **Aroma:** Strong peppermint and damp clay.  
+    - **Effect:** Freshens the mind and wards off sleep, helping the drinker stay alert all night.
+
+84. **Nettlehaze Cordial:**  
+    - **Appearance:** Pale greenish mist trapped in liquid form.  
+    - **Aroma:** Stinging nettles and citrus peel.  
+    - **Effect:** Heightens tactile sensitivity and reflexes, aiding in delicate tasks.
+
+85. **Warmarrow Tonic:**  
+    - **Appearance:** Creamy beige, with tiny bone-like flakes dissolving.  
+    - **Aroma:** Warm broth and toasted grain.  
+    - **Effect:** Fortifies the body against cold and exhaustion, granting a restful warmth.
+
+86. **Basilisk Tears:**  
+    - **Appearance:** A dull grayish liquid that thickens when exposed to light.  
+    - **Aroma:** Damp stone and reptile scales.  
+    - **Effect:** Briefly paralyzes the drinker’s outer muscles, useful for surgeries or faking immobility.
+
+87. **Silktrail Elixir:**  
+    - **Appearance:** Pale silver thread-like streaks run through a clear fluid.  
+    - **Aroma:** Fresh linen and distant laughter.  
+    - **Effect:** Increases manual dexterity, making intricate tasks and sleight-of-hand easier.
+
+88. **Rosemire Potion:**  
+    - **Appearance:** Murky pinkish-brown with rose petals and mud flecks.  
+    - **Aroma:** Wet earth and old roses.  
+    - **Effect:** Grants mild regenerative capabilities to plants touched by the drinker afterward.
+
+89. **Sparkseed Brew:**  
+    - **Appearance:** Tiny glowing seeds suspended in amber fluid.  
+    - **Aroma:** Toasted sunflower seeds and warm honey.  
+    - **Effect:** Allows the drinker to produce small sparks from fingertips, useful for lighting fires.
+
+90. **Twilightbud Essence:**  
+    - **Appearance:** Indigo liquid that seems to absorb light.  
+    - **Aroma:** Night-blooming flowers and cool wind.  
+    - **Effect:** Increases stealth and makes one harder to see in dim light conditions.
+
+91. **Cindershine Tonic:**  
+    - **Appearance:** Pale orange with embers at the bottom.  
+    - **Aroma:** Woodsmoke and citrus.  
+    - **Effect:** Grants fire resistance and the ability to see heat signatures in darkness.
+
+92. **Hollowthorn Brew:**  
+    - **Appearance:** Dark green with thorny bits swirling.  
+    - **Aroma:** Bitter leaves and old wood.  
+    - **Effect:** Encourages physical toxins to leave the body quickly, accelerating natural detoxification.
+
+93. **Stingberry Cordial:**  
+    - **Appearance:** Bright red with black seeds that look like tiny stingers.  
+    - **Aroma:** Sharp berry scent and fresh peppercorn.  
+    - **Effect:** Increases pain tolerance and grants a brief adrenaline rush.
+
+94. **Moonlace Infusion:**  
+    - **Appearance:** Milky white with delicate lace patterns forming and dissipating.  
+    - **Aroma:** White jasmine and linen.  
+    - **Effect:** Eases nightmares and wards off night terrors, ensuring peaceful sleep.
+
+95. **Cuttleink Solution:**  
+    - **Appearance:** Inky black with shifting shapes inside.  
+    - **Aroma:** Briny ocean and dried squid.  
+    - **Effect:** Grants a limited shapeshift ability to mimic small details of another person’s face.
+
+96. **Glowberry Extract:**  
+    - **Appearance:** Soft pink fluid that softly glows in the dark.  
+    - **Aroma:** Sweet strawberry and honeysuckle.  
+    - **Effect:** Provides a gentle inner glow that lights the surroundings dimly, freeing hands.
+
+97. **Thundersilk Elixir:**  
+    - **Appearance:** Bright yellow with silk-like strands of energy crackling within.  
+    - **Aroma:** Sulfur and burnt cloth.  
+    - **Effect:** Speeds up reaction time and can deflect small projectiles with static fields.
+
+98. **Dreadmoss Draught:**  
+    - **Appearance:** Murky brown with wisps of black threads.  
+    - **Aroma:** Rotting leaves and sour milk.  
+    - **Effect:** Temporarily dampens emotions, allowing focus under stress and fear.
+
+99. **Starfen Nectar:**  
+    - **Appearance:** Translucent liquid filled with tiny star-shaped flecks.  
+    - **Aroma:** Mild honey and distant campfires.  
+    - **Effect:** Restores a small portion of magical energy, replenishing a spellcaster’s limited power.
+
+100. **Crownroot Potion:**  
+    - **Appearance:** Golden-brown with root fibers settled at the bottom.  
+    - **Aroma:** Spiced cider and old oak.  
+    - **Effect:** Temporarily grants regal bearing and a commanding presence, causing others to treat the drinker as a leader.

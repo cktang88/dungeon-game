@@ -1,0 +1,100 @@
+Clockwork Revolver: Gear-driven pistol. Quirk: Ticks loudly before firing.
+Steam-Powered Gatling Gun: Crank-operated. Quirk: Hisses steam when overheated.
+Gearbow: Mechanical crossbow. Quirk: Gears click harmoniously after each shot.
+Pneumatic Spear Launcher: Air-pressured spear gun. Quirk: Emits soft whoosh on firing.
+Teslacoil Rifle: Electric discharge. Quirk: Sparks dance along barrel pre-shot.
+Aether-Powered Rapier: Lightweight energy blade. Quirk: Glows faintly green in smog.
+Spring-Loaded Dagger: Blade pops out swiftly. Quirk: Sproings cheerfully when triggered.
+Brass Blunderbuss: Fires scrap and shrapnel. Quirk: Clangs inside when shaken.
+Steam Hammer: Heavy piston-driven hammer. Quirk: Steams with each downward blow.
+Gear-Edge Axe: Axe with rotating gear teeth. Quirk: Whirs mechanically before biting into metal.
+Chemical Spray Gun: Fires acidic mist. Quirk: Bubbles ominously when stored.
+Rotary Bolt Thrower: Rapid-fire bolts. Quirk: Ratchets loudly as it winds up.
+Flare Pistol: Shoots bright flares. Quirk: Emits a whistle as flares ascend.
+Crank Crossbow: Reload by turning a handle. Quirk: Handle hums a tinny tune when cranked.
+Pressure Cannon: Compressed air blasts. Quirk: Barrels hum like organ pipes.
+Steam-Driven Chainsword: Chain-blade fueled by steam. Quirk: Puffs steam with each rotation.
+Aetheric Wand: Focuses raw aether energy. Quirk: Crystalline hum fluctuates with emotion.
+Gear Daggers (Twin): Interlocking blades. Quirk: Gears mesh, sharpening each other.
+Mechanical Lance: Extendable lance. Quirk: Telescopes with a satisfying clank.
+Magneto Rifle: Fires magnetized slugs. Quirk: Bullets hum and stick to metal surfaces nearby.
+Boiler Mace: Hollow head boils water to scald. Quirk: Hissing steam escapes from dents.
+Goggle-Scope Pistol: Gun with complex optics. Quirk: Lenses adjust automatically, clicking softly.
+Clockwork Shield: Gear-driven rotating plates. Quirk: Plates shift restlessly when idle.
+Hosepipe Flamethrower: Fire from fuel tanks. Quirk: Gurgles quietly before igniting.
+Gyroscopic Blade: Stabilized spinning sword. Quirk: Vibrates subtly, increasing accuracy.
+Smokestack Grenade: Emits choking fumes. Quirk: Rattles like a kettle before bursting.
+Alchemical Injector Dagger: Injects concoctions. Quirk: Syringe plunges with a soft hiss.
+Pressure Gauntlets: Punch with pneumatic force. Quirk: Release puffs of air on impact.
+Telescopic Halberd: Collapsible polearm. Quirk: Extends with a metallic snap.
+Aether-Stabilized Staff: Channels refined energies. Quirk: Crystals chime like distant bells.
+Clockwork Harpoon Gun: For hunting airship pirates. Quirk: Chain rattles rhythmically in flight.
+Steam Sawblade Launcher: Shoots spinning discs. Quirk: Discs whistle eerily while airborne.
+Electro-Whip: Electrified cable. Quirk: Sparks dance along its length when cracked.
+Spring Rifle: Uses coil springs for propulsion. Quirk: Springs twang happily after each shot.
+Aetheric Sniper Lens: Pinpoint beam weapon. Quirk: Lens hum intensifies when target’s in sight.
+Chemical Mortar: Lobs chemical shells. Quirk: Shells fizz before impact.
+Wind-Up Bomb: Timed explosive. Quirk: Ticks louder as detonation nears.
+Clock-Tower Crossbow: Complex timing mechanisms. Quirk: Releases bolts to a ticking beat.
+Barometer Club: Measures pressure. Quirk: Needle jumps when strikes land.
+Luminiferous Pistol: Fires blinding light. Quirk: Glows steadily brighter in dark areas.
+Brass Knuckles with Gears: Enhanced punch. Quirk: Gears grind slightly upon hitting bone.
+Steam Jet Lance: Propels forward with steam. Quirk: Hisses and propels wielder a short dash.
+Grapple Gun: Launches a hook. Quirk: Reel inside clicks impatiently.
+Rotary Saw Gauntlet: Arm-mounted saw. Quirk: Squeals metallically at high RPM.
+Aether Coil Whip: Spiral of conductive wire. Quirk: Coil hums softly, warming nearby metal.
+Smokestack Club: Capped pipe releasing smoke. Quirk: Coughs out soot on impact.
+Hydraulic Maul: Uses hydraulic pressure. Quirk: Wet squelch sound after a massive hit.
+Periscope Rifle: Shoots around corners. Quirk: Mirrors clack into position when aimed.
+Phlogiston Grenade: Unstable fiery chemicals. Quirk: Glows faintly pink before explosion.
+Steam Musket: Early steam-fired rifle. Quirk: Barrel rattles as steam builds.
+Gear-Toothed Sword: Teeth grind into armor. Quirk: Sparks fly as gears shred metal.
+Aether Harp Bow: Fires sonic bolts. Quirk: Strings hum harmonious notes on release.
+Boiler Shield: Pressurized steam vents. Quirk: Jets of steam deflect light attacks.
+Pressure Needle Gun: Rapid-fire darts. Quirk: A faint whoosh after each dart leaves.
+Tesla Grenade: Explosive lightning orb. Quirk: Crackles, shocking metal nearby before pop.
+Aetheric Cannon: Heavy artillery. Quirk: Resonant hum scares off small wildlife.
+Wind-Up Mace: Momentum built by cranking. Quirk: Builds a crescendo whir before impact.
+Mecha-Claw Gauntlet: Extendable claws. Quirk: Claws click when flexed, like typing keys.
+Dirigible Spear: Propeller-tipped spear. Quirk: Spins propeller for a stable throw.
+Aetheric Repeater Gun: Automatic energy shots. Quirk: Pings musically as internal gears rotate.
+Crank-Powered Flamethrower: Must be wound up. Quirk: Releases a whistle of relief after firing.
+Magnetic Net Launcher: Tangled metal net. Quirk: Net clings stubbornly to metallic foes.
+Whirligig Blade: Spinning top-like weapon. Quirk: Whirs continuously, hard to hold still.
+Automaton Crossbow: Self-aiming. Quirk: Gears adjust aim with tiny metallic curses.
+Steam Mortar: Launches boiling water bombs. Quirk: Steamy hiss after firing arcs.
+Pressure Needle Sword: Channels steam for thrusts. Quirk: Steam whoosh enhances stab speed.
+Aetheric Shock Lance: Discharges lightning at contact. Quirk: Emits soft crackle near electrical fields.
+Gear Shield Buckler: Small shield with gears. Quirk: Gears churn when blocking, stabilizing grip.
+Alchemical Blade: Soaked in reagents. Quirk: Blade fizzes when cutting flesh.
+Piston Dagger: Blade thrust by piston. Quirk: A sharp “pssh” with each stab.
+Clockstrike Mace: Time-themed mace. Quirk: Strikes resonate like clock chimes.
+Wind Cannon: Shoots blasts of air. Quirk: Gentle breeze blows out when idle.
+Phonograph Gun: Sonic weapon. Quirk: Old tunes play as it fires soundwaves.
+Gear Swordstaff: Staff with gear-driven blade end. Quirk: Tiny cogs hum when spun.
+Aetheric Gauntlet: Shoots condensed energy. Quirk: Glove fingertips glow softly after use.
+Steam Saber: Saber heated by steam. Quirk: Steam puffs from hilt guard.
+Clockwork Spear: Shaft packed with gears. Quirk: Clicking intensifies as spear is thrust repeatedly.
+Acid Spray Pistol: Shoots acidic droplets. Quirk: Barrel sizzles if not cleaned frequently.
+Brass Net Cannon: Launches brass nets. Quirk: Net rattles like coins mid-air.
+Sprocket Flail: Spiked ball with gear links. Quirk: Chain rattles in a complex rhythm.
+Aether Blade (Shortsword): Glowing energy edge. Quirk: Flickers when wielder is uncertain.
+Steam Chakram: Circular blade with steam jets. Quirk: Jets puff to adjust its flight mid-throw.
+Hydraulic Pickaxe: Smashes with fluid force. Quirk: Gurgles reassuringly before swings.
+Compressed Air Whip: Uses pressurized air. Quirk: Squeaks like a balloon when snapped.
+Tesla Staff: Staff crackling electricity. Quirk: Makes hair stand on end.
+Gear-Linked Bola: Weighted gears at ends. Quirk: Twirls with a metallic zinging.
+Mechanical Mantis Blade: Folding blade arms. Quirk: Snaps shut quickly, startling foes.
+Aetheric Revolver: Energy bullets. Quirk: Emits a soft chime on empty reload.
+Wind-Up Halberd: Halberd head spins. Quirk: Soft metallic lullaby when idle.
+Pneumatic Shotgun: Air-powered shotgun. Quirk: Gentle hiss and recoil dampened by air cushion.
+Gear Glaive: Rotating blade on a pole. Quirk: Tiny steam jets stabilize spins.
+Phlogiston Rifle: Fires volatile fluid. Quirk: Gurgles like a cauldron on reload.
+Aetheric Hammer: Hammer infused with energy. Quirk: Sparks faint auroras on impact.
+Clockwork Knife: Pocketknife with gears. Quirk: Tick-tocks, reminding user of passing seconds.
+Mechanical Lance Pistol: Mini-lance shot. Quirk: Lance tip retracts with a whoosh.
+Pressure Disk Thrower: Launches metal disks. Quirk: Disks hum like tuning forks.
+Steam Warpick: Heated pick end. Quirk: Steam hisses louder with each successful hit.
+Aether Dart Launcher: Fires glowing darts. Quirk: Darts hover momentarily before striking.
+Phonon Blade: Vibrating sonic sword. Quirk: Blade hum alters pitch based on wielder’s grip.
+Clockwork Boomerang: Returns after looping. Quirk: Clicks a countdown before looping back.

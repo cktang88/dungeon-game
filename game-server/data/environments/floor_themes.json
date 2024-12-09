@@ -1,0 +1,869 @@
+{
+    "floors": [
+        {
+            "name": "Cactuar Oasis",
+            "environment": "A desert-like cavern where phosphorescent cacti glow in shifting patterns, with dunes of crystal sand and stalactites dripping sticky nectar.",
+            "floraFauna": "Luminescent cactus-like plants shooting prickly seeds, burrowing scarab-beetles, and lizard-moths flitting between cactus blooms.",
+            "oddities": "Mirage pockets create illusions of shimmering ponds and fake doorways that vanish when approached.",
+            "monsters": [
+                "Phosphor Cactoids",
+                "Burrowing Scarab-Warriors",
+                "Lizard-Moth Swarms"
+            ],
+            "enemyTypes": [
+                "Cactus Elementals",
+                "Rogue Desert Nomads"
+            ],
+            "afflictions": [
+                "Cactus Spine Poisoning (causes mild bleeding)",
+                "Mirage Madness (hallucinations from nectar)"
+            ]
+        },
+        {
+            "name": "Inverted Mushroom Grove",
+            "environment": "An underground forest of colossal mushrooms hanging upside-down from the ceiling, with their caps forming a luminous 'sky' of spores, and puddles of phosphoric slime dripping upward.",
+            "floraFauna": "Iridescent fungus-frogs hopping backward, upside-down fungal stalks with jelly roots, and spores that sing in choruses when disturbed.",
+            "oddities": "Gravity shifts unpredictably, allowing travelers to walk on walls and cling to fungal networks.",
+            "monsters": [
+                "Mycelid Guardians",
+                "Sporeback Toads"
+            ],
+            "enemyTypes": [
+                "Fungal Beast-Kin",
+                "Ceiling Lurkers (fungal ambushers)"
+            ],
+            "afflictions": [
+                "Spore Sickness (confusion, coughing spores)",
+                "Vertigo Spores (disorientation from gravity shifts)"
+            ]
+        },
+        {
+            "name": "Whispering Coral Reef",
+            "environment": "A half-submerged cavern floor flooded with salty water, decorated by bioluminescent coral towers and barnacle-encrusted pillars.",
+            "floraFauna": "Coral that blossoms into crystals, eyeless crustaceans, and starfish that emit chiming tones.",
+            "oddities": "Invisible currents and nightly coral rearrangements altering passages.",
+            "monsters": [
+                "Choral Crabs",
+                "Coral Sirens"
+            ],
+            "enemyTypes": [
+                "Barnacle Leeches",
+                "Deepwater Myrmidons"
+            ],
+            "afflictions": [
+                "Coral Rash (itchy coral cuts)",
+                "Salt Lung (breathing difficulty if submerged too long)"
+            ]
+        },
+        {
+            "name": "Paper Lantern Marsh",
+            "environment": "A humid bog replaced by lantern-like plants made of thin paper membranes that emit soft, pastel glows amid drifting colored fog.",
+            "floraFauna": "Origami frogs, ink-snails leaving calligraphic trails, and floating lantern-flowers.",
+            "oddities": "Lanterns display coded messages; some act as scrolls.",
+            "monsters": [
+                "Paper Wraiths",
+                "Origami Stalkers"
+            ],
+            "enemyTypes": [
+                "Ink-Fanged Leeches",
+                "Lantern Wisps (ghostly illusions)"
+            ],
+            "afflictions": [
+                "Paper Cut Fever (tiny but painful cuts)",
+                "Ink Blot Poison (temporary blindness or blurred vision)"
+            ]
+        },
+        {
+            "name": "Crystal Milk Caverns",
+            "environment": "A chamber of creamy, opalescent fluid at knee-height, refracting light through towering, prismatic crystals.",
+            "floraFauna": "Glass-lilies, jellyfish-like slugs, prismatic beetles.",
+            "oddities": "Drinking the fluid causes strange laughter or visions.",
+            "monsters": [
+                "Crystal Eels",
+                "Prism-Fanged Salamanders"
+            ],
+            "enemyTypes": [
+                "Opal Crustacean-Guards",
+                "Milky Slime Golems"
+            ],
+            "afflictions": [
+                "Refractive Daze (blurred vision from crystal glare)",
+                "Laughter Fits (loss of combat focus)"
+            ]
+        },
+        {
+            "name": "Upside-Down Library of Roots",
+            "environment": "A maze of inverted tree roots as shelves holding bark-bound tomes, suspended over a bottomless void.",
+            "floraFauna": "Book-spiders, root-scribe plants, luminescent fungi.",
+            "oddities": "Gravity warps locally; audible poetry floats in the air.",
+            "monsters": [
+                "Ink-Thief Ravens",
+                "Rootbound Sentinels"
+            ],
+            "enemyTypes": [
+                "Animated Tomes",
+                "Quill-Stinger Ants"
+            ],
+            "afflictions": [
+                "Inky Cough (choking on airborne ink)",
+                "Riddle Madness (confusion from cryptic texts)"
+            ]
+        },
+        {
+            "name": "Bubble Cavern of Reversed Rain",
+            "environment": "Dome-like caverns where glowing droplets float upward, forming a canopy of suspended watery spheres.",
+            "floraFauna": "Air-swimming bubble-fish, floating algae gardens, transparent mollusks.",
+            "oddities": "Droplets reverse gravity; soft chiming as spheres collide.",
+            "monsters": [
+                "Bubble Elementals",
+                "Ceiling Urchins"
+            ],
+            "enemyTypes": [
+                "Inverted Stingrays",
+                "Droplet Sprites"
+            ],
+            "afflictions": [
+                "Buoyancy Sickness (loss of balance)",
+                "Aerial Vertigo (disturbed sense of up/down)"
+            ]
+        },
+        {
+            "name": "Carnivorous Origami Jungle",
+            "environment": "A forest of folded-paper trees and vines, rustling as if alive.",
+            "floraFauna": "Paper tigers, razor-edged origami birds, creeping parchment vines.",
+            "oddities": "Water reshapes origami into new forms.",
+            "monsters": [
+                "Folded Tiger Lords",
+                "Paper Vipers"
+            ],
+            "enemyTypes": [
+                "Origami Blade-Dancers",
+                "Cranes of Cutting Winds"
+            ],
+            "afflictions": [
+                "Papercut Slashes (bleeding wounds)",
+                "Folding Fever (body stiffness, cramps)"
+            ]
+        },
+        {
+            "name": "Jelly-Ink Marshland",
+            "environment": "A floor of quivering gelatinous masses striped with ink veins that splash shapes on contact.",
+            "floraFauna": "Jelly-lilies, ink-fish, tentacle-plants painting symbols.",
+            "oddities": "Ink forms maps and riddles nightly.",
+            "monsters": [
+                "Ink-Gulping Leeches",
+                "Jelly Puddings"
+            ],
+            "enemyTypes": [
+                "Squid-Phantoms",
+                "Marsh Ink Sprites"
+            ],
+            "afflictions": [
+                "Ink Lung (shortness of breath)",
+                "Quivering Limbs (unsteady footing)"
+            ]
+        },
+        {
+            "name": "Marble-Eyed Forest of Singing Roots",
+            "environment": "Petrified trees with humming roots and marble eyes in their trunks.",
+            "floraFauna": "Hummingbird constructs, whispering serpent-vines.",
+            "oddities": "Marble eyes can reveal hidden passages; chanting opens secret doors.",
+            "monsters": [
+                "Stoneback Boars",
+                "Root Sirens"
+            ],
+            "enemyTypes": [
+                "Marble-Eyed Watchers",
+                "Bark Golems"
+            ],
+            "afflictions": [
+                "Humming Headache (persistent ringing in ears)",
+                "Stone Skin Patches (temporary stiffness of limbs)"
+            ]
+        },
+        {
+            "name": "Clockwork Sunken City",
+            "environment": "Submerged mechanical towers ticking underwater, gears turning beneath algae-tinted water.",
+            "floraFauna": "Brass-finned fish, mechanical eels, algae clock-harvesters.",
+            "oddities": "Adjusting gears changes water levels; currents hint at machine blueprints.",
+            "monsters": [
+                "Gear-Crusted Crabs",
+                "Springsnap Piranhas"
+            ],
+            "enemyTypes": [
+                "Clock-Wraith Divers",
+                "Rust Marines"
+            ],
+            "afflictions": [
+                "Rust Rot (armor degradation)",
+                "Pressure Headaches (from shifting water levels)"
+            ]
+        },
+        {
+            "name": "Feathered Tar Pit",
+            "environment": "Sticky tar floor dotted with giant iridescent feathers swaying in unseen winds.",
+            "floraFauna": "Tar-butterflies, quill-worms, feathered lizards.",
+            "oddities": "Feathers can free or trap you; muffled birdcalls under the tar.",
+            "monsters": [
+                "Tarfang Harriers",
+                "Featherback Crocodilians"
+            ],
+            "enemyTypes": [
+                "Quill-Horned Imps",
+                "Tar-Gargoyles"
+            ],
+            "afflictions": [
+                "Tar Binding (reduced movement)",
+                "Feather Rash (itchy skin irritation)"
+            ]
+        },
+        {
+            "name": "Abyssal Lantern Fields",
+            "environment": "Caverns of hovering glowing glass orbs over black grass, wraith-moths feed on their glow.",
+            "floraFauna": "Trembling lantern-vines, shimmering beetle larvae.",
+            "oddities": "Orbs change color and gravity direction; whispering aligns orbs.",
+            "monsters": [
+                "Lantern Drifters",
+                "Glow-Wraiths"
+            ],
+            "enemyTypes": [
+                "Darkgrass Stalkers",
+                "Orb Siphoners"
+            ],
+            "afflictions": [
+                "Light Hypnosis (dazzled by glowing orbs)",
+                "Lantern Burn (minor burns from touching hot orbs)"
+            ]
+        },
+        {
+            "name": "Mosaic Bone Garden",
+            "environment": "Bone pillars arranged in mosaic patterns, etched with mineral veins.",
+            "floraFauna": "Bone-crabs carving runes, mineral-fed lichens, fossil birds animated by magic.",
+            "oddities": "Stomping on tiles yields hollow chords, rearranging pillars.",
+            "monsters": [
+                "Bone Mosaic Golems",
+                "Rune-Etched Scarabs"
+            ],
+            "enemyTypes": [
+                "Fossil Harpies",
+                "Calcified Gargoyles"
+            ],
+            "afflictions": [
+                "Bone Splinter Cuts",
+                "Mineral Dust Cough (irritation of lungs)"
+            ]
+        },
+        {
+            "name": "Luminescent Charcoal Grove",
+            "environment": "Charred trees glowing with internal embers, lighting cavern in warm orange hues.",
+            "floraFauna": "Firefly-stags, coal-moths, ember-root flowers.",
+            "oddities": "Inhaling smoke grants fiery visions; bark sparks form runes.",
+            "monsters": [
+                "Ember-Breath Wolves",
+                "Charcoal Golems"
+            ],
+            "enemyTypes": [
+                "Smoke Wraiths",
+                "Ash Drakes"
+            ],
+            "afflictions": [
+                "Smoke Inhalation (coughing, reduced stamina)",
+                "Ember Burn (minor fire damage over time)"
+            ]
+        },
+        {
+            "name": "Slime-Pillar Labyrinth",
+            "environment": "A maze of tall semi-transparent slime pillars refracting wiggling patterns of light.",
+            "floraFauna": "Slime-worms, bubble-lilies, transparent shrimp.",
+            "oddities": "Pushing slime walls distorts time perception, laughter echoes.",
+            "monsters": [
+                "Slime Oozes",
+                "Gelatinous Sentinels"
+            ],
+            "enemyTypes": [
+                "Acidic Jellies",
+                "Bubble Slimes"
+            ],
+            "afflictions": [
+                "Slime Footing (slips, reduced mobility)",
+                "Acid Burn (caustic slime damage)"
+            ]
+        },
+        {
+            "name": "Inkfall Canopy",
+            "environment": "Ceiling draped with ink-dripping vines falling like black rain into white moss.",
+            "floraFauna": "Ink-hoppers, shadow-flowers, beetles writing glyphs.",
+            "oddities": "Ink puddles foretell future events; humming redirects ink streams.",
+            "monsters": [
+                "Ink-Blot Gargoyles",
+                "Shadow Mantis"
+            ],
+            "enemyTypes": [
+                "Moss Creepers",
+                "Vine-Stranglers"
+            ],
+            "afflictions": [
+                "Ink Blindness (dark blotches in vision)",
+                "Slippery Moss Rash"
+            ]
+        },
+        {
+            "name": "Amethyst Smoke Cavern",
+            "environment": "Glittering purple crystals releasing colorful smoke wisps gathering in spirals.",
+            "floraFauna": "Smoke-fish, crystal moths, gem-lichens feeding on prismatic light.",
+            "oddities": "Breathing smoke enhances magic; singing forms smoke illusions.",
+            "monsters": [
+                "Crystalback Spiders",
+                "Amethyst Drakes"
+            ],
+            "enemyTypes": [
+                "Vapor Wisps",
+                "Gemstone Ghouls"
+            ],
+            "afflictions": [
+                "Crystal Cough (spells misfire)",
+                "Hallucinatory Smoke (visual distortions)"
+            ]
+        },
+        {
+            "name": "Singing Clay Fields",
+            "environment": "Reddish clay humming underfoot, clay spires shaped by whispering winds.",
+            "floraFauna": "Clay-burrowers, humming cicada-insects, thorny clay-lilies.",
+            "oddities": "Molding clay opens passages; melodies shift spires.",
+            "monsters": [
+                "Clay Striders",
+                "Mud Golems"
+            ],
+            "enemyTypes": [
+                "Dust Ravagers",
+                "Harmonic Mites"
+            ],
+            "afflictions": [
+                "Clay Lung (dust inhalation)",
+                "Resonance Headache"
+            ]
+        },
+        {
+            "name": "Shifting Fabric Grove",
+            "environment": "A forest of giant fabric strands swaying, their patterns changing every minute.",
+            "floraFauna": "Woven moths, fabric-serpents, quilted mushrooms.",
+            "oddities": "Cutting fabric reveals hidden runes; patterns predict distant weather.",
+            "monsters": [
+                "Threaded Spiders",
+                "Fabric Panthers"
+            ],
+            "enemyTypes": [
+                "Seam Rippers (humanoid weavers)",
+                "Patchwork Wraiths"
+            ],
+            "afflictions": [
+                "Snagged Limbs (fabric entanglement)",
+                "Allergic Rash (from dyed fibers)"
+            ]
+        },
+        {
+            "name": "Brass Feather Canyon",
+            "environment": "A canyon of layered brass plates, giant bronze feathers on cliffsides.",
+            "floraFauna": "Feathered clockwork lizards, metal-garden blossoms, rust-birds.",
+            "oddities": "Striking brass changes gravity; feathers form keys to secret trapdoors.",
+            "monsters": [
+                "Brass Vultures",
+                "Gear-Talon Raptors"
+            ],
+            "enemyTypes": [
+                "Plated Scorpions",
+                "Clocksmith Raiders"
+            ],
+            "afflictions": [
+                "Metal Shards (cuts from sharp edges)",
+                "Ear-Ringing Echoes (disorientation from clangs)"
+            ]
+        },
+        {
+            "name": "Candlewax Wetlands",
+            "environment": "A bog of melted wax pools, wax-coated reeds, drifting candle-flames.",
+            "floraFauna": "Wax-ducks, flicker-moths, wax-lilies that ignite if shaken.",
+            "oddities": "Wax sculptures form spontaneously; collecting wax grants fire resistance.",
+            "monsters": [
+                "Candle Golems",
+                "Wax-Sting Hornets"
+            ],
+            "enemyTypes": [
+                "Molten Slugs",
+                "Flame Wisps"
+            ],
+            "afflictions": [
+                "Hot Wax Burns",
+                "Sticky Footing (reduced movement)"
+            ]
+        },
+        {
+            "name": "Inkwell Spires",
+            "environment": "Tall stalagmites like giant quills dripping black ink into reflective pools.",
+            "floraFauna": "Ink-frogs, nib-creatures, parchment-lizards.",
+            "oddities": "Dipping fingers in ink grants literacy in lost tongues.",
+            "monsters": [
+                "Ink Squids",
+                "Quill Serpents"
+            ],
+            "enemyTypes": [
+                "Scribe Ghouls",
+                "Ink Elementals"
+            ],
+            "afflictions": [
+                "Inky Eyes (blurred vision)",
+                "Numb Fingers (from dark ink toxins)"
+            ]
+        },
+        {
+            "name": "Frozen Orchid Labyrinth",
+            "environment": "A crystalline ice maze with glowing frost-orchids casting rainbow light.",
+            "floraFauna": "Icicle-bats, crystal-bloom bees, snow-mice leaving neon pawprints.",
+            "oddities": "Licking ice induces dreams; melting orchids reveals hidden ice runes.",
+            "monsters": [
+                "Frostbite Wolves",
+                "Snowflake Imps"
+            ],
+            "enemyTypes": [
+                "Ice Golems",
+                "Glacier Sprites"
+            ],
+            "afflictions": [
+                "Frostnip (slow movement)",
+                "Ice Glare (temporary blindness)"
+            ]
+        },
+        {
+            "name": "Oily Chime Forest",
+            "environment": "Metallic trees dripping thick oil, each droplet ringing like a bell as it falls.",
+            "floraFauna": "Oil-cicadas, rust-spiders, oily vines.",
+            "oddities": "Singing near oil puddles reshapes the forest floor.",
+            "monsters": [
+                "Oil Drakes",
+                "Iron Beetle Swarms"
+            ],
+            "enemyTypes": [
+                "Rust Goblins",
+                "Slick Phantoms"
+            ],
+            "afflictions": [
+                "Oil Slick (reduced traction)",
+                "Rusted Wounds (slow healing)"
+            ]
+        },
+        {
+            "name": "Glass-Strung Garden",
+            "environment": "A garden of delicate glass vines and flowers producing tinkling melodies.",
+            "floraFauna": "Glass dragonflies, crystalline slugs, harp-lilies strumming in breezes.",
+            "oddities": "Shattering flowers reveals hidden tones that rearrange vines.",
+            "monsters": [
+                "Glass Wraiths",
+                "Shatter Sprites"
+            ],
+            "enemyTypes": [
+                "Gleam Spiders",
+                "Crystal Mantids"
+            ],
+            "afflictions": [
+                "Glass Cuts",
+                "Echoing Ears (ringing auditory hallucinations)"
+            ]
+        },
+        {
+            "name": "Sourceless River of Chalk",
+            "environment": "A dry riverbed of powdered chalk, white dust hovering in faint glow.",
+            "floraFauna": "Chalk-lizards, dust-beetles, powder-fish that swim in dust clouds.",
+            "oddities": "Drawing in chalk animates sketches; breathing dust grants night-vision.",
+            "monsters": [
+                "Chalk Golems",
+                "Dust Serpents"
+            ],
+            "enemyTypes": [
+                "Powder Wraiths",
+                "Chalk-Winged Gargoyles"
+            ],
+            "afflictions": [
+                "Chalk Throat (coughing fits)",
+                "Dry Eye Irritation"
+            ]
+        },
+        {
+            "name": "Starlit Waxwork Grove",
+            "environment": "Wax sculptures depicting constellations, reflecting star-like lights on cavern walls.",
+            "floraFauna": "Wax-fireflies, resin-crickets, statue-moths.",
+            "oddities": "Rearranging wax figures changes constellations; whispering star names opens pathways.",
+            "monsters": [
+                "Wax Golems",
+                "Star-Reflecting Wisps"
+            ],
+            "enemyTypes": [
+                "Candle Phantoms",
+                "Wax-Horned Night Stalkers"
+            ],
+            "afflictions": [
+                "Wax Drips (painful hot drops)",
+                "Star Glare (mild disorientation from bright lights)"
+            ]
+        },
+        {
+            "name": "Umbral Balloon Field",
+            "environment": "A plateau with shadowy orbs floating midair, surfaces rippling with darkness.",
+            "floraFauna": "Shadow-swallows, ink-squirrels, gloom-lilies.",
+            "oddities": "Popping a balloon yields darkness pockets; catching orbs stores secrets.",
+            "monsters": [
+                "Shadow Harriers",
+                "Gloom Specters"
+            ],
+            "enemyTypes": [
+                "Umbral Imps",
+                "Floating Shade Serpents"
+            ],
+            "afflictions": [
+                "Shadow Blindness",
+                "Draining Gloom (fatigue and lethargy)"
+            ]
+        },
+        {
+            "name": "Misted Clockvine Grotto",
+            "environment": "A humid cave with vines bearing tiny clocks as leaves, mist swirling around.",
+            "floraFauna": "Time-moths, dew-drakes, second-hand beetles.",
+            "oddities": "Adjusting clock-leaves changes time flow; plucking vines alters events.",
+            "monsters": [
+                "Tick-Tock Imps",
+                "Chrono Lizards"
+            ],
+            "enemyTypes": [
+                "Temporal Wraiths",
+                "Mistbound Horologes"
+            ],
+            "afflictions": [
+                "Time Lag (delayed reactions)",
+                "Momentary Paralysis (brief time stops)"
+            ]
+        },
+        {
+            "name": "Citrine Feather Marsh",
+            "environment": "Marshy ground with citrine crystals sprouting like feathers, amplifying light.",
+            "floraFauna": "Crystal-eels, gem-hummingbirds, yellow frogs with prismatic eyes.",
+            "oddities": "Knocking crystals creates light illusions; swallowing droplets reveals tunnels.",
+            "monsters": [
+                "Citrine Lurkers",
+                "Crystal Vipers"
+            ],
+            "enemyTypes": [
+                "Featherlight Sylphs",
+                "Gemscale Crocodiles"
+            ],
+            "afflictions": [
+                "Crystal Glare (temporary partial blindness)",
+                "Shimmer Sickness (dizziness from refracted light)"
+            ]
+        },
+        {
+            "name": "Ink-Threaded Orchard",
+            "environment": "Trees of woven ink threads bearing fruit dripping black nectar.",
+            "floraFauna": "Thread-foxes, ink-birds writing glyphs, sticky fruit-flies.",
+            "oddities": "Ink-nectar grants language comprehension; tying threads spawns illusions.",
+            "monsters": [
+                "Thread Wolves",
+                "Inkfang Spiders"
+            ],
+            "enemyTypes": [
+                "Glyph Ghouls",
+                "Quill-Tailed Imps"
+            ],
+            "afflictions": [
+                "Tongue Stain (darkened tongue, slurred speech)",
+                "Ink Allergy (sneezing black ink)"
+            ]
+        },
+        {
+            "name": "Mercury Lily Pond",
+            "environment": "A shallow mercury pond with metal lily pads chiming softly.",
+            "floraFauna": "Liquid-metal dragonflies, mercury eels, silver frogs.",
+            "oddities": "Stepping on lilies alters reflections, possibly showing futures.",
+            "monsters": [
+                "Mirrorback Snakes",
+                "Quicksilver Leeches"
+            ],
+            "enemyTypes": [
+                "Mercury Wisps",
+                "Alloy Ghouls"
+            ],
+            "afflictions": [
+                "Mercury Poisoning (coordination loss)",
+                "Reflective Daze (confused by distorted reflections)"
+            ]
+        },
+        {
+            "name": "Scrimshaw Root Maze",
+            "environment": "A maze of polished bone-roots etched with scrimshaw and lit by bio-luminescent worms.",
+            "floraFauna": "Carved-bone beetles, marrow-worms, tusk-mice.",
+            "oddities": "Tracing runes alters maze shape; singing reveals hidden chambers.",
+            "monsters": [
+                "Marrow Hounds",
+                "Carved Bone Guardians"
+            ],
+            "enemyTypes": [
+                "Worm-Whisperers",
+                "Ivory Golems"
+            ],
+            "afflictions": [
+                "Bone Dust Cough",
+                "Rune Shock (mild mental confusion)"
+            ]
+        },
+        {
+            "name": "Molten Petal Garden",
+            "environment": "Magma vents shaped like flowers dripping molten petals into safe lava streams.",
+            "floraFauna": "Lava-butterflies, basalt-crabs, fire-pollen bees.",
+            "oddities": "Humming cools lava briefly; collecting petals grants heat resistance.",
+            "monsters": [
+                "Magma Drakes",
+                "Cinder Scorpions"
+            ],
+            "enemyTypes": [
+                "Basalt Golems",
+                "Flame Sprites"
+            ],
+            "afflictions": [
+                "Heat Stroke",
+                "Cinder Burns"
+            ]
+        },
+        {
+            "name": "Whalebone Wind Plains",
+            "environment": "Open plains of colossal whale bones playing hollow wind notes.",
+            "floraFauna": "Bone-rats, wind-shrimp, marrow-crows.",
+            "oddities": "Blowing across rib-bones summons gusts; aligning bones forms sonic maps.",
+            "monsters": [
+                "Bone Harriers",
+                "Wind Raptor Flocks"
+            ],
+            "enemyTypes": [
+                "Marrow Ghouls",
+                "Whalebone Sentinels"
+            ],
+            "afflictions": [
+                "Wind Burn (dry skin, chapped lips)",
+                "Bone Splinter Wounds"
+            ]
+        },
+        {
+            "name": "Quicksilver Hive",
+            "environment": "Chambers lined with hexagonal cells of mercurial fluid dripping into mirrored puddles.",
+            "floraFauna": "Metallic bees, silver moths, droplet-spiders.",
+            "oddities": "Touching honeycombs shows distant reflections; humming warps cells.",
+            "monsters": [
+                "Mercury Hornets",
+                "Silver Drone Beetles"
+            ],
+            "enemyTypes": [
+                "Hive Wardens",
+                "Quicksilver Slimes"
+            ],
+            "afflictions": [
+                "Metallic Taste (nausea)",
+                "Reflex Shocks (jerky limb movements)"
+            ]
+        },
+        {
+            "name": "Opal-Wire Thicket",
+            "environment": "Tangled opalescent wires between stalagmites, glowing pastel colors.",
+            "floraFauna": "Wire-cats, crystal-winged gnats, opal-fungi.",
+            "oddities": "Plucking wires sparks music; tying wires opens ephemeral paths.",
+            "monsters": [
+                "Wire Wolves",
+                "Opal Lashers"
+            ],
+            "enemyTypes": [
+                "Static Sprites",
+                "Cable Creepers"
+            ],
+            "afflictions": [
+                "Static Shocks",
+                "Wire Cuts"
+            ]
+        },
+        {
+            "name": "Celestial Honeydew Fields",
+            "environment": "Sticky fields of glowing honeydew droplets suspended on invisible strands, showing constellations.",
+            "floraFauna": "Star-bees, sugar-moths, nectar-lizards.",
+            "oddities": "Collecting honeydew shows future constellations; singing alters droplet patterns.",
+            "monsters": [
+                "Honeydew Hornets",
+                "Starfly Swarms"
+            ],
+            "enemyTypes": [
+                "Constellation Wisps",
+                "Sticky Pixies"
+            ],
+            "afflictions": [
+                "Sugary Stupor (slowed reactions)",
+                "Starry Eyes (dazzled vision)"
+            ]
+        },
+        {
+            "name": "Scarlet Moss Labyrinth",
+            "environment": "A network of corridors coated in pulsing scarlet moss with a quiet heartbeat.",
+            "floraFauna": "Blood-beetles, heart-spiders, red moths.",
+            "oddities": "Pressing ear to moss hears distant whispers; cutting moss grants vitality surges.",
+            "monsters": [
+                "Bloodfang Bats",
+                "Moss Leeches"
+            ],
+            "enemyTypes": [
+                "Redcap Sprites",
+                "Vein Crawlers"
+            ],
+            "afflictions": [
+                "Blood Fever (increased aggression)",
+                "Heart Palpitations (reduced stamina)"
+            ]
+        },
+        {
+            "name": "Liquid Quartz Steppe",
+            "environment": "A plain of liquid quartz pools with crystal stepping stones shimmering under dim light.",
+            "floraFauna": "Crystal carp, shimmer-hares, quartz-lilies.",
+            "oddities": "Pebbles dropped create holographic visions; aligning stones forms light bridges.",
+            "monsters": [
+                "Quartz Golems",
+                "Shimmer Wasps"
+            ],
+            "enemyTypes": [
+                "Refraction Sprites",
+                "Glass Hounds"
+            ],
+            "afflictions": [
+                "Crystal Splinters",
+                "Light Burn (eye strain from reflections)"
+            ]
+        },
+        {
+            "name": "Gilded Thistle Hollow",
+            "environment": "A cavern of golden thistles, reflecting torchlight into intricate patterns.",
+            "floraFauna": "Gold-winged aphids, jewel-beetles, shimmering pollen.",
+            "oddities": "Harvesting thistle spines makes golden ink; humming rearranges patterns.",
+            "monsters": [
+                "Golden Thorn Boars",
+                "Jewel Stag Beetles"
+            ],
+            "enemyTypes": [
+                "Gilded Mites",
+                "Pollen Sprites"
+            ],
+            "afflictions": [
+                "Golden Rash (glittery irritation)",
+                "Pollen Sneeze (reduced perception)"
+            ]
+        },
+        {
+            "name": "Violet Mirage Savannah",
+            "environment": "Violet-hued sand with flickering mirages of ghostly trees swaying in phantom breezes.",
+            "floraFauna": "Translucent antelopes, mirage-cacti, whisper-birds.",
+            "oddities": "Walking backwards solidifies mirages; violet sand summons ephemeral guardians.",
+            "monsters": [
+                "Mirage Jackals",
+                "Phantom Lions"
+            ],
+            "enemyTypes": [
+                "Illusion Djinn",
+                "Sand Specters"
+            ],
+            "afflictions": [
+                "Mirage Vertigo",
+                "Dry Throat (dehydration)"
+            ]
+        },
+        {
+            "name": "Bone-Wrought Violet Fens",
+            "environment": "Misty marshes with violet grasses grown from bleached bones.",
+            "floraFauna": "Marrow-swallows, spectral frogs, rib-cap fungi.",
+            "oddities": "Wading induces soothing numbness; stacking bones opens bone-doors.",
+            "monsters": [
+                "Bone Bog Ghouls",
+                "Marrow Leeches"
+            ],
+            "enemyTypes": [
+                "Violet Fen Wraiths",
+                "Skeletal Drifters"
+            ],
+            "afflictions": [
+                "Marrow Ache",
+                "Swamp Foot (heavy fatigue)"
+            ]
+        },
+        {
+            "name": "Amber Echo Grotto",
+            "environment": "A cavern dripping viscous amber resin, droplets freezing mid-air.",
+            "floraFauna": "Amber-wasps entombed alive, resin-lizards, trapped glowing spores.",
+            "oddities": "Echoes in amber replay past voices; freeing insects grants knowledge.",
+            "monsters": [
+                "Amber Hornets",
+                "Resin Crawlers"
+            ],
+            "enemyTypes": [
+                "Trapped Specters",
+                "Fossilized Beetle Knights"
+            ],
+            "afflictions": [
+                "Sticky Resin (reduced movement)",
+                "Nostalgic Echoes (mental distraction)"
+            ]
+        },
+        {
+            "name": "Roseglass Reef",
+            "environment": "A shallow water reef of rose-tinted glass corals shifting patterns of light.",
+            "floraFauna": "Glass-crabs, rose-fish, coral-worms polishing surfaces.",
+            "oddities": "Tapping coral opens secret tunnels; drinking rose-water enhances empathy.",
+            "monsters": [
+                "Glass Barracudas",
+                "Coral Knights"
+            ],
+            "enemyTypes": [
+                "Rose Jellyfish",
+                "Shimmer Eels"
+            ],
+            "afflictions": [
+                "Glass Cuts",
+                "Sea Whispers (mild hallucinations underwater)"
+            ]
+        },
+        {
+            "name": "Moth-Curtain Vale",
+            "environment": "A valley of dangling silky curtains woven by giant moths, filtering pastel shadows.",
+            "floraFauna": "Glowing moth-larvae, silk-birds, petal-mites.",
+            "oddities": "Stroking curtains changes color and pattern; whispered desires embroider in silk.",
+            "monsters": [
+                "Moth Matriarchs",
+                "Silk Fang Spiders"
+            ],
+            "enemyTypes": [
+                "Velvet Assassins",
+                "Petal Lurkers"
+            ],
+            "afflictions": [
+                "Silk Snare (tangled limbs)",
+                "Allergic Sneezes (pollen in curtains)"
+            ]
+        },
+        {
+            "name": "Sapphire Ember Grove",
+            "environment": "Blue-flamed mushrooms around sapphire ember pools, casting cool firelight.",
+            "floraFauna": "Ember-frogs, sapphire-bats, ash-deer.",
+            "oddities": "Collecting blue flame grants frost-fire magic; chanting shifts pool shapes.",
+            "monsters": [
+                "Sapphire Flame Hounds",
+                "Blue Ember Sprites"
+            ],
+            "enemyTypes": [
+                "Frostfire Imps",
+                "Ashen Ghouls"
+            ],
+            "afflictions": [
+                "Frost Burn (cold/fire mixed damage)",
+                "Ash Lung (coughing from ash-laden air)"
+            ]
+        }
+    ]
+}

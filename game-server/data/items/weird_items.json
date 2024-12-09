@@ -1,0 +1,1002 @@
+[
+    {
+        "id": 501,
+        "name": "Amethyst Sliver",
+        "description": "A thin, irregular shard of amethyst that hums faintly when held.",
+        "uses": [
+            "Its purpose remains unclear; perhaps it reacts to certain energies.",
+            "Might fit into a larger crystalline apparatus.",
+            "Could resonate with other gem fragments someday."
+        ]
+    },
+    {
+        "id": 502,
+        "name": "Whispering Husk",
+        "description": "A hollow, dried shell that produces a soft whispering sound if tilted.",
+        "uses": [
+            "No known function yet; the whisper might hint at hidden voices.",
+            "Could serve as a key to decoding certain sound-based puzzles.",
+            "Might combine with a resonance chamber."
+        ]
+    },
+    {
+        "id": 503,
+        "name": "Petrified Fern Stem",
+        "description": "A slender piece of fossilized plant material with subtle runic etchings.",
+        "uses": [
+            "Its purpose is unknown; the runes remain indecipherable.",
+            "Might interact with druidic rituals or ancient growth magic.",
+            "Possibly a component in a nature-infused artifact."
+        ]
+    },
+    {
+        "id": 504,
+        "name": "Alien Clay Sphere",
+        "description": "A perfectly round ball of clay from an unknown planet, faintly warm.",
+        "uses": [
+            "Its function is uncertain; warmth might indicate hidden life within.",
+            "Might soften when exposed to certain liquids or lights.",
+            "Could be molded into a crucial puzzle piece later."
+        ]
+    },
+    {
+        "id": 505,
+        "name": "Songless Lute String",
+        "description": "A string from a lute that produces no sound, even when plucked.",
+        "uses": [
+            "No obvious purpose; maybe it resonates in a place of silence.",
+            "Could be key to a silent melody puzzle.",
+            "Might vibrate if paired with a certain tuning fork."
+        ]
+    },
+    {
+        "id": 506,
+        "name": "Ovoid Stone with Holes",
+        "description": "An egg-shaped stone punctured with random tiny holes.",
+        "uses": [
+            "Its use is not evident; possibly a filter or strainer of magical essence.",
+            "Might align with celestial patterns when light passes through.",
+            "Could be part of a complex lock mechanism."
+        ]
+    },
+    {
+        "id": 507,
+        "name": "Ashen Wreath",
+        "description": "A wreath of ash-gray leaves that never crumble.",
+        "uses": [
+            "Mysterious significance; the leaves neither heal nor harm.",
+            "Might react to fire or smoke-based rituals.",
+            "Potentially a key component in a purification rite."
+        ]
+    },
+    {
+        "id": 508,
+        "name": "Hollow Copper Cube",
+        "description": "A small copper cube with intricate inner chambers visible through vents.",
+        "uses": [
+            "No known utility; maybe resonates with magnetic fields.",
+            "Could be part of a larger mechanical puzzle.",
+            "Might fit into a slot on an unseen device."
+        ]
+    },
+    {
+        "id": 509,
+        "name": "Inert Crystal Coil",
+        "description": "A spiral-shaped crystal that remains cold and silent.",
+        "uses": [
+            "Its purpose is hidden; maybe it conducts magic when heated.",
+            "Might link separate magical circuits together.",
+            "Could be fused with certain runic rods."
+        ]
+    },
+    {
+        "id": 510,
+        "name": "Glinting Spider Eye",
+        "description": "A glassy orb resembling a giant spider’s eye that doesn’t reflect light.",
+        "uses": [
+            "Unclear purpose; possibly sees invisible things in the right context.",
+            "Might be placed in a statue’s socket.",
+            "Could unlock secrets in a spider-themed shrine."
+        ]
+    },
+    {
+        "id": 511,
+        "name": "Dull Metallic Scale",
+        "description": "A flat, gray scale from an unknown creature, oddly heavy for its size.",
+        "uses": [
+            "Its function is obscure; might be magnetic under special conditions.",
+            "Could be layered with others to form something stronger.",
+            "Might resonate with low-frequency hums."
+        ]
+    },
+    {
+        "id": 512,
+        "name": "Unmarked Key Blank",
+        "description": "A key-shaped piece of metal with no teeth and no markings.",
+        "uses": [
+            "Currently useless; perhaps it can be shaped or enchanted.",
+            "Might become a proper key once inscribed.",
+            "Could fit into a key-making mechanism."
+        ]
+    },
+    {
+        "id": 513,
+        "name": "Veined Marble Fragment",
+        "description": "A chip of marble with natural veins forming unknown symbols.",
+        "uses": [
+            "No immediate purpose; possibly a clue piece in ancient puzzles.",
+            "Might align with other fragments to form a map.",
+            "Could respond to specific frequencies of chanting."
+        ]
+    },
+    {
+        "id": 514,
+        "name": "Sealed Clay Pod",
+        "description": "A tiny clay pod sealed with wax, contents unknown.",
+        "uses": [
+            "Mystery awaits; maybe opening it at the right place is key.",
+            "Might contain spores or seeds for rare plants.",
+            "Could hold a small charm or secret instructions."
+        ]
+    },
+    {
+        "id": 515,
+        "name": "Faded Cloth Strip",
+        "description": "A strip of old cloth with faint geometric patterns, barely visible.",
+        "uses": [
+            "No apparent use; pattern might align with a larger tapestry.",
+            "Could reveal hidden runes under certain lighting.",
+            "Might serve as a wrapping for a delicate artifact."
+        ]
+    },
+    {
+        "id": 516,
+        "name": "Tarnished Silver Band",
+        "description": "A ring of silver, dull and unpolished, with no visible engraving.",
+        "uses": [
+            "Purpose unknown; might glow when worn in a sacred place.",
+            "Could be part of a multi-ring assembly.",
+            "Might be inscribed when exposed to certain potions."
+        ]
+    },
+    {
+        "id": 517,
+        "name": "Quieting Feather",
+        "description": "A single feather that seems to absorb sound around it.",
+        "uses": [
+            "Not sure why it exists; could be used in stealth-related rituals.",
+            "Might pair with other feathers for silence-based magic.",
+            "Could line a hood to muffle noise."
+        ]
+    },
+    {
+        "id": 518,
+        "name": "Translucent Seed Case",
+        "description": "A hollow, translucent casing that once held a seed, now empty.",
+        "uses": [
+            "No direct function; maybe refilled with a special seed.",
+            "Might be placed in nutrient solutions to grow something unique.",
+            "Could be a lens for focusing faint lights."
+        ]
+    },
+    {
+        "id": 519,
+        "name": "Puzzle Gear Fragment",
+        "description": "A piece of a gear with irregular teeth that don’t fit standard gears.",
+        "uses": [
+            "Currently useless; must find other matching gear parts.",
+            "Might complete a clockwork puzzle.",
+            "Could set a strange machine in motion if combined correctly."
+        ]
+    },
+    {
+        "id": 520,
+        "name": "Indigo-Tinted Glass Shard",
+        "description": "A jagged piece of glass that gives the world an indigo hue when looked through.",
+        "uses": [
+            "No obvious use; maybe reveals hidden marks when viewed through it.",
+            "Could be set into a frame for a special lens.",
+            "Might interact with colored lights or illusions."
+        ]
+    },
+    {
+        "id": 521,
+        "name": "Humming Chitin Plate",
+        "description": "A plate of insect-like chitin that softly hums at the edge of hearing.",
+        "uses": [
+            "Its purpose unknown; humming might be a key frequency.",
+            "Could resonate with other chitin pieces to form a code.",
+            "Might calm or attract certain creatures."
+        ]
+    },
+    {
+        "id": 522,
+        "name": "Etched Copper Disk",
+        "description": "A thin disk with etched lines that form no recognizable pattern.",
+        "uses": [
+            "Currently meaningless; might need rotation or reflection to decode.",
+            "Could be a puzzle piece in a mechanical lock.",
+            "Might channel weak electrical currents when combined with others."
+        ]
+    },
+    {
+        "id": 523,
+        "name": "Odorless Flower Bud",
+        "description": "A dried flower bud that has neither scent nor taste.",
+        "uses": [
+            "No known use; may bloom under special conditions.",
+            "Might react to a rare fertilizer or aura.",
+            "Could be ground into powder for undiscovered properties."
+        ]
+    },
+    {
+        "id": 524,
+        "name": "Silent Chime",
+        "description": "A tiny bell-like object that never makes a sound.",
+        "uses": [
+            "Its purpose unclear; perhaps it rings in a different dimension.",
+            "Might chime only in certain magical fields.",
+            "Could complete a set of silent instruments."
+        ]
+    },
+    {
+        "id": 525,
+        "name": "Dull Jade Triangle",
+        "description": "A triangular shard of jade with no luster and no carvings.",
+        "uses": [
+            "Mysterious trinket; may fit into a larger geometric pattern.",
+            "Might resonate with other gemstones to form a key.",
+            "Could be polished to reveal hidden symbols."
+        ]
+    },
+    {
+        "id": 526,
+        "name": "Static Silk",
+        "description": "A piece of silk that crackles faintly with static when touched.",
+        "uses": [
+            "No immediate function; maybe it conducts magical energy.",
+            "Might be used in lightning-based enchantments.",
+            "Could cling to certain surfaces to reveal patterns."
+        ]
+    },
+    {
+        "id": 527,
+        "name": "Frosted Clay Disc",
+        "description": "A flat clay disc with a frosted surface, always cool to the touch.",
+        "uses": [
+            "Unknown purpose; possibly reacts to heat or fire spells.",
+            "Might form part of a temperature-sensitive device.",
+            "Could reveal a hidden image when warmed."
+        ]
+    },
+    {
+        "id": 528,
+        "name": "Singing Stone Shard",
+        "description": "A stone fragment that emits a faint tone if tapped, but no tune emerges.",
+        "uses": [
+            "No apparent use; might match with other shards to form a melody.",
+            "Could be part of an acoustic puzzle.",
+            "Might resonate only at certain altitudes."
+        ]
+    },
+    {
+        "id": 529,
+        "name": "Iridescent Pelt Scrap",
+        "description": "A patch of fur that shimmers with changing colors under different lights.",
+        "uses": [
+            "Purpose unclear; could camouflage something when combined.",
+            "Might be woven into a cloak of illusions.",
+            "Could respond to moonlight or starlight."
+        ]
+    },
+    {
+        "id": 530,
+        "name": "Empty Beetle Carapace",
+        "description": "A hollow beetle shell with geometric patterns inside.",
+        "uses": [
+            "No known use; patterns might map to a hidden code.",
+            "Might fit inside a mechanism as a gear housing.",
+            "Could be infused with magical resin to animate it."
+        ]
+    },
+    {
+        "id": 531,
+        "name": "Muted Crystal Lens",
+        "description": "A lens that mutes colors rather than enhances them.",
+        "uses": [
+            "Its function is obscure; could reveal invisible writing.",
+            "Might adjust visual clues in puzzles.",
+            "Could be a piece of a larger optical device."
+        ]
+    },
+    {
+        "id": 532,
+        "name": "Partial Stone Sigil",
+        "description": "A broken fragment of stone with half of a carved symbol.",
+        "uses": [
+            "Useless alone; must find the missing half.",
+            "Might unlock a sealed door once completed.",
+            "Could channel energy when the symbol is whole."
+        ]
+    },
+    {
+        "id": 533,
+        "name": "Glass Cylinder with Bubbles",
+        "description": "A sealed glass cylinder containing a pattern of air bubbles.",
+        "uses": [
+            "Function unknown; maybe it’s a calibration tool for something.",
+            "Might refract light in a code-like pattern.",
+            "Could fit into a device that reads bubble patterns."
+        ]
+    },
+    {
+        "id": 534,
+        "name": "Subtle Scent Cloth",
+        "description": "A fabric that carries a scent so faint it’s almost undetectable.",
+        "uses": [
+            "No clear use; scent might intensify near specific flora.",
+            "Could be combined with chemicals to reveal hidden perfumes.",
+            "Might lure certain elusive creatures."
+        ]
+    },
+    {
+        "id": 535,
+        "name": "Uncarved Wooden Statuette",
+        "description": "A small block of wood, roughly humanoid in shape but with no features.",
+        "uses": [
+            "No immediate use; perhaps it can be carved at a special bench.",
+            "Might be enchanted to form a golem core.",
+            "Could be a placeholder for a ritual effigy."
+        ]
+    },
+    {
+        "id": 536,
+        "name": "Strange Reed Node",
+        "description": "A segment of reed with bulbous ends, silent when blown.",
+        "uses": [
+            "Its purpose is unclear; maybe it resonates underwater.",
+            "Might be a component of a complex instrument.",
+            "Could interact with certain frequencies of wind."
+        ]
+    },
+    {
+        "id": 537,
+        "name": "Inert Magnetic Rod",
+        "description": "A rod claimed to be magnetic, but it sticks to nothing.",
+        "uses": [
+            "No apparent function; might require specific magnetic fields.",
+            "Could attract something non-metallic under certain conditions.",
+            "Might fit into a magnetic lock or puzzle."
+        ]
+    },
+    {
+        "id": 538,
+        "name": "Shadowed Pearl",
+        "description": "A pearl that appears dim, as if a shadow hangs within it.",
+        "uses": [
+            "Its purpose unknown; maybe reveals hidden silhouettes.",
+            "Might glow under moonlight or starlight.",
+            "Could be a key in illusions or dream-based rituals."
+        ]
+    },
+    {
+        "id": 539,
+        "name": "Hollow Reed Chime",
+        "description": "A reed section with notches, but it makes no sound even in wind.",
+        "uses": [
+            "Unknown purpose; possibly resonates only in magical breezes.",
+            "Might combine with other silent chimes.",
+            "Could decode airy whispers in specific locations."
+        ]
+    },
+    {
+        "id": 540,
+        "name": "Sealed Vial of Dust",
+        "description": "A tiny glass vial containing fine gray dust, sealed tight.",
+        "uses": [
+            "No known use; dust might glow under a certain spell.",
+            "Could be reagent for unknown alchemical recipes.",
+            "Might settle into a pattern on special surfaces."
+        ]
+    },
+    {
+        "id": 541,
+        "name": "Ceramic Parchment Holder",
+        "description": "A hollow ceramic tube that seems designed to hold a scroll.",
+        "uses": [
+            "No use empty; needs a specific parchment.",
+            "Might preserve writings from decay.",
+            "Could unlock secrets if the right scroll is inserted."
+        ]
+    },
+    {
+        "id": 542,
+        "name": "Dim Opal Chip",
+        "description": "A chip of opal with only the faintest flicker of color.",
+        "uses": [
+            "Its function unknown; maybe brightens when near other gems.",
+            "Might be part of a gem mosaic that forms a clue.",
+            "Could refract certain magical beams."
+        ]
+    },
+    {
+        "id": 543,
+        "name": "Unaligned Compass Dial",
+        "description": "A compass-like dial with no needle and no markings.",
+        "uses": [
+            "Currently useless; might align after exposure to magnetic flux.",
+            "Could show directions when paired with a needle.",
+            "Might respond to gravitational anomalies."
+        ]
+    },
+    {
+        "id": 544,
+        "name": "Moss-Lined Box Fragment",
+        "description": "A piece of a wooden box, lined with soft moss inside.",
+        "uses": [
+            "No purpose alone; might complete a box to store delicate items.",
+            "Moss might indicate it held something alive or fragile.",
+            "Could fit into a puzzle requiring natural padding."
+        ]
+    },
+    {
+        "id": 545,
+        "name": "Inert Glowcap Spore",
+        "description": "A single spore from a glowing mushroom, now dim.",
+        "uses": [
+            "Not currently active; maybe it can be revived in fertile soil.",
+            "Might grow under special conditions.",
+            "Could be catalyst for bioluminescent reagents."
+        ]
+    },
+    {
+        "id": 546,
+        "name": "Unstrung Harp Frame",
+        "description": "A small wooden harp frame with no strings.",
+        "uses": [
+            "No sound can be made yet; needs rare strings.",
+            "Might produce magical music once completed.",
+            "Could resonate with specific sound crystals."
+        ]
+    },
+    {
+        "id": 547,
+        "name": "Oddly Weighted Pebble",
+        "description": "A pebble heavier on one side, causing it to roll in a strange pattern.",
+        "uses": [
+            "No known utility; might be a clue in a gravity-based puzzle.",
+            "Could interact with balance scales or traps.",
+            "Might serve as a key if placed in a weighted plate."
+        ]
+    },
+    {
+        "id": 548,
+        "name": "Wisp Essence Jar",
+        "description": "An empty jar that once held wisp essence, now just a faint glow remains.",
+        "uses": [
+            "No immediate use empty; maybe can recapture wisps.",
+            "Might illuminate faint runes if refilled.",
+            "Could stabilize ethereal materials."
+        ]
+    },
+    {
+        "id": 549,
+        "name": "Dried Root Knot",
+        "description": "A tangled knot of root fibers, twisted into a strange shape.",
+        "uses": [
+            "Its purpose unknown; shape might match a hidden socket.",
+            "Could be infused with growth potions.",
+            "Might become flexible again under certain spells."
+        ]
+    },
+    {
+        "id": 550,
+        "name": "Veil of Transparent Leaves",
+        "description": "A cluster of leaves so thin they are almost invisible.",
+        "uses": [
+            "No obvious use; might cloak something small.",
+            "Could reveal hidden text if placed over writing.",
+            "Might be used in an invisibility-related ritual."
+        ]
+    },
+    {
+        "id": 551,
+        "name": "Partial Mechanism Latch",
+        "description": "A latch that doesn’t lock anything on its own.",
+        "uses": [
+            "Useless alone; needs the rest of the mechanism.",
+            "Might secure a secret compartment when completed.",
+            "Could interface with clockwork keys."
+        ]
+    },
+    {
+        "id": 552,
+        "name": "Translucent Orb Shell",
+        "description": "A hollow orb shell, translucent but empty inside.",
+        "uses": [
+            "No purpose empty; could hold a glowing core.",
+            "Might refract starry light to form constellations.",
+            "Could be a protective casing for a rare gem."
+        ]
+    },
+    {
+        "id": 553,
+        "name": "Faintly Scented Bark Strip",
+        "description": "A thin bark strip with a scent too faint to identify.",
+        "uses": [
+            "Unknown purpose; might intensify near certain plants.",
+            "Could release aroma under heat or moisture.",
+            "Might be an ingredient in subtle potions."
+        ]
+    },
+    {
+        "id": 554,
+        "name": "Ceramic Fragment with Groove",
+        "description": "A shard of ceramic with a small groove along one side.",
+        "uses": [
+            "Useless alone; might fit into a larger ceramic assembly.",
+            "Could guide a thin wire or filament.",
+            "Might align symbols when combined with more shards."
+        ]
+    },
+    {
+        "id": 555,
+        "name": "Empty Ebony Tube",
+        "description": "A short tube made of dark wood, polished smooth inside.",
+        "uses": [
+            "No immediate use; possibly a conduit for something liquid or gaseous.",
+            "Might be part of a musical instrument.",
+            "Could hold a slender wand or rod."
+        ]
+    },
+    {
+        "id": 556,
+        "name": "Pale Crystal Chip",
+        "description": "A tiny, pale crystal fragment that’s neither warm nor cold.",
+        "uses": [
+            "Unknown function; might glow if combined with others.",
+            "Could be a puzzle piece for a crystal mosaic.",
+            "Might react to specific elemental energies."
+        ]
+    },
+    {
+        "id": 557,
+        "name": "Twisted Fiber Cord",
+        "description": "A short cord of twisted fibers that doesn’t break easily.",
+        "uses": [
+            "No known use; could tie components together.",
+            "Might be necessary to lash pieces of a contraption.",
+            "Could conduct small magical charges along its length."
+        ]
+    },
+    {
+        "id": 558,
+        "name": "Hazy Lens Fragment",
+        "description": "A piece of lens glass that blurs vision rather than focusing it.",
+        "uses": [
+            "Mysterious function; might reveal illusions by distorting reality.",
+            "Could fit into a multi-lens device.",
+            "Might clarify if polished with rare compounds."
+        ]
+    },
+    {
+        "id": 559,
+        "name": "Resin-Coated Pebble",
+        "description": "A pebble coated in a thin layer of hardened resin.",
+        "uses": [
+            "No obvious purpose; resin might bond to specific materials.",
+            "Could serve as a catalyst in glue-like mixtures.",
+            "Might become transparent if dissolved in the right solvent."
+        ]
+    },
+    {
+        "id": 560,
+        "name": "Inert Rune Stamp",
+        "description": "A small stamp with a rune too faded to read.",
+        "uses": [
+            "No clear use; maybe inked with magic ink reveals the rune.",
+            "Could impress runes into soft clay.",
+            "Might become active if re-etched."
+        ]
+    },
+    {
+        "id": 561,
+        "name": "Bone Ring (Unmarked)",
+        "description": "A ring made of bone, plain and unadorned.",
+        "uses": [
+            "No function as is; may gain power when carved or enchanted.",
+            "Could be a ritual focus if inscribed.",
+            "Might bond with certain spirits."
+        ]
+    },
+    {
+        "id": 562,
+        "name": "Tuned Metal Bar",
+        "description": "A bar of metal that seems carefully forged, but produces no note.",
+        "uses": [
+            "Not currently useful; maybe in a set it vibrates harmonically.",
+            "Could form part of a tuning array.",
+            "Might align magical energies in a grid."
+        ]
+    },
+    {
+        "id": 563,
+        "name": "Odd Leather Strip",
+        "description": "A piece of leather cut into a strange shape that fits nothing known.",
+        "uses": [
+            "No known use; shape may fit into a custom harness.",
+            "Could form a seal when pressed against a matching surface.",
+            "Might hold two odd components together."
+        ]
+    },
+    {
+        "id": 564,
+        "name": "Caged Air Bubble",
+        "description": "A small glass sphere containing a trapped bubble of air.",
+        "uses": [
+            "Currently useless; might react under pressure or vacuum.",
+            "Could be needed for a device measuring purity of air.",
+            "Might show hidden patterns when shaken."
+        ]
+    },
+    {
+        "id": 565,
+        "name": "Paper Fragment with Strange Ink",
+        "description": "A scrap of paper with illegible ink that changes color slowly.",
+        "uses": [
+            "No current meaning; might match other fragments to form a message.",
+            "Could react to special light frequencies.",
+            "Might become readable after alchemical treatment."
+        ]
+    },
+    {
+        "id": 566,
+        "name": "Hollow Antler Tip",
+        "description": "A hollowed-out tip of antler with no markings.",
+        "uses": [
+            "No known purpose; could be a mouthpiece for an instrument.",
+            "Might hold a rare resin for crafting.",
+            "Could channel sound or liquid if adapted."
+        ]
+    },
+    {
+        "id": 567,
+        "name": "Slate Shard with Grooves",
+        "description": "A piece of slate scored with parallel grooves.",
+        "uses": [
+            "No obvious use; grooves might align with other pieces.",
+            "Could form a rudimentary code reader.",
+            "Might change pitch when scraped."
+        ]
+    },
+    {
+        "id": 568,
+        "name": "Translucent Insect Wing",
+        "description": "A delicate wing that refracts light into faint rainbows.",
+        "uses": [
+            "No known function; might be needed in delicate potions.",
+            "Could enhance the vision of certain magical lenses.",
+            "Might attract specific creatures if displayed."
+        ]
+    },
+    {
+        "id": 569,
+        "name": "Imperfectly Cut Gem",
+        "description": "A gemstone with a rough cut and strange angles.",
+        "uses": [
+            "Currently worthless; proper cutting might reveal properties.",
+            "Could fit into an oddly shaped setting.",
+            "Might refract magical beams in a special way."
+        ]
+    },
+    {
+        "id": 570,
+        "name": "Dried Stem with Knot",
+        "description": "A simple plant stem knotted at its center.",
+        "uses": [
+            "No clear use; knot might lock into a carved socket.",
+            "Could anchor a delicate component in a herbal apparatus.",
+            "Might release fragrance if soaked."
+        ]
+    },
+    {
+        "id": 571,
+        "name": "Non-Reflective Mirror Shard",
+        "description": "A piece of mirror glass that reflects nothing.",
+        "uses": [
+            "Useless as a mirror; maybe shows invisible objects in special light.",
+            "Could be part of a puzzle involving reflections.",
+            "Might become reflective when enchanted."
+        ]
+    },
+    {
+        "id": 572,
+        "name": "Bone Carving Blank",
+        "description": "A piece of bone shaped for carving but left featureless.",
+        "uses": [
+            "No function in current state; carve runes to activate powers.",
+            "Could become a component of a ritual tool.",
+            "Might store magic if properly inscribed."
+        ]
+    },
+    {
+        "id": 573,
+        "name": "Earthenware Fragment",
+        "description": "A piece of pottery bearing half of an undecipherable symbol.",
+        "uses": [
+            "Meaningless alone; find the other half to complete the symbol.",
+            "Might unlock secrets when placed in the right mosaic.",
+            "Could be part of an ancient code."
+        ]
+    },
+    {
+        "id": 574,
+        "name": "Mute Wind Pipe",
+        "description": "A pipe carved of wood that never produces sound, regardless of blowing.",
+        "uses": [
+            "No function now; maybe requires special breath or reagent.",
+            "Could be a key in silent wind puzzles.",
+            "Might channel invisible currents of magic."
+        ]
+    },
+    {
+        "id": 575,
+        "name": "Semi-Translucent Coil",
+        "description": "A coiled material that is partially see-through, revealing nothing inside.",
+        "uses": [
+            "No known purpose; could conduct strange energies.",
+            "Might act as a buffer between incompatible materials.",
+            "Could connect two mysterious devices."
+        ]
+    },
+    {
+        "id": 576,
+        "name": "Chalky Residue Packet",
+        "description": "A small packet containing fine white dust, tasteless and odorless.",
+        "uses": [
+            "Function unknown; might react to moisture or heat.",
+            "Could form a base for alchemical mixtures.",
+            "Might reveal hidden writing when sprinkled."
+        ]
+    },
+    {
+        "id": 577,
+        "name": "Unmarked Wax Tablet",
+        "description": "A tablet of wax with no impressions or inscriptions.",
+        "uses": [
+            "No immediate purpose; could record secret messages once etched.",
+            "Might capture a seal or symbol.",
+            "Could soften under warmth to reveal something hidden."
+        ]
+    },
+    {
+        "id": 578,
+        "name": "Oddly Weighted Pendant",
+        "description": "A pendant heavier at the top than the bottom, causing it to hang strangely.",
+        "uses": [
+            "No known use; might balance if combined with another part.",
+            "Could unlock gravity-based mechanisms.",
+            "Might point towards something if magnetized."
+        ]
+    },
+    {
+        "id": 579,
+        "name": "Coarse Fiber Filament",
+        "description": "A single coarse thread too stiff to weave normally.",
+        "uses": [
+            "No direct purpose; might reinforce fragile components.",
+            "Could be essential in crafting a composite material.",
+            "Might conduct subtle magical currents."
+        ]
+    },
+    {
+        "id": 580,
+        "name": "Stiffened Leaf Vein",
+        "description": "A leaf vein hardened into a thin, rigid strand.",
+        "uses": [
+            "Its function is unclear; could serve as a delicate stylus.",
+            "Might trigger tiny mechanisms when inserted.",
+            "Could be infused with dyes or essences."
+        ]
+    },
+    {
+        "id": 581,
+        "name": "Opaque Crystal Rod",
+        "description": "A crystal rod that lets no light through, unlike normal crystals.",
+        "uses": [
+            "No apparent function; maybe it filters certain energies.",
+            "Could be key to an energy circuit requiring no light.",
+            "Might become transparent when charged magically."
+        ]
+    },
+    {
+        "id": 582,
+        "name": "Dried Spiral Root",
+        "description": "A root twisted into a tight spiral, hollow in the center.",
+        "uses": [
+            "No known use; might channel liquids if rehydrated.",
+            "Could align with spiral motifs in hidden puzzles.",
+            "Might store small beads or seeds."
+        ]
+    },
+    {
+        "id": 583,
+        "name": "Polished Ebony Wedge",
+        "description": "A small wooden wedge polished to a mirror finish.",
+        "uses": [
+            "Useless alone; might fit into a carved notch somewhere.",
+            "Could shim two pieces of a device together.",
+            "Might alter angles in a mechanism."
+        ]
+    },
+    {
+        "id": 584,
+        "name": "Thin Bone Sliver",
+        "description": "A sliver of bone that tapers to a fine point but is not sharp.",
+        "uses": [
+            "No immediate use; could scribe runes into soft materials.",
+            "Might serve as a pointer in a ritual compass.",
+            "Could be an ingredient in subtle necromantic rites."
+        ]
+    },
+    {
+        "id": 585,
+        "name": "Hazy Quartz Pebble",
+        "description": "A pebble of quartz that’s cloudy, obscuring its center.",
+        "uses": [
+            "Its purpose unclear; might clarify when cleansed.",
+            "Could refract certain lights to reveal hidden text.",
+            "Might hold a tiny spirit if properly awakened."
+        ]
+    },
+    {
+        "id": 586,
+        "name": "Partial Magnetic Clip",
+        "description": "Half of a clip-like device, missing its counterpart.",
+        "uses": [
+            "Useless alone; must find the other half to hold something.",
+            "Might secure scrolls or maps once completed.",
+            "Could anchor a component in a mechanical contraption."
+        ]
+    },
+    {
+        "id": 587,
+        "name": "Dull Brass Ring",
+        "description": "A brass ring with no markings, dull and light.",
+        "uses": [
+            "No apparent purpose; might react to certain chemicals.",
+            "Could complete a set of rings forming a cipher.",
+            "Might channel minimal magnetic fields."
+        ]
+    },
+    {
+        "id": 588,
+        "name": "Hollow Wooden Bead",
+        "description": "A bead made of wood, hollow and delicate.",
+        "uses": [
+            "No use by itself; might be strung on a special cord.",
+            "Could hold tiny seeds or powders if sealed.",
+            "Might amplify faint sounds if used in a device."
+        ]
+    },
+    {
+        "id": 589,
+        "name": "Colorless Petal",
+        "description": "A flower petal drained of all color, unnaturally pale.",
+        "uses": [
+            "Its purpose unknown; might absorb dye or magical pigments.",
+            "Could reveal invisible patterns under moonlight.",
+            "Might be a reagent for color-shifting potions."
+        ]
+    },
+    {
+        "id": 590,
+        "name": "Oddly Fluted Shell",
+        "description": "A seashell with strange fluted edges that don’t produce sound.",
+        "uses": [
+            "No function as is; might match a mate to create resonance.",
+            "Could filter certain frequencies underwater.",
+            "Might serve as a lens or funnel for magical energies."
+        ]
+    },
+    {
+        "id": 591,
+        "name": "Dull Glass Bead",
+        "description": "A glass bead lacking any sparkle, oddly matte surface.",
+        "uses": [
+            "No apparent use; might shine if polished or combined.",
+            "Could be a placeholder in a bead puzzle.",
+            "Might refract unusual spectra of light."
+        ]
+    },
+    {
+        "id": 592,
+        "name": "Minuscule Metal Spring",
+        "description": "A tiny spring that compresses almost imperceptibly.",
+        "uses": [
+            "Useless alone; might be part of a delicate timing mechanism.",
+            "Could regulate movement in a tiny device.",
+            "Might hold two fragile pieces apart."
+        ]
+    },
+    {
+        "id": 593,
+        "name": "Lichen-Encrusted Pebble",
+        "description": "A pebble covered in dried lichen, giving it a greenish cast.",
+        "uses": [
+            "No known function; lichen might revive under moisture.",
+            "Could be part of a nature-based key or puzzle.",
+            "Might reveal patterns when cleaned."
+        ]
+    },
+    {
+        "id": 594,
+        "name": "Unattached Gear Tooth",
+        "description": "A single metal tooth from a gear, chipped off cleanly.",
+        "uses": [
+            "Worthless alone; must fit back into a broken gear.",
+            "Could be welded into a larger clockwork device.",
+            "Might complete a timing mechanism when restored."
+        ]
+    },
+    {
+        "id": 595,
+        "name": "Leaf-Wrapped Pebble",
+        "description": "A pebble carefully wrapped in a dried leaf and tied with thread.",
+        "uses": [
+            "No clear purpose; package might hide subtle scents or clues.",
+            "Could be a key when unwrapped in a certain ritual.",
+            "Might reveal writing on the leaf when steamed."
+        ]
+    },
+    {
+        "id": 596,
+        "name": "Inward-Curving Fang",
+        "description": "A tooth-like object that curves inward sharply, not from any known creature.",
+        "uses": [
+            "Purpose unknown; might fit into a carved slot like a key.",
+            "Could be ground into rare powders.",
+            "Might latch onto specific surfaces in a mechanism."
+        ]
+    },
+    {
+        "id": 597,
+        "name": "Soft Stone Palette",
+        "description": "A flat, soft stone with shallow depressions, but no pigments.",
+        "uses": [
+            "No known use; maybe for mixing rare substances.",
+            "Could be polished to reveal hidden carvings.",
+            "Might serve as an alchemical mortar if paired with a pestle."
+        ]
+    },
+    {
+        "id": 598,
+        "name": "Runeless Charm",
+        "description": "A charm-shaped amulet devoid of any inscription or rune.",
+        "uses": [
+            "Currently inert; might gain power if runes are etched.",
+            "Could be a conduit for enchantments.",
+            "Might anchor a protective spell once activated."
+        ]
+    },
+    {
+        "id": 599,
+        "name": "Oily Wooden Shard",
+        "description": "A piece of wood seeping a light, odorless oil.",
+        "uses": [
+            "No immediate purpose; oil might lubricate delicate mechanisms.",
+            "Could fuel a tiny lamp if ignited.",
+            "Might preserve or treat certain materials."
+        ]
+    },
+    {
+        "id": 600,
+        "name": "Oddly Jointed Stick",
+        "description": "A short stick with natural joints that bend slightly, but serve no purpose.",
+        "uses": [
+            "No known use; might hinge open a secret compartment.",
+            "Could be a simple puzzle piece needing correct orientation.",
+            "Might become rigid or flexible under certain conditions."
+        ]
+    }
+]

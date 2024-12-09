@@ -1,0 +1,100 @@
+King’s Longsword: A regal blade forged for monarchs. Quirk: Shimmers in presence of true heirs.
+Elven Leaf-Blade: Light, curved sword. Quirk: Produces a soft hum when swung gracefully.
+Orcish Cleaver: Heavy, chipped metal sword. Quirk: Grows hotter with every enemy felled.
+Druid’s Quarterstaff: Wooden staff sprouting leaves. Quirk: Staff blossoms under moonlight, granting healing.
+Redfang Dagger: Jagged dagger said to drink blood. Quirk: Its edge never dulls when fed fresh prey.
+Runesteel Warhammer: Thick hammer etched with runes. Quirk: Runes glow brighter as its wielder’s courage grows.
+Northern Greataxe: Massive axe from icy lands. Quirk: Blade frosts over, slowing foes struck.
+Lionheart Spear: Spear with a lion motif. Quirk: Roars faintly upon striking, bolstering morale.
+Silverthorn Rapier: Elegant slender sword. Quirk: Reflects moonlight to blind nocturnal creatures.
+Blackwood Bow: Carved from dark, ancient oak. Quirk: Arrows loosed whisper secrets of the forest.
+Phoenix Talon Blade: Curved sword with fiery hue. Quirk: Warms the wielder’s hand, ignites oil on contact.
+Hydra Tooth Spear: Spear tipped with monstrous fang. Quirk: Tip regenerates if broken, like a hydra’s head.
+Windwhisper Sling: Simple leather sling. Quirk: Stones thrown produce gusts of wind mid-flight.
+Giantbone Club: Club made from a giant’s femur. Quirk: Vibrates slightly when giants are near.
+Starfall Flail: Spiked ball decorated with star symbols. Quirk: Sparks of starlight appear at night swings.
+Forestguard Shield: Wooden shield of entwined roots. Quirk: Roots tighten to absorb shock when under heavy attack.
+Raven’s Beak Mace: Mace with a raven-shaped head. Quirk: Caws loudly if enemies approach from behind.
+Iron Fang Dirk: Short, punchy blade. Quirk: Inflicts lingering metallic taste in wounded foes.
+Wolfsong Horn-Bow: Bow strung with sinew. Quirk: Arrow flights occasionally howl, unsettling targets.
+Thunderstrike Waraxe: Heavy axe crackling faintly. Quirk: Strikes can produce thunderous echoes on impact.
+Moonpetal Scimitar: Curved blade shimmering pale. Quirk: Blade reflects illusions, revealing their nature.
+Glass Edge Knife: Knife with near-invisible blade. Quirk: Blade hums when near hidden passages.
+Serpent Coil Whip: Leather whip with scaled pattern. Quirk: Hisses softly and can stun reptilian foes.
+Bone Harpoon: A harpoon of sharpened bone. Quirk: Clings to flesh, hard to dislodge once embedded.
+Stormcall Staff: Wooden staff topped with crystal. Quirk: Staff crackles with static before a storm.
+Dragonfire Lance: Lance tipped with draconic tooth. Quirk: Tip smolders, igniting flammable materials.
+Ironbark Halberd: Polearm reinforced with ironwood. Quirk: Shaft flexes under strain, never snapping.
+Whispering Crossbow: Crossbow of dark oak. Quirk: Bolts travel silently but whisper at impact.
+Trollbane Maul: Massive two-handed hammer. Quirk: Strikes leave a stinging rot that trolls fear.
+Fangtip Arrows: Arrows tipped with beast fangs. Quirk: Cause prey to panic and scatter.
+Sunbright Blade: Sword that gleams in sunlight. Quirk: Hilt warms, bolstering wielder’s endurance in day.
+Shadowstitch Dagger: Blade that dims nearby light. Quirk: Can anchor a target’s shadow, slowing movement.
+Crystalhead Spear: Spear with crystal tip. Quirk: Tip refracts light into dazzling patterns.
+Mammoth Tuskknife: Short blade from a tusk. Quirk: Smells faintly of tundra, confuses beasts’ senses.
+Wraithbow: Ethereal bow. Quirk: Arrows pass through walls but fade quickly.
+Chainblade Flail: Flail of interlinked blades. Quirk: Chains chime eerily, intimidating faint-hearted foes.
+Scorpion Tail Whip: Barbed whip. Quirk: Poisonous barbs deliver numbing venom.
+Brass Golem Fist: A metal gauntlet weapon. Quirk: Strikes echo like hammer on anvil, unnerving enemies.
+Hearthfire Wand: Small wooden wand. Quirk: Warms itself and grants comfort in cold weather.
+Thorned Mace: Mace covered in hooked thorns. Quirk: Thorns embed splinters that irritate wounds.
+Ashen Longbow: Bow made from burnt wood. Quirk: Arrows leave sooty trails to mark targets.
+Whalebone Harpoon: Maritime spear. Quirk: Smells of salt, luring aquatic beasts closer.
+Gilt-edged Falchion: Ornate curved sword. Quirk: Edges sparkle, distracting greedy foes.
+Seabreeze Spear: Spear decorated with shells. Quirk: Emits fresh sea scent, calming allies nearby.
+Direwolf Fang Dagger: Curved fang-like knife. Quirk: Inflicts lingering chill on wounds.
+Cinderbrand Sword: Blade with ember-like glow. Quirk: Sparks fly on impact, potentially igniting clothes.
+Glacier Pike: Ice-tipped pike. Quirk: Can freeze small puddles into slippery ice patches.
+Petrified Root Club: Club of hardened root. Quirk: Resonates underground, alerting to buried dangers.
+Wyrmspur Lance: Long lance carved from beast bone. Quirk: Vibrates softly near dragons.
+Feythorn Bow: Delicate bow of enchanted wood. Quirk: Arrows sprout vines that entangle foes.
+Tidepool Staff: Staff dripping saltwater. Quirk: Summons minor waves when struck on ground.
+Songblade Rapier: Sword that hums a tune. Quirk: Harmonizes with wielder’s heartbeat, calming nerves.
+Basilisk Fang Halberd: Polearm with petrifying fang. Quirk: Slows targets’ movements, as if turning to stone.
+Witchwood Wand: Wand of twisted blackwood. Quirk: Leaves faint black marks on struck surfaces.
+Lightning Lash Whip: Crackles with static energy. Quirk: Temporarily numbs limbs on a successful strike.
+Moonlit Glaive: Shines under moonlight. Quirk: Becomes lighter at night, faster swings after dusk.
+Sunsteel Sword: Sword forged with solar metal. Quirk: Glows brighter in direct sunlight, scalding the undead.
+Wyvern Claw Hook: Grappling hook from claw. Quirk: Latches with unshakeable grip onto scaly hides.
+Humming Dart: Tiny throwing dart. Quirk: Produces a high-pitched whine that irritates monstrous ears.
+Thundertusk Club: Club with boar tusks. Quirk: Strikes produce a dull thunderclap, causing brief deafness.
+Rosevine Whip: Floral whip with thorns. Quirk: Cuts leave rose petals behind, confusing trackers.
+Brineharp Bow: Coral and shell bow. Quirk: Arrows produce soft harp-like notes in flight.
+Marble Blade: Sword of polished stone. Quirk: Blade hum resonates through stone floors, revealing hollows.
+Foxbite Dagger: Slim dagger. Quirk: Blade remains warm, soothing wielder’s grip.
+Widow’s Glaive: Black-bladed polearm. Quirk: Creates illusions of giant spiders when spun.
+Golden Antler Staff: Staff adorned with antlers. Quirk: Attracts forest spirits who offer small blessings.
+Mirewood Mace: Bogwood mace. Quirk: Strikes leave sticky residue slowing enemies.
+Glassleaf Spear: Transparent leaf-shaped spearhead. Quirk: Hard to see, confusing opponents’ parries.
+Starsteel Dagger: Dagger forged from meteorite. Quirk: Glows faintly near cosmic anomalies.
+Fellfang Axe: Axe with serrated teeth. Quirk: Howls like a wounded wolf when striking metal.
+Blossombow: Bow entwined with flowers. Quirk: Arrows release pollen clouds that irritate foes’ eyes.
+Harpy Talon Knife: Curved talon blade. Quirk: Screeches when drawn, startling weaker creatures.
+Frostroot Staff: Staff of icy wood. Quirk: Footprints behind wielder frost over for a few steps.
+Seer’s Blade: Slim crystal sword. Quirk: Blade refracts visions of possible futures mid-battle.
+Griffon Wing Spear: Feathered spear. Quirk: Briefly lets wielder leap higher after a strike.
+Acorn Sling: Simple sling with oak motif. Quirk: Rocks thrown sprout tiny oak seedlings where they land.
+Ashbow: Charred bow. Quirk: Arrows leave a trail of ash, marking enemy paths.
+Mothwing Rapier: Light, agile blade. Quirk: Glint distracts foes like fluttering wings.
+Riverstone Club: Smooth stone-headed club. Quirk: Dampens vibrations, making quiet strikes possible.
+Scarab Spear: Spear tipped with beetle-like head. Quirk: Clicking noises attract insectoid minions.
+Thundershot Bow: Bow strung with metal wire. Quirk: Arrows crackle loudly, startling mounts.
+Frostfang Dagger: Icy dagger. Quirk: Leaves frostbite wounds that linger in warmth.
+Grotto Halberd: Moist, mossy halberd. Quirk: Smells earthy, calming woodland creatures nearby.
+Sandglass Staff: Staff with hourglass inside. Quirk: Briefly slows time for wielder after a killing blow.
+Magma Brand Sword: Sword dripping molten slag. Quirk: Heats air around it, making enemies sweat profusely.
+Tanglewood Whip: Plant-like whip. Quirk: Entwines around weapons, disarming foes.
+Mirror Shield: Polished reflective shield. Quirk: Reflects weak spells back at caster.
+Ravenfeather Bow: Bow adorned with black feathers. Quirk: Arrows caw like ravens, unnerving prey.
+Serpentscale Dagger: Scaly-handled blade. Quirk: Becomes slick when danger approaches.
+Moonroot Club: Club with glowing fungi. Quirk: Spores soothe allies’ wounds when swung gently.
+Ironcrag Maul: Heavy hammer from volcanic region. Quirk: Vibrations can crumble weak stone walls.
+Petalblade Sword: Pinkish, petal-shaped blade. Quirk: Fragrance lulls small animals into calmness.
+Weeping Spear: Spear that drips watery fluid. Quirk: Can douse small flames when shaken.
+Bramble Mace: Thorn-covered mace. Quirk: Leaves tiny seeds in wounds that itch ferociously.
+Wispbane Knife: Dagger glowing green. Quirk: Disrupts ghostly apparitions, silencing their whispers.
+Sandstrider Staff: Staff with desert motifs. Quirk: Footsteps become quieter on sandy terrain.
+Lotusblade: Blade shaped like a lotus petal. Quirk: Cuts produce soothing scents that calm user’s mind.
+Bitterroot Spear: Spear tasting bitter if licked. Quirk: Induces nausea in enemies grazed by its tip.
+Marrowpick Dagger: Thin, needle-like dagger. Quirk: Creates eerie whistling when thrust quickly.
+Oakheart Club: Club from centuries-old oak. Quirk: Gently hums lullabies near sleeping allies.
