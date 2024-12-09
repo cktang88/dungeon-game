@@ -124,7 +124,7 @@ Respond with a JSON object in this format, and action followed by a LIST of all 
             ],
             "shouldRevert": "boolean (optional) - whether the status effect should revert the stat changes after it ends"
         },
-      "itemsModified": {
+      "itemModified": {
         {
           "id": "string - id of the item, eg. 'item-<type>-<id>'",
           "name": "string - new altered name of the item",

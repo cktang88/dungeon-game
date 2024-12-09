@@ -23,11 +23,7 @@ interface ActionEffect {
     magnitude?: number;
   };
   statusEffect?: StatusEffect;
-  itemModified?: {
-    newDescription?: string;
-    newState?: string;
-    isUsable?: boolean;
-  };
+  itemModified?: Item;
   itemsMoved?: {
     itemId: string; // eg. 'item-<type>-<id>'
     from: string; // "player", "enemy", "room", "environment"
@@ -544,31 +540,104 @@ async function applyEffects(
           console.log(`Modifying item: ${effect.targetId}`);
           const { item, location, index } = findItem(newState, effect.targetId);
 
-          if (item && location && index !== -1) {
-            const modifiedItem = {
-              ...item,
-              description:
-                effect.itemModified.newDescription || item.description,
-              state: effect.itemModified.newState || item.state,
-              isUsable:
-                effect.itemModified.isUsable !== undefined
-                  ? effect.itemModified.isUsable
-                  : item.isUsable,
-            };
+          if (item && location !== undefined && index !== -1) {
+            const modifiedItem = { ...item };
+
+            // Update basic properties
+            if (effect.itemModified.description) {
+              modifiedItem.description = effect.itemModified.description;
+            }
+            if (effect.itemModified.type) {
+              modifiedItem.type = effect.itemModified.type;
+            }
+            if (effect.itemModified.state) {
+              modifiedItem.state = effect.itemModified.state;
+            }
+            if (effect.itemModified.isUsable !== undefined) {
+              modifiedItem.isUsable = effect.itemModified.isUsable;
+            }
+            if (effect.itemModified.isConsumable !== undefined) {
+              modifiedItem.isConsumable = effect.itemModified.isConsumable;
+            }
+
+            // Update stats
+            if (effect.itemModified.stats) {
+              modifiedItem.stats = {
+                ...(modifiedItem.stats || {}),
+                ...effect.itemModified.stats,
+              };
+            }
+
+            // Update additional attributes
+            if (effect.itemModified.additionalAttributes) {
+              modifiedItem.additionalAttributes = {
+                ...(modifiedItem.additionalAttributes || {}),
+                ...effect.itemModified.additionalAttributes,
+              };
+            }
+
+            // Update requirements
+            if (effect.itemModified.requirements) {
+              modifiedItem.requirements = {
+                ...(modifiedItem.requirements || {}),
+                ...effect.itemModified.requirements,
+              };
+            }
+
+            // Update other properties
+            if (effect.itemModified.weight !== undefined) {
+              modifiedItem.weight = effect.itemModified.weight;
+            }
+            if (effect.itemModified.value !== undefined) {
+              modifiedItem.value = effect.itemModified.value;
+            }
+            if (effect.itemModified.properties) {
+              modifiedItem.properties = effect.itemModified.properties;
+            }
+            if (effect.itemModified.rarity) {
+              modifiedItem.rarity = effect.itemModified.rarity;
+            }
+
+            // Update flags
+            if (effect.itemModified.isUnique !== undefined) {
+              modifiedItem.isUnique = effect.itemModified.isUnique;
+            }
+            if (effect.itemModified.isQuestItem !== undefined) {
+              modifiedItem.isQuestItem = effect.itemModified.isQuestItem;
+            }
+            if (effect.itemModified.isMagic !== undefined) {
+              modifiedItem.isMagic = effect.itemModified.isMagic;
+            }
+            if (effect.itemModified.isArtifact !== undefined) {
+              modifiedItem.isArtifact = effect.itemModified.isArtifact;
+            }
+            if (effect.itemModified.isRare !== undefined) {
+              modifiedItem.isRare = effect.itemModified.isRare;
+            }
+            if (effect.itemModified.isUncommon !== undefined) {
+              modifiedItem.isUncommon = effect.itemModified.isUncommon;
+            }
+            if (effect.itemModified.isCommon !== undefined) {
+              modifiedItem.isCommon = effect.itemModified.isCommon;
+            }
+
+            // Update or add status effects
+            if (effect.statusEffect) {
+              if (!modifiedItem.statusEffects) {
+                modifiedItem.statusEffects = [];
+              }
+              modifiedItem.statusEffects.push(effect.statusEffect);
+            }
 
             // Update the item in its location
-            if (location === "room") {
-              console.log(
-                `Updating item in room: ${JSON.stringify(modifiedItem)}`
-              );
+            if (location === "inventory") {
+              newState.player.inventory[index] = modifiedItem;
+            } else if (location === "room") {
               newState.rooms[newState.player.currentRoomId].items[index] =
                 modifiedItem;
-            } else {
-              console.log(
-                `Updating item in inventory: ${JSON.stringify(modifiedItem)}`
-              );
-              newState.player.inventory[index] = modifiedItem;
             }
+
+            message += `\n${item.name} has been modified.`;
           }
         }
         break;
