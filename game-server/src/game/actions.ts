@@ -284,6 +284,61 @@ function findItem(
   return { item: undefined, location: undefined, index: -1 };
 }
 
+export const takeItem = (gameState: GameState, itemId: string): GameState => {
+  const currentRoom = gameState.rooms[gameState.player.currentRoomId];
+  const itemIndex = currentRoom.items.findIndex((item) => item.id === itemId);
+
+  if (itemIndex === -1) {
+    return gameState;
+  }
+
+  // Remove item from room
+  const [takenItem] = currentRoom.items.splice(itemIndex, 1);
+
+  // Add item to player inventory
+  return {
+    ...gameState,
+    player: {
+      ...gameState.player,
+      inventory: [...gameState.player.inventory, takenItem],
+    },
+    rooms: {
+      ...gameState.rooms,
+      [currentRoom.id]: currentRoom,
+    },
+  };
+};
+
+export const dropItem = (gameState: GameState, itemId: string): GameState => {
+  const currentRoom = gameState.rooms[gameState.player.currentRoomId];
+  const itemIndex = gameState.player.inventory.findIndex(
+    (item) => item.id === itemId
+  );
+
+  if (itemIndex === -1) {
+    return gameState;
+  }
+
+  // Remove item from inventory
+  const [droppedItem] = gameState.player.inventory.splice(itemIndex, 1);
+
+  // Add item to current room
+  return {
+    ...gameState,
+    player: {
+      ...gameState.player,
+      inventory: [...gameState.player.inventory],
+    },
+    rooms: {
+      ...gameState.rooms,
+      [currentRoom.id]: {
+        ...currentRoom,
+        items: [...currentRoom.items, droppedItem],
+      },
+    },
+  };
+};
+
 export async function processAction(
   state: GameState,
   action: string
@@ -574,29 +629,36 @@ async function applyEffects(
             }
 
             // Handle consumable items
-            if (item.consumable) {
+            if (item.isConsumable) {
+              // Remove the item from its location after use
               if (location === "inventory") {
                 newState.player.inventory.splice(index, 1);
+                console.log(
+                  `Consumed and removed item from inventory: ${item.name}`
+                );
               } else if (location === "room") {
                 newState.rooms[newState.player.currentRoomId].items.splice(
                   index,
                   1
                 );
+                console.log(
+                  `Consumed and removed item from room: ${item.name}`
+                );
               }
-            }
+            } else {
+              // Update item state if it's not consumed
+              if (effect.itemModification) {
+                const modifiedItem = {
+                  ...item,
+                  ...effect.itemModification,
+                };
 
-            // Update item state if it's not consumed
-            if (!item.consumable && effect.itemModification) {
-              const modifiedItem = {
-                ...item,
-                ...effect.itemModification,
-              };
-
-              if (location === "inventory") {
-                newState.player.inventory[index] = modifiedItem;
-              } else if (location === "room") {
-                newState.rooms[newState.player.currentRoomId].items[index] =
-                  modifiedItem;
+                if (location === "inventory") {
+                  newState.player.inventory[index] = modifiedItem;
+                } else if (location === "room") {
+                  newState.rooms[newState.player.currentRoomId].items[index] =
+                    modifiedItem;
+                }
               }
             }
           }

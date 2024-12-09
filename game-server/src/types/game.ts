@@ -14,6 +14,7 @@ export interface Item {
     | string;
   state?: string;
   isUsable?: boolean;
+  isConsumable?: boolean;
   stats?: {
     damage?: number;
     defense?: number;
