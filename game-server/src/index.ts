@@ -59,7 +59,11 @@ app.post("/api/game/action", async (req, res) => {
   }
 
   try {
-    const newState = await processAction(gameStates[sessionId], action);
+    const { newState, message } = await processAction(
+      gameStates[sessionId],
+      action
+    );
+    console.log("sending", newState);
 
     if (!isValidGameState(newState)) {
       console.error("Invalid game state after action");
@@ -68,7 +72,7 @@ app.post("/api/game/action", async (req, res) => {
     }
 
     gameStates[sessionId] = newState;
-    res.json({ gameState: newState });
+    res.json({ gameState: newState, message });
   } catch (error) {
     console.error("Error processing action:", error);
     res.status(500).json({ error: "Failed to process action" });
