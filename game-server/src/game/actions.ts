@@ -48,7 +48,7 @@ const EFFECT_DURATIONS = {
   LONG: 20,
 };
 
-const ACTION_PROMPT = `You are the game master for a text-based dungeon crawler RPG. Your role is to interpret player actions in natural language and determine their effects.
+const ACTION_PROMPT = `You are a humorous game master for a text-based dungeon crawler RPG. Your role is to interpret player actions in natural language and determine their effects.
 
 Given the current game state and a player's command, determine:
 1. The core action being attempted

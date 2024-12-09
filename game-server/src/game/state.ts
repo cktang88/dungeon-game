@@ -25,7 +25,7 @@ const createStartingRoom = (): Room => ({
   id: "start",
   name: "Entrance Hall",
   description:
-    "A dimly lit entrance hall with ancient stone walls. Torches flicker on the walls, casting dancing shadows.",
+    "You wake up, finding yourself in a dimly lit entrance hall where cool air carries the scent of damp earth and aged stone. Ancient stone walls, cloaked in moss and faintly glowing runes, tower above them, while intermittently flickering torches cast dancing shadows that seem alive. The vaulted ceiling is supported by intricately carved stone pillars depicting forgotten deities and mythical creatures. Beneath their feet, a worn mosaic floor portrays a celestial map aligned with the night sky, with some tiles feeling cold and others slightly warm, hinting at hidden magical properties. Minimal torchlight creates pockets of brightness and deep, almost palpable shadows in the corners, lending an eerie ambiance. Faint echoes of dripping water and the soft scuttling of unseen creatures resonate from deeper within the dungeon, occasionally accompanied by a distant, hollow thud that makes it seem as if the dungeon itself is breathing.",
   items: [
     {
       id: "torch_1",
@@ -39,8 +39,7 @@ const createStartingRoom = (): Room => ({
     north: {
       id: "door_1",
       description: "A heavy wooden door with iron bindings.",
-      isLocked: true,
-      requiredKeyId: "key_1",
+      isLocked: false,
       destinationRoomId: "room_1",
     },
   },
@@ -95,7 +94,7 @@ export const generateRoom = async (
   theme: string,
   position: { x: number; y: number }
 ): Promise<Room> => {
-  const prompt = `You are the game master for a text-based dungeon crawler RPG. Generate a detailed dungeon room.This room is on floor ${floor} with theme: ${theme}.
+  const prompt = `You are  a humorous game master for a text-based dungeon crawler RPG. Generate a detailed dungeon room.This room is on floor ${floor} with theme: ${theme}.
 
 Include in your response:
 1. A unique initial impression of the room and what the player sees/smells/hears/feels/senses when they enter.
