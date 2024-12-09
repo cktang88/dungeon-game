@@ -16,7 +16,8 @@ const getAbilityModifier = (score: number): number =>
 // Calculate derived stats from ability scores
 const calculateDerivedStats = (
   abilityScores: AbilityScores,
-  level: number
+  level: number,
+  inventory: any[]
 ): DerivedStats => {
   const constitutionModifier = getAbilityModifier(abilityScores.constitution);
   const dexterityModifier = getAbilityModifier(abilityScores.dexterity);
@@ -131,7 +132,7 @@ export const initializeGameState = (): GameState => {
     charisma: 12, // +1 modifier
   };
 
-  const derivedStats = calculateDerivedStats(abilityScores, 1);
+  const derivedStats = calculateDerivedStats(abilityScores, 1, []);
 
   const floor: Floor = {
     name: "Entrance Hall",

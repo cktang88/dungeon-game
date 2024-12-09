@@ -451,7 +451,8 @@ async function applyEffects(
               // Update derived stats if needed
               const derivedStats = calculateDerivedStats(
                 newState.player.currentAbilityScores,
-                newState.player.level
+                newState.player.level,
+                newState.player.inventory
               );
               newState.player.currentDerivedStats = derivedStats;
             }
@@ -691,6 +692,19 @@ async function applyEffects(
               targetLocation,
               [moveData.itemId]
             );
+
+            // Update derived stats if item was moved to/from player inventory
+            if (
+              sourceLocation === "inventory" ||
+              targetLocation === "inventory"
+            ) {
+              const derivedStats = calculateDerivedStats(
+                newState.player.currentAbilityScores,
+                newState.player.level,
+                newState.player.inventory
+              );
+              newState.player.currentDerivedStats = derivedStats;
+            }
           }
         } else if (effect.targetId) {
           // Legacy format where targetId is the item to gain
@@ -709,16 +723,16 @@ async function applyEffects(
             newState.player.inventory.push(takenItem);
             console.log(`Moved item from room to inventory: ${takenItem.name}`);
             message += `\nYou pick up the ${takenItem.name}.`;
-          } else if (effect.itemModified) {
-            console.log(
-              `Item ${effect.targetId} not found in current room, creating it`
+
+            // Update derived stats
+            const derivedStats = calculateDerivedStats(
+              newState.player.currentAbilityScores,
+              newState.player.level,
+              newState.player.inventory
             );
-            const newItem = {
-              ...effect.itemModified,
-              id: effect.targetId ?? effect.itemModified.id,
-            };
-            newState.rooms[newState.player.currentRoomId].items.push(newItem);
-            message += `\nYou pick up the ${newItem.name}.`;
+            newState.player.currentDerivedStats = derivedStats;
+          } else {
+            console.log(`Item ${effect.targetId} not found in current room`);
           }
         }
         break;
@@ -760,6 +774,19 @@ async function applyEffects(
               targetLocation,
               [moveData.itemId]
             );
+
+            // Update derived stats if item was moved to/from player inventory
+            if (
+              sourceLocation === "inventory" ||
+              targetLocation === "inventory"
+            ) {
+              const derivedStats = calculateDerivedStats(
+                newState.player.currentAbilityScores,
+                newState.player.level,
+                newState.player.inventory
+              );
+              newState.player.currentDerivedStats = derivedStats;
+            }
           }
         } else if (effect.targetId) {
           // Legacy format - just remove from inventory
@@ -767,6 +794,14 @@ async function applyEffects(
           newState.player.inventory = newState.player.inventory.filter(
             (item) => item.id !== effect.targetId
           );
+
+          // Update derived stats
+          const derivedStats = calculateDerivedStats(
+            newState.player.currentAbilityScores,
+            newState.player.level,
+            newState.player.inventory
+          );
+          newState.player.currentDerivedStats = derivedStats;
         }
         break;
 
@@ -1246,20 +1281,32 @@ function determineEnemyAction(
   };
 }
 
+// Add helper function to calculate total inventory weight
+function calculateInventoryWeight(inventory: Item[]): number {
+  return inventory.reduce((total, item) => total + (item.weight || 0), 0);
+}
+
 // Add helper function to calculate derived stats
 function calculateDerivedStats(
   abilityScores: AbilityScores,
-  level: number
+  level: number,
+  inventory: Item[] = []
 ): DerivedStats {
   // Calculate ability modifiers
   const conMod = Math.floor((abilityScores.constitution - 10) / 2);
   const dexMod = Math.floor((abilityScores.dexterity - 10) / 2);
   const strMod = Math.floor((abilityScores.strength - 10) / 2);
 
+  // Calculate max carry capacity and current weight
+  const maxCarryCapacity = abilityScores.strength * 15; // Each point of STR = 15 lbs capacity
+  const currentWeight = calculateInventoryWeight(inventory);
+
   return {
     hitPoints: (10 + conMod) * level, // Base HP + CON mod per level
     armorClass: 10 + dexMod, // Base AC + DEX mod
     initiative: dexMod, // Initiative is based on DEX mod
-    carryCapacity: abilityScores.strength * 15, // Each point of STR = 15 lbs capacity
+    carryCapacity: maxCarryCapacity,
+    currentWeight: currentWeight,
+    isEncumbered: currentWeight > maxCarryCapacity,
   };
 }

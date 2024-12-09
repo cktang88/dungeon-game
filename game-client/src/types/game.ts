@@ -20,29 +20,29 @@ export interface Item {
     | "artifact"
     | string;
   state?: string;
-  isUsable?: boolean;
-  isConsumable?: boolean;
+  isUsable: boolean;
+  isConsumable: boolean;
   stats?: {
     damage?: number;
     defense?: number;
     healing?: number;
   };
-  statusEffects?: StatusEffect[]; // status effects that the item is currently afflicted with
-  additionalAttributes?: {
+  statusEffects: StatusEffect[]; // status effects that the item is currently afflicted with
+  additionalAttributes: {
     spellLevels?: {
       [key: string]: number;
     };
     charges?: number;
   };
-  requirements?: {
+  requirements: {
     attunement?: string;
     class?: string[];
     abilityScores?: {
       [key in keyof AbilityScores]?: number;
     };
   };
-  weight?: string;
-  value?: number;
+  weight: string;
+  value: number;
   properties?: string[];
   rarity?: string;
   isUnique?: boolean;
@@ -134,15 +134,24 @@ export interface DerivedStats {
   armorClass: number; // Based on dexterity and armor
   initiative: number; // Based on dexterity
   carryCapacity: number; // Based on strength
+  currentWeight: number; // Current weight of all carried items
+  isEncumbered: boolean; // Whether the player is carrying too much weight
 }
 
 export interface StatusEffect {
   name: string;
   description: string;
-  source: string;
+  source: string; // who initiated the status effect, should be of form "item-<type>-<id>" or "enemy-<type>-<id>" or "player-<id>", etc.
   target: string;
-  duration: number;
-  magnitude: number;
+  duration?: number;
+  isActive: boolean;
+  isPermanent: boolean;
+  id: string; // should be of form "status-effect-<id>"
+  startTurn?: number;
+  statsApplied?: boolean;
+  statModifiers?: { [key in keyof AbilityScores]?: number }[];
+  derivedStatsModifiers?: { [key in keyof DerivedStats]?: number }[];
+  shouldRevert?: boolean;
 }
 
 export interface Equipment {
@@ -162,7 +171,7 @@ export interface Player {
   baseDerivedStats: DerivedStats;
   currentDerivedStats: DerivedStats; // modified by equipment and status effects, etc.
   currentRoomId: string;
-  previousRoomId: string;
+  previousRoomId: string | null;
   position: Position;
   inventory: Item[];
   equipment: Equipment;
@@ -174,16 +183,16 @@ export interface Player {
 export interface Position {
   x: number;
   y: number;
-  floor: number;
+  floorDepth: number;
 }
 
 export interface GameState {
   player: Player;
-  currentFloor: number;
+  currentFloor: Floor;
   rooms: Record<string, Room>;
   messageHistory: string[];
   currentRoomId: string;
-  previousRoomId: string;
+  previousRoomId: string | null;
   sessionId: string;
 }
 
@@ -203,4 +212,20 @@ export interface Knowledge {
   isFact: boolean;
   isRumor: boolean;
   isLore: boolean;
+}
+
+export interface Floor {
+  name: string;
+  floorDepth: number;
+  theme: Theme;
+}
+
+export interface Theme {
+  name: string;
+  environment: string;
+  floraFauna: string;
+  oddities: string;
+  monsters: string[];
+  enemyTypes: string[];
+  afflictions: string[];
 }

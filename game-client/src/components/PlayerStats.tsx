@@ -109,12 +109,28 @@ export default function PlayerStats({ player }: PlayerStatsProps) {
                 <div className="text-sm font-medium mb-2">Carry Capacity</div>
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-semibold">
+                    {player.currentDerivedStats.currentWeight}/
                     {player.currentDerivedStats.carryCapacity} lbs
                   </span>
-                  <span className="text-sm text-muted-foreground">
-                    Base: {player.baseDerivedStats.carryCapacity} lbs
-                  </span>
+                  {player.currentDerivedStats.isEncumbered && (
+                    <Badge variant="destructive" className="ml-2">
+                      Encumbered
+                    </Badge>
+                  )}
                 </div>
+                <Progress
+                  value={
+                    (player.currentDerivedStats.currentWeight /
+                      player.currentDerivedStats.carryCapacity) *
+                    100
+                  }
+                  className="h-2 mt-2"
+                  variant={
+                    player.currentDerivedStats.isEncumbered
+                      ? "destructive"
+                      : "default"
+                  }
+                />
               </div>
             </div>
           </CardContent>

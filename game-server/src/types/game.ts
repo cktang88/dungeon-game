@@ -134,6 +134,8 @@ export interface DerivedStats {
   armorClass: number; // Based on dexterity and armor
   initiative: number; // Based on dexterity
   carryCapacity: number; // Based on strength
+  currentWeight: number; // Current weight of all carried items
+  isEncumbered: boolean; // Whether the player is carrying too much weight
 }
 
 export interface StatusEffect {
