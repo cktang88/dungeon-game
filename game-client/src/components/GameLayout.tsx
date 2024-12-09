@@ -1,11 +1,12 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { GameState } from "@/types/game";
+import { GameState, GameResponse, StartGameResponse } from "@/types/game";
 import RoomView from "./RoomView";
 import Inventory from "./Inventory";
 import PlayerStats from "./PlayerStats";
 import ChatBox from "./ChatBox";
+import { GameMap } from "./GameMap";
 import { gameApi } from "@/lib/api";
 
 export default function GameLayout() {
@@ -16,7 +17,7 @@ export default function GameLayout() {
   ]);
 
   // Start game session
-  const startGameMutation = useMutation({
+  const startGameMutation = useMutation<StartGameResponse, Error>({
     mutationFn: gameApi.startGame,
     onSuccess: (data) => {
       setSessionId(data.sessionId);
@@ -25,7 +26,7 @@ export default function GameLayout() {
   });
 
   // Get game state
-  const { data: gameState } = useQuery({
+  const { data: gameState } = useQuery<GameState>({
     queryKey: ["gameState", sessionId],
     queryFn: () => gameApi.getGameState(sessionId!),
     enabled: !!sessionId,
@@ -33,14 +34,13 @@ export default function GameLayout() {
   });
 
   // Send action mutation
-  const sendActionMutation = useMutation({
-    mutationFn: ({
-      sessionId,
-      action,
-    }: {
-      sessionId: string;
-      action: string;
-    }) => gameApi.sendAction(sessionId, action),
+  const sendActionMutation = useMutation<
+    GameResponse,
+    Error,
+    { sessionId: string; action: string }
+  >({
+    mutationFn: ({ sessionId, action }) =>
+      gameApi.sendAction(sessionId, action),
     onSuccess: (data) => {
       if (data.message) {
         setMessageHistory((prev) => [...prev, data.message!]);
@@ -89,9 +89,11 @@ export default function GameLayout() {
             <TabsContent value="room" className="h-[calc(100%-40px)]">
               <RoomView gameState={gameState} />
             </TabsContent>
-            <TabsContent value="map">
-              {/* Map view will be implemented later */}
-              <div className="text-center p-4">Map coming soon...</div>
+            <TabsContent value="map" className="h-[calc(100%-40px)]">
+              <GameMap
+                rooms={Object.values(gameState.rooms)}
+                currentRoom={gameState.player.currentRoomId}
+              />
             </TabsContent>
           </Tabs>
         </div>
