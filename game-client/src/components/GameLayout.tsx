@@ -1,10 +1,12 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { GameState, GameResponse, StartGameResponse } from "@/types/game";
+import { GameResponse, StartGameResponse } from "@/types/client";
+import { GameState } from "@/types/game";
 import RoomView from "./RoomView";
 import Inventory from "./Inventory";
-import PlayerStats from "./PlayerStats";
+import AbilityScores from "./AbilityScores";
+import Knowledge from "./Knowledge";
 import ChatBox from "./ChatBox";
 import { GameMap } from "./GameMap";
 import { gameApi } from "@/lib/api";
@@ -134,9 +136,10 @@ export default function GameLayout() {
             onSendMessage={handleSendMessage}
           />
         </div>
-        <div className="flex flex-col gap-4">
-          <PlayerStats player={gameState?.player} />
+        <div className="flex flex-col gap-4 overflow-y-auto">
+          <AbilityScores player={gameState?.player} />
           <Inventory items={gameState?.player?.inventory || []} />
+          <Knowledge knowledge={gameState?.player?.knowledge} />
         </div>
       </div>
     </div>

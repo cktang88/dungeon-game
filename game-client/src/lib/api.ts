@@ -1,4 +1,5 @@
-import { GameState, GameResponse, StartGameResponse } from "@/types/game";
+import { GameResponse, StartGameResponse } from "@/types/client";
+import { GameState } from "@/types/game";
 
 const BASE_URL = "http://localhost:3001";
 

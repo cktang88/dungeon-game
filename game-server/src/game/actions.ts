@@ -6,6 +6,9 @@ import {
   Player,
   StatusEffect,
   Equipment,
+  AbilityScores,
+  DerivedStats,
+  Knowledge,
 } from "../types/game";
 import { generateRoom } from "./state";
 import { openai } from "../lib/openai";
@@ -20,7 +23,7 @@ interface ActionEffect {
   description: string;
   magnitude?: number;
   duration?: number;
-  target?: string;
+  target?: string; // should be of form "enemy-<type>-<id>" or "item-<type>-<id>" or "room-<name>-<id>", etc.
   itemModification?: {
     newDescription?: string;
     newState?: string;
@@ -30,6 +33,7 @@ interface ActionEffect {
     requires?: string[];
     consumes?: string[];
   };
+  knowledge?: Knowledge;
 }
 
 interface LLMResponse {
@@ -325,10 +329,21 @@ async function applyEffects(
       case "STAT_CHANGE":
         if (effect.target && effect.magnitude) {
           const target = effect.target.toLowerCase();
-          if (target in newState.player.stats) {
-            console.log(`Changing stat ${target} by ${effect.magnitude}`);
-            newState.player.stats[target] += effect.magnitude;
+          // Update both current and base ability scores if it's an ability score
+          if (target in newState.player.currentAbilityScores) {
+            console.log(
+              `Changing ability score ${target} by ${effect.magnitude}`
+            );
+            newState.player.currentAbilityScores[
+              target as keyof AbilityScores
+            ] += effect.magnitude;
           }
+          // Update derived stats if needed
+          const derivedStats = calculateDerivedStats(
+            newState.player.currentAbilityScores,
+            newState.player.level
+          );
+          newState.player.currentDerivedStats = derivedStats;
         }
         break;
 
@@ -419,15 +434,7 @@ async function applyEffects(
         break;
 
       case "MOVE_WITHIN_ROOM":
-        if (effect.target) {
-          console.log(`Moving within room to: ${effect.target}`);
-          // Update player's position within the current room
-          newState.player.position = {
-            x: typeof effect.target === "object" ? effect.target.x : 0,
-            y: typeof effect.target === "object" ? effect.target.y : 0,
-            floor: newState.currentFloor,
-          };
-        }
+        // doesn't move player position really, just gives context to llm in the future
         break;
 
       case "MOVE_BETWEEN_ROOMS":
@@ -437,24 +444,14 @@ async function applyEffects(
 
           // Check if the room exists and is accessible
           if (newState.rooms[targetRoomId]) {
+            // Update previous room before changing current room
+            newState.player.previousRoomId = newState.player.currentRoomId;
             newState.player.currentRoomId = targetRoomId;
             newState.player.position = {
               x: newState.rooms[targetRoomId].position.x,
               y: newState.rooms[targetRoomId].position.y,
               floor: newState.rooms[targetRoomId].position.floor,
             };
-
-            // Discover connecting rooms
-            const newRoom = newState.rooms[targetRoomId];
-            Object.values(newRoom.doors).forEach((door) => {
-              if (!newState.rooms[door.destinationRoomId]) {
-                // Generate the new room if it doesn't exist
-                // Note: This would need to be made async if we want to generate rooms here
-                console.log(
-                  `Room ${door.destinationRoomId} discovered but not yet generated`
-                );
-              }
-            });
           }
         }
         break;
@@ -467,16 +464,51 @@ async function applyEffects(
           }
 
           // Add the new knowledge
+          const knowledgeType = effect.target || "general";
+          const knowledgeId = `knowledge-${knowledgeType}-${Math.random()
+            .toString(36)
+            .substring(2, 9)}`;
+
+          // Get knowledge type from LLM output
+          const isFact = effect.knowledge?.isFact ?? false;
+          const isRumor = effect.knowledge?.isRumor ?? false;
+          const isLore = effect.knowledge?.isLore ?? false;
+
+          // Determine the target entity this knowledge is about
+          let target = "general";
+          if (
+            effect.target?.startsWith("enemy-") ||
+            effect.target?.startsWith("item-") ||
+            effect.target?.startsWith("room-")
+          ) {
+            target = effect.target;
+          } else if (effect.target) {
+            // If target doesn't have proper prefix, add one based on type
+            target = `${knowledgeType}-${effect.target}`;
+          }
+
           newState.player.knowledge.push({
-            type: effect.target || "general",
+            id: knowledgeId,
+            type: knowledgeType,
             description: effect.description,
             timestamp: Date.now(),
+            target,
+            isFact,
+            isRumor,
+            isLore,
           });
 
           // Update any relevant game state based on knowledge
-          if (effect.target === "secret" || effect.target === "puzzle") {
-            newState.player.stats.wisdom =
-              (newState.player.stats.wisdom || 0) + 1;
+          if (isFact) {
+            // Facts increase wisdom more than rumors
+            newState.player.currentAbilityScores.wisdom += 1;
+          } else if (isRumor) {
+            // Rumors provide a smaller wisdom boost
+            newState.player.currentAbilityScores.wisdom += 0.5;
+          } else if (isLore) {
+            // Lore increases both wisdom and intelligence
+            newState.player.currentAbilityScores.wisdom += 1;
+            newState.player.currentAbilityScores.intelligence += 1;
           }
         }
         break;
@@ -505,19 +537,22 @@ async function applyEffects(
               Object.entries(item.stats).forEach(([stat, value]) => {
                 if (value) {
                   if (stat === "healing") {
-                    newState.player.health = Math.min(
-                      newState.player.health + value,
-                      newState.player.derivedStats.maxHealth
+                    const newHealth = Math.min(
+                      newState.player.currentDerivedStats.hitPoints + value,
+                      newState.player.baseDerivedStats.hitPoints
                     );
+                    newState.player.currentDerivedStats.hitPoints = newHealth;
                     message += `\nHealed for ${value} HP.`;
-                  } else {
-                    newState.player.stats[stat] =
-                      (newState.player.stats[stat] || 0) + value;
-                    message += `\n${
-                      stat.charAt(0).toUpperCase() + stat.slice(1)
-                    } ${value >= 0 ? "increased" : "decreased"} by ${Math.abs(
-                      value
-                    )}.`;
+                  } else if (stat === "damage" || stat === "defense") {
+                    // These are equipment stats, they should modify derived stats
+                    if (stat === "damage") {
+                      // Add to weapon damage
+                      message += `\nDamage increased by ${value}.`;
+                    } else {
+                      // Add to armor class
+                      newState.player.currentDerivedStats.armorClass += value;
+                      message += `\nArmor Class increased by ${value}.`;
+                    }
                   }
                 }
               });
@@ -603,17 +638,20 @@ async function applyEffects(
 
           if (targetEnemy) {
             // Calculate damage based on player stats and equipped weapon
-            const baseDamage = newState.player.stats.strength || 1;
+            const strengthMod = Math.floor(
+              (newState.player.currentAbilityScores.strength - 10) / 2
+            );
+            const baseDamage = 1 + strengthMod;
             const weaponDamage =
               newState.player.equipment?.weapon?.stats?.damage || 0;
             const totalDamage = baseDamage + weaponDamage;
 
             // Apply damage to enemy
-            targetEnemy.health -= totalDamage;
+            targetEnemy.currentStats.hitPoints -= totalDamage;
             message += `\nYou deal ${totalDamage} damage to ${targetEnemy.name}.`;
 
             // Check if enemy is defeated
-            if (targetEnemy.health <= 0) {
+            if (targetEnemy.currentStats.hitPoints <= 0) {
               targetEnemy.isAlive = false;
               message += `\n${targetEnemy.name} has been defeated!`;
 
@@ -657,6 +695,13 @@ async function applyEffects(
               // If there's an item already equipped in that slot, move it to inventory
               const currentEquipped = newState.player.equipment[slot];
               if (currentEquipped) {
+                // Remove current item's stats
+                if (currentEquipped.stats) {
+                  if (currentEquipped.stats.defense) {
+                    newState.player.currentDerivedStats.armorClass -=
+                      currentEquipped.stats.defense;
+                  }
+                }
                 newState.player.inventory.push(currentEquipped);
                 message += `\nUnequipped ${currentEquipped.name}.`;
               }
@@ -666,14 +711,12 @@ async function applyEffects(
               newState.player.inventory.splice(index, 1);
               message += `\nEquipped ${item.name}.`;
 
-              // Update player stats based on equipped item
+              // Apply new item's stats
               if (item.stats) {
-                Object.entries(item.stats).forEach(([stat, value]) => {
-                  if (value) {
-                    newState.player.stats[stat] =
-                      (newState.player.stats[stat] || 0) + value;
-                  }
-                });
+                if (item.stats.defense) {
+                  newState.player.currentDerivedStats.armorClass +=
+                    item.stats.defense;
+                }
               }
             }
           }
@@ -702,12 +745,10 @@ async function applyEffects(
           if (unequippedItem && slot) {
             // Remove item's stat bonuses
             if (unequippedItem.stats) {
-              Object.entries(unequippedItem.stats).forEach(([stat, value]) => {
-                if (value) {
-                  newState.player.stats[stat] =
-                    (newState.player.stats[stat] || 0) - value;
-                }
-              });
+              if (unequippedItem.stats.defense) {
+                newState.player.currentDerivedStats.armorClass -=
+                  unequippedItem.stats.defense;
+              }
             }
 
             // Move item to inventory and clear equipment slot
@@ -751,8 +792,8 @@ async function applyEffects(
 
               // Generate the new room
               const newRoom = await generateRoom(
-                newState.currentFloor,
                 "dungeon", // You might want to pass a proper theme based on the floor
+                newState,
                 newPosition
               );
 
@@ -760,6 +801,8 @@ async function applyEffects(
               newState.rooms[door.destinationRoomId] = newRoom;
             }
 
+            // Update previous room before changing current room
+            newState.player.previousRoomId = newState.player.currentRoomId;
             newState.player.currentRoomId = door.destinationRoomId;
           }
         }
@@ -984,4 +1027,22 @@ function interpretCustomStatus(
 function extractMagnitude(description: string): number | null {
   const match = description.match(/(\d+)/);
   return match ? parseInt(match[1]) : null;
+}
+
+// Add helper function to calculate derived stats
+function calculateDerivedStats(
+  abilityScores: AbilityScores,
+  level: number
+): DerivedStats {
+  // Calculate ability modifiers
+  const conMod = Math.floor((abilityScores.constitution - 10) / 2);
+  const dexMod = Math.floor((abilityScores.dexterity - 10) / 2);
+  const strMod = Math.floor((abilityScores.strength - 10) / 2);
+
+  return {
+    hitPoints: (10 + conMod) * level, // Base HP + CON mod per level
+    armorClass: 10 + dexMod, // Base AC + DEX mod
+    initiative: dexMod, // Initiative is based on DEX mod
+    carryCapacity: abilityScores.strength * 15, // Each point of STR = 15 lbs capacity
+  };
 }

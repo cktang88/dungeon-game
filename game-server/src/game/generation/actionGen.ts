@@ -137,6 +137,16 @@ Respond with a JSON object in this format, and action followed by a LIST of all 
       "conditions": {
         "requires": ["optional array of required items/states"],
         "consumes": ["optional array of items consumed"]
+      },
+      "knowledge": {
+        "id": "string - id of the knowledge",
+        "type": "string - type of the knowledge (e.g., 'fact', 'rumor', 'lore')",
+        "description": "string - description of the knowledge",
+        "timestamp": "number - timestamp of the knowledge",
+        "target": "string - what entity the knowledge is about, should be of form 'enemy-<type>-<id>' or 'item-<type>-<id>' or 'room-<name>-<id>', etc.",
+        "isFact": "boolean - whether the knowledge is a fact",
+        "isRumor": "boolean - whether the knowledge is a rumor",
+        "isLore": "boolean - whether the knowledge is a lore"
       }
     }
   ],

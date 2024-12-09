@@ -9,6 +9,6 @@
 
 ## technical
 
-- use prompt caching
+- used prompt caching (is automatically done by openAI)
   - should only pass in current room and prev room
 - use predicted outputs

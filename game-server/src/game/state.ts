@@ -1,4 +1,10 @@
-import { GameState, Room, AbilityScores, DerivedStats } from "../types/game";
+import {
+  GameState,
+  Room,
+  AbilityScores,
+  DerivedStats,
+  Position,
+} from "../types/game";
 import { openai } from "../lib/openai";
 import generateRoomPrompt from "./generation/roomGen";
 
@@ -15,12 +21,16 @@ const calculateDerivedStats = (
   const dexterityModifier = getAbilityModifier(abilityScores.dexterity);
 
   return {
-    maxHealth: (10 + constitutionModifier) * level, // Base HP + CON modifier per level
+    hitPoints: (10 + constitutionModifier) * level, // Base HP + CON modifier per level
     armorClass: 10 + dexterityModifier, // Base AC + DEX modifier
     initiative: dexterityModifier,
     carryCapacity: abilityScores.strength * 15, // Each point of STR = 15 pounds
   };
 };
+
+interface RoomPosition extends Position {
+  floor: number;
+}
 
 const createStartingRoom = (): Room => ({
   id: "start",
@@ -97,11 +107,13 @@ const createStartingRoom = (): Room => ({
   position: {
     x: 0,
     y: 0,
+    floor: 1,
   },
 });
 
 export const initializeGameState = (): GameState => {
   const startingRoom = createStartingRoom();
+  const sessionId = `session_${Math.random().toString(36).substring(2, 9)}`;
 
   // Starting ability scores (slightly above average)
   const abilityScores: AbilityScores = {
@@ -117,16 +129,27 @@ export const initializeGameState = (): GameState => {
 
   return {
     player: {
-      health: derivedStats.maxHealth,
+      id: `player_${Math.random().toString(36).substring(2, 9)}`,
+      name: "Adventurer",
       level: 1,
       experience: 0,
       inventory: [],
       currentRoomId: "start",
-      abilityScores,
-      derivedStats,
-      stats: {},
+      previousRoomId: null, // Initialize with starting room
+      position: { x: 0, y: 0, floor: 1 },
+      baseAbilityScores: abilityScores,
+      currentAbilityScores: abilityScores,
+      baseDerivedStats: derivedStats,
+      currentDerivedStats: derivedStats,
+      equipment: {
+        weapon: undefined,
+        armor: undefined,
+        offhand: undefined,
+        accessory: undefined,
+      },
       statusEffects: [],
       knowledge: [],
+      sessionId, // Add session ID
     },
     currentFloor: 1,
     rooms: {
@@ -136,15 +159,18 @@ export const initializeGameState = (): GameState => {
       "Welcome to the AI Dungeon! You find yourself in a mysterious entrance hall.",
       'Type "look" to examine your surroundings, or "help" for available commands.',
     ],
+    sessionId, // Add session ID to game state
+    currentRoomId: "start",
+    previousRoomId: null,
   };
 };
 
 export const generateRoom = async (
-  floor: number,
   theme: string,
-  position: { x: number; y: number }
+  gameState: GameState,
+  position: RoomPosition
 ): Promise<Room> => {
-  const prompt = generateRoomPrompt(theme);
+  const prompt = generateRoomPrompt(theme, gameState);
 
   try {
     const response = await openai.chat.completions.create({
@@ -184,6 +210,7 @@ export const generateRoom = async (
           destinationRoomId: `room_${Math.random()
             .toString(36)
             .substring(2, 9)}`,
+          isOpen: false,
         };
       }
     }

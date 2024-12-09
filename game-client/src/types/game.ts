@@ -1,5 +1,5 @@
 export interface Item {
-  id: string;
+  id: string; // should be of form "item-<type>-<id>"
   name: string;
   description: string;
   type:
@@ -11,6 +11,13 @@ export interface Item {
     | "misc"
     | "treasure"
     | "material"
+    | "potion"
+    | "scroll"
+    | "wand"
+    | "ring"
+    | "amulet"
+    | "trinket"
+    | "artifact"
     | string;
   state?: string;
   isUsable?: boolean;
@@ -20,7 +27,7 @@ export interface Item {
     defense?: number;
     healing?: number;
   };
-  statusEffects?: StatusEffect[];
+  statusEffects?: StatusEffect[]; // status effects that the item is currently afflicted with
   additionalAttributes?: {
     spellLevels?: {
       [key: string]: number;
@@ -47,27 +54,48 @@ export interface Item {
   isCommon?: boolean;
 }
 
-export interface Enemy {
-  id: string;
+export interface EnemyAction {
   name: string;
   description: string;
-  health: number;
-  maxHealth: number;
+  damage: {
+    amount: number;
+    type: string;
+  };
+}
+
+export interface EnemyStats {
+  armorClass: number;
+  hitPoints: number;
+  speed: {
+    walk?: number;
+    fly?: number;
+    swim?: number;
+  };
+  abilityScores: AbilityScores;
+}
+
+export interface Enemy {
+  id: string; // should be of form "enemy-<type>-<id>"
+  name: string;
+  description: string;
   level: number;
-  damage: number;
-  defense: number;
   isAlive: boolean;
   isBoss?: boolean;
   drops?: Item[];
-  statusEffects?: Array<{
-    name: string;
-    duration: number;
-    magnitude: number;
-  }>;
+  baseStats: EnemyStats;
+  currentStats: EnemyStats; // modified by status effects, game actions, etc.
+  actions: EnemyAction[];
+  legendaryActions: EnemyAction[];
+  resistances: string[];
+  weaknesses: string[];
+  immunities: string[];
+  languages: string;
+  cr: number;
+  statusEffects?: StatusEffect[]; // status effects that the enemy is currently afflicted with
 }
 
 export interface Room {
-  id: string;
+  id: string; // should be of form "room-<name>-<id>"
   name: string;
   description: string;
   items: Item[];
@@ -80,20 +108,15 @@ export interface Room {
   };
   visited: boolean;
   position: Position;
-  events?: Array<{
-    trigger: string;
-    position?: string;
-    message?: string;
-    effects?: any[];
-  }>;
 }
 
 export interface Door {
-  id: string;
+  id: string; // should be of form "door-<id>"
   description: string;
   isLocked: boolean;
-  requiredKeyId?: string;
+  requiredKeyId?: string; // should be of form "item-key-<id>"
   destinationRoomId: string;
+  isOpen: boolean;
 }
 
 export interface AbilityScores {
@@ -107,46 +130,10 @@ export interface AbilityScores {
 
 // Derived stats from ability scores
 export interface DerivedStats {
-  maxHealth: number; // Based on constitution
+  hitPoints: number; // Based on constitution
   armorClass: number; // Based on dexterity and armor
   initiative: number; // Based on dexterity
   carryCapacity: number; // Based on strength
-}
-
-export interface Player {
-  id?: string;
-  name?: string;
-  health: number;
-  level: number;
-  experience: number;
-  inventory: Item[];
-  currentRoomId: string;
-  position: Position;
-  abilityScores: AbilityScores;
-  derivedStats: DerivedStats;
-  stats: Record<string, number>;
-  equipment: Equipment;
-  statusEffects?: StatusEffect[];
-  knowledge?: Knowledge[];
-}
-
-export interface GameState {
-  player: Player;
-  currentFloor: number;
-  rooms: Record<string, Room>;
-  messageHistory: string[];
-}
-
-// Client-specific types
-export interface GameResponse {
-  gameState: GameState;
-  message?: string;
-  error?: string;
-}
-
-export interface StartGameResponse {
-  sessionId: string;
-  gameState: GameState;
 }
 
 export interface StatusEffect {
@@ -158,13 +145,62 @@ export interface StatusEffect {
   magnitude: number;
 }
 
+export interface Equipment {
+  weapon?: Item;
+  armor?: Item;
+  offhand?: Item;
+  accessory?: Item;
+}
+
+export interface Player {
+  id: string; // should be of form "player-<id>"
+  name: string;
+  level: number;
+  experience: number;
+  baseAbilityScores: AbilityScores;
+  currentAbilityScores: AbilityScores; // modified by equipment and status effects, etc.
+  baseDerivedStats: DerivedStats;
+  currentDerivedStats: DerivedStats; // modified by equipment and status effects, etc.
+  currentRoomId: string;
+  previousRoomId: string;
+  position: Position;
+  inventory: Item[];
+  equipment: Equipment;
+  statusEffects: StatusEffect[];
+  knowledge: Knowledge[];
+  sessionId: string;
+}
+
 export interface Position {
   x: number;
   y: number;
+  floor: number;
+}
+
+export interface GameState {
+  player: Player;
+  currentFloor: number;
+  rooms: Record<string, Room>;
+  messageHistory: string[];
+  currentRoomId: string;
+  previousRoomId: string;
+  sessionId: string;
+}
+
+export interface GameAction {
+  type: string;
+  target?: string;
+  item?: string;
+  direction?: string;
 }
 
 export interface Knowledge {
+  id: string; // should be of form "knowledge-<type>-<id>"
   type: string;
   description: string;
-  timestamp?: number;
+  timestamp: number;
+  target: string; // what entity the knowledge is about, should be of form "enemy-<type>-<id>" or "item-<type>-<id>" or "room-<name>-<id>", etc.
+  isFact: boolean;
+  isRumor: boolean;
+  isLore: boolean;
 }

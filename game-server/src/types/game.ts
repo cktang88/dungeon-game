@@ -1,5 +1,5 @@
 export interface Item {
-  id: string;
+  id: string; // should be of form "item-<type>-<id>"
   name: string;
   description: string;
   type:
@@ -11,6 +11,13 @@ export interface Item {
     | "misc"
     | "treasure"
     | "material"
+    | "potion"
+    | "scroll"
+    | "wand"
+    | "ring"
+    | "amulet"
+    | "trinket"
+    | "artifact"
     | string;
   state?: string;
   isUsable?: boolean;
@@ -56,29 +63,27 @@ export interface EnemyAction {
   };
 }
 
+export interface EnemyStats {
+  armorClass: number;
+  hitPoints: number;
+  speed: {
+    walk?: number;
+    fly?: number;
+    swim?: number;
+  };
+  abilityScores: AbilityScores;
+}
+
 export interface Enemy {
-  id: string;
+  id: string; // should be of form "enemy-<type>-<id>"
   name: string;
   description: string;
   level: number;
   isAlive: boolean;
   isBoss?: boolean;
   drops?: Item[];
-  stats: {
-    armorClass: number;
-    hitPoints: number;
-    speed: {
-      walk?: number;
-      fly?: number;
-      swim?: number;
-    };
-    strength: number;
-    dexterity: number;
-    constitution: number;
-    intelligence: number;
-    wisdom: number;
-    charisma: number;
-  };
+  baseStats: EnemyStats;
+  currentStats: EnemyStats; // modified by status effects, game actions, etc.
   actions: EnemyAction[];
   legendaryActions: EnemyAction[];
   resistances: string[];
@@ -90,7 +95,7 @@ export interface Enemy {
 }
 
 export interface Room {
-  id: string;
+  id: string; // should be of form "room-<name>-<id>"
   name: string;
   description: string;
   items: Item[];
@@ -102,18 +107,14 @@ export interface Room {
     west?: Door;
   };
   visited: boolean;
-  position: {
-    x: number;
-    y: number;
-    floor: number;
-  };
+  position: Position;
 }
 
 export interface Door {
-  id: string;
+  id: string; // should be of form "door-<id>"
   description: string;
   isLocked: boolean;
-  requiredKeyId?: string;
+  requiredKeyId?: string; // should be of form "item-key-<id>"
   destinationRoomId: string;
   isOpen: boolean;
 }
@@ -129,7 +130,7 @@ export interface AbilityScores {
 
 // Derived stats from ability scores
 export interface DerivedStats {
-  maxHealth: number; // Based on constitution
+  hitPoints: number; // Based on constitution
   armorClass: number; // Based on dexterity and armor
   initiative: number; // Based on dexterity
   carryCapacity: number; // Based on strength
@@ -152,21 +153,22 @@ export interface Equipment {
 }
 
 export interface Player {
-  id: string;
+  id: string; // should be of form "player-<id>"
   name: string;
+  level: number;
+  experience: number;
+  baseAbilityScores: AbilityScores;
+  currentAbilityScores: AbilityScores; // modified by equipment and status effects, etc.
+  baseDerivedStats: DerivedStats;
+  currentDerivedStats: DerivedStats; // modified by equipment and status effects, etc.
   currentRoomId: string;
+  previousRoomId: string | null;
   position: Position;
   inventory: Item[];
   equipment: Equipment;
-  stats: {
-    health: number;
-    stamina: number;
-    strength: number;
-    dexterity: number;
-    [key: string]: number;
-  };
-  statusEffects?: StatusEffect[];
-  knowledge?: Knowledge[];
+  statusEffects: StatusEffect[];
+  knowledge: Knowledge[];
+  sessionId: string;
 }
 
 export interface Position {
@@ -180,6 +182,9 @@ export interface GameState {
   currentFloor: number;
   rooms: Record<string, Room>;
   messageHistory: string[];
+  currentRoomId: string;
+  previousRoomId: string | null;
+  sessionId: string;
 }
 
 export interface GameAction {
@@ -190,12 +195,12 @@ export interface GameAction {
 }
 
 export interface Knowledge {
+  id: string; // should be of form "knowledge-<type>-<id>"
   type: string;
   description: string;
   timestamp: number;
-  source?: string;
-  target?: string;
-  isFact?: boolean;
-  isRumor?: boolean;
-  isLore?: boolean;
+  target: string; // what entity the knowledge is about, should be of form "enemy-<type>-<id>" or "item-<type>-<id>" or "room-<name>-<id>", etc.
+  isFact: boolean;
+  isRumor: boolean;
+  isLore: boolean;
 }
