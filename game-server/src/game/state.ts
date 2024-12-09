@@ -1,5 +1,6 @@
 import { GameState, Room, AbilityScores, DerivedStats } from "../types/game";
 import { openai } from "../lib/openai";
+import generateRoomPrompt from "./generation/roomGen";
 
 // Calculate ability score modifier (D&D style)
 const getAbilityModifier = (score: number): number =>
@@ -94,57 +95,7 @@ export const generateRoom = async (
   theme: string,
   position: { x: number; y: number }
 ): Promise<Room> => {
-  const prompt = `You are  a humorous game master for a text-based dungeon crawler RPG. Generate a detailed dungeon room.This room is on floor ${floor} with theme: ${theme}.
-
-Include in your response:
-1. A unique initial impression of the room and what the player sees/smells/hears/feels/senses when they enter.
-2. A detailed atmospheric description desribing room and its contents.
-3. Any items present (0-4 items, although they might be in chests or other containers that fit the theme)
-4. Any enemies present (0-4 enemies, usually the weaker the enemies, the more there are)
-5. Any puzzles, mysterious signs, or interactive elements. Make these interesting and relevant to the theme. Take into account the puzzles, mysterious signs, or interactive elements of previous rooms.
-6. Available exits (0-4 doors/passages/tunnels in any direction)
-
-Respond in this JSON format:
-{
-  "name": "string",
-  "description": "string",
-  "items": [
-    {
-      "id": "string",
-      "name": "string",
-      "description": "string",
-      "type": "weapon" | "armor" | "key" | "consumable" | "quest"
-    }
-  ],
-  "enemies": [
-    {
-      "id": "string",
-      "name": "string",
-      "description": "string",
-      "health": number,
-      "maxHealth": number,
-      "level": number,
-      "damage": number,
-      "defense": number,
-      "isAlive": true,
-      "isBoss": boolean
-    }
-  ],
-  "doors": {
-    "north": {
-      "id": "string",
-      "description": "string",
-      "isLocked": boolean,
-      "requiredKeyId": "string (optional)",
-      "destinationRoomId": "string"
-    },
-    "south": {...},
-    "east": {...},
-    "west": {...}
-  }
-}
-
-Make it atmospheric and interesting, with potential for player interaction.`;
+  const prompt = generateRoomPrompt(theme);
 
   try {
     const response = await openai.chat.completions.create({

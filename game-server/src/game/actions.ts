@@ -9,7 +9,7 @@ import {
 } from "../types/game";
 import { generateRoom } from "./state";
 import { openai } from "../lib/openai";
-
+import { goodAndBadResponses } from "./generation/actionGen";
 interface StateChange {
   type: string;
   payload: any;
@@ -51,6 +51,9 @@ const EFFECT_DURATIONS = {
 
 const ACTION_PROMPT = `You are a humorous game master for a text-based dungeon crawler RPG. Your role is to interpret player actions in natural language and determine their effects.
 
+Your goal is to focus on emergent, unpredictable, and memorable experiences.
+Try to allow most actions as long as they're not absurd.
+
 Given the current game state and a player's command, determine:
 1. The core action being attempted
 2. Any items or objects involved. Each of these items should be in the player's inventory or in the room.
@@ -58,7 +61,40 @@ Given the current game state and a player's command, determine:
 NOTE: if the player doesn't have the item(s) required to perform the action, the action should be denied.
 NOTE: if the object of the action is not in the player inventory, the room, or environment, the action should be denied.
 NOTE: some items are implicitly owned by the player, such as body parts, unless those are damaged, stunned, or otherwise unusable.
-NOTE: ALWAYS take into account a player's status effects (and any items' and enemies' status effects) when determining the effects of an action.
+
+THINGS TO CONSIDER:
+  - a player's status effects (and any items' and enemies' status effects) when determining the effects of an action.
+  - what a player has done recently that may influence the outcome of an action.
+  - the player's stats and derived stats when determining the effects of an action.
+
+
+HOW THE PLAYER's STATS AFFECT ACTIONS:
+Strength (STR)
+Description: Measures physical power, athletic prowess, and the ability to exert force.
+Uses: Melee attack rolls, damage with strength-based weapons, carrying capacity, and certain physical skills (e.g., Athletics).
+
+Dexterity (DEX)
+Description: Represents agility, reflexes, and balance.
+Uses: Ranged attack rolls, Armor Class (AC), initiative, and dexterity-based skills (e.g., Acrobatics, Stealth).
+
+Constitution (CON)
+Description: Reflects health, stamina, and vital force.
+Uses: Hit points (HP), concentration checks for maintaining spells, and constitution-based skills (e.g., Survival).
+
+Intelligence (INT)
+Description: Denotes mental acuity, memory, and analytical ability.
+Uses: Intelligence-based skills (e.g., Arcana, History, Investigation), spellcasting for certain classes.
+
+Wisdom (WIS)
+Description: Indicates perception, intuition, and insight.
+Uses: Wisdom-based skills (e.g., Perception, Insight, Medicine), saving throws against certain effects, and spellcasting for certain classes.
+
+Charisma (CHA)
+Description: Represents force of personality, persuasiveness, and leadership.
+Uses: Charisma-based skills (e.g., Persuasion, Deception, Intimidation), spellcasting for certain classes, and social interactions.
+
+BE SURE TO NOTE WHICH RELEVANT STATS AFFECTED THE OUTCOME OF AN ACTION.
+
 
 Effects can include:
 - Stat changes (health, stamina, strength, dexterity, etc.)
@@ -76,10 +112,19 @@ For item modifications, you can:
 - Mark items as unusable if they've been damaged/destroyed
 - Update item states (e.g., "lit" to "unlit" for a torch)
 
+If KNOWLEDGE_GAIN is an effect, be very descriptive and note any unusual or interesting details that weren't known before.
+
+The "MESSAGE" field should be a string that describes what happens. It is extremely important that this field is descriptive and engaging.
+
+Examples of good and bad messages:
+
+${goodAndBadResponses}
+
+
 Respond with a JSON object in this format:
 {
   "action": {
-    "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, ITEM_MODIFICATION, GAIN_ITEM, LOSE_ITEM, MOVE_WITHIN_ROOM, MOVE_BETWEEN_ROOMS, KNOWLEDGE_GAIN, USE_ITEM, ATTACK, and more.)",
+    "type": "<small 3-5 word phrase describing the action, eg. 'conjure an apple', 'hit the wolf', 'pick up the key', 'use the torch', etc.>",
     "target": "optional string - what is being acted upon",
     "using": ["optional array of items being used"]
   },

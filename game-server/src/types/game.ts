@@ -85,20 +85,41 @@ export interface StatusEffect {
   magnitude: number;
 }
 
+export interface Equipment {
+  weapon?: Item;
+  armor?: Item;
+  offhand?: Item;
+  accessory?: Item;
+}
+
 export interface Player {
-  health: number;
-  level: number;
-  experience: number;
-  inventory: Item[];
+  id: string;
+  name: string;
   currentRoomId: string;
-  abilityScores: AbilityScores;
-  derivedStats: DerivedStats;
-  stats: Record<string, number>;
+  position: Position;
+  inventory: Item[];
+  equipment: Equipment;
+  stats: {
+    health: number;
+    stamina: number;
+    strength: number;
+    dexterity: number;
+    [key: string]: number;
+  };
   statusEffects?: StatusEffect[];
-  knowledge?: Array<{
-    type: string;
-    description: string;
-  }>;
+  knowledge?: Knowledge[];
+}
+
+export interface Position {
+  x: number;
+  y: number;
+}
+
+export interface RoomEvent {
+  trigger: "position" | "item" | "enemy";
+  position?: string;
+  message: string;
+  effect?: string;
 }
 
 export interface GameState {
@@ -113,4 +134,10 @@ export interface GameAction {
   target?: string;
   item?: string;
   direction?: string;
+}
+
+export interface Knowledge {
+  type: string;
+  description: string;
+  timestamp: number;
 }
