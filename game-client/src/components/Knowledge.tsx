@@ -39,37 +39,64 @@ export default function Knowledge({
         <CardTitle>Knowledge</CardTitle>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="h-[300px] pr-4">
+        <ScrollArea className="h-[400px] pr-4">
           <div className="space-y-6">
             {Object.entries(groupedKnowledge).map(([type, items]) => (
-              <div key={type} className="space-y-2">
-                <h3 className="font-semibold capitalize">{type}</h3>
-                <div className="space-y-2">
+              <div key={type} className="space-y-3">
+                <h3 className="text-lg font-semibold capitalize">{type}</h3>
+                <div className="space-y-3">
                   {items.map((item, index) => (
                     <div
                       key={index}
-                      className="p-3 border rounded-lg space-y-2"
+                      className="p-4 border rounded-lg space-y-3 hover:bg-muted/50 transition-colors"
                     >
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm">{item.description}</p>
-                        <div className="flex gap-2">
-                          {item.isFact && <Badge variant="default">Fact</Badge>}
-                          {item.isRumor && (
-                            <Badge variant="secondary">Rumor</Badge>
+                      <div className="flex items-start justify-between gap-4">
+                        <p className="text-base leading-relaxed flex-1">
+                          {item.description}
+                        </p>
+                        <div className="flex flex-col gap-2">
+                          {item.isFact && (
+                            <Badge
+                              variant="default"
+                              className="whitespace-nowrap"
+                            >
+                              Fact
+                            </Badge>
                           )}
-                          {item.isLore && <Badge variant="outline">Lore</Badge>}
+                          {item.isRumor && (
+                            <Badge
+                              variant="secondary"
+                              className="whitespace-nowrap"
+                            >
+                              Rumor
+                            </Badge>
+                          )}
+                          {item.isLore && (
+                            <Badge
+                              variant="outline"
+                              className="whitespace-nowrap"
+                            >
+                              Lore
+                            </Badge>
+                          )}
                         </div>
                       </div>
-                      {item.target && (
-                        <p className="text-xs text-muted-foreground">
-                          Source: {item.target}
-                        </p>
-                      )}
-                      {item.timestamp && (
-                        <p className="text-xs text-muted-foreground">
-                          Learned: {new Date(item.timestamp).toLocaleString()}
-                        </p>
-                      )}
+                      <div className="flex flex-col gap-1 text-sm text-muted-foreground">
+                        {item.target && (
+                          <p>
+                            Source:{" "}
+                            <span className="font-medium">{item.target}</span>
+                          </p>
+                        )}
+                        {item.timestamp && (
+                          <p>
+                            Learned:{" "}
+                            <span className="font-medium">
+                              {new Date(item.timestamp).toLocaleString()}
+                            </span>
+                          </p>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>

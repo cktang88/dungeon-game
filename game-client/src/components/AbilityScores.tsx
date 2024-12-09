@@ -28,7 +28,7 @@ export default function AbilityScores({ player }: AbilityScoresProps) {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Stats</CardTitle>
+          <CardTitle>Ability Scores</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-center text-muted-foreground">Loading stats...</p>
@@ -37,71 +37,8 @@ export default function AbilityScores({ player }: AbilityScoresProps) {
     );
   }
 
-  const level = player.level || 1;
-  const experience = player.experience || 0;
-  const health = player.currentDerivedStats?.hitPoints || 0;
-  const maxHealth = player.baseDerivedStats?.hitPoints || 100;
-
-  const experienceToNextLevel = Math.pow(level, 2) * 100;
-  const experiencePercentage = (experience / experienceToNextLevel) * 100;
-  const healthPercentage = (health / maxHealth) * 100;
-
   return (
     <div className="space-y-4">
-      {/* Basic Stats */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Level {level}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            {/* Health Bar */}
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm">
-                <span>HP</span>
-                <span>
-                  {health}/{maxHealth}
-                </span>
-              </div>
-              <Progress value={healthPercentage} className="h-2" />
-            </div>
-
-            {/* Experience Bar */}
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm">
-                <span>XP</span>
-                <span>
-                  {experience}/{experienceToNextLevel}
-                </span>
-              </div>
-              <Progress value={experiencePercentage} className="h-2" />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Status Effects */}
-      {player.statusEffects && player.statusEffects.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Status Effects</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-wrap gap-2">
-              {player.statusEffects.map((effect, index) => (
-                <Badge
-                  key={index}
-                  variant={effect.magnitude > 0 ? "default" : "destructive"}
-                  className="text-sm py-1 px-3"
-                >
-                  {effect.name} ({effect.duration} turns)
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
       {/* Ability Scores */}
       <Card>
         <CardHeader>
@@ -116,118 +53,42 @@ export default function AbilityScores({ player }: AbilityScoresProps) {
                     stat as keyof typeof player.baseAbilityScores
                   ];
                 const diff = formatDifference(value, baseValue);
+                const modifier = getAbilityModifier(value);
+                const baseModifier = getAbilityModifier(baseValue);
+                const modifierDiff = modifier - baseModifier;
+
                 return (
-                  <div key={stat} className="p-2 bg-muted rounded-lg">
-                    <div className="text-sm font-medium capitalize mb-1">
-                      {stat}
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="text-lg">{value}</span>
-                        {diff && (
-                          <span className="text-sm text-muted-foreground">
-                            {diff}
+                  <div key={stat} className="p-4 bg-muted rounded-lg">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="space-y-1">
+                        <div className="text-lg font-medium capitalize">
+                          {stat}
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          Base: {baseValue} ({formatModifier(baseModifier)})
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold">
+                          {value}
+                          <span className="text-lg ml-2">
+                            ({formatModifier(modifier)})
                           </span>
+                        </div>
+                        {diff && (
+                          <div className="text-sm text-muted-foreground">
+                            {diff}
+                            {modifierDiff !== 0 &&
+                              ` (${formatModifier(modifierDiff)} modifier)`}
+                          </div>
                         )}
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="h-5">
-                          {formatModifier(getAbilityModifier(value))}
-                        </Badge>
-                        <span className="text-sm text-muted-foreground">
-                          Base: {baseValue}
-                        </span>
-                      </div>
                     </div>
+                    <Progress value={(value / 20) * 100} className="h-2" />
                   </div>
                 );
               }
             )}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Combat Stats */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Combat Stats</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-3">
-            <div className="p-2 bg-muted rounded-lg">
-              <div className="text-sm font-medium mb-1">Armor Class</div>
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg">
-                    {player.currentDerivedStats.armorClass}
-                  </span>
-                  {formatDifference(
-                    player.currentDerivedStats.armorClass,
-                    player.baseDerivedStats.armorClass
-                  ) && (
-                    <span className="text-sm text-muted-foreground">
-                      {formatDifference(
-                        player.currentDerivedStats.armorClass,
-                        player.baseDerivedStats.armorClass
-                      )}
-                    </span>
-                  )}
-                </div>
-                <span className="text-sm text-muted-foreground">
-                  Base: {player.baseDerivedStats.armorClass}
-                </span>
-              </div>
-            </div>
-
-            <div className="p-2 bg-muted rounded-lg">
-              <div className="text-sm font-medium mb-1">Initiative</div>
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg">
-                    {formatModifier(player.currentDerivedStats.initiative)}
-                  </span>
-                  {formatDifference(
-                    player.currentDerivedStats.initiative,
-                    player.baseDerivedStats.initiative
-                  ) && (
-                    <span className="text-sm text-muted-foreground">
-                      {formatDifference(
-                        player.currentDerivedStats.initiative,
-                        player.baseDerivedStats.initiative
-                      )}
-                    </span>
-                  )}
-                </div>
-                <span className="text-sm text-muted-foreground">
-                  Base: {formatModifier(player.baseDerivedStats.initiative)}
-                </span>
-              </div>
-            </div>
-
-            <div className="p-2 bg-muted rounded-lg">
-              <div className="text-sm font-medium mb-1">Carry Capacity</div>
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg">
-                    {player.currentDerivedStats.carryCapacity} lbs
-                  </span>
-                  {formatDifference(
-                    player.currentDerivedStats.carryCapacity,
-                    player.baseDerivedStats.carryCapacity
-                  ) && (
-                    <span className="text-sm text-muted-foreground">
-                      {formatDifference(
-                        player.currentDerivedStats.carryCapacity,
-                        player.baseDerivedStats.carryCapacity
-                      )}
-                    </span>
-                  )}
-                </div>
-                <span className="text-sm text-muted-foreground">
-                  Base: {player.baseDerivedStats.carryCapacity} lbs
-                </span>
-              </div>
-            </div>
           </div>
         </CardContent>
       </Card>

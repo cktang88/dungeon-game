@@ -10,7 +10,7 @@ import {
   DerivedStats,
   Knowledge,
 } from "../types/game";
-import { generateRoom } from "./state";
+import { generateRoom, handleItemsMoved } from "./state";
 import { openai } from "../lib/openai";
 import { ACTION_PROMPT } from "./generation/actionGen";
 interface StateChange {
@@ -28,6 +28,13 @@ interface ActionEffect {
     newDescription?: string;
     newState?: string;
     isUsable?: boolean;
+  };
+  itemsMoved?: {
+    itemId: string; // eg. 'item-<type>-<id>'
+    from: string; // "player", "enemy", "room", "environment"
+    fromSpecificId?: string; // eg. which enemy, which chest, what part of the room, etc.
+    to: string; // "player", "enemy", "room", "environment"
+    toSpecificId?: string; // eg. which enemy, which chest, what part of the room, etc.
   };
   conditions?: {
     requires?: string[];
@@ -412,13 +419,7 @@ async function applyEffects(
               newState.player.inventory.push(item);
               console.log(`Moved item from room to inventory: ${item.name}`);
             } else if (!location) {
-              // If item doesn't exist in room or inventory, generate a new one
-              console.log(`Generating new item: ${effect.target}`);
-              const newItem = await generateItem(effect.target);
-              newState.player.inventory.push(newItem);
-              console.log(
-                `Generated and added new item to inventory: ${newItem.name}`
-              );
+              continue;
             }
           }
         }
@@ -450,7 +451,7 @@ async function applyEffects(
             newState.player.position = {
               x: newState.rooms[targetRoomId].position.x,
               y: newState.rooms[targetRoomId].position.y,
-              floor: newState.rooms[targetRoomId].position.floor,
+              floorDepth: newState.rooms[targetRoomId].position.floorDepth,
             };
           }
         }
@@ -804,6 +805,54 @@ async function applyEffects(
             // Update previous room before changing current room
             newState.player.previousRoomId = newState.player.currentRoomId;
             newState.player.currentRoomId = door.destinationRoomId;
+          }
+        }
+        break;
+
+      case "ITEMS_MOVED":
+        if (effect.itemsMoved) {
+          const data = effect.itemsMoved;
+          console.log(
+            `Moving item from ${data.from}${
+              data.fromSpecificId ? ` (${data.fromSpecificId})` : ""
+            } to ${data.to}${
+              data.toSpecificId ? ` (${data.toSpecificId})` : ""
+            }`
+          );
+
+          // Convert the from/to locations to the format expected by handleItemsMoved
+          const sourceLocation =
+            data.fromSpecificId ||
+            (data.from === "player"
+              ? "inventory"
+              : data.from === "enemy"
+              ? data.fromSpecificId!
+              : data.from === "room"
+              ? newState.player.currentRoomId
+              : "");
+
+          const targetLocation =
+            data.toSpecificId ||
+            (data.to === "player"
+              ? "inventory"
+              : data.to === "enemy"
+              ? data.toSpecificId!
+              : data.to === "room"
+              ? newState.player.currentRoomId
+              : "");
+
+          if (sourceLocation && targetLocation) {
+            newState = handleItemsMoved(
+              newState,
+              sourceLocation,
+              targetLocation,
+              [data.itemId]
+            );
+            message += `\nItem moved from ${data.from}${
+              data.fromSpecificId ? ` (${data.fromSpecificId})` : ""
+            } to ${data.to}${
+              data.toSpecificId ? ` (${data.toSpecificId})` : ""
+            }.`;
           }
         }
         break;

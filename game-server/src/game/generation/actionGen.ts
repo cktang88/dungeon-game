@@ -91,15 +91,16 @@ Respond with a JSON object in this format, and action followed by a LIST of all 
       "target": "optional string specifying what is affected",
       "itemsModified": {
         {
-          "name": "string - name of the item",
-          "description": "string - description of the item",
+          "id": "string - id of the item, eg. 'item-<type>-<id>'",
+          "name": "string - new altered name of the item",
+          "description": "string - new altered description of the item",
           "type": "string - type of the item (e.g., 'weapon', 'armor', 'key', 'consumable', 'quest', 'misc', 'treasure', 'material')",
-          "state": "optional string - state of the item (e.g., 'lit', 'unlit', 'broken')",
+          "state": "optional string - new altered state of the item (e.g., 'lit', 'unlit', 'broken')",
           "isUsable": "optional boolean - whether the item can still be used",
           "stats": {
-            "damage": "optional number - damage of the item",
-            "defense": "optional number - defense of the item",
-            "healing": "optional number - healing of the item"
+            "damage": "optional number - new altered damage of the item",
+            "defense": "optional number - new altered defense of the item",
+            "healing": "optional number - new altered healing of the item"
           },
           "statusEffects": [
             {
@@ -110,29 +111,12 @@ Respond with a JSON object in this format, and action followed by a LIST of all 
           ],
         }
       },
-      "itemsCreated": [
-        {
-          "name": "string - name of the item",
-          "description": "string - description of the item",
-          "type": "string - type of the item (e.g., 'weapon', 'armor', 'key', 'consumable', 'quest', 'misc', 'treasure', 'material')",
-          "state": "optional string - state of the item (e.g., 'lit', 'unlit', 'broken')",
-          "isUsable": "optional boolean - whether the item can still be used",
-          "stats": {
-            "damage": "optional number - damage of the item",
-            "defense": "optional number - defense of the item",
-            "healing": "optional number - healing of the item"
-          },
-          "statusEffects": [
-            {
-              "name": "string - name of the status effect",
-              "duration": "number - duration of the status effect",
-              "magnitude": "number - magnitude of the status effect"
-            }
-          ],
-        }
-      ],
-      "itemsDestroyed": [
-        "optional array of strings - items destroyed"
+      "itemsMoved": [
+        "itemId": "string - id of the item, eg. 'item-<type>-<id>'",
+        "from": "string - location of the item (e.g., 'player', 'enemy', 'room', 'environment')",
+        "fromSpecificId": "optional string - specific ID of enemy, chest, etc. eg. 'enemy-<type>-<id>' or 'item-<type>-<id>' or 'room-<name>-<id>', etc.",
+        "to": "string - location of the item (e.g., 'player', 'enemy', 'room', 'environment')",
+        "toSpecificId": "optional string -specific ID of enemy, chest, etc. eg. 'enemy-<type>-<id>' or 'item-<type>-<id>' or 'room-<name>-<id>', etc.",
       ],
       "conditions": {
         "requires": ["optional array of required items/states"],

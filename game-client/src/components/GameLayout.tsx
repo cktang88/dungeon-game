@@ -5,8 +5,7 @@ import { GameResponse, StartGameResponse } from "@/types/client";
 import { GameState } from "@/types/game";
 import RoomView from "./RoomView";
 import Inventory from "./Inventory";
-import AbilityScores from "./AbilityScores";
-import Knowledge from "./Knowledge";
+import PlayerStats from "./PlayerStats";
 import ChatBox from "./ChatBox";
 import { GameMap } from "./GameMap";
 import { gameApi } from "@/lib/api";
@@ -114,7 +113,7 @@ export default function GameLayout() {
 
   return (
     <div className="container mx-auto h-screen p-4 flex flex-col gap-4">
-      <div className="grid grid-cols-[1fr_300px] gap-4 flex-1">
+      <div className="grid grid-cols-[1fr_400px] gap-4 flex-1">
         <div className="flex flex-col gap-4">
           <Tabs defaultValue="room" className="flex-1">
             <TabsList>
@@ -137,9 +136,8 @@ export default function GameLayout() {
           />
         </div>
         <div className="flex flex-col gap-4 overflow-y-auto">
-          <AbilityScores player={gameState?.player} />
+          <PlayerStats player={gameState?.player} />
           <Inventory items={gameState?.player?.inventory || []} />
-          <Knowledge knowledge={gameState?.player?.knowledge} />
         </div>
       </div>
     </div>

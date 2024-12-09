@@ -4,6 +4,7 @@ import {
   AbilityScores,
   DerivedStats,
   Position,
+  Floor,
 } from "../types/game";
 import { openai } from "../lib/openai";
 import generateRoomPrompt from "./generation/roomGen";
@@ -28,10 +29,6 @@ const calculateDerivedStats = (
   };
 };
 
-interface RoomPosition extends Position {
-  floor: number;
-}
-
 const createStartingRoom = (): Room => ({
   id: "start",
   name: "Entrance Hall",
@@ -39,7 +36,7 @@ const createStartingRoom = (): Room => ({
     "You wake up, finding yourself in a dimly lit entrance hall where cool air carries the scent of damp earth and aged stone. Ancient stone walls, cloaked in moss and faintly glowing runes, tower above them, while intermittently flickering torches cast dancing shadows that seem alive. The vaulted ceiling is supported by intricately carved stone pillars depicting forgotten deities and mythical creatures. Beneath their feet, a worn mosaic floor portrays a celestial map aligned with the night sky, with some tiles feeling cold and others slightly warm, hinting at hidden magical properties. Minimal torchlight creates pockets of brightness and deep, almost palpable shadows in the corners, lending an eerie ambiance. Faint echoes of dripping water and the soft scuttling of unseen creatures resonate from deeper within the dungeon, occasionally accompanied by a distant, hollow thud that makes it seem as if the dungeon itself is breathing.",
   items: [
     {
-      id: "torch_1",
+      id: "item-quest-1",
       name: "Rusty Torch",
       description:
         "A well-worn torch that could be used for light, the handle is worn and the wick is frayed.",
@@ -56,7 +53,7 @@ const createStartingRoom = (): Room => ({
       isMagic: false,
     },
     {
-      id: "dagger_1",
+      id: "item-weapon-1",
       name: "Broken Pocket Knife",
       description:
         "A small, sharp pocket knife, its blade glints in the torchlight.",
@@ -75,7 +72,7 @@ const createStartingRoom = (): Room => ({
       isMagic: false,
     },
     {
-      id: "bandage_1",
+      id: "item-consumable-1",
       name: "Cloth Bandage",
       description: "A small tan cloth bandage, slightly wet in a puddle.",
       type: "consumable",
@@ -107,7 +104,7 @@ const createStartingRoom = (): Room => ({
   position: {
     x: 0,
     y: 0,
-    floor: 1,
+    floorDepth: 1,
   },
 });
 
@@ -127,16 +124,30 @@ export const initializeGameState = (): GameState => {
 
   const derivedStats = calculateDerivedStats(abilityScores, 1);
 
+  const floor: Floor = {
+    name: "Entrance Hall",
+    theme: {
+      name: "dungeon",
+      environment: "dungeon",
+      floraFauna: "dungeon",
+      oddities: "dungeon",
+      monsters: [],
+      enemyTypes: [],
+      afflictions: [],
+    },
+    floorDepth: 1,
+  };
+
   return {
     player: {
-      id: `player_${Math.random().toString(36).substring(2, 9)}`,
+      id: `player-${Math.random().toString(36).substring(2, 9)}`,
       name: "Adventurer",
       level: 1,
       experience: 0,
       inventory: [],
       currentRoomId: "start",
       previousRoomId: null, // Initialize with starting room
-      position: { x: 0, y: 0, floor: 1 },
+      position: { x: 0, y: 0, floorDepth: 1 },
       baseAbilityScores: abilityScores,
       currentAbilityScores: abilityScores,
       baseDerivedStats: derivedStats,
@@ -151,7 +162,7 @@ export const initializeGameState = (): GameState => {
       knowledge: [],
       sessionId, // Add session ID
     },
-    currentFloor: 1,
+    currentFloor: floor,
     rooms: {
       start: startingRoom,
     },
@@ -168,7 +179,7 @@ export const initializeGameState = (): GameState => {
 export const generateRoom = async (
   theme: string,
   gameState: GameState,
-  position: RoomPosition
+  position: Position
 ): Promise<Room> => {
   const prompt = generateRoomPrompt(theme, gameState);
 
@@ -239,4 +250,69 @@ export const generateRoom = async (
       position,
     };
   }
+};
+
+// Helper function to handle moving items between locations
+export const handleItemsMoved = (
+  gameState: GameState,
+  sourceLocation: string,
+  targetLocation: string,
+  itemIds: string[]
+): GameState => {
+  const newState = { ...gameState };
+  const currentRoom = newState.rooms[newState.player.currentRoomId];
+
+  itemIds.forEach((itemId) => {
+    let item;
+    let sourceItem;
+
+    // Find the item in the source location
+    if (sourceLocation === "inventory") {
+      const idx = newState.player.inventory.findIndex((i) => i.id === itemId);
+      if (idx !== -1) {
+        sourceItem = newState.player.inventory[idx];
+        item = { ...sourceItem };
+        newState.player.inventory.splice(idx, 1);
+      }
+    } else if (sourceLocation === currentRoom.id) {
+      const idx = currentRoom.items.findIndex((i) => i.id === itemId);
+      if (idx !== -1) {
+        sourceItem = currentRoom.items[idx];
+        item = { ...sourceItem };
+        currentRoom.items.splice(idx, 1);
+      }
+    } else if (sourceLocation.startsWith("enemy")) {
+      const enemy = currentRoom.enemies.find((e) => e.id === sourceLocation);
+      if (enemy?.drops) {
+        const idx = enemy.drops.findIndex((i) => i.id === itemId);
+        if (idx !== -1) {
+          sourceItem = enemy.drops[idx];
+          item = { ...sourceItem };
+          enemy.drops.splice(idx, 1);
+        }
+      }
+    }
+
+    // If we found and removed the item, add it to the target location
+    if (item) {
+      if (targetLocation === "inventory") {
+        newState.player.inventory.push(item);
+      } else if (targetLocation === currentRoom.id) {
+        if (!currentRoom.items) {
+          currentRoom.items = [];
+        }
+        currentRoom.items.push(item);
+      } else if (targetLocation.startsWith("enemy")) {
+        const enemy = currentRoom.enemies.find((e) => e.id === targetLocation);
+        if (enemy) {
+          if (!enemy.drops) {
+            enemy.drops = [];
+          }
+          enemy.drops.push(item);
+        }
+      }
+    }
+  });
+
+  return newState;
 };

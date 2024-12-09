@@ -174,12 +174,12 @@ export interface Player {
 export interface Position {
   x: number;
   y: number;
-  floor: number;
+  floorDepth: number;
 }
 
 export interface GameState {
   player: Player;
-  currentFloor: number;
+  currentFloor: Floor;
   rooms: Record<string, Room>;
   messageHistory: string[];
   currentRoomId: string;
@@ -203,4 +203,20 @@ export interface Knowledge {
   isFact: boolean;
   isRumor: boolean;
   isLore: boolean;
+}
+
+export interface Floor {
+  name: string;
+  floorDepth: number;
+  theme: Theme;
+}
+
+export interface Theme {
+  name: string;
+  environment: string;
+  floraFauna: string;
+  oddities: string;
+  monsters: string[];
+  enemyTypes: string[];
+  afflictions: string[];
 }
