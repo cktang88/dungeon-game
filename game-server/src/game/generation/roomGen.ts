@@ -1,5 +1,16 @@
-export default function generateRoomPrompt(theme: string) {
+import { GameState } from "../../types/game";
+
+export default function generateRoomPrompt(
+  theme: string,
+  gameState: GameState
+) {
   return `You are  a humorous game master for a text-based dungeon crawler RPG. Generate a detailed dungeon room. The environment is themed: ${theme}.
+
+Generate a room that feels like a natural progression from the previous rooms, and fits the current theme.
+Monsters and items should be appropriate for the player's current level and past experiences.
+However, at the same time, the room should feel unique, challenging, and memorable, and UNEXPECTED.
+
+Current game state: ${JSON.stringify(gameState)}.
 
 Focus on emergent, unpredictable, and memorable experiences.
 NOTE: events may already be happening in the room, so be sure to describe them. The player may be interrupting something.

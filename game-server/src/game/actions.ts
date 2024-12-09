@@ -97,20 +97,25 @@ BE SURE TO NOTE WHICH RELEVANT STATS AFFECTED THE OUTCOME OF AN ACTION.
 
 
 Effects can include:
-- Stat changes (health, stamina, strength, dexterity, etc.)
-- Status effects (tired, poisoned, strengthened, etc.)
-    - Status effects usually also have stat changes, eg. a player being hurt means health was lost.
+- Player stat changes (health, stamina, strength, dexterity, etc.)
+- Player status effects (tired, poisoned, strengthened, stunned, frightened, charmed, blinded, etc.)
+    - Status effects usually also have stat changes, eg. a player being hurt means health was lost, frightened means they have a penalty to initiative, and MORE.
 - Resource changes (gaining/losing items)
 - Item modifications (changing item descriptions, states, or usability)
+- Items may be created or destroyed
 - Environmental changes
 - Knowledge gains
 - Effects on enemies (enemy health, giving enemy status effects, etc.)
-- Enemy reactions
+- Enemy reactions (think from enemy's point of view, based on their abilities, current stats, statuses, senses)
+
+Think step by step, and consider all the possible effects of an action.
 
 For item modifications, you can:
 - Change an item's description to reflect its new state
 - Mark items as unusable if they've been damaged/destroyed
 - Update item states (e.g., "lit" to "unlit" for a torch)
+
+Any new items should be added to the room or player's inventory, depending on the context.
 
 If KNOWLEDGE_GAIN is an effect, be very descriptive and note any unusual or interesting details that weren't known before.
 
@@ -121,7 +126,7 @@ Examples of good and bad messages:
 ${goodAndBadResponses}
 
 
-Respond with a JSON object in this format:
+Respond with a JSON object in this format, and action followed by a LIST of all effects:
 {
   "action": {
     "type": "<small 3-5 word phrase describing the action, eg. 'conjure an apple', 'hit the wolf', 'pick up the key', 'use the torch', etc.>",
@@ -135,11 +140,51 @@ Respond with a JSON object in this format:
       "magnitude": "optional number for the size of the effect",
       "duration": "optional number of turns the effect lasts",
       "target": "optional string specifying what is affected",
-      "itemModification": {
-        "newDescription": "optional string - new description for the item",
-        "newState": "optional string - new state for the item (e.g., 'lit', 'unlit', 'broken')",
-        "isUsable": "optional boolean - whether the item can still be used"
+      "itemsModified": {
+        {
+          "name": "string - name of the item",
+          "description": "string - description of the item",
+          "type": "string - type of the item (e.g., 'weapon', 'armor', 'key', 'consumable', 'quest', 'misc', 'treasure', 'material')",
+          "state": "optional string - state of the item (e.g., 'lit', 'unlit', 'broken')",
+          "isUsable": "optional boolean - whether the item can still be used",
+          "stats": {
+            "damage": "optional number - damage of the item",
+            "defense": "optional number - defense of the item",
+            "healing": "optional number - healing of the item"
+          },
+          "statusEffects": [
+            {
+              "name": "string - name of the status effect",
+              "duration": "number - duration of the status effect",
+              "magnitude": "number - magnitude of the status effect"
+            }
+          ],
+        }
       },
+      "itemsCreated": [
+        {
+          "name": "string - name of the item",
+          "description": "string - description of the item",
+          "type": "string - type of the item (e.g., 'weapon', 'armor', 'key', 'consumable', 'quest', 'misc', 'treasure', 'material')",
+          "state": "optional string - state of the item (e.g., 'lit', 'unlit', 'broken')",
+          "isUsable": "optional boolean - whether the item can still be used",
+          "stats": {
+            "damage": "optional number - damage of the item",
+            "defense": "optional number - defense of the item",
+            "healing": "optional number - healing of the item"
+          },
+          "statusEffects": [
+            {
+              "name": "string - name of the status effect",
+              "duration": "number - duration of the status effect",
+              "magnitude": "number - magnitude of the status effect"
+            }
+          ],
+        }
+      ],
+      "itemsDestroyed": [
+        "optional array of strings - items destroyed"
+      ],
       "conditions": {
         "requires": ["optional array of required items/states"],
         "consumes": ["optional array of items consumed"]
@@ -322,8 +367,7 @@ async function interpretAction(
 ): Promise<LLMResponse> {
   const currentRoom = state.rooms[state.player.currentRoomId];
 
-  const prompt = `${ACTION_PROMPT}
-
+  const prompt = `
 Current game state:
 Room: ${JSON.stringify(currentRoom)}
 Player: ${JSON.stringify(state.player)}
@@ -334,7 +378,10 @@ Player action: "${action}"`;
 
   const response = await openai.chat.completions.create({
     model: "gpt-4o-2024-11-20",
-    messages: [{ role: "system", content: prompt }],
+    messages: [
+      { role: "system", content: ACTION_PROMPT },
+      { role: "user", content: prompt },
+    ],
     temperature: 0.7,
     response_format: { type: "json_object" },
   });

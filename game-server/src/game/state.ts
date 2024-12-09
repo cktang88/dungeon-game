@@ -31,8 +31,28 @@ const createStartingRoom = (): Room => ({
     {
       id: "torch_1",
       name: "Rusty Torch",
-      description: "A well-worn torch that could be used for light.",
+      description:
+        "A well-worn torch that could be used for light, the handle is worn and the wick is frayed.",
       type: "quest",
+    },
+    {
+      id: "dagger_1",
+      name: "Broken pocket knife",
+      description:
+        "A small, sharp pocket knife, it's blade glints in the torchlight.",
+      type: "weapon",
+      stats: {
+        damage: 1,
+      },
+    },
+    {
+      id: "bandage_1",
+      name: "Cloth bandage",
+      description: "A small tan cloth bandage, slightly wet in a puddle.",
+      type: "consumable",
+      stats: {
+        healing: 1,
+      },
     },
   ],
   enemies: [],
