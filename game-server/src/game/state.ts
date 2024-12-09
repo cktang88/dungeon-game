@@ -30,7 +30,7 @@ const calculateDerivedStats = (
 };
 
 const createStartingRoom = (): Room => ({
-  id: "start",
+  id: "room-start",
   name: "Entrance Hall",
   description:
     "You wake up, finding yourself in a dimly lit entrance hall where cool air carries the scent of damp earth and aged stone. Ancient stone walls, cloaked in moss and faintly glowing runes, tower above them, while intermittently flickering torches cast dancing shadows that seem alive. The vaulted ceiling is supported by intricately carved stone pillars depicting forgotten deities and mythical creatures. Beneath their feet, a worn mosaic floor portrays a celestial map aligned with the night sky, with some tiles feeling cold and others slightly warm, hinting at hidden magical properties. Minimal torchlight creates pockets of brightness and deep, almost palpable shadows in the corners, lending an eerie ambiance. Faint echoes of dripping water and the soft scuttling of unseen creatures resonate from deeper within the dungeon, occasionally accompanied by a distant, hollow thud that makes it seem as if the dungeon itself is breathing.",
@@ -93,10 +93,10 @@ const createStartingRoom = (): Room => ({
   enemies: [],
   doors: {
     north: {
-      id: "door_1",
+      id: "door-1",
       description: "A heavy wooden door with iron bindings.",
       isLocked: false,
-      destinationRoomId: "room_1",
+      destinationRoomId: "room-1",
       isOpen: false,
     },
   },
@@ -145,7 +145,7 @@ export const initializeGameState = (): GameState => {
       level: 1,
       experience: 0,
       inventory: [],
-      currentRoomId: "start",
+      currentRoomId: "room-start",
       previousRoomId: null, // Initialize with starting room
       position: { x: 0, y: 0, floorDepth: 1 },
       baseAbilityScores: abilityScores,
@@ -164,14 +164,14 @@ export const initializeGameState = (): GameState => {
     },
     currentFloor: floor,
     rooms: {
-      start: startingRoom,
+      "room-start": startingRoom,
     },
     messageHistory: [
       "Welcome to the AI Dungeon! You find yourself in a mysterious entrance hall.",
       'Type "look" to examine your surroundings, or "help" for available commands.',
     ],
     sessionId, // Add session ID to game state
-    currentRoomId: "start",
+    currentRoomId: "room-start",
     previousRoomId: null,
   };
 };
@@ -197,7 +197,7 @@ export const generateRoom = async (
     const roomData = JSON.parse(content);
 
     // Generate unique IDs for the room and its contents
-    const roomId = `room_${Math.random().toString(36).substring(2, 9)}`;
+    const roomId = `room-${Math.random().toString(36).substring(2, 9)}`;
 
     // Process items
     const items = (roomData.items || []).map((item: any) => ({
@@ -218,7 +218,7 @@ export const generateRoom = async (
         doors[direction] = {
           ...door,
           id: `door_${Math.random().toString(36).substring(2, 9)}`,
-          destinationRoomId: `room_${Math.random()
+          destinationRoomId: `room-${Math.random()
             .toString(36)
             .substring(2, 9)}`,
           isOpen: false,
@@ -240,7 +240,7 @@ export const generateRoom = async (
     console.error("Error generating room:", error);
     // Fallback to a basic room if generation fails
     return {
-      id: `room_${Math.random().toString(36).substr(2, 9)}`,
+      id: `room-${Math.random().toString(36).substr(2, 9)}`,
       name: "Mysterious Chamber",
       description: "A plain stone chamber with ancient markings on the walls.",
       items: [],
@@ -265,6 +265,12 @@ export const handleItemsMoved = (
   itemIds.forEach((itemId) => {
     let item;
     let sourceItem;
+    let sourceRoom = currentRoom;
+
+    // If source is a specific room, use that instead of current room
+    if (sourceLocation.startsWith("room-")) {
+      sourceRoom = newState.rooms[sourceLocation];
+    }
 
     // Find the item in the source location
     if (sourceLocation === "inventory") {
@@ -274,12 +280,15 @@ export const handleItemsMoved = (
         item = { ...sourceItem };
         newState.player.inventory.splice(idx, 1);
       }
-    } else if (sourceLocation === currentRoom.id) {
-      const idx = currentRoom.items.findIndex((i) => i.id === itemId);
+    } else if (
+      sourceLocation === currentRoom.id ||
+      sourceLocation.startsWith("room-")
+    ) {
+      const idx = sourceRoom.items.findIndex((i) => i.id === itemId);
       if (idx !== -1) {
-        sourceItem = currentRoom.items[idx];
+        sourceItem = sourceRoom.items[idx];
         item = { ...sourceItem };
-        currentRoom.items.splice(idx, 1);
+        sourceRoom.items.splice(idx, 1);
       }
     } else if (sourceLocation.startsWith("enemy")) {
       const enemy = currentRoom.enemies.find((e) => e.id === sourceLocation);
@@ -297,12 +306,19 @@ export const handleItemsMoved = (
     if (item) {
       if (targetLocation === "inventory") {
         newState.player.inventory.push(item);
-      } else if (targetLocation === currentRoom.id) {
-        if (!currentRoom.items) {
-          currentRoom.items = [];
+      } else if (
+        targetLocation === currentRoom.id ||
+        targetLocation.startsWith("room-")
+      ) {
+        const targetRoom = targetLocation.startsWith("room-")
+          ? newState.rooms[targetLocation]
+          : currentRoom;
+
+        if (!targetRoom.items) {
+          targetRoom.items = [];
         }
-        currentRoom.items.push(item);
-      } else if (targetLocation.startsWith("enemy")) {
+        targetRoom.items.push(item);
+      } else if (targetLocation.startsWith("enemy-")) {
         const enemy = currentRoom.enemies.find((e) => e.id === targetLocation);
         if (enemy) {
           if (!enemy.drops) {

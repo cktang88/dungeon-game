@@ -24,7 +24,7 @@ interface ActionEffect {
   magnitude?: number;
   duration?: number;
   target?: string; // should be of form "enemy-<type>-<id>" or "item-<type>-<id>" or "room-<name>-<id>", etc.
-  itemModification?: {
+  itemModified?: {
     newDescription?: string;
     newState?: string;
     isUsable?: boolean;
@@ -370,7 +370,7 @@ async function applyEffects(
         break;
 
       case "ITEM_MODIFICATION":
-        if (effect.target && effect.itemModification) {
+        if (effect.target && effect.itemModified) {
           console.log(`Modifying item: ${effect.target}`);
           const { item, location, index } = findItem(newState, effect.target);
 
@@ -378,11 +378,11 @@ async function applyEffects(
             const modifiedItem = {
               ...item,
               description:
-                effect.itemModification.newDescription || item.description,
-              state: effect.itemModification.newState || item.state,
+                effect.itemModified.newDescription || item.description,
+              state: effect.itemModified.newState || item.state,
               isUsable:
-                effect.itemModification.isUsable !== undefined
-                  ? effect.itemModification.isUsable
+                effect.itemModified.isUsable !== undefined
+                  ? effect.itemModified.isUsable
                   : item.isUsable,
             };
 
@@ -404,7 +404,53 @@ async function applyEffects(
         break;
 
       case "GAIN_ITEM":
-        if (effect.target) {
+        if (effect.itemsMoved && Array.isArray(effect.itemsMoved)) {
+          console.log(
+            `Processing GAIN_ITEM with itemsMoved:`,
+            effect.itemsMoved
+          );
+
+          for (const moveData of effect.itemsMoved) {
+            console.log(`Moving item:`, moveData);
+
+            // Convert the from/to locations to the format expected by handleItemsMoved
+            let sourceLocation = "";
+            let targetLocation = "";
+
+            // Handle source location
+            if (moveData.from === "player") {
+              sourceLocation = "inventory";
+            } else if (moveData.from === "enemy") {
+              sourceLocation = moveData.fromSpecificId || "";
+            } else if (moveData.from === "room") {
+              sourceLocation =
+                moveData.fromSpecificId || newState.player.currentRoomId;
+            }
+
+            // Handle target location
+            if (moveData.to === "player") {
+              targetLocation = "inventory";
+            } else if (moveData.to === "enemy") {
+              targetLocation = moveData.toSpecificId || "";
+            } else if (moveData.to === "room") {
+              targetLocation =
+                moveData.toSpecificId || newState.player.currentRoomId;
+            }
+
+            if (sourceLocation && targetLocation) {
+              console.log(
+                `Moving item from ${sourceLocation} to ${targetLocation}`
+              );
+              newState = handleItemsMoved(
+                newState,
+                sourceLocation,
+                targetLocation,
+                [moveData.itemId]
+              );
+            }
+          }
+        } else if (effect.target) {
+          // Handle legacy format
           console.log(`Attempting to gain item: ${effect.target}`);
           const { item, location, index } = findItem(newState, effect.target);
 
@@ -418,8 +464,6 @@ async function applyEffects(
               // Add to inventory
               newState.player.inventory.push(item);
               console.log(`Moved item from room to inventory: ${item.name}`);
-            } else if (!location) {
-              continue;
             }
           }
         }
@@ -579,10 +623,10 @@ async function applyEffects(
               message += `\nConsumed ${item.name}.`;
             } else {
               // Update item state if it's not consumed
-              if (effect.itemModification) {
+              if (effect.itemModified) {
                 const modifiedItem = {
                   ...item,
-                  ...effect.itemModification,
+                  ...effect.itemModified,
                 };
 
                 if (location === "inventory") {
@@ -821,38 +865,44 @@ async function applyEffects(
           );
 
           // Convert the from/to locations to the format expected by handleItemsMoved
-          const sourceLocation =
-            data.fromSpecificId ||
-            (data.from === "player"
-              ? "inventory"
-              : data.from === "enemy"
-              ? data.fromSpecificId!
-              : data.from === "room"
-              ? newState.player.currentRoomId
-              : "");
+          let sourceLocation = "";
+          let targetLocation = "";
 
-          const targetLocation =
-            data.toSpecificId ||
-            (data.to === "player"
-              ? "inventory"
-              : data.to === "enemy"
-              ? data.toSpecificId!
-              : data.to === "room"
-              ? newState.player.currentRoomId
-              : "");
+          // Handle source location
+          if (data.from === "player") {
+            sourceLocation = "inventory";
+          } else if (data.from === "enemy") {
+            sourceLocation = data.fromSpecificId || "";
+          } else if (data.from === "room") {
+            sourceLocation =
+              data.fromSpecificId || newState.player.currentRoomId;
+          }
+
+          // Handle target location
+          if (data.to === "player") {
+            targetLocation = "inventory";
+          } else if (data.to === "enemy") {
+            targetLocation = data.toSpecificId || "";
+          } else if (data.to === "room") {
+            targetLocation = data.toSpecificId || newState.player.currentRoomId;
+          }
 
           if (sourceLocation && targetLocation) {
+            console.log(
+              `Resolved locations - from: ${sourceLocation} to: ${targetLocation}`
+            );
             newState = handleItemsMoved(
               newState,
               sourceLocation,
               targetLocation,
               [data.itemId]
             );
-            message += `\nItem moved from ${data.from}${
-              data.fromSpecificId ? ` (${data.fromSpecificId})` : ""
-            } to ${data.to}${
-              data.toSpecificId ? ` (${data.toSpecificId})` : ""
-            }.`;
+          } else {
+            console.log("Failed to resolve source or target location", {
+              sourceLocation,
+              targetLocation,
+              data,
+            });
           }
         }
         break;
