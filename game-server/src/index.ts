@@ -1,8 +1,15 @@
+import dotenv from "dotenv";
+import path from "path";
+
+// Load environment variables from .env file
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+
 import express from "express";
 import cors from "cors";
 import { initializeGameState } from "./game/state";
 import { processAction } from "./game/actions";
-import { OpenAI } from "openai";
+import { openai } from "./lib/openai";
+import { GameState } from "./types/game";
 
 const app = express();
 const port = 3001;
@@ -10,18 +17,37 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 // Game state storage (in memory for now)
-const gameStates: Record<string, any> = {};
+const gameStates: Record<string, GameState> = {};
+
+// Validate game state
+function isValidGameState(state: any): state is GameState {
+  return (
+    state &&
+    state.player &&
+    typeof state.player.currentRoomId === "string" &&
+    state.rooms &&
+    typeof state.rooms === "object"
+  );
+}
 
 app.post("/api/game/start", (req, res) => {
   const sessionId = Math.random().toString(36).substring(7);
-  gameStates[sessionId] = initializeGameState();
-  res.json({ sessionId, gameState: gameStates[sessionId] });
+  const initialState = initializeGameState();
+
+  if (!isValidGameState(initialState)) {
+    console.error("Invalid initial game state generated");
+    res.status(500).json({ error: "Failed to initialize game state" });
+    return;
+  }
+
+  gameStates[sessionId] = initialState;
+  console.log("New game started:", {
+    sessionId,
+    currentRoomId: initialState.player.currentRoomId,
+    rooms: Object.keys(initialState.rooms),
+  });
+  res.json({ sessionId, gameState: initialState });
 });
 
 app.post("/api/game/action", async (req, res) => {
@@ -33,13 +59,45 @@ app.post("/api/game/action", async (req, res) => {
   }
 
   try {
-    const newState = await processAction(gameStates[sessionId], action, openai);
+    const newState = await processAction(gameStates[sessionId], action);
+
+    if (!isValidGameState(newState)) {
+      console.error("Invalid game state after action");
+      res.status(500).json({ error: "Action resulted in invalid game state" });
+      return;
+    }
+
     gameStates[sessionId] = newState;
     res.json({ gameState: newState });
   } catch (error) {
     console.error("Error processing action:", error);
-    res.status(500).json({ error: "Error processing action" });
+    res.status(500).json({ error: "Failed to process action" });
   }
+});
+
+app.get("/api/game/state/:sessionId", (req, res) => {
+  const { sessionId } = req.params;
+
+  if (!gameStates[sessionId]) {
+    console.log("Game session not found:", sessionId);
+    res.status(404).json({ error: "Game session not found" });
+    return;
+  }
+
+  const state = gameStates[sessionId];
+
+  if (!isValidGameState(state)) {
+    console.error("Invalid game state found for session:", sessionId);
+    res.status(500).json({ error: "Invalid game state" });
+    return;
+  }
+
+  console.log("Game state retrieved:", {
+    sessionId,
+    currentRoomId: state.player.currentRoomId,
+    rooms: Object.keys(state.rooms),
+  });
+  res.json({ gameState: state });
 });
 
 app.listen(port, () => {

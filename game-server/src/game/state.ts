@@ -1,5 +1,5 @@
 import { GameState, Room, AbilityScores, DerivedStats } from "../types/game";
-import { OpenAI } from "openai";
+import { openai } from "../lib/openai";
 
 // Calculate ability score modifier (D&D style)
 const getAbilityModifier = (score: number): number =>
@@ -93,8 +93,7 @@ export const initializeGameState = (): GameState => {
 export const generateRoom = async (
   floor: number,
   theme: string,
-  position: { x: number; y: number },
-  openai: OpenAI
+  position: { x: number; y: number }
 ): Promise<Room> => {
   const prompt = `You are the game master for a text-based dungeon crawler RPG. Generate a detailed dungeon room.This room is on floor ${floor} with theme: ${theme}.
 

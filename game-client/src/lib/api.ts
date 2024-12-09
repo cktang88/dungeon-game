@@ -18,19 +18,20 @@ export const gameApi = {
     if (!response.ok) {
       throw new Error("Failed to get game state");
     }
-    return response.json();
+    const data = await response.json();
+    return data.gameState;
   },
 
   sendAction: async (
     sessionId: string,
     action: string
   ): Promise<GameResponse> => {
-    const response = await fetch(`${BASE_URL}/api/game/action/${sessionId}`, {
+    const response = await fetch(`${BASE_URL}/api/game/action`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ action }),
+      body: JSON.stringify({ sessionId, action }),
     });
     if (!response.ok) {
       throw new Error("Failed to send action");

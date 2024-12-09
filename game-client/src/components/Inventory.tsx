@@ -1,4 +1,4 @@
-import { Player } from "@/types/game";
+import { Item } from "@/types/game";
 import {
   Card,
   CardContent,
@@ -10,22 +10,17 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface InventoryProps {
-  player: Player;
+  items: Item[];
 }
 
-export default function Inventory({ player }: InventoryProps) {
-  const itemsByType = player.inventory.reduce((acc, item) => {
-    if (!acc[item.type]) {
-      acc[item.type] = [];
-    }
-    acc[item.type].push(item);
-    return acc;
-  }, {} as Record<string, typeof player.inventory>);
-
-  if (player.inventory.length === 0) {
+export default function Inventory({ items }: InventoryProps) {
+  if (!items || items.length === 0) {
     return (
       <Card>
-        <CardContent className="pt-6">
+        <CardHeader>
+          <CardTitle>Inventory</CardTitle>
+        </CardHeader>
+        <CardContent>
           <p className="text-center text-muted-foreground">
             Your inventory is empty
           </p>
@@ -34,32 +29,42 @@ export default function Inventory({ player }: InventoryProps) {
     );
   }
 
+  const itemsByType = items.reduce((acc, item) => {
+    if (!acc[item.type]) {
+      acc[item.type] = [];
+    }
+    acc[item.type].push(item);
+    return acc;
+  }, {} as Record<string, Item[]>);
+
   return (
-    <ScrollArea className="h-[400px]">
-      <div className="space-y-4 p-1">
-        {Object.entries(itemsByType).map(([type, items]) => (
-          <Card key={type}>
-            <CardHeader>
-              <CardTitle className="text-lg capitalize">{type}s</CardTitle>
-              <CardDescription>
-                {items.length} item{items.length !== 1 ? "s" : ""}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
+    <Card>
+      <CardHeader>
+        <CardTitle>Inventory</CardTitle>
+        <CardDescription>Items you are carrying</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ScrollArea className="h-[300px] pr-4">
+          {Object.entries(itemsByType).map(([type, items]) => (
+            <div key={type} className="mb-6 last:mb-0">
+              <h3 className="font-semibold mb-3 capitalize">{type}s</h3>
+              <div className="space-y-3">
                 {items.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-start justify-between p-2 border rounded"
+                    className="p-3 border rounded-lg space-y-2"
                   >
-                    <div>
-                      <p className="font-medium">{item.name}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {item.description}
-                      </p>
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium">{item.name}</span>
+                      <Badge variant="outline" className="capitalize">
+                        {item.type}
+                      </Badge>
                     </div>
+                    <p className="text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
                     {item.stats && (
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-2">
                         {item.stats.damage && (
                           <Badge variant="destructive">
                             +{item.stats.damage} DMG
@@ -77,13 +82,18 @@ export default function Inventory({ player }: InventoryProps) {
                         )}
                       </div>
                     )}
+                    {item.isUsable && (
+                      <Badge variant="outline" className="text-xs">
+                        Usable
+                      </Badge>
+                    )}
                   </div>
                 ))}
               </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </ScrollArea>
+            </div>
+          ))}
+        </ScrollArea>
+      </CardContent>
+    </Card>
   );
 }

@@ -6,8 +6,8 @@ import {
   Player,
   StatusEffect,
 } from "../types/game";
-import { generateRoom } from "./generation";
-import OpenAI from "openai";
+import { generateRoom } from "./state";
+import { openai } from "../lib/openai";
 
 interface StateChange {
   type: string;
@@ -254,8 +254,6 @@ async function interpretAction(
   action: string,
   state: GameState
 ): Promise<LLMResponse> {
-  const openai = new OpenAI();
-
   const currentRoom = state.rooms[state.player.currentRoomId];
 
   const prompt = `${ACTION_PROMPT}
@@ -408,8 +406,7 @@ async function applyEffects(
               const newRoom = await generateRoom(
                 newState.currentFloor,
                 "dungeon", // You might want to pass a proper theme based on the floor
-                newPosition,
-                openai
+                newPosition
               );
 
               // Add the room to the game state
@@ -552,17 +549,26 @@ function interpretItemChange(description: string): Partial<Item> | null {
     changes.state = "enhanced";
   }
 
-  // Check for property changes
+  // Check for glowing property
   if (description.includes("glowing")) {
-    changes.properties = changes.properties || [];
-    changes.properties.push("glowing");
+    changes.state = "glowing";
   }
 
   // Check for stat modifications
   const statMatch = description.match(/(\+|-)(\d+)\s+to\s+(\w+)/);
   if (statMatch) {
-    changes.stats = changes.stats || {};
-    changes.stats[statMatch[3]] = parseInt(statMatch[1] + statMatch[2]);
+    const statType = statMatch[3].toLowerCase();
+    const value = parseInt(statMatch[1] + statMatch[2]);
+
+    // Only add valid stats
+    if (
+      statType === "damage" ||
+      statType === "defense" ||
+      statType === "healing"
+    ) {
+      changes.stats = changes.stats || {};
+      changes.stats[statType] = value;
+    }
   }
 
   return Object.keys(changes).length > 0 ? changes : null;

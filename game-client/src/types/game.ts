@@ -24,6 +24,11 @@ export interface Enemy {
   isAlive: boolean;
   isBoss?: boolean;
   drops?: Item[];
+  statusEffects?: Array<{
+    name: string;
+    duration: number;
+    magnitude: number;
+  }>;
 }
 
 export interface Room {

@@ -20,17 +20,27 @@ export default function GameLayout() {
   const startGameMutation = useMutation<StartGameResponse, Error>({
     mutationFn: gameApi.startGame,
     onSuccess: (data) => {
+      console.log("Game started successfully:", data);
       setSessionId(data.sessionId);
       queryClient.setQueryData(["gameState", data.sessionId], data.gameState);
+      setMessageHistory((prev) => [...prev, ...data.gameState.messageHistory]);
+    },
+    onError: (error) => {
+      console.error("Failed to start game:", error);
+      setMessageHistory((prev) => [...prev, `Error: ${error.message}`]);
     },
   });
 
   // Get game state
-  const { data: gameState } = useQuery<GameState>({
+  const { data: gameState, isLoading } = useQuery<GameState>({
     queryKey: ["gameState", sessionId],
-    queryFn: () => gameApi.getGameState(sessionId!),
+    queryFn: () => {
+      if (!sessionId) throw new Error("No session ID");
+      return gameApi.getGameState(sessionId);
+    },
     enabled: !!sessionId,
     refetchInterval: 2000, // Poll every 2 seconds
+    retry: false, // Don't retry on failure
   });
 
   // Send action mutation
@@ -49,39 +59,62 @@ export default function GameLayout() {
         queryClient.setQueryData(["gameState", sessionId], data.gameState);
       }
     },
-    onError: (error: Error) => {
+    onError: (error) => {
       setMessageHistory((prev) => [...prev, `Error: ${error.message}`]);
     },
   });
 
   useEffect(() => {
-    startGameMutation.mutate();
-  }, []);
+    // Start a new game immediately when component mounts
+    if (!sessionId && !startGameMutation.isPending) {
+      console.log("Starting new game...");
+      startGameMutation.mutate();
+    }
+  }, [sessionId]);
 
   const handleSendMessage = (message: string) => {
     if (!sessionId) return;
-
     setMessageHistory((prev) => [...prev, `> ${message}`]);
     sendActionMutation.mutate({ sessionId, action: message });
   };
 
-  if (!gameState) {
+  if (startGameMutation.isPending) {
     return (
       <div className="h-screen flex items-center justify-center">
-        <p className="text-lg">Loading game...</p>
+        <p className="text-lg">Starting new game...</p>
+      </div>
+    );
+  }
+
+  if (startGameMutation.isError) {
+    return (
+      <div className="h-screen flex items-center justify-center flex-col gap-4">
+        <p className="text-lg text-red-500">
+          Failed to start game: {startGameMutation.error.message}
+        </p>
+        <button
+          onClick={() => startGameMutation.mutate()}
+          className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
+
+  if (isLoading || !gameState) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <p className="text-lg">Loading game state...</p>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto p-4 h-screen flex flex-col gap-4">
-      <h1 className="text-4xl font-bold text-center mb-4">
-        AI Dungeon Crawler
-      </h1>
-
-      <div className="grid grid-cols-3 gap-4 flex-grow">
-        <div className="col-span-2">
-          <Tabs defaultValue="room" className="h-full">
+    <div className="container mx-auto h-screen p-4 flex flex-col gap-4">
+      <div className="grid grid-cols-[1fr_300px] gap-4 flex-1">
+        <div className="flex flex-col gap-4">
+          <Tabs defaultValue="room" className="flex-1">
             <TabsList>
               <TabsTrigger value="room">Room</TabsTrigger>
               <TabsTrigger value="map">Map</TabsTrigger>
@@ -91,31 +124,20 @@ export default function GameLayout() {
             </TabsContent>
             <TabsContent value="map" className="h-[calc(100%-40px)]">
               <GameMap
-                rooms={Object.values(gameState.rooms)}
-                currentRoom={gameState.player.currentRoomId}
+                rooms={Object.values(gameState?.rooms || {})}
+                currentRoom={gameState?.player?.currentRoomId}
               />
             </TabsContent>
           </Tabs>
+          <ChatBox
+            messages={messageHistory}
+            onSendMessage={handleSendMessage}
+          />
         </div>
-
-        <div className="space-y-4">
-          <Tabs defaultValue="inventory">
-            <TabsList className="w-full">
-              <TabsTrigger value="inventory">Inventory</TabsTrigger>
-              <TabsTrigger value="stats">Stats</TabsTrigger>
-            </TabsList>
-            <TabsContent value="inventory">
-              <Inventory player={gameState.player} />
-            </TabsContent>
-            <TabsContent value="stats">
-              <PlayerStats player={gameState.player} />
-            </TabsContent>
-          </Tabs>
+        <div className="flex flex-col gap-4">
+          <PlayerStats player={gameState?.player} />
+          <Inventory items={gameState?.player?.inventory || []} />
         </div>
-      </div>
-
-      <div className="h-1/3">
-        <ChatBox messages={messageHistory} onSendMessage={handleSendMessage} />
       </div>
     </div>
   );

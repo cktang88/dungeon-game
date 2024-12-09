@@ -2,7 +2,16 @@ export interface Item {
   id: string;
   name: string;
   description: string;
-  type: "weapon" | "armor" | "key" | "consumable" | "quest";
+  type:
+    | "weapon"
+    | "armor"
+    | "key"
+    | "consumable"
+    | "quest"
+    | "misc"
+    | "treasure"
+    | "material"
+    | string;
   state?: string;
   isUsable?: boolean;
   stats?: {
@@ -70,6 +79,12 @@ export interface DerivedStats {
   carryCapacity: number; // Based on strength
 }
 
+export interface StatusEffect {
+  name: string;
+  duration: number;
+  magnitude: number;
+}
+
 export interface Player {
   health: number;
   level: number;
@@ -79,11 +94,7 @@ export interface Player {
   abilityScores: AbilityScores;
   derivedStats: DerivedStats;
   stats: Record<string, number>;
-  statusEffects?: Array<{
-    name: string;
-    duration: number;
-    magnitude: number;
-  }>;
+  statusEffects?: StatusEffect[];
   knowledge?: Array<{
     type: string;
     description: string;

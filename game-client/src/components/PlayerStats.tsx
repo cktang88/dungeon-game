@@ -4,7 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 
 interface PlayerStatsProps {
-  player: Player;
+  player?: Player;
 }
 
 // Calculate ability score modifier (D&D style)
@@ -17,37 +17,58 @@ const formatModifier = (modifier: number): string => {
 };
 
 export default function PlayerStats({ player }: PlayerStatsProps) {
-  const experienceToNextLevel = Math.pow(player.level, 2) * 100;
-  const experiencePercentage =
-    (player.experience / experienceToNextLevel) * 100;
-  const healthPercentage =
-    (player.health / player.derivedStats.maxHealth) * 100;
+  if (!player) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Stats</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-center text-muted-foreground">Loading stats...</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  const level = player.level || 1;
+  const experience = player.experience || 0;
+  const health = player.health || 0;
+  const maxHealth = player.derivedStats?.maxHealth || 100;
+
+  const experienceToNextLevel = Math.pow(level, 2) * 100;
+  const experiencePercentage = (experience / experienceToNextLevel) * 100;
+  const healthPercentage = (health / maxHealth) * 100;
 
   return (
     <div className="space-y-4">
+      {/* Basic Stats */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">Level {player.level}</CardTitle>
+          <CardTitle className="text-lg">Level {level}</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <div className="flex justify-between mb-1">
-              <span className="text-sm">Health</span>
-              <span className="text-sm">
-                {player.health}/{player.derivedStats.maxHealth}
-              </span>
+        <CardContent>
+          <div className="space-y-4">
+            {/* Health Bar */}
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm">
+                <span>HP</span>
+                <span>
+                  {health}/{maxHealth}
+                </span>
+              </div>
+              <Progress value={healthPercentage} className="h-2" />
             </div>
-            <Progress value={healthPercentage} className="h-2" />
-          </div>
 
-          <div>
-            <div className="flex justify-between mb-1">
-              <span className="text-sm">Experience</span>
-              <span className="text-sm">
-                {player.experience}/{experienceToNextLevel}
-              </span>
+            {/* Experience Bar */}
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm">
+                <span>XP</span>
+                <span>
+                  {experience}/{experienceToNextLevel}
+                </span>
+              </div>
+              <Progress value={experiencePercentage} className="h-2" />
             </div>
-            <Progress value={experiencePercentage} className="h-2" />
           </div>
         </CardContent>
       </Card>
@@ -64,12 +85,9 @@ export default function PlayerStats({ player }: PlayerStatsProps) {
                 <Badge
                   key={index}
                   variant={effect.magnitude > 0 ? "default" : "destructive"}
-                  className="flex items-center gap-2"
+                  className="text-sm py-1 px-3"
                 >
-                  <span>{effect.name}</span>
-                  <span className="text-xs opacity-75">
-                    ({effect.duration} turns)
-                  </span>
+                  {effect.name} ({effect.duration} turns)
                 </Badge>
               ))}
             </div>
@@ -83,72 +101,23 @@ export default function PlayerStats({ player }: PlayerStatsProps) {
           <CardTitle className="text-lg">Ability Scores</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-2">
-            <div className="flex justify-between items-center">
-              <span>Strength (STR)</span>
-              <span className="font-medium">
-                {player.abilityScores.strength} (
-                {formatModifier(
-                  getAbilityModifier(player.abilityScores.strength)
-                )}
-                )
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Dexterity (DEX)</span>
-              <span className="font-medium">
-                {player.abilityScores.dexterity} (
-                {formatModifier(
-                  getAbilityModifier(player.abilityScores.dexterity)
-                )}
-                )
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Constitution (CON)</span>
-              <span className="font-medium">
-                {player.abilityScores.constitution} (
-                {formatModifier(
-                  getAbilityModifier(player.abilityScores.constitution)
-                )}
-                )
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Intelligence (INT)</span>
-              <span className="font-medium">
-                {player.abilityScores.intelligence} (
-                {formatModifier(
-                  getAbilityModifier(player.abilityScores.intelligence)
-                )}
-                )
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Wisdom (WIS)</span>
-              <span className="font-medium">
-                {player.abilityScores.wisdom} (
-                {formatModifier(
-                  getAbilityModifier(player.abilityScores.wisdom)
-                )}
-                )
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Charisma (CHA)</span>
-              <span className="font-medium">
-                {player.abilityScores.charisma} (
-                {formatModifier(
-                  getAbilityModifier(player.abilityScores.charisma)
-                )}
-                )
-              </span>
-            </div>
+          <div className="grid grid-cols-2 gap-4">
+            {Object.entries(player.abilityScores).map(([stat, value]) => (
+              <div key={stat} className="text-center p-2 bg-muted rounded-lg">
+                <div className="text-sm font-medium capitalize">{stat}</div>
+                <div className="flex items-center justify-center gap-1">
+                  <span>{value}</span>
+                  <Badge variant="outline" className="h-5">
+                    {formatModifier(getAbilityModifier(value))}
+                  </Badge>
+                </div>
+              </div>
+            ))}
           </div>
         </CardContent>
       </Card>
 
-      {/* Derived Stats */}
+      {/* Combat Stats */}
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">Combat Stats</CardTitle>

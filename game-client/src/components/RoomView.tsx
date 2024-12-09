@@ -3,13 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 interface RoomViewProps {
-  gameState: GameState;
+  gameState?: GameState;
 }
 
 export default function RoomView({ gameState }: RoomViewProps) {
-  const currentRoom = gameState.rooms[gameState.player.currentRoomId];
-
-  if (!currentRoom) {
+  if (!gameState?.player?.currentRoomId || !gameState?.rooms) {
     return (
       <div className="h-full flex items-center justify-center">
         <p className="text-muted-foreground">Loading room...</p>
@@ -17,86 +15,111 @@ export default function RoomView({ gameState }: RoomViewProps) {
     );
   }
 
-  return (
-    <div className="h-full space-y-4">
-      <Card>
-        <CardHeader>
-          <CardTitle>{currentRoom.name}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground">{currentRoom.description}</p>
-        </CardContent>
-      </Card>
+  const currentRoom = gameState.rooms[gameState.player.currentRoomId];
 
-      {/* Items */}
-      {currentRoom.items.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Items</CardTitle>
-          </CardHeader>
-          <CardContent>
+  if (!currentRoom) {
+    return (
+      <div className="h-full flex items-center justify-center">
+        <p className="text-muted-foreground">Room not found</p>
+      </div>
+    );
+  }
+
+  return (
+    <Card className="h-full">
+      <CardHeader>
+        <CardTitle>{currentRoom.name}</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        <p className="text-muted-foreground">{currentRoom.description}</p>
+
+        {/* Items in the room */}
+        {currentRoom.items.length > 0 && (
+          <div>
+            <h3 className="font-semibold mb-2">Items:</h3>
             <div className="flex flex-wrap gap-2">
               {currentRoom.items.map((item) => (
-                <Badge key={item.id} variant="secondary">
+                <Badge
+                  key={item.id}
+                  variant="outline"
+                  className="text-base py-1.5 px-4"
+                >
                   {item.name}
                 </Badge>
               ))}
             </div>
-          </CardContent>
-        </Card>
-      )}
+          </div>
+        )}
 
-      {/* Enemies */}
-      {currentRoom.enemies.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Enemies</CardTitle>
-          </CardHeader>
-          <CardContent>
+        {/* Enemies in the room */}
+        {currentRoom.enemies.length > 0 && (
+          <div>
+            <h3 className="font-semibold mb-2">Enemies:</h3>
             <div className="space-y-2">
               {currentRoom.enemies.map((enemy) => (
                 <div
                   key={enemy.id}
                   className="flex items-center justify-between p-2 border rounded"
                 >
-                  <div>
+                  <div className="space-y-1">
                     <p className="font-medium">{enemy.name}</p>
                     <p className="text-sm text-muted-foreground">
-                      {enemy.description}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm">
                       HP: {enemy.health}/{enemy.maxHealth}
                     </p>
-                    <p className="text-sm">Level {enemy.level}</p>
+                    {enemy.statusEffects && enemy.statusEffects.length > 0 && (
+                      <div className="flex flex-wrap gap-1">
+                        {enemy.statusEffects.map((effect, index) => (
+                          <Badge
+                            key={index}
+                            variant={
+                              effect.magnitude > 0 ? "secondary" : "destructive"
+                            }
+                            className="text-xs"
+                          >
+                            {effect.name} ({effect.duration})
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-col gap-2 items-end">
+                    {enemy.isBoss && (
+                      <Badge
+                        variant="destructive"
+                        className="text-base py-1 px-3"
+                      >
+                        Boss
+                      </Badge>
+                    )}
+                    <Badge variant="outline" className="text-sm">
+                      Lvl {enemy.level}
+                    </Badge>
                   </div>
                 </div>
               ))}
             </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Doors */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Exits</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-2 gap-2">
-            {Object.entries(currentRoom.doors).map(([direction, door]) => (
-              <div
-                key={door.id}
-                className="p-2 border rounded flex items-center justify-between"
-              >
-                <span className="capitalize">{direction}</span>
-                {door.isLocked && <Badge variant="destructive">Locked</Badge>}
-              </div>
-            ))}
           </div>
-        </CardContent>
-      </Card>
-    </div>
+        )}
+
+        {/* Available exits */}
+        <div>
+          <h3 className="font-semibold mb-2">Exits:</h3>
+          <div className="flex flex-wrap gap-2">
+            {Object.entries(currentRoom.doors).map(([direction, door]) => {
+              if (!door) return null;
+              return (
+                <Badge
+                  key={direction}
+                  variant={door.isLocked ? "destructive" : "outline"}
+                  className="text-base py-1.5 px-4 capitalize"
+                >
+                  {direction} {door.isLocked && "🔒"}
+                </Badge>
+              );
+            })}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
