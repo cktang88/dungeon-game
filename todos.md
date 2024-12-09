@@ -4,6 +4,7 @@
 - mana bar and mana and health regen stats
 
 - the dungeon master over time learns the kind of player you are and verbalizes appropriately or tiny references or inside jokes later
+- handle multiple action effects at once properly
 
 ## technical
 

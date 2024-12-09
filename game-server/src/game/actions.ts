@@ -204,7 +204,7 @@ function processStatusEffects(state: GameState, turnNumber: number): GameState {
 // Helper function to find an item in either room or inventory
 function findItem(
   state: GameState,
-  itemName: string
+  itemId: string
 ): {
   item: Item | undefined;
   location: "room" | "inventory" | undefined;
@@ -213,9 +213,7 @@ function findItem(
   const currentRoom = state.rooms[state.player.currentRoomId];
 
   // Check room items
-  const roomIndex = currentRoom.items.findIndex(
-    (item) => item.name.toLowerCase() === itemName.toLowerCase()
-  );
+  const roomIndex = currentRoom.items.findIndex((item) => item.id === itemId);
   if (roomIndex !== -1) {
     return {
       item: currentRoom.items[roomIndex],
@@ -226,7 +224,7 @@ function findItem(
 
   // Check inventory items
   const inventoryIndex = state.player.inventory.findIndex(
-    (item) => item.name.toLowerCase() === itemName.toLowerCase()
+    (item) => item.id === itemId
   );
   if (inventoryIndex !== -1) {
     return {
@@ -536,14 +534,18 @@ async function applyEffects(
         break;
 
       case "ITEM_MODIFICATION":
-        if (effect.targetId && effect.itemModified) {
-          console.log(`Modifying item: ${effect.targetId}`);
-          const { item, location, index } = findItem(newState, effect.targetId);
+        if (effect.itemModified) {
+          const targetId = effect.targetId || effect.itemModified.id;
+          console.log(`Modifying item: ${targetId}`);
+          const { item, location, index } = findItem(newState, targetId);
 
           if (item && location !== undefined && index !== -1) {
             const modifiedItem = { ...item };
 
             // Update basic properties
+            if (effect.itemModified.name) {
+              modifiedItem.name = effect.itemModified.name;
+            }
             if (effect.itemModified.description) {
               modifiedItem.description = effect.itemModified.description;
             }
