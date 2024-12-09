@@ -21,7 +21,7 @@ app.use(express.json());
 const gameStates: Record<string, GameState> = {};
 
 // Validate game state
-function isValidGameState(state: any): state is GameState {
+function isValidGameState(state: any): boolean {
   return (
     state &&
     state.player &&

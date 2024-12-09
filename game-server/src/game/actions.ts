@@ -218,6 +218,15 @@ export async function processAction(
     console.log("\n--- LLM Response ---");
     console.log(JSON.stringify(interpretation, null, 2));
 
+    // If there are no effects to process, just pass through the message
+    if (!interpretation.effects || interpretation.effects.length === 0) {
+      console.log("No effects to process - passing through message directly");
+      return {
+        newState,
+        message: interpretation.message,
+      };
+    }
+
     // Apply the determined effects
     console.log("\n--- Applying Effects ---");
     const result = await applyEffects(newState, interpretation);
@@ -270,6 +279,7 @@ Player action: "${action}"`;
     model: "gpt-4o-2024-11-20",
     messages: [{ role: "system", content: prompt }],
     temperature: 0.7,
+    response_format: { type: "json_object" },
   });
 
   try {
@@ -281,7 +291,7 @@ Player action: "${action}"`;
     const parsedResponse = JSON.parse(content) as LLMResponse;
     return parsedResponse;
   } catch (error) {
-    console.error("Failed to parse LLM response:", error);
+    console.error("Failed to parse LLM response:\n", error);
     throw new Error("Failed to interpret action");
   }
 }
@@ -430,7 +440,11 @@ async function applyEffects(
         break;
 
       default:
-        console.log(`Unknown effect type: ${effect.type}`);
+        // For unknown effect types, just log it and continue without modifying state
+        console.log(
+          `Unhandled effect type: ${effect.type} - passing through without state modification`
+        );
+        break;
     }
   }
 

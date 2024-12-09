@@ -152,6 +152,7 @@ Make it atmospheric and interesting, with potential for player interaction.`;
       model: "gpt-4o-2024-11-20",
       messages: [{ role: "system", content: prompt }],
       temperature: 0.8,
+      response_format: { type: "json_object" },
     });
 
     const content = response.choices[0].message.content;

@@ -39,7 +39,7 @@ export default function GameLayout() {
       return gameApi.getGameState(sessionId);
     },
     enabled: !!sessionId,
-    refetchInterval: 2000, // Poll every 2 seconds
+    refetchInterval: 10000, // Poll every 10 seconds
     retry: false, // Don't retry on failure
   });
 
