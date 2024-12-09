@@ -1,8 +1,10 @@
 import { GameState, GameResponse, StartGameResponse } from "@/types/game";
 
+const BASE_URL = "http://localhost:3001";
+
 export const gameApi = {
   startGame: async (): Promise<StartGameResponse> => {
-    const response = await fetch("/api/game/start", {
+    const response = await fetch(`${BASE_URL}/api/game/start`, {
       method: "POST",
     });
     if (!response.ok) {
@@ -12,7 +14,7 @@ export const gameApi = {
   },
 
   getGameState: async (sessionId: string): Promise<GameState> => {
-    const response = await fetch(`/api/game/state/${sessionId}`);
+    const response = await fetch(`${BASE_URL}/api/game/state/${sessionId}`);
     if (!response.ok) {
       throw new Error("Failed to get game state");
     }
@@ -23,7 +25,7 @@ export const gameApi = {
     sessionId: string,
     action: string
   ): Promise<GameResponse> => {
-    const response = await fetch(`/api/game/action/${sessionId}`, {
+    const response = await fetch(`${BASE_URL}/api/game/action/${sessionId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

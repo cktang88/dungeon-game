@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { OpenAI } from "openai";
-import { handleGameAction } from "./game/actions";
+import { processAction } from "./game/actions";
 import { initializeGameState } from "./game/state";
 
 dotenv.config();
@@ -50,11 +50,7 @@ app.post("/api/game/action/:sessionId", async (req, res) => {
   }
 
   try {
-    const { newState, message } = await handleGameAction(
-      action,
-      currentState,
-      openai
-    );
+    const { newState, message } = await processAction(currentState, action);
     gameStates.set(sessionId, newState);
     res.json({ gameState: newState, message });
   } catch (error) {

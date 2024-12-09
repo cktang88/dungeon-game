@@ -10,6 +10,8 @@ interface ChatBoxProps {
 
 export default function ChatBox({ messages, onSendMessage }: ChatBoxProps) {
   const [input, setInput] = useState("");
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,7 +25,36 @@ export default function ChatBox({ messages, onSendMessage }: ChatBoxProps) {
     if (!input.trim()) return;
 
     onSendMessage(input.trim());
+    setCommandHistory((prev) => [...prev, input.trim()]);
+    setHistoryIndex(-1);
     setInput("");
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (commandHistory.length === 0) return;
+
+      const newIndex =
+        historyIndex === -1
+          ? commandHistory.length - 1
+          : Math.max(0, historyIndex - 1);
+
+      setHistoryIndex(newIndex);
+      setInput(commandHistory[newIndex]);
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (historyIndex === -1) return;
+
+      if (historyIndex === commandHistory.length - 1) {
+        setHistoryIndex(-1);
+        setInput("");
+      } else {
+        const newIndex = historyIndex + 1;
+        setHistoryIndex(newIndex);
+        setInput(commandHistory[newIndex]);
+      }
+    }
   };
 
   return (
@@ -49,6 +80,7 @@ export default function ChatBox({ messages, onSendMessage }: ChatBoxProps) {
         <Input
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
           placeholder="Enter a command (type 'help' for commands)..."
           className="w-full"
         />

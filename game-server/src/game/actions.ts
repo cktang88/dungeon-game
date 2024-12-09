@@ -20,6 +20,11 @@ interface ActionEffect {
   magnitude?: number;
   duration?: number;
   target?: string;
+  itemModification?: {
+    newDescription?: string;
+    newState?: string;
+    isUsable?: boolean;
+  };
   conditions?: {
     requires?: string[];
     consumes?: string[];
@@ -54,9 +59,15 @@ Effects can include:
 - Stat changes (health, stamina, strength, dexterity, etc.)
 - Status effects (tired, poisoned, strengthened, etc.)
 - Resource changes (gaining/losing items)
+- Item modifications (changing item descriptions, states, or usability)
 - Environmental changes
 - Knowledge gains
 - Enemy reactions
+
+For item modifications, you can:
+- Change an item's description to reflect its new state
+- Mark items as unusable if they've been damaged/destroyed
+- Update item states (e.g., "lit" to "unlit" for a torch)
 
 Respond with a JSON object in this format:
 {
@@ -67,11 +78,16 @@ Respond with a JSON object in this format:
   },
   "effects": [
     {
-      "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, GAIN_ITEM, etc.)",
+      "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, GAIN_ITEM, ITEM_MODIFICATION, etc.)",
       "description": "string explaining the effect",
       "magnitude": "optional number for the size of the effect",
       "duration": "optional number of turns the effect lasts",
       "target": "optional string specifying what is affected",
+      "itemModification": {
+        "newDescription": "optional string - new description for the item",
+        "newState": "optional string - new state for the item (e.g., 'lit', 'unlit', 'broken')",
+        "isUsable": "optional boolean - whether the item can still be used"
+      },
       "conditions": {
         "requires": ["optional array of required items/states"],
         "consumes": ["optional array of items consumed"]
@@ -133,11 +149,51 @@ const STATUS_MAPPINGS: StatusMapping = {
   // Add more status effects as needed
 };
 
+// Helper function to find an item in either room or inventory
+function findItem(
+  state: GameState,
+  itemName: string
+): {
+  item: Item | undefined;
+  location: "room" | "inventory" | undefined;
+  index: number;
+} {
+  const currentRoom = state.rooms[state.player.currentRoomId];
+
+  // Check room items
+  const roomIndex = currentRoom.items.findIndex(
+    (item) => item.name.toLowerCase() === itemName.toLowerCase()
+  );
+  if (roomIndex !== -1) {
+    return {
+      item: currentRoom.items[roomIndex],
+      location: "room",
+      index: roomIndex,
+    };
+  }
+
+  // Check inventory items
+  const inventoryIndex = state.player.inventory.findIndex(
+    (item) => item.name.toLowerCase() === itemName.toLowerCase()
+  );
+  if (inventoryIndex !== -1) {
+    return {
+      item: state.player.inventory[inventoryIndex],
+      location: "inventory",
+      index: inventoryIndex,
+    };
+  }
+
+  return { item: undefined, location: undefined, index: -1 };
+}
+
 export async function processAction(
   state: GameState,
   action: string
 ): Promise<{ newState: GameState; message: string }> {
   let newState = { ...state };
+  console.log("\n=== Processing Action ===");
+  console.log("Player Action:", action);
 
   // Process existing status effects
   if (newState.player.statusEffects) {
@@ -151,24 +207,35 @@ export async function processAction(
 
   try {
     // Interpret the action using LLM
+    console.log("\n--- Sending to LLM ---");
     const interpretation = await interpretAction(action, newState);
+    console.log("\n--- LLM Response ---");
+    console.log(JSON.stringify(interpretation, null, 2));
 
     // Apply the determined effects
+    console.log("\n--- Applying Effects ---");
     const result = await applyEffects(newState, interpretation);
     newState = result.newState;
 
     // Process enemy actions if any are present
     if (newState.rooms[newState.player.currentRoomId].enemies.length > 0) {
+      console.log("\n--- Processing Enemy Actions ---");
       const enemyActions = processEnemyActions(newState);
       result.message += "\n" + enemyActions.message;
       newState = enemyActions.newState;
     }
+
+    console.log("\n--- Final Result ---");
+    console.log("Message:", result.message);
+    console.log("=== Action Processing Complete ===\n");
 
     return {
       newState,
       message: result.message,
     };
   } catch (error) {
+    console.error("\n!!! Error Processing Action !!!");
+    console.error(error);
     return {
       newState: state,
       message:
@@ -193,6 +260,8 @@ Player: ${JSON.stringify(state.player)}
 
 Player action: "${action}"`;
 
+  console.log("Prompt sent to LLM:", prompt);
+
   const response = await openai.chat.completions.create({
     model: "gpt-4",
     messages: [{ role: "system", content: prompt }],
@@ -203,8 +272,12 @@ Player action: "${action}"`;
     const content = response.choices[0].message.content;
     if (!content) throw new Error("No response from LLM");
 
-    return JSON.parse(content) as LLMResponse;
+    console.log("Raw LLM Response:", content);
+
+    const parsedResponse = JSON.parse(content) as LLMResponse;
+    return parsedResponse;
   } catch (error) {
+    console.error("Failed to parse LLM response:", error);
     throw new Error("Failed to interpret action");
   }
 }
@@ -218,11 +291,14 @@ async function applyEffects(
   const currentRoom = newState.rooms[newState.player.currentRoomId];
 
   for (const effect of interpretation.effects) {
+    console.log(`Applying effect: ${effect.type}`, effect);
+
     switch (effect.type) {
       case "STAT_CHANGE":
         if (effect.target && effect.magnitude) {
           const target = effect.target.toLowerCase();
           if (target in newState.player.stats) {
+            console.log(`Changing stat ${target} by ${effect.magnitude}`);
             newState.player.stats[target] += effect.magnitude;
           }
         }
@@ -232,6 +308,7 @@ async function applyEffects(
         if (!newState.player.statusEffects) {
           newState.player.statusEffects = [];
         }
+        console.log(`Adding status effect: ${effect.description}`);
         newState.player.statusEffects.push({
           name: effect.description,
           duration: effect.duration || EFFECT_DURATIONS.TEMPORARY,
@@ -239,9 +316,43 @@ async function applyEffects(
         });
         break;
 
+      case "ITEM_MODIFICATION":
+        if (effect.target && effect.itemModification) {
+          console.log(`Modifying item: ${effect.target}`);
+          const { item, location, index } = findItem(newState, effect.target);
+
+          if (item && location && index !== -1) {
+            const modifiedItem = {
+              ...item,
+              description:
+                effect.itemModification.newDescription || item.description,
+              state: effect.itemModification.newState || item.state,
+              isUsable:
+                effect.itemModification.isUsable !== undefined
+                  ? effect.itemModification.isUsable
+                  : item.isUsable,
+            };
+
+            // Update the item in its location
+            if (location === "room") {
+              console.log(
+                `Updating item in room: ${JSON.stringify(modifiedItem)}`
+              );
+              newState.rooms[newState.player.currentRoomId].items[index] =
+                modifiedItem;
+            } else {
+              console.log(
+                `Updating item in inventory: ${JSON.stringify(modifiedItem)}`
+              );
+              newState.player.inventory[index] = modifiedItem;
+            }
+          }
+        }
+        break;
+
       case "GAIN_ITEM":
         if (effect.target) {
-          // Here you'd need to implement item generation or lookup
+          console.log(`Generating item: ${effect.target}`);
           const item = await generateItem(effect.target);
           newState.player.inventory.push(item);
         }
@@ -249,6 +360,7 @@ async function applyEffects(
 
       case "LOSE_ITEM":
         if (effect.target) {
+          console.log(`Removing item: ${effect.target}`);
           newState.player.inventory = newState.player.inventory.filter(
             (item) => item.name.toLowerCase() !== effect.target?.toLowerCase()
           );
@@ -257,11 +369,13 @@ async function applyEffects(
 
       case "MOVE":
         if (effect.target) {
+          console.log(`Attempting to move: ${effect.target}`);
           const door =
             newState.rooms[newState.player.currentRoomId].doors[
               effect.target.toLowerCase() as keyof Room["doors"]
             ];
           if (door && !door.isLocked) {
+            console.log(`Moving to room: ${door.destinationRoomId}`);
             newState.player.currentRoomId = door.destinationRoomId;
           }
         }
@@ -271,107 +385,18 @@ async function applyEffects(
         if (!newState.player.knowledge) {
           newState.player.knowledge = [];
         }
+        console.log(`Adding knowledge: ${effect.description}`);
         newState.player.knowledge.push({
           type: effect.target || "general",
           description: effect.description,
-          timestamp: Date.now(),
         });
         break;
 
-      case "ENEMY_EFFECT": {
-        if (!effect.target || !effect.description) break;
-
-        // Find target enemy
-        const enemyIndex = currentRoom.enemies.findIndex(
-          (e) => e.name.toLowerCase() === effect.target?.toLowerCase()
-        );
-
-        if (enemyIndex === -1) break;
-
-        const enemy = currentRoom.enemies[enemyIndex];
-
-        // Process status effects
-        const statusEffect = interpretStatusEffect(effect.description);
-        if (statusEffect) {
-          if (!enemy.statusEffects) enemy.statusEffects = [];
-          enemy.statusEffects.push({
-            ...statusEffect,
-            duration: effect.duration || statusEffect.duration,
-          });
-
-          // Apply immediate stat modifications
-          if (statusEffect.statModifiers) {
-            for (const mod of statusEffect.statModifiers) {
-              applyStatModifier(enemy, mod);
-            }
-          }
-        }
-
-        // Process direct stat changes
-        const statChange = interpretStatChange(effect.description);
-        if (statChange) {
-          applyStatModifier(enemy, statChange);
-        }
-
-        // Update enemy in room
-        currentRoom.enemies[enemyIndex] = enemy;
-        break;
-      }
-
-      case "ITEM_EFFECT": {
-        if (!effect.target || !effect.description) break;
-
-        // Find target item (in room or inventory)
-        const roomItem = currentRoom.items.find(
-          (i) => i.name.toLowerCase() === effect.target?.toLowerCase()
-        );
-        const inventoryItem = newState.player.inventory.find(
-          (i) => i.name.toLowerCase() === effect.target?.toLowerCase()
-        );
-        const item = roomItem || inventoryItem;
-
-        if (!item) break;
-
-        // Process item state changes
-        const itemChange = interpretItemChange(effect.description);
-        if (itemChange) {
-          applyItemChange(item, itemChange);
-
-          // Update item in its location
-          if (roomItem) {
-            const itemIndex = currentRoom.items.findIndex(
-              (i) => i.id === item.id
-            );
-            if (itemIndex !== -1) {
-              currentRoom.items[itemIndex] = item;
-            }
-          } else if (inventoryItem) {
-            const itemIndex = newState.player.inventory.findIndex(
-              (i) => i.id === item.id
-            );
-            if (itemIndex !== -1) {
-              newState.player.inventory[itemIndex] = item;
-            }
-          }
-        }
-        break;
-      }
-
-      case "ROOM_EFFECT": {
-        if (!effect.description) break;
-
-        // Process room state changes
-        const roomChange = interpretRoomChange(effect.description);
-        if (roomChange) {
-          applyRoomChange(currentRoom, roomChange);
-        }
-        break;
-      }
+      default:
+        console.log(`Unknown effect type: ${effect.type}`);
     }
   }
 
-  // Update the room in state
-  newState.rooms[newState.player.currentRoomId] = currentRoom;
   return { newState, message };
 }
 
