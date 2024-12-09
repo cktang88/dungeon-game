@@ -537,7 +537,16 @@ async function applyEffects(
         if (effect.itemModified) {
           const targetId = effect.targetId || effect.itemModified.id;
           console.log(`Modifying item: ${targetId}`);
-          const { item, location, index } = findItem(newState, targetId);
+          let { item, location, index } = findItem(newState, targetId);
+
+          // If item doesn't exist yet, create it in the current room
+          if (!item && effect.itemModified) {
+            item = effect.itemModified;
+            location = "room";
+            index = newState.rooms[newState.player.currentRoomId].items.length;
+            newState.rooms[newState.player.currentRoomId].items.push(item);
+            console.log(`Created new item: ${item.name}`);
+          }
 
           if (item && location !== undefined && index !== -1) {
             const modifiedItem = { ...item };
@@ -645,52 +654,7 @@ async function applyEffects(
         break;
 
       case "GAIN_ITEM":
-        if (effect.itemsMoved && Array.isArray(effect.itemsMoved)) {
-          console.log(
-            `Processing GAIN_ITEM with itemsMoved array:`,
-            effect.itemsMoved
-          );
-
-          for (const moveData of effect.itemsMoved) {
-            console.log(`Moving item:`, moveData);
-
-            // Convert the from/to locations to the format expected by handleItemsMoved
-            let sourceLocation = "";
-            let targetLocation = "";
-
-            // Handle source location
-            if (moveData.from === "player") {
-              sourceLocation = "inventory";
-            } else if (moveData.from === "enemy") {
-              sourceLocation = moveData.fromSpecificId || "";
-            } else if (moveData.from === "room") {
-              sourceLocation =
-                moveData.fromSpecificId || newState.player.currentRoomId;
-            }
-
-            // Handle target location
-            if (moveData.to === "player") {
-              targetLocation = "inventory";
-            } else if (moveData.to === "enemy") {
-              targetLocation = moveData.toSpecificId || "";
-            } else if (moveData.to === "room") {
-              targetLocation =
-                moveData.toSpecificId || newState.player.currentRoomId;
-            }
-
-            if (sourceLocation && targetLocation) {
-              console.log(
-                `Moving item from ${sourceLocation} to ${targetLocation}`
-              );
-              newState = handleItemsMoved(
-                newState,
-                sourceLocation,
-                targetLocation,
-                [moveData.itemId]
-              );
-            }
-          }
-        } else if (effect.itemsMoved) {
+        if (effect.itemsMoved) {
           // Handle single itemsMoved object (not in array)
           console.log(
             `Processing GAIN_ITEM with single itemsMoved:`,
@@ -745,8 +709,16 @@ async function applyEffects(
             newState.player.inventory.push(takenItem);
             console.log(`Moved item from room to inventory: ${takenItem.name}`);
             message += `\nYou pick up the ${takenItem.name}.`;
-          } else {
-            console.log(`Item ${effect.targetId} not found in current room`);
+          } else if (effect.itemModified) {
+            console.log(
+              `Item ${effect.targetId} not found in current room, creating it`
+            );
+            const newItem = {
+              ...effect.itemModified,
+              id: effect.targetId ?? effect.itemModified.id,
+            };
+            newState.rooms[newState.player.currentRoomId].items.push(newItem);
+            message += `\nYou pick up the ${newItem.name}.`;
           }
         }
         break;
@@ -795,6 +767,24 @@ async function applyEffects(
           newState.player.inventory = newState.player.inventory.filter(
             (item) => item.id !== effect.targetId
           );
+        }
+        break;
+
+      case "DESTROY_ITEM":
+        // usually when consumed crafting or totally broken and unusable
+        if (effect.targetId) {
+          console.log(`Destroying item: ${effect.targetId}`);
+          const { item, location, index } = findItem(newState, effect.targetId);
+          if (item && location) {
+            if (location === "inventory") {
+              newState.player.inventory.splice(index, 1);
+            } else if (location === "room") {
+              newState.rooms[newState.player.currentRoomId].items.splice(
+                index,
+                1
+              );
+            }
+          }
         }
         break;
 
@@ -1254,27 +1244,6 @@ function determineEnemyAction(
     message: "watches you cautiously.",
     apply: (state) => state,
   };
-}
-
-// Helper function to generate items (implement based on your item system)
-async function generateItem(itemType: string): Promise<Item> {
-  // Implement item generation logic
-  return {
-    id: Math.random().toString(),
-    name: itemType,
-    description: `A ${itemType}`,
-    type: "misc",
-  };
-}
-
-// Helper functions for applying changes
-
-function applyItemChange(item: Item, changes: Partial<Item>): void {
-  Object.assign(item, changes);
-}
-
-function applyRoomChange(room: Room, changes: any): void {
-  Object.assign(room, changes);
 }
 
 // Add helper function to calculate derived stats

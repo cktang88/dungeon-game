@@ -10,6 +10,9 @@ Given the current game state and a player's command, determine:
 NOTE: if the player doesn't have the item(s) required to perform the action, the action should be denied.
 NOTE: if the object of the action is not in the player inventory, the room, or environment, the action should be denied.
 NOTE: some items are implicitly owned by the player, such as body parts, unless those are damaged, stunned, or otherwise unusable.
+NOTE: if action is to disassemble or break apart an item that was previously constructed by the player, you should also attempt to create new item(s) with the same stats as the original items, but with the new state of the items.
+In that case you would need to add a ITEM_MODIFICATION effect to the action for each new item created.
+
 
 THINGS TO CONSIDER:
   - a player's status effects (and any items' and enemies' status effects) when determining the effects of an action.
@@ -72,7 +75,6 @@ NOTE: many actions may have multiple effects, and you should respond with a LIST
 
 The "MESSAGE" field should be a string that describes what happens. It is extremely important that this field is descriptive and engaging.
 
-
 Examples of good and bad messages:
 
 ${goodAndBadResponses}
@@ -87,7 +89,7 @@ Respond with a JSON object in this format, and action followed by a LIST of all 
   },
   "effects": [
     {
-      "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, ITEM_MODIFICATION, GAIN_ITEM, LOSE_ITEM, MOVE_WITHIN_ROOM, MOVE_BETWEEN_ROOMS, KNOWLEDGE_GAIN, USE_ITEM, ATTACK, and more.)",
+      "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, ITEM_MODIFICATION, GAIN_ITEM, LOSE_ITEM, DESTROY_ITEM, MOVE_WITHIN_ROOM, MOVE_BETWEEN_ROOMS, KNOWLEDGE_GAIN, USE_ITEM, ATTACK, and more.)",
       "description": "string explaining the effect",
       "targetId": "string specifying what is affected",
       "statChange": {

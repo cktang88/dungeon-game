@@ -20,29 +20,29 @@ export interface Item {
     | "artifact"
     | string;
   state?: string;
-  isUsable?: boolean;
-  isConsumable?: boolean;
+  isUsable: boolean;
+  isConsumable: boolean;
   stats?: {
     damage?: number;
     defense?: number;
     healing?: number;
   };
-  statusEffects?: StatusEffect[]; // status effects that the item is currently afflicted with
-  additionalAttributes?: {
+  statusEffects: StatusEffect[]; // status effects that the item is currently afflicted with
+  additionalAttributes: {
     spellLevels?: {
       [key: string]: number;
     };
     charges?: number;
   };
-  requirements?: {
+  requirements: {
     attunement?: string;
     class?: string[];
     abilityScores?: {
       [key in keyof AbilityScores]?: number;
     };
   };
-  weight?: string;
-  value?: number;
+  weight: string;
+  value: number;
   properties?: string[];
   rarity?: string;
   isUnique?: boolean;
