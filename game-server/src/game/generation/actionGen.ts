@@ -68,7 +68,10 @@ Any new items should be added to the room or player's inventory, depending on th
 
 If KNOWLEDGE_GAIN is an effect, be very descriptive and note any unusual or interesting details that weren't known before.
 
+NOTE: many actions may have multiple effects, and you should respond with a LIST of all effects. Eg. both a status effect and a knowledge gain. Or a status effect and a stat change.
+
 The "MESSAGE" field should be a string that describes what happens. It is extremely important that this field is descriptive and engaging.
+
 
 Examples of good and bad messages:
 
@@ -91,14 +94,36 @@ Respond with a JSON object in this format, and action followed by a LIST of all 
         "statAffectedName": "optional string specifying what is affected",
         "magnitude": "optional number for the size of the effect",
       },
-      "statusEffect": {
-        "name": "string - short name of the status effect, eg. 'poisoned', 'frightened', 'stunned', 'blinded', 'confused', 'ashamed', etc.",
-        "description": "string - description of the status effect",
-        "duration": "number of turns the status effect lasts",
-        "magnitude": "number - magnitude of the status effect, eg. how much damage/healing is done per turn",
-        "isActive": "boolean",
-        "isPermanent": "boolean",
-      },
+        "statusEffect": {
+            "name": "string - short name of the status effect, e.g., 'poisoned', 'frightened', 'stunned', 'blinded', 'confused', 'ashamed', etc.",
+            "description": "string - description of the status effect",
+            "source": "string - who initiated the status effect, should be of form 'item-<type>-<id>' or 'enemy-<type>-<id>' or 'player-<id>', etc.",
+            "target": "string - identifier of the entity affected by the status effect",
+            "duration": "number (optional) - number of turns the status effect lasts",
+            "isActive": "boolean - whether the status effect is currently active",
+            "isPermanent": "boolean - whether the status effect is permanent",
+            "id": "string - unique identifier for the status effect, format 'status-effect-<id>'",
+            "startTurn": "number (optional) - the turn number when the status effect was applied",
+            "statsApplied": "boolean (optional) - whether the status effect has applied its stat modifiers",
+            "statModifiers": [
+            {
+                "strength": "number (optional) - modifier for strength",
+                "dexterity": "number (optional) - modifier for dexterity",
+                "constitution": "number (optional) - modifier for constitution",
+                "intelligence": "number (optional) - modifier for intelligence",
+                "wisdom": "number (optional) - modifier for wisdom",
+                "charisma": "number (optional) - modifier for charisma"
+            }
+            ],
+            "derivedStatsModifiers": [
+            {
+                "healthRegen": "number (optional) - modifier for health regeneration",
+                "manaRegen": "number (optional) - modifier for mana regeneration",
+                // Add other derived stats as needed
+            }
+            ],
+            "shouldRevert": "boolean (optional) - whether the status effect should revert the stat changes after it ends"
+        },
       "itemsModified": {
         {
           "id": "string - id of the item, eg. 'item-<type>-<id>'",

@@ -139,12 +139,17 @@ export interface DerivedStats {
 export interface StatusEffect {
   name: string;
   description: string;
-  source: string;
+  source: string; // who initiated the status effect, should be of form "item-<type>-<id>" or "enemy-<type>-<id>" or "player-<id>", etc.
   target: string;
-  duration: number;
-  magnitude: number;
+  duration?: number;
   isActive: boolean;
   isPermanent: boolean;
+  id: string; // should be of form "status-effect-<id>"
+  startTurn?: number;
+  statsApplied?: boolean;
+  statModifiers?: { [key in keyof AbilityScores]?: number }[];
+  derivedStatsModifiers?: { [key in keyof DerivedStats]?: number }[];
+  shouldRevert?: boolean;
 }
 
 export interface Equipment {

@@ -13,19 +13,13 @@ import {
 import { generateRoom, handleItemsMoved } from "./state";
 import { openai } from "../lib/openai";
 import { ACTION_PROMPT } from "./generation/actionGen";
-interface StateChange {
-  type: string;
-  payload: any;
-}
 
 interface ActionEffect {
   type: string;
   description: string;
-  magnitude?: number;
-  duration?: number;
   targetId?: string; // should be of form "enemy-<type>-<id>" or "item-<type>-<id>" or "room-<name>-<id>", etc.
   statChange?: {
-    statAffectedName?: string;
+    statAffectedName?: keyof AbilityScores | keyof DerivedStats;
     magnitude?: number;
   };
   statusEffect?: StatusEffect;
@@ -65,19 +59,150 @@ const EFFECT_DURATIONS = {
   LONG: 20,
 };
 
-// Add new interfaces for effect processing
-interface EffectModifier {
-  stat: string;
-  value: number;
-  duration?: number;
-}
+function processStatusEffects(state: GameState, turnNumber: number): GameState {
+  const newState = { ...state };
 
-interface StatusMapping {
-  [key: string]: {
-    statModifiers?: EffectModifier[];
-    duration: number;
-    description: string;
-  };
+  // Process player status effects
+  if (newState.player.statusEffects) {
+    const activeEffects: StatusEffect[] = [];
+    const expiredEffects: StatusEffect[] = [];
+
+    newState.player.statusEffects.forEach((effect) => {
+      if (!effect.isActive) return;
+
+      // Check if effect has expired
+      if (!effect.isPermanent && effect.duration !== undefined) {
+        if (!effect.startTurn) {
+          effect.startTurn = turnNumber;
+        }
+
+        const elapsedTurns = turnNumber - effect.startTurn;
+        if (elapsedTurns >= effect.duration) {
+          expiredEffects.push(effect);
+          return;
+        }
+      }
+
+      activeEffects.push(effect);
+
+      // Apply stat modifications if not already applied
+      if (!effect.statsApplied) {
+        // Apply ability score modifiers
+        if (effect.statModifiers) {
+          effect.statModifiers.forEach((modifiers) => {
+            Object.entries(modifiers).forEach(([stat, value]) => {
+              const abilityScoreStat = stat as keyof AbilityScores;
+              newState.player.currentAbilityScores[abilityScoreStat] += value;
+            });
+          });
+        }
+
+        // Apply derived stat modifiers
+        if (effect.derivedStatsModifiers) {
+          effect.derivedStatsModifiers.forEach((modifiers) => {
+            Object.entries(modifiers).forEach(([stat, value]) => {
+              const derivedStat = stat as keyof DerivedStats;
+              newState.player.currentDerivedStats[derivedStat] += value;
+            });
+          });
+        }
+
+        effect.statsApplied = true;
+      }
+    });
+
+    // Handle expired effects
+    expiredEffects.forEach((effect) => {
+      if (effect.startTurn && effect.shouldRevert) {
+        const turnsActive = turnNumber - effect.startTurn;
+
+        // Revert ability score modifiers
+        if (effect.statModifiers) {
+          effect.statModifiers.forEach((modifiers) => {
+            Object.entries(modifiers).forEach(([stat, value]) => {
+              const abilityScoreStat = stat as keyof AbilityScores;
+              const totalChange = value * turnsActive;
+              newState.player.currentAbilityScores[abilityScoreStat] -=
+                totalChange;
+            });
+          });
+        }
+
+        // Revert derived stat modifiers
+        if (effect.derivedStatsModifiers) {
+          effect.derivedStatsModifiers.forEach((modifiers) => {
+            Object.entries(modifiers).forEach(([stat, value]) => {
+              const derivedStat = stat as keyof DerivedStats;
+              const totalChange = value * turnsActive;
+              newState.player.currentDerivedStats[derivedStat] -= totalChange;
+            });
+          });
+        }
+      }
+    });
+
+    // Update status effects list
+    newState.player.statusEffects = activeEffects;
+  }
+
+  // Process enemy status effects
+  const currentRoom = newState.rooms[newState.player.currentRoomId];
+  if (currentRoom.enemies) {
+    currentRoom.enemies.forEach((enemy) => {
+      if (enemy.statusEffects) {
+        const activeEffects: StatusEffect[] = [];
+
+        enemy.statusEffects.forEach((effect) => {
+          if (!effect.isActive) return;
+
+          // Check if effect has expired
+          if (!effect.isPermanent && effect.duration !== undefined) {
+            if (!effect.startTurn) {
+              effect.startTurn = turnNumber;
+            }
+
+            const elapsedTurns = turnNumber - effect.startTurn;
+            if (elapsedTurns >= effect.duration) {
+              // Handle stat modifications reversion if needed
+              if (
+                effect.startTurn &&
+                effect.shouldRevert &&
+                effect.statModifiers
+              ) {
+                const turnsActive = turnNumber - effect.startTurn;
+                effect.statModifiers.forEach((modifiers) => {
+                  Object.entries(modifiers).forEach(([stat, value]) => {
+                    const abilityScoreStat = stat as keyof AbilityScores;
+                    const totalChange = value * turnsActive;
+                    enemy.currentStats.abilityScores[abilityScoreStat] -=
+                      totalChange;
+                  });
+                });
+              }
+              return;
+            }
+          }
+
+          activeEffects.push(effect);
+
+          // Apply stat modifications if not already applied
+          if (!effect.statsApplied && effect.statModifiers) {
+            effect.statModifiers.forEach((modifiers) => {
+              Object.entries(modifiers).forEach(([stat, value]) => {
+                const abilityScoreStat = stat as keyof AbilityScores;
+                enemy.currentStats.abilityScores[abilityScoreStat] += value;
+              });
+            });
+            effect.statsApplied = true;
+          }
+        });
+
+        enemy.statusEffects = activeEffects;
+      }
+    });
+  }
+
+  return newState;
 }
 
 // Helper function to find an item in either room or inventory
@@ -214,7 +339,7 @@ export async function processAction(
 
     // Apply the determined effects
     console.log("\n--- Applying Effects ---");
-    const result = await applyEffects(newState, interpretation);
+    const result = await applyEffects(newState, interpretation, Date.now());
     newState = result.newState;
 
     // Process enemy actions if any are present
@@ -291,10 +416,15 @@ Player action: "${action}"`;
 
 async function applyEffects(
   state: GameState,
-  interpretation: LLMResponse
+  interpretation: LLMResponse,
+  turnNumber: number
 ): Promise<{ newState: GameState; message: string }> {
   let newState = { ...state };
   let message = interpretation.message;
+
+  // Process any active status effects first
+  newState = processStatusEffects(newState, turnNumber);
+
   const currentRoom = newState.rooms[newState.player.currentRoomId];
 
   for (const effect of interpretation.effects) {
@@ -363,12 +493,12 @@ async function applyEffects(
           );
 
           const statusEffect: StatusEffect = {
+            id: `status-effect-${effect.targetId}-${effect.statusEffect.name}-${effect.statusEffect.duration}`,
             name: effect.statusEffect.name,
             description: effect.statusEffect.description,
             source: "effect",
             target: effect.targetId,
             duration: effect.statusEffect.duration,
-            magnitude: effect.statusEffect.magnitude,
             isActive: effect.statusEffect.isActive ?? true,
             isPermanent: effect.statusEffect.isPermanent ?? false,
           };
@@ -487,9 +617,6 @@ async function applyEffects(
                 targetLocation,
                 [moveData.itemId]
               );
-              message += `\nItem moved from ${moveData.from}${
-                moveData.fromSpecificId ? ` (${moveData.fromSpecificId})` : ""
-              } to ${moveData.to}.`;
             }
           }
         } else if (effect.itemsMoved) {
@@ -529,9 +656,6 @@ async function applyEffects(
               targetLocation,
               [moveData.itemId]
             );
-            message += `\nItem moved from ${moveData.from}${
-              moveData.fromSpecificId ? ` (${moveData.fromSpecificId})` : ""
-            } to ${moveData.to}.`;
           }
         } else if (effect.targetId) {
           // Legacy format where targetId is the item to gain
@@ -557,7 +681,45 @@ async function applyEffects(
         break;
 
       case "LOSE_ITEM":
-        if (effect.targetId) {
+        if (effect.itemsMoved) {
+          // Handle itemsMoved object
+          console.log(
+            `Processing LOSE_ITEM with itemsMoved:`,
+            effect.itemsMoved
+          );
+          const moveData = effect.itemsMoved;
+
+          let sourceLocation =
+            moveData.from === "player"
+              ? "inventory"
+              : moveData.from === "enemy"
+              ? moveData.fromSpecificId!
+              : moveData.from === "room"
+              ? `room-${newState.player.currentRoomId}`
+              : moveData.fromSpecificId || "";
+
+          let targetLocation =
+            moveData.to === "player"
+              ? "inventory"
+              : moveData.to === "enemy"
+              ? moveData.toSpecificId!
+              : moveData.to === "room"
+              ? moveData.toSpecificId || `room-${newState.player.currentRoomId}`
+              : moveData.toSpecificId || "";
+
+          if (sourceLocation && targetLocation) {
+            console.log(
+              `Moving item from ${sourceLocation} to ${targetLocation}`
+            );
+            newState = handleItemsMoved(
+              newState,
+              sourceLocation,
+              targetLocation,
+              [moveData.itemId]
+            );
+          }
+        } else if (effect.targetId) {
+          // Legacy format - just remove from inventory
           console.log(`Removing item: ${effect.targetId}`);
           newState.player.inventory = newState.player.inventory.filter(
             (item) => item.id !== effect.targetId
@@ -1034,110 +1196,7 @@ async function generateItem(itemType: string): Promise<Item> {
   };
 }
 
-// Helper functions for interpreting effects
-function interpretStatusEffect(
-  description: string
-): StatusMapping[keyof StatusMapping] | null {
-  // Look for known status effects in the description
-  // for (const [status, mapping] of Object.entries(STATUS_MAPPINGS)) {
-  //   if (description.toLowerCase().includes(status)) {
-  //     return mapping;
-  //   }
-  // }
-
-  // Try to interpret custom status effects
-  const words = description.toLowerCase().split(" ");
-  const effectWords = [
-    "weakened",
-    "strengthened",
-    "slowed",
-    "hastened",
-    "protected",
-    "vulnerable",
-  ];
-
-  for (const word of effectWords) {
-    if (words.includes(word)) {
-      return interpretCustomStatus(word, description);
-    }
-  }
-
-  return null;
-}
-
-function interpretStatChange(description: string): EffectModifier | null {
-  const statPatterns = [
-    { regex: /(\d+)\s+damage/i, stat: "health", multiplier: -1 },
-    { regex: /(\d+)\s+healing/i, stat: "health", multiplier: 1 },
-    {
-      regex: /strength\s+(increased|decreased)\s+by\s+(\d+)/i,
-      stat: "strength",
-    },
-    { regex: /defense\s+(increased|decreased)\s+by\s+(\d+)/i, stat: "defense" },
-    // Add more patterns as needed
-  ];
-
-  for (const pattern of statPatterns) {
-    const match = description.match(pattern.regex);
-    if (match) {
-      const value = parseInt(match[1]);
-      const multiplier = match[0].includes("decreased") ? -1 : 1;
-      return {
-        stat: pattern.stat,
-        value: value * (pattern.multiplier || multiplier),
-      };
-    }
-  }
-
-  return null;
-}
-
-function interpretCustomStatus(
-  effectWord: string,
-  description: string
-): StatusMapping[keyof StatusMapping] {
-  const magnitude = extractMagnitude(description) || 1;
-
-  const statusEffects: { [key: string]: StatusMapping[keyof StatusMapping] } = {
-    weakened: {
-      statModifiers: [
-        { stat: "strength", value: -magnitude },
-        { stat: "damage", value: -magnitude },
-      ],
-      duration: 3,
-      description: "Reduced physical capabilities",
-    },
-    strengthened: {
-      statModifiers: [
-        { stat: "strength", value: magnitude },
-        { stat: "damage", value: magnitude },
-      ],
-      duration: 3,
-      description: "Enhanced physical capabilities",
-    },
-    // Add more custom status interpretations
-  };
-
-  return (
-    statusEffects[effectWord] || {
-      statModifiers: [{ stat: "health", value: -1 }],
-      duration: 2,
-      description: "Unknown effect",
-    }
-  );
-}
-
-function extractMagnitude(description: string): number | null {
-  const match = description.match(/(\d+)/);
-  return match ? parseInt(match[1]) : null;
-}
-
 // Helper functions for applying changes
-function applyStatModifier(target: any, modifier: EffectModifier): void {
-  if (target[modifier.stat] !== undefined) {
-    target[modifier.stat] += modifier.value;
-  }
-}
 
 function applyItemChange(item: Item, changes: Partial<Item>): void {
   Object.assign(item, changes);

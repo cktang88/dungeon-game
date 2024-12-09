@@ -1,9 +1,7 @@
 ## dungeon master
 
-- try to allow most actions as long as not absurd
-- focus on emergent, unpredictable, and memorable experiences
-
-- each knowledge gain is specific to a room/theme/enemy/item/etc. (needs a target)
+- need to get hover state on all pills so it can see stats
+- mana bar and mana and health regen stats
 
 - the dungeon master over time learns the kind of player you are and verbalizes appropriately or tiny references or inside jokes later
 
