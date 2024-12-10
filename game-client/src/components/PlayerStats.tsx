@@ -1,7 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Player } from "@/types/game";
-import AbilityScores from "./AbilityScores";
-import Knowledge from "./Knowledge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -34,138 +32,62 @@ export default function PlayerStats({ player }: PlayerStatsProps) {
   const healthPercentage = (health / maxHealth) * 100;
 
   return (
-    <Tabs defaultValue="combat" className="w-full">
-      <TabsList className="w-full grid grid-cols-3">
-        <TabsTrigger value="combat">Combat</TabsTrigger>
-        <TabsTrigger value="abilities">Abilities</TabsTrigger>
-        <TabsTrigger value="knowledge">Knowledge</TabsTrigger>
-      </TabsList>
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center justify-between">
+          <span>
+            Level {level} {player.class}
+          </span>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {/* Health Bar */}
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span>HP</span>
+            <span>
+              {health}/{maxHealth}
+            </span>
+          </div>
+          <Progress value={healthPercentage} className="h-3" />
+        </div>
 
-      <TabsContent value="combat" className="space-y-4 mt-4">
-        {/* Basic Stats */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Level {level}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {/* Health Bar */}
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span>HP</span>
-                  <span>
-                    {health}/{maxHealth}
-                  </span>
-                </div>
-                <Progress value={healthPercentage} className="h-3" />
-              </div>
+        {/* Experience Bar */}
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span>XP</span>
+            <span>
+              {experience}/{experienceToNextLevel}
+            </span>
+          </div>
+          <Progress value={experiencePercentage} className="h-3" />
+        </div>
 
-              {/* Experience Bar */}
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span>XP</span>
-                  <span>
-                    {experience}/{experienceToNextLevel}
-                  </span>
-                </div>
-                <Progress value={experiencePercentage} className="h-3" />
-              </div>
+        {/* Ability Scores */}
+        <div className="grid grid-cols-3 gap-2">
+          {Object.entries(player.currentAbilityScores).map(([stat, value]) => (
+            <div key={stat} className="text-center p-2 bg-muted rounded-lg">
+              <div className="text-xs font-medium uppercase">{stat}</div>
+              <div className="text-lg">{value}</div>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* Combat Stats */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Combat Stats</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="p-3 bg-muted rounded-lg">
-                <div className="text-sm font-medium mb-2">Armor Class</div>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-semibold">
-                    {player.currentDerivedStats.armorClass}
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    Base: {player.baseDerivedStats.armorClass}
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-3 bg-muted rounded-lg">
-                <div className="text-sm font-medium mb-2">Initiative</div>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-semibold">
-                    {player.currentDerivedStats.initiative}
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    Base: {player.baseDerivedStats.initiative}
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-3 bg-muted rounded-lg">
-                <div className="text-sm font-medium mb-2">Carry Capacity</div>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-semibold">
-                    {player.currentDerivedStats.currentWeight}/
-                    {player.currentDerivedStats.carryCapacity} lbs
-                  </span>
-                  {player.currentDerivedStats.isEncumbered && (
-                    <Badge variant="destructive" className="ml-2">
-                      Encumbered
-                    </Badge>
-                  )}
-                </div>
-                <Progress
-                  value={
-                    (player.currentDerivedStats.currentWeight /
-                      player.currentDerivedStats.carryCapacity) *
-                    100
-                  }
-                  className="h-2 mt-2"
-                  variant={
-                    player.currentDerivedStats.isEncumbered
-                      ? "destructive"
-                      : "default"
-                  }
-                />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+          ))}
+        </div>
 
         {/* Status Effects */}
         {player.statusEffects && player.statusEffects.length > 0 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Status Effects</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {player.statusEffects.map((effect, index) => (
-                  <Badge
-                    key={index}
-                    variant={effect.magnitude > 0 ? "default" : "destructive"}
-                    className="text-sm py-1.5 px-4"
-                  >
-                    {effect.name} ({effect.duration} turns)
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          <div className="space-y-2">
+            <h3 className="text-sm font-medium">Status Effects</h3>
+            <div className="flex flex-wrap gap-1">
+              {player.statusEffects.map((effect, index) => (
+                <Badge key={index} variant="secondary">
+                  {effect.name}
+                  {effect.duration && ` (${effect.duration} turns)`}
+                </Badge>
+              ))}
+            </div>
+          </div>
         )}
-      </TabsContent>
-
-      <TabsContent value="abilities" className="mt-4">
-        <AbilityScores player={player} />
-      </TabsContent>
-
-      <TabsContent value="knowledge" className="mt-4">
-        <Knowledge knowledge={player.knowledge} />
-      </TabsContent>
-    </Tabs>
+      </CardContent>
+    </Card>
   );
 }

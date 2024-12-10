@@ -25,7 +25,7 @@ function isValidGameState(state: any): boolean {
   return (
     state &&
     state.player &&
-    typeof state.player.currentRoomId === "string" &&
+    typeof state.player.currentRoomName === "string" &&
     state.rooms &&
     typeof state.rooms === "object"
   );
@@ -44,7 +44,7 @@ app.post("/api/game/start", async (req, res) => {
   gameStates[sessionId] = initialState;
   console.log("New game started:", {
     sessionId,
-    currentRoomId: initialState.player.currentRoomId,
+    currentRoomId: initialState.player.currentRoomName,
     rooms: initialState.rooms,
   });
   res.json({ sessionId, gameState: initialState });
@@ -98,7 +98,7 @@ app.get("/api/game/state/:sessionId", (req, res) => {
 
   console.log("Game state retrieved:", {
     sessionId,
-    currentRoomId: state.player.currentRoomId,
+    currentRoomId: state.player.currentRoomName,
     rooms: state.rooms,
   });
   res.json({ gameState: state });

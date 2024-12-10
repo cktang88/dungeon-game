@@ -68,7 +68,7 @@ export interface Player extends DescribedEntity {
 
 export interface GameState {
   player: Player;
-  rooms: Room[];
+  rooms: Record<string, Room>; // name -> room
   messageHistory: string[];
   currentRoomId: string;
   previousRoomId: string | null;

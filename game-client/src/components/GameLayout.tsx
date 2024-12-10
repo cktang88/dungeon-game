@@ -137,7 +137,7 @@ export default function GameLayout() {
             <TabsContent value="map" className="h-[calc(100%-40px)]">
               <GameMap
                 rooms={Object.values(gameState?.rooms || {})}
-                currentRoom={gameState?.player?.currentRoomId}
+                currentRoom={gameState?.player?.currentRoomName}
               />
             </TabsContent>
           </Tabs>

@@ -15,32 +15,79 @@ interface GameMapProps {
 const ROOM_SIZE = 60;
 const DOOR_SIZE = 10;
 
+// Helper function to calculate room positions based on connections
+function calculateRoomPositions(
+  rooms: Room[]
+): Map<string, { x: number; y: number }> {
+  const positions = new Map<string, { x: number; y: number }>();
+  const visited = new Set<string>();
+
+  // Start with the first room at (0,0)
+  if (rooms.length === 0) return positions;
+
+  const queue: [string, number, number][] = [[rooms[0].name, 0, 0]];
+  positions.set(rooms[0].name, { x: 0, y: 0 });
+  visited.add(rooms[0].name);
+
+  while (queue.length > 0) {
+    const [roomName, x, y] = queue.shift()!;
+    const room = rooms.find((r) => r.name === roomName);
+    if (!room) continue;
+
+    // Check each direction
+    const directions = {
+      north: { dx: 0, dy: -1 },
+      south: { dx: 0, dy: 1 },
+      east: { dx: 1, dy: 0 },
+      west: { dx: -1, dy: 0 },
+    };
+
+    for (const [direction, offset] of Object.entries(directions)) {
+      const door = room.connections[direction as keyof typeof room.connections];
+      if (door && !visited.has(door.destinationRoomName)) {
+        const newX = x + offset.dx;
+        const newY = y + offset.dy;
+        positions.set(door.destinationRoomName, { x: newX, y: newY });
+        visited.add(door.destinationRoomName);
+        queue.push([door.destinationRoomName, newX, newY]);
+      }
+    }
+  }
+
+  return positions;
+}
+
 export function GameMap({ rooms, currentRoom }: GameMapProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [hoveredRoom, setHoveredRoom] = useState<Room | null>(null);
+  const [roomPositions, setRoomPositions] = useState<
+    Map<string, { x: number; y: number }>
+  >(new Map());
+
+  useEffect(() => {
+    setRoomPositions(calculateRoomPositions(rooms));
+  }, [rooms]);
 
   const drawRoom = (
     ctx: CanvasRenderingContext2D,
     room: Room,
-    isCurrentRoom: boolean
+    isCurrentRoom: boolean,
+    position: { x: number; y: number }
   ) => {
-    const x = room.position.x * (ROOM_SIZE + 20) + 100;
-    const y = room.position.y * (ROOM_SIZE + 20) + 100;
+    const x = position.x * (ROOM_SIZE + 20) + 400; // Center the map more
+    const y = position.y * (ROOM_SIZE + 20) + 300;
 
     // Draw room background
     ctx.fillStyle = isCurrentRoom ? "#4a5568" : "#2d3748";
     ctx.fillRect(x, y, ROOM_SIZE, ROOM_SIZE);
 
     // Draw doors
-    ctx.fillStyle = "#48bb78"; // Open door color
-    const lockedColor = "#e53e3e"; // Red color for locked doors
+    ctx.fillStyle = "#48bb78";
 
-    if (room.doors.north) {
-      ctx.fillStyle = room.doors.north.isLocked ? lockedColor : "#48bb78";
+    if (room.connections.north) {
       ctx.fillRect(x + (ROOM_SIZE - DOOR_SIZE) / 2, y - 2, DOOR_SIZE, 4);
     }
-    if (room.doors.south) {
-      ctx.fillStyle = room.doors.south.isLocked ? lockedColor : "#48bb78";
+    if (room.connections.south) {
       ctx.fillRect(
         x + (ROOM_SIZE - DOOR_SIZE) / 2,
         y + ROOM_SIZE - 2,
@@ -48,8 +95,7 @@ export function GameMap({ rooms, currentRoom }: GameMapProps) {
         4
       );
     }
-    if (room.doors.east) {
-      ctx.fillStyle = room.doors.east.isLocked ? lockedColor : "#48bb78";
+    if (room.connections.east) {
       ctx.fillRect(
         x + ROOM_SIZE - 2,
         y + (ROOM_SIZE - DOOR_SIZE) / 2,
@@ -57,8 +103,7 @@ export function GameMap({ rooms, currentRoom }: GameMapProps) {
         DOOR_SIZE
       );
     }
-    if (room.doors.west) {
-      ctx.fillStyle = room.doors.west.isLocked ? lockedColor : "#48bb78";
+    if (room.connections.west) {
       ctx.fillRect(x - 2, y + (ROOM_SIZE - DOOR_SIZE) / 2, 4, DOOR_SIZE);
     }
   };
@@ -75,11 +120,12 @@ export function GameMap({ rooms, currentRoom }: GameMapProps) {
 
     // Draw all rooms
     rooms.forEach((room) => {
-      if (room.visited) {
-        drawRoom(ctx, room, room.id === currentRoom);
+      const position = roomPositions.get(room.name);
+      if (position) {
+        drawRoom(ctx, room, room.name === currentRoom, position);
       }
     });
-  }, [rooms, currentRoom]);
+  }, [rooms, currentRoom, roomPositions]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
@@ -91,14 +137,17 @@ export function GameMap({ rooms, currentRoom }: GameMapProps) {
 
     // Find hovered room
     const room = rooms.find((r) => {
-      const roomX = r.position.x * (ROOM_SIZE + 20) + 100;
-      const roomY = r.position.y * (ROOM_SIZE + 20) + 100;
+      const position = roomPositions.get(r.name);
+      if (!position) return false;
+
+      const roomX = position.x * (ROOM_SIZE + 20) + 400;
+      const roomY = position.y * (ROOM_SIZE + 20) + 300;
+
       return (
         x >= roomX &&
         x <= roomX + ROOM_SIZE &&
         y >= roomY &&
-        y <= roomY + ROOM_SIZE &&
-        r.visited
+        y <= roomY + ROOM_SIZE
       );
     });
 
@@ -129,8 +178,8 @@ export function GameMap({ rooms, currentRoom }: GameMapProps) {
                 <>
                   <h4 className="font-semibold text-sm mb-1">Items:</h4>
                   <ul className="list-disc pl-4 text-sm">
-                    {hoveredRoom.items.map((item) => (
-                      <li key={item.id}>{item.name}</li>
+                    {hoveredRoom.items.map((item, index) => (
+                      <li key={index}>{item.name}</li>
                     ))}
                   </ul>
                 </>
