@@ -11,16 +11,16 @@ NOTE: if the player doesn't have the item(s) required to perform the action, the
 NOTE: if the object of the action is not in the player inventory, the room, or environment, the action should be denied.
 NOTE: some items are implicitly owned by the player, such as body parts, unless those are damaged, stunned, or otherwise unusable.
 NOTE: if action is to disassemble or break apart an item that was previously constructed by the player, you should also attempt to create new item(s) with the same stats as the original items, but with the new state of the items.
-In that case you would need to add a ITEM_MODIFICATION effect to the action for each new item created.
+In that case you would need to add a creation effect to the action for each new item created.
 
 
 THINGS TO CONSIDER:
-  - a player's status effects (and any items' and enemies' status effects) when determining the effects of an action.
+  - a player's status effects (and any items' and enemies' status effects) can affect the outcome of an action.
   - what a player has done recently that may influence the outcome of an action.
-  - the player's stats and derived stats when determining the effects of an action.
+  - the player's ability scores and derived stats can affect the outcome of an action.
 
 
-HOW THE PLAYER's STATS AFFECT ACTIONS:
+HOW THE PLAYER's ABILITY SCORES AFFECT ACTIONS:
 Strength (STR)
 Description: Measures physical power, athletic prowess, and the ability to exert force.
 Uses: Melee attack rolls, damage with strength-based weapons, carrying capacity, and certain physical skills (e.g., Athletics).
@@ -67,7 +67,7 @@ For item modifications, you can:
 
 Any new items should be added to the room or player's inventory, depending on the context.
 
-If KNOWLEDGE_GAIN is an effect, be very descriptive and note any unusual or interesting details that weren't known before.
+If knowledge gain is an effect, be very descriptive and note any unusual or interesting details that weren't known before.
 
 NOTE: many actions may have multiple effects, and you should respond with a LIST of all effects. Eg. both a status effect and a knowledge gain. Or a status effect and a stat change.
 
@@ -77,6 +77,13 @@ Examples of good and bad messages:
 
 ${goodAndBadResponses}
 
+
+There are three "hidden" fields in the JSON object:
+- hiddenDetailedStats: a string describing all stats of the target
+- hiddenDetailedStatuses: a string describing all statuses of the target
+- hiddenDetailedAttributes: a string describing all attributes of the target
+
+It's critical that these three fields are updated whenever the stats, statuses, or attributes of the target change. This allows the item state to be "stored" for future item interactions. This is the primary way the LLM "remembers" the state of an item.
 
 Respond with a JSON object in this format, and action followed by a LIST of all effects:
 {

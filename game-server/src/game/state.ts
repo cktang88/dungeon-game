@@ -3,8 +3,7 @@ import {
   Room,
   AbilityScores,
   DerivedStats,
-  Position,
-  Floor,
+  Door,
 } from "../types/game";
 import { openai } from "../lib/openai";
 import generateRoomPrompt from "./generation/roomGen";
@@ -26,9 +25,6 @@ const calculateDerivedStats = (
     hitPoints: (10 + constitutionModifier) * level, // Base HP + CON modifier per level
     armorClass: 10 + dexterityModifier, // Base AC + DEX modifier
     initiative: dexterityModifier,
-    carryCapacity: abilityScores.strength * 15, // Each point of STR = 15 pounds
-    currentWeight: 0,
-    isEncumbered: false,
   };
 };
 
@@ -36,6 +32,9 @@ const createStartingRoom = (): Room => ({
   name: "Entrance Hall",
   description:
     "You wake up, finding yourself in a dimly lit entrance hall where cool air carries the scent of damp earth and aged stone. Ancient stone walls, cloaked in moss and faintly glowing runes, tower above them, while intermittently flickering torches cast dancing shadows that seem alive. The vaulted ceiling is supported by intricately carved stone pillars depicting forgotten deities and mythical creatures. Beneath their feet, a worn mosaic floor portrays a celestial map aligned with the night sky, with some tiles feeling cold and others slightly warm, hinting at hidden magical properties. Minimal torchlight creates pockets of brightness and deep, almost palpable shadows in the corners, lending an eerie ambiance. Faint echoes of dripping water and the soft scuttling of unseen creatures resonate from deeper within the dungeon, occasionally accompanied by a distant, hollow thud that makes it seem as if the dungeon itself is breathing.",
+  hiddenDetailedStats: "",
+  hiddenDetailedStatuses: "",
+  hiddenDetailedAttributes: "",
   items: [
     {
       name: "Everburning Torch",
@@ -103,63 +102,36 @@ export const initializeGameState = async (): Promise<GameState> => {
   };
 
   const derivedStats = calculateDerivedStats(abilityScores, 1, []);
-
-  const floor: Floor = {
-    name: "Entrance Hall",
-    theme: {
-      name: "dungeon",
-      environment: "dungeon",
-      floraFauna: "dungeon",
-      oddities: "dungeon",
-      monsters: [],
-      enemyTypes: [],
-      afflictions: [],
-    },
-    floorDepth: 1,
-  };
-
   const gameState: GameState = {
     player: {
-      id: `player-${Math.random().toString(36).substring(2, 9)}`,
-      name: "Adventurer",
+      name: "Liam",
       level: 1,
       experience: 0,
       inventory: [],
-      currentRoomId: "room-start",
-      previousRoomId: null, // Initialize with starting room
-      position: { x: 0, y: 0, floorDepth: 1 },
+      currentRoomName: "Entrance Hall",
       baseAbilityScores: abilityScores,
       currentAbilityScores: abilityScores,
       baseDerivedStats: derivedStats,
       currentDerivedStats: derivedStats,
-      equipment: {
-        weapon: undefined,
-        armor: undefined,
-        offhand: undefined,
-        accessory: undefined,
-      },
       statusEffects: [],
-      knowledge: [],
-      sessionId, // Add session ID
+      class: "Fighter",
+      roomsVisitedHistory: [],
+      description:
+        "Liam stands tall at 6 feet with a muscular build honed from years of rigorous training and countless battles. His sun-kissed skin bears numerous scars, each telling a story of survival and valor. His piercing emerald eyes reflect a mix of determination and weariness, hinting at the burdens he carries. Liam's dark, tousled hair is often kept short for practicality in combat, and a neatly trimmed beard frames his strong jawline.",
     },
-    currentFloor: floor,
-    rooms: [startingRoom],
+    rooms: {
+      "Entrance Hall": startingRoom,
+    },
     messageHistory: [
       "Welcome to the AI Dungeon! You find yourself in a mysterious entrance hall.",
       'Type "look" to examine your surroundings, or "help" for available commands.',
     ],
     sessionId, // Add session ID to game state
-    currentRoomId: "room-start",
+    currentRoomId: "Entrance Hall",
     previousRoomId: null,
   };
 
-  gameState.rooms.push(
-    await generateRoom("dungeon", gameState, {
-      x: 0,
-      y: 1,
-      floorDepth: 1,
-    })
-  );
+  gameState.rooms["room-1"] = await generateRoom("dungeon", gameState);
 
   console.log(gameState);
 
@@ -168,8 +140,7 @@ export const initializeGameState = async (): Promise<GameState> => {
 
 export const generateRoom = async (
   theme: string,
-  gameState: GameState,
-  position: Position
+  gameState: GameState
 ): Promise<Room> => {
   console.log("Generating room...");
   const prompt = generateRoomPrompt(theme, gameState);
@@ -185,32 +156,23 @@ export const generateRoom = async (
     const content = response.choices[0].message.content;
     if (!content) throw new Error("No response from LLM");
 
-    const roomData = JSON.parse(content);
+    const roomData = JSON.parse(content) as Room;
 
     // Process items
-    const items = (roomData.items || []).map((item: any) => ({
-      ...item,
-      id: `item-${Math.random().toString(36).substring(2, 9)}`,
-    }));
+    const items = roomData.items || [];
 
     // Process enemies
-    const enemies = (roomData.enemies || []).map((enemy: any) => ({
-      ...enemy,
-      id: `enemy-${Math.random().toString(36).substring(2, 9)}`,
-    }));
+    const enemies = roomData.enemies || [];
 
     // Process doors
-    const doors: Record<string, any> = {};
-    for (const [direction, door] of Object.entries(roomData.doors || {})) {
+    const doors: Record<string, Door> = {};
+    for (const [direction, door] of Object.entries(
+      roomData.connections || {}
+    )) {
       if (door) {
         doors[direction] = {
           ...door,
-          id: `door-${Math.random().toString(36).substring(2, 9)}`,
-          destinationRoomId: `room-${Math.random()
-            .toString(36)
-            .substring(2, 9)}`,
-          isOpen: false,
-          isLocked: false, // TODO: make some locked doors
+          destinationRoomName: door.destinationRoomName,
         };
       }
     }
@@ -220,7 +182,10 @@ export const generateRoom = async (
       description: roomData.description,
       items,
       enemies,
-      connections: roomData.connections,
+      connections: doors,
+      hiddenDetailedStats: roomData.hiddenDetailedStats,
+      hiddenDetailedStatuses: roomData.hiddenDetailedStatuses,
+      hiddenDetailedAttributes: roomData.hiddenDetailedAttributes,
     };
   } catch (error) {
     console.error("Error generating room:", error);
