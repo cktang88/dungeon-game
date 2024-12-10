@@ -38,52 +38,52 @@ const createStartingRoom = (): Room => ({
   hiddenDetailedAttributes: "regular attributes",
   items: [
     {
-      name: "Everburning Torch",
+      name: "Wooden Torch",
       description:
-        "A sturdy wooden torch imbued with a magical flame that never extinguishes. The flame burns with a vibrant blue light, casting bright illumination in dark surroundings and revealing hidden details in shadows.",
+        "A simple wooden torch that can be lit to provide light in dark areas. It's made from sturdy wood wrapped in cloth to sustain a flame.",
       hiddenDetailedStats:
-        "Provides bright light in a 30-foot radius and dim light for an additional 30 feet. The flame does not consume oxygen and cannot be extinguished by wind or rain. Grants a +1 bonus to Perception checks made in low-light conditions.",
+        "The wooden torch emits bright light in a 20-foot radius and dim light for an additional 20 feet. It burns for approximately 1 hour before needing to be relit. As an improvised weapon, it deals 1d4 bludgeoning damage on a successful hit. The torch's wood is treated with a natural resin, making it slightly more resistant to burning out in damp conditions, extending its effective burn time by an additional 15 minutes when in humid environments.",
       hiddenDetailedStatuses:
-        "While lit, the torch emits a faint magical aura that can reveal invisible or hidden creatures within its bright light radius. The perpetual flame ensures consistent illumination without the need for maintenance.",
+        "When lit, the torch illuminates the surrounding area but lacks any magical properties. It can be extinguished by strong winds or heavy rain, requiring the user to relight it if necessary. Due to the resin treatment, the torch is less likely to extinguish in light rain, providing a slight reliability advantage during inclement weather.",
       hiddenDetailedAttributes:
-        "Type: Wondrous Item\nRarity: Common\nRequires Attunement: No\nWeight: 1 lb.\nValue: 50 gold pieces\nAdditional Attributes: Can be used as a melee weapon dealing 1d4 fire damage on a successful hit.",
+        "Type: Tool (Torch)\nRarity: Common\nRequires Attunement: No\nWeight: 1 lb.\nValue: 5 gold pieces\nAdditional Attributes: The torch can be used to start fires, light up dark environments during nighttime adventures, or signal for help in emergencies. Its resin-treated wood leaves a faint, pleasant scent when burned, which can help mask other odors during stealth operations.",
     },
     {
-      name: "Shadowfang Dagger",
+      name: "Basic Dagger",
       description:
-        "A sleek, black-bladed dagger with intricate silver runes etched along its blade. The hilt is wrapped in dark leather, providing a firm grip, and the dagger seems to absorb surrounding light, making it blend into the shadows.",
+        "A plain steel dagger with a simple handle, suitable for combat and everyday tasks. It's lightweight and easy to carry.",
       hiddenDetailedStats:
-        "Deals 1d4 piercing damage plus 1d2 necrotic damage. Grants a +1 bonus to attack and damage rolls. When attacking from stealth, the dagger deals an additional 1d4 damage.",
+        "The dagger deals 1d4 piercing damage. It possesses the Finesse and Light properties, allowing it to be used effectively in both melee and ranged combat with a throwing range of 20 feet normally and up to 60 feet with disadvantage. The handle is slightly ergonomically shaped, granting a +1 bonus to grip-related checks such as climbing or grappling when held in one hand.",
       hiddenDetailedStatuses:
-        "The dagger grants the wielder advantage on Dexterity (Stealth) checks. It also bestows a shadowy aura that can momentarily obscure the wielder, providing a +2 bonus to AC against the first attack made each round.",
+        "The dagger does not have any magical properties or special effects. However, the ergonomically shaped handle provides a more secure grip, reducing the chance of slipping during combat or when performing tasks that require precision. It is reliable for both combat situations and utility purposes such as cutting ropes or preparing food.",
       hiddenDetailedAttributes:
-        "Type: Weapon (Dagger)\nRarity: Uncommon\nRequires Attunement: Yes\nWeight: 1 lb.\nValue: 150 gold pieces\nAdditional Attributes: Can be thrown with a range of 20/60 feet. Returns to the wielder's hand immediately after being thrown.",
+        "Type: Weapon (Dagger)\nRarity: Common\nRequires Attunement: No\nWeight: 1 lb.\nValue: 10 gold pieces\nAdditional Attributes: Being lightweight and easily concealable, the dagger is a versatile tool for adventurers, useful in a variety of scenarios both in and out of combat. The unique handle design allows for better balance, making it slightly easier to throw accurately compared to standard daggers.",
     },
     {
-      name: "Linen of Renewed Vitality",
+      name: "Healing Bandage",
       description:
-        "A simple yet finely woven cloth rag infused with healing magic. The fabric is soft to the touch and emanates a gentle warmth, capable of mending wounds and restoring vitality when applied to injuries.",
+        "A set of basic cloth bandages used to treat wounds and provide minor healing. They are easy to apply and carry.",
       hiddenDetailedStats:
-        "Can be used to cast the *Cure Wounds* spell once per short rest. When used, it restores 2d8 + the user's Wisdom modifier in hit points to a creature touched.",
+        "When applied, the healing bandage restores 1d4 hit points to the injured creature. It can also be used to stabilize a dying character, preventing death until further healing can be administered. The fabric is woven with a subtle, moisture-wicking thread, allowing the bandage to dry quickly and reducing the risk of infection by 10% compared to standard bandages.",
       hiddenDetailedStatuses:
-        "When used, the rag emits a soothing light that provides comfort, granting the target advantage on saving throws against being frightened or charmed for 10 minutes after healing.",
+        "The bandage has no magical properties. However, the moisture-wicking thread helps keep the wound dry, promoting faster healing and reducing the chances of infection. This makes the bandage more effective in damp or humid environments where standard bandages might retain moisture.",
       hiddenDetailedAttributes:
-        "Type: Consumable (Potion)\nRarity: Common\nRequires Attunement: No\nWeight: 0.5 lb.\nValue: 25 gold pieces\nAdditional Attributes: The rag regenerates after a long rest, allowing it to be used again without requiring additional resources.",
+        "Type: Consumable (Bandage)\nRarity: Common\nRequires Attunement: No\nWeight: 0.5 lb.\nValue: 5 gold pieces\nAdditional Attributes: Each bandage is single-use and must be replenished after a long rest. They can be used to stop bleeding, cover wounds to prevent infection, and provide basic first aid in the field. The moisture-wicking property makes these bandages particularly useful for adventurers traveling through wet or marshy areas.",
     },
   ],
   enemies: [],
   connections: {
     north: {
-      name: "Guardian's Oak Door",
+      name: "Wooden Door",
       destinationRoomName: "room-1",
       description:
-        "A massive wooden door carved from ancient oak, reinforced with iron bands and adorned with intricate runes depicting protective symbols. The door emanates a faint magical aura, hinting at its enchanted properties and the secrets it safeguards.",
+        "A simple wooden door made of plain oak, with no adornments or special features. It looks sturdy and functional.",
       hiddenDetailedStats:
-        "The door has an Armor Class (AC) of 18 and 100 hit points. It is resistant to bludgeoning, piercing, and slashing damage from non-magical weapons. The door cannot be broken down without a successful DC 15 Strength (Athletics) check or DC 15 Dexterity (Thieves' Tools) check to unlock. If the door is magically locked, it requires a specific key or a spell such as *Knock* to open.",
+        "The door has an Armor Class (AC) of 10 and 20 hit points. It is susceptible to damage and can be opened with a standard DC 10 Strength (Athletics) or Dexterity (Thieves' Tools) check if locked.",
       hiddenDetailedStatuses:
-        "When closed, the door provides complete separation between two areas, blocking sound and light. If enchanted with a teleportation spell, the door can serve as a portal to a predetermined location once activated by the correct key or password. Additionally, the door may be protected by spells that trigger alarms or summon guardians if tampered with without authorization.",
+        "When closed, the door separates two areas, allowing minimal passage of sound and light. It has no magical properties and does not provide any special protections.",
       hiddenDetailedAttributes:
-        "Type: Wondrous Item\nRarity: Rare\nRequires Attunement: No\nWeight: 100 lbs.\nValue: 500 gold pieces\nAdditional Attributes: Once per day, the door can be activated to teleport anyone passing through it to a linked location within 1 mile. The door can be locked with a magical key or a password known only to authorized individuals.",
+        "Type: Standard Door\nRarity: Common\nRequires Attunement: No\nWeight: 50 lbs.\nValue: 50 gold pieces\nAdditional Attributes: The door can be locked with a basic key or a simple locking mechanism.",
     },
   },
 });
@@ -118,7 +118,7 @@ export const initializeGameState = async (): Promise<GameState> => {
       class: "Fighter",
       roomsVisitedHistory: [],
       description:
-        "Liam stands tall at 6 feet with a muscular build honed from years of rigorous training and countless battles. His sun-kissed skin bears numerous scars, each telling a story of survival and valor. His piercing emerald eyes reflect a mix of determination and weariness, hinting at the burdens he carries. Liam's dark, tousled hair is often kept short for practicality in combat, and a neatly trimmed beard frames his strong jawline.",
+        "Your name is Liam. You stand tall at six feet, your muscular build honed from years of rigorous training and countless battles. Your sun-kissed skin bears numerous scars, each telling a story of survival and valor. Your piercing emerald eyes reflect a mix of determination and weariness, hinting at the burdens you carry. Your dark, tousled hair is often kept short for practicality in combat, and a neatly trimmed beard frames your strong jawline.",
       hiddenDetailedStats: "",
       hiddenDetailedStatuses: "",
       hiddenDetailedAttributes: "",
@@ -127,8 +127,7 @@ export const initializeGameState = async (): Promise<GameState> => {
       "Entrance Hall": startingRoom,
     },
     messageHistory: [
-      "Welcome to the AI Dungeon! You find yourself in a mysterious entrance hall.",
-      'Type "look" to examine your surroundings, or "help" for available commands.',
+      "Welcome to the AI Dungeon! Type any command to begin your adventure, for example 'count my blessings' or 'guess the age of the walls'.",
     ],
     sessionId, // Add session ID to game state
     currentRoomId: "Entrance Hall",
@@ -226,7 +225,7 @@ Consider:
 5. Any secondary effects that might occur as a result
 6. Any other changes to the world.
 
-Calculate JSON changes as accurate numerically and as surgically precise as possible.
+Make JSON changes as accurate numerically (eg. 5hp minus 2 dmg = 3hp) and modify only the fields that are affected by the effect.
 DO NOT remove or omit any existing fields from the game state.
 
 ONLY respond in the JSON format consistent with the provided game state. Do not say any additional text before or after the JSON.

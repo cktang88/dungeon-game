@@ -37,16 +37,26 @@ ${JSON.stringify(player)}
 Examples of monsters we can use as inspiration:
 ${JSON.stringify(getRandomItems(monsters, 5))}
 
-NOTE: when generating enemy's hidden stats, statuses, and attributes, focus on what distinguishes the enemy from other similar enemies, even if it's slight.
+NOTE: When generating a monster's details, focus on what distinguishes the monster from other similar creatures, even if it's slight. 
+Incorporate small bonuses, drawbacks, status effects, behavioral ticks, specific emotional state, or unique lore elements that make the monster stand out. 
+Be sure to mention about this specific monster:
+1. current emotional state
+2. current behavior, eg. is it pacing around, standing still, etc.
+3. current physical state, eg. is it bleeding, injured, etc.
+4. current mental state, eg. is it hallucinating, panicking, etc.
+5. probably has not noticed the player yet, since it's the first time the player has encountered this monster.
+
+Emphasize any unique behaviors, abilities, weaknesses, or mysterious traits that are specific to this particular monster. 
+IT IS VERY IMPORTANT to include small details that differentiate this monster from others of its type. For common monsters, these differences might be purely visual, behavioral, or based on minor abilities, without delving into high-level magical or legendary attributes.
 
 Generate an enemy with the following schema:
 {
   "enemy": {
     "name": "string - name of the enemy",
     "description": "string - description of the enemy",
-    "hiddenDetailedStats": "string - long, comma separated list of the dnd 5e stats and ability scores of the enemy",
-    "hiddenDetailedStatuses": "string - long, specific detailed description of the statuses of the enemy, including any conditions and status effects",
-    "hiddenDetailedAttributes": "string - long, specific detailed description of the attributes of the enemy, may include resistances, weaknesses, immunities, and languages, as well as size",
+    "hiddenDetailedStats": "string - long, comma separated list of statistics that include unique abilities, minor bonuses or penalties, special traits, or slight variations in standard stats that set this monster apart.",
+    "hiddenDetailedStatuses": "string - long, specific detailed description of specific conditions, behaviors, or status effects the monster can impose or is subject to, highlighting any unique interactions or tendencies.",
+    "hiddenDetailedAttributes": "string - long, specific detailed description that cover rarity, habitat preferences, lore snippets, unique weaknesses or resistances, and any other distinguishing features.",
   }
 }
 

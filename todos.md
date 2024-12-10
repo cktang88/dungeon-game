@@ -7,9 +7,7 @@
 
 ## technical
 
-- used prompt caching (is automatically done by openAI)
-  - should only pass in current room and prev room
-- use predicted outputs
+- uses predicted outputs and prompt caching already
 
 NOTE: challenging syncing 3 schemas:
 
@@ -21,7 +19,3 @@ NOTE: challenging syncing 3 schemas:
 
 - each generated item has a state, constantly updated, injected into prompt
 - each item has lots of hidden state that's not displayed, but lets LLM make consistent object descriptions/actions
-
-TODO:
-
-- use predicted outputs for applying effects

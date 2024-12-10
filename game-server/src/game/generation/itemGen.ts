@@ -76,6 +76,11 @@ export function generateItemPrompt(
     ${itemExamples}
     
     NOTE: when generating item's hidden stats, statuses, and attributes, focus on what distinguishes the item from other similar items, even if it's slight.
+    Mention if there is a small bonus, or a small drawback, or a small effect, or a small property, or a small requirement, or a small attribute, etc.
+    Mention if this item has a unique effect, requirement, property, or attribute, that isn't in other items of this type.
+    Mention any lore or mysterious attributes, specific to this particular item that aren't in other items of this type. This is usually in magical or higher rarity items.
+    IT IS VERY IMPORTANT TO MENTION ANY SMALL DETAILS THAT MAKE THIS ITEM UNIQUE AND DIFFERENT FROM OTHER ITEMS OF THIS TYPE.
+    For common items, sometimes there are just visual differences, or small effects, or small properties, or small requirements, or small attributes, but no lore or magical effects.
     Generate an item with the following schema:
 {
   "item": {
