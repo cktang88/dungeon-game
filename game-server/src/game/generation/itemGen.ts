@@ -68,9 +68,9 @@ export function generateItemPrompt(
   "item": {
     "name": "string - name of the item, e.g., 'Sword of Flames', 'Healing Potion'",
     "description": "string - long description of the item, detailing its appearance, effects, and lore",
-    "hiddenDetailedStats": "string - long, detailed description of the hidden stats of the item",
-    "hiddenDetailedStatuses": "string - long, detailed description of the hidden statuses of the item",
-    "hiddenDetailedAttributes": "string - long, detailed description of the hidden attributes of the item",
+    "hiddenDetailedStats": "string - long, comma separated list of the dnd 5e stats and ability scores of the item",
+    "hiddenDetailedStatuses": "string - long, specific detailed description of the statuses of the item",
+    "hiddenDetailedAttributes": "string - long, specific detailed description of the attributes of the item",
   }
 }
 
@@ -205,8 +205,6 @@ Examples of items that fit the schema:
   "value": 2000,
   "additionalAttributes": {}
 }
-
-
 `;
   return prompt;
 }

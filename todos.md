@@ -16,3 +16,8 @@ NOTE: challenging syncing 3 schemas:
 - backend TS types
 - frontend TS types
 - json schema pass to the LLM prompt
+
+### innovations (as compared to regular chatgpt)
+
+- each generated item has a state, constantly updated, injected into prompt
+- each item has lots of hidden state that's not displayed, but lets LLM make consistent object descriptions/actions

@@ -44,9 +44,9 @@ Generate an enemy with the following schema:
   "enemy": {
     "name": "string - name of the enemy",
     "description": "string - description of the enemy",
-    "hiddenDetailedStats": "string - long, detailed description of the hidden stats of the enemy",
-    "hiddenDetailedStatuses": "string - long, detailed description of the hidden statuses of the enemy",
-    "hiddenDetailedAttributes": "string - long, detailed description of the hidden attributes of the enemy",
+    "hiddenDetailedStats": "string - long, comma separated list of the dnd 5e stats and ability scores of the enemy",
+    "hiddenDetailedStatuses": "string - long, specific detailed description of the statuses of the enemy, including any conditions and status effects",
+    "hiddenDetailedAttributes": "string - long, specific detailed description of the attributes of the enemy, may include resistances, weaknesses, immunities, and languages, as well as size",
   }
 }
 

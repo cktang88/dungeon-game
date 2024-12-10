@@ -33,7 +33,6 @@ const calculateDerivedStats = (
 };
 
 const createStartingRoom = (): Room => ({
-  id: "room-start",
   name: "Entrance Hall",
   description:
     "You wake up, finding yourself in a dimly lit entrance hall where cool air carries the scent of damp earth and aged stone. Ancient stone walls, cloaked in moss and faintly glowing runes, tower above them, while intermittently flickering torches cast dancing shadows that seem alive. The vaulted ceiling is supported by intricately carved stone pillars depicting forgotten deities and mythical creatures. Beneath their feet, a worn mosaic floor portrays a celestial map aligned with the night sky, with some tiles feeling cold and others slightly warm, hinting at hidden magical properties. Minimal torchlight creates pockets of brightness and deep, almost palpable shadows in the corners, lending an eerie ambiance. Faint echoes of dripping water and the soft scuttling of unseen creatures resonate from deeper within the dungeon, occasionally accompanied by a distant, hollow thud that makes it seem as if the dungeon itself is breathing.",
@@ -73,20 +72,19 @@ const createStartingRoom = (): Room => ({
     },
   ],
   enemies: [],
-  doors: {
+  connections: {
     north: {
-      id: "door-1",
-      description: "A heavy wooden door with iron bindings.",
-      isLocked: false,
-      destinationRoomId: "room-1",
-      isOpen: false,
+      name: "Guardian's Oak Door",
+      destinationRoomName: "room-1",
+      description:
+        "A massive wooden door carved from ancient oak, reinforced with iron bands and adorned with intricate runes depicting protective symbols. The door emanates a faint magical aura, hinting at its enchanted properties and the secrets it safeguards.",
+      hiddenDetailedStats:
+        "The door has an Armor Class (AC) of 18 and 100 hit points. It is resistant to bludgeoning, piercing, and slashing damage from non-magical weapons. The door cannot be broken down without a successful DC 15 Strength (Athletics) check or DC 15 Dexterity (Thieves' Tools) check to unlock. If the door is magically locked, it requires a specific key or a spell such as *Knock* to open.",
+      hiddenDetailedStatuses:
+        "When closed, the door provides complete separation between two areas, blocking sound and light. If enchanted with a teleportation spell, the door can serve as a portal to a predetermined location once activated by the correct key or password. Additionally, the door may be protected by spells that trigger alarms or summon guardians if tampered with without authorization.",
+      hiddenDetailedAttributes:
+        "Type: Wondrous Item\nRarity: Rare\nRequires Attunement: No\nWeight: 100 lbs.\nValue: 500 gold pieces\nAdditional Attributes: Once per day, the door can be activated to teleport anyone passing through it to a linked location within 1 mile. The door can be locked with a magical key or a password known only to authorized individuals.",
     },
-  },
-  visited: true,
-  position: {
-    x: 0,
-    y: 0,
-    floorDepth: 1,
   },
 });
 
