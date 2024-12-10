@@ -10,33 +10,9 @@ import {
   DerivedStats,
   Knowledge,
 } from "../types/game";
-import { generateRoom, handleItemsMoved } from "./state";
+import { applyEffects, generateRoom, handleItemsMoved } from "./state";
 import { openai } from "../lib/openai";
 import { ACTION_PROMPT } from "./generation/actionGen";
-
-interface ActionEffect {
-  type: string;
-  description: string;
-  targetId?: string; // should be of form "enemy-<type>-<id>" or "item-<type>-<id>" or "room-<name>-<id>", etc.
-  statChange?: {
-    statAffectedName?: keyof AbilityScores | keyof DerivedStats;
-    magnitude?: number;
-  };
-  statusEffect?: StatusEffect;
-  itemModified?: Item;
-  itemsMoved?: {
-    itemId: string; // eg. 'item-<type>-<id>'
-    from: string; // "player", "enemy", "room", "environment"
-    fromSpecificId?: string; // eg. which enemy, which chest, what part of the room, etc.
-    to: string; // "player", "enemy", "room", "environment"
-    toSpecificId?: string; // eg. which enemy, which chest, what part of the room, etc.
-  };
-  conditions?: {
-    requires?: string[];
-    consumes?: string[];
-  };
-  knowledge?: Knowledge;
-}
 
 interface LLMResponse {
   action: {
@@ -44,7 +20,7 @@ interface LLMResponse {
     target?: string;
     using?: string[];
   };
-  effects: ActionEffect[];
+  effects: any[];
   message: string;
 }
 
@@ -315,7 +291,7 @@ export async function processAction(
   try {
     // Interpret the action using LLM
     console.log("\n--- Sending to LLM ---");
-    const interpretation = await interpretAction(action, newState);
+    const interpretation: LLMResponse = await interpretAction(action, newState);
     console.log("\n--- LLM Response ---");
     console.log(JSON.stringify(interpretation, null, 2));
 
@@ -332,19 +308,14 @@ export async function processAction(
 
     // Apply the determined effects
     console.log("\n--- Applying Effects ---");
-    const result = await applyEffects(newState, interpretation, Date.now());
-    newState = result.newState;
+    const result = await applyEffects(interpretation.effects, newState);
+    newState = result;
 
-    // Add response to message history
-    newState.messageHistory.push(result.message);
-
-    console.log("\n--- Final Result ---");
-    console.log("Message:", result.message);
     console.log("=== Action Processing Complete ===\n");
 
     return {
       newState,
-      message: result.message,
+      message: interpretation.message,
     };
   } catch (error) {
     console.error("\n!!! Error Processing Action !!!");

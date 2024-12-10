@@ -1,6 +1,6 @@
 ## dungeon master
 
-- mana bar and mana and health regen stats
+- only the current room should be passed into the LLM for identifying diffs based on action effects.
 
 - the dungeon master over time learns the kind of player you are and verbalizes appropriately or tiny references or inside jokes later
 - handle multiple action effects at once properly
@@ -21,3 +21,7 @@ NOTE: challenging syncing 3 schemas:
 
 - each generated item has a state, constantly updated, injected into prompt
 - each item has lots of hidden state that's not displayed, but lets LLM make consistent object descriptions/actions
+
+TODO:
+
+- use predicted outputs for applying effects

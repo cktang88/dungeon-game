@@ -199,18 +199,24 @@ export const generateRoom = async (
 };
 
 export const applyEffects = async (
-  effects: string[],
+  effects: any[],
   gameState: GameState
-): Promise<{ gameState: GameState; messages: string[] }> => {
+): Promise<GameState> => {
   console.log("Applying effects:", effects);
+  console.log("Message history before:", gameState.messageHistory);
 
   const prompt = `You are a game master for a text-based dungeon crawler RPG, and an expert JSON diff calculator and editor. Your role is to apply the following effects to the current game state and determine the outcome.
 
-Current game state: ${JSON.stringify(gameState)}
-
 Process effects sequentially, one at a time.
 Reason through intermediate state after each effect, step by step.
-Effects to apply: ${JSON.stringify(effects)}
+
+IMPORTANT: You must preserve all existing fields in the game state, including:
+- messageHistory (array of strings)
+- sessionId
+- rooms
+- currentRoomId
+- previousRoomId
+- all other existing fields
 
 Consider:
 1. How each effect modifies the player's stats, status effects, or inventory
@@ -221,59 +227,60 @@ Consider:
 6. Any other changes to the world.
 
 Calculate JSON changes as accurate numerically and as surgically precise as possible.
+DO NOT remove or omit any existing fields from the game state.
 
-Respond in this JSON format:
-{
-  "updatedGameState": GameState, // The full updated game state after applying all effects
-  "messages": string[], // Array of messages describing what happened
-  "explanation": string // A detailed explanation of what changes were made and why
-}
+Respond in the JSON format consistent with the provided game state.
 
 Be creative but consistent with the game's mechanics and theme. Consider how effects might interact with each other and the current state of the game.`;
 
+  const gameStateJson = JSON.stringify(gameState);
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-4o-2024-11-20",
-      messages: [{ role: "system", content: prompt }],
+      messages: [
+        { role: "system", content: prompt },
+        {
+          role: "user",
+          content: gameStateJson,
+        },
+        {
+          role: "user",
+          content: `${JSON.stringify(effects)}`,
+        },
+      ],
       temperature: 1, // deterministic
-      response_format: { type: "json_object" },
+      prediction: {
+        type: "content",
+        content: gameStateJson,
+      },
     });
 
     const content = response.choices[0].message.content;
     if (!content) throw new Error("No response from LLM");
 
-    const result = JSON.parse(content) as {
-      updatedGameState: GameState;
-      messages: string[];
-      explanation: string;
-    };
-
-    console.log(
-      "Effects applied, will check validity later:",
-      result.messages,
-      result.explanation
-    );
+    console.log(content);
+    // strip ```json and ```
+    let updatedGameState = JSON.parse(content.replace(/```json|```/g, ""));
 
     // Validate the updated game state
-    if (!result.updatedGameState.player || !result.updatedGameState.rooms) {
+    if (!updatedGameState.player || !updatedGameState.rooms) {
       throw new Error("Invalid game state returned from LLM");
     }
 
-    if (!isValidGameState(result.updatedGameState)) {
+    if (!isValidGameState(updatedGameState)) {
       throw new Error("Invalid game state returned from LLM");
     }
 
-    // Ensure we preserve the session ID and other critical fields
-    result.updatedGameState.sessionId = gameState.sessionId;
-    result.updatedGameState.messageHistory = [
-      ...gameState.messageHistory,
-      ...result.messages,
-    ];
-
-    return {
-      gameState: result.updatedGameState,
-      messages: result.messages,
+    // Ensure critical fields are preserved from original state
+    updatedGameState = {
+      ...updatedGameState,
+      sessionId: gameState.sessionId,
+      currentRoomId: updatedGameState.currentRoomId || gameState.currentRoomId,
+      previousRoomId:
+        updatedGameState.previousRoomId || gameState.previousRoomId,
     };
+
+    return updatedGameState;
   } catch (error) {
     console.error("Error applying effects:", error);
     throw error;

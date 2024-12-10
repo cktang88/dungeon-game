@@ -28,6 +28,9 @@ export default function GameLayout() {
       setSessionId(data.sessionId);
       queryClient.setQueryData(["gameState", data.sessionId], data.gameState);
       setMessageHistory((prev) => [...prev, ...data.gameState.messageHistory]);
+      hasStartedGame.current = true;
+      // set startGameMutation to null
+      startGameMutation.reset();
     },
     onError: (error) => {
       console.error("Failed to start game:", error);
@@ -36,16 +39,17 @@ export default function GameLayout() {
   });
 
   // Get game state
-  const { data: gameState, isLoading } = useQuery<GameState>({
-    queryKey: ["gameState", sessionId],
-    queryFn: () => {
-      if (!sessionId) throw new Error("No session ID");
-      return gameApi.getGameState(sessionId);
-    },
-    enabled: !!sessionId && !isProcessingAction,
-    refetchInterval: 10000,
-    retry: false,
-  });
+  const { data: gameState, isLoading: isLoadingGameState } =
+    useQuery<GameState>({
+      queryKey: ["gameState", sessionId],
+      queryFn: () => {
+        if (!sessionId) throw new Error("No session ID");
+        return gameApi.getGameState(sessionId);
+      },
+      enabled: !!sessionId && !isProcessingAction,
+      refetchInterval: 10000,
+      retry: false,
+    });
 
   // Send action mutation
   const sendActionMutation = useMutation<
@@ -90,7 +94,11 @@ export default function GameLayout() {
     sendActionMutation.mutate({ sessionId, action: message });
   };
 
-  if (startGameMutation.isPending) {
+  // Show loading state when starting a new game
+  if (
+    startGameMutation.isPending ||
+    (!sessionId && !startGameMutation.isError)
+  ) {
     return (
       <div className="h-screen flex items-center justify-center flex-col gap-4">
         <Loader2 className="h-8 w-8 animate-spin" />
@@ -99,6 +107,7 @@ export default function GameLayout() {
     );
   }
 
+  // Show error state if game start failed
   if (startGameMutation.isError) {
     return (
       <div className="h-screen flex items-center justify-center flex-col gap-4">
@@ -106,7 +115,10 @@ export default function GameLayout() {
           Failed to start game: {startGameMutation.error.message}
         </p>
         <button
-          onClick={() => startGameMutation.mutate()}
+          onClick={() => {
+            hasStartedGame.current = false;
+            startGameMutation.mutate();
+          }}
           className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
         >
           Retry
@@ -115,15 +127,36 @@ export default function GameLayout() {
     );
   }
 
-  if (isLoading || !gameState) {
+  // Show loading state when fetching game state after successful start
+  // if (isLoadingGameState && !gameState) {
+  //   return (
+  //     <div className="h-screen flex items-center justify-center flex-col gap-4">
+  //       <Loader2 className="h-8 w-8 animate-spin" />
+  //       <p className="text-lg">Loading game state...</p>
+  //     </div>
+  //   );
+  // }
+
+  // Show error if we have a session but no game state
+  if (sessionId && !gameState && !isLoadingGameState) {
     return (
       <div className="h-screen flex items-center justify-center flex-col gap-4">
-        <Loader2 className="h-8 w-8 animate-spin" />
-        <p className="text-lg">Loading game state...</p>
+        <p className="text-lg text-red-500">Failed to load game state</p>
+        <button
+          onClick={() => {
+            hasStartedGame.current = false;
+            setSessionId(null);
+            startGameMutation.mutate();
+          }}
+          className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+        >
+          Start New Game
+        </button>
       </div>
     );
   }
 
+  // Main game UI
   return (
     <div className="container mx-auto h-screen p-4 flex flex-col gap-4">
       <div className="grid grid-cols-[1fr_400px] gap-4 flex-1">
@@ -139,7 +172,7 @@ export default function GameLayout() {
             <TabsContent value="map" className="h-[calc(100%-40px)]">
               <GameMap
                 rooms={Object.values(gameState?.rooms || {})}
-                currentRoom={gameState?.player?.currentRoomName}
+                currentRoom={gameState?.player?.currentRoomName || ""}
               />
             </TabsContent>
           </Tabs>
