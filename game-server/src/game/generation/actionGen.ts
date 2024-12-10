@@ -63,9 +63,7 @@ Effects can include:
 Think step by step what will happen, and consider all the possible effects of an action.
 
 For item modifications, you can:
-- Change an item's description to reflect its new state
-- Mark items as unusable if they've been damaged/destroyed
-- Update item states (e.g., "lit" to "unlit" for a torch)
+- Update item descriptions, stats, statuses, and attributes (also update hidden stats, statuses, and attributes) as needed
 
 Any new items should be added to the room or player's inventory, depending on the context.
 

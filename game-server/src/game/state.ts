@@ -27,6 +27,8 @@ const calculateDerivedStats = (
     armorClass: 10 + dexterityModifier, // Base AC + DEX modifier
     initiative: dexterityModifier,
     carryCapacity: abilityScores.strength * 15, // Each point of STR = 15 pounds
+    currentWeight: 0,
+    isEncumbered: false,
   };
 };
 
@@ -37,67 +39,37 @@ const createStartingRoom = (): Room => ({
     "You wake up, finding yourself in a dimly lit entrance hall where cool air carries the scent of damp earth and aged stone. Ancient stone walls, cloaked in moss and faintly glowing runes, tower above them, while intermittently flickering torches cast dancing shadows that seem alive. The vaulted ceiling is supported by intricately carved stone pillars depicting forgotten deities and mythical creatures. Beneath their feet, a worn mosaic floor portrays a celestial map aligned with the night sky, with some tiles feeling cold and others slightly warm, hinting at hidden magical properties. Minimal torchlight creates pockets of brightness and deep, almost palpable shadows in the corners, lending an eerie ambiance. Faint echoes of dripping water and the soft scuttling of unseen creatures resonate from deeper within the dungeon, occasionally accompanied by a distant, hollow thud that makes it seem as if the dungeon itself is breathing.",
   items: [
     {
-      id: "item-quest-1",
-      name: "Rusty Torch",
+      name: "Everburning Torch",
       description:
-        "A well-worn torch that could be used for light, the handle is worn and the wick is frayed.",
-      type: "quest",
-      isUsable: true,
-      isConsumable: false,
-      isQuestItem: true,
-      stats: {},
-      weight: 1,
-      value: 5,
-      properties: ["Provides light in dark areas"],
-      rarity: "Common",
-      isUnique: false,
-      isMagic: false,
-      statusEffects: [],
-      additionalAttributes: {},
-      requirements: {},
+        "A sturdy wooden torch imbued with a magical flame that never extinguishes. The flame burns with a vibrant blue light, casting bright illumination in dark surroundings and revealing hidden details in shadows.",
+      hiddenDetailedStats:
+        "Provides bright light in a 30-foot radius and dim light for an additional 30 feet. The flame does not consume oxygen and cannot be extinguished by wind or rain. Grants a +1 bonus to Perception checks made in low-light conditions.",
+      hiddenDetailedStatuses:
+        "While lit, the torch emits a faint magical aura that can reveal invisible or hidden creatures within its bright light radius. The perpetual flame ensures consistent illumination without the need for maintenance.",
+      hiddenDetailedAttributes:
+        "Type: Wondrous Item\nRarity: Common\nRequires Attunement: No\nWeight: 1 lb.\nValue: 50 gold pieces\nAdditional Attributes: Can be used as a melee weapon dealing 1d4 fire damage on a successful hit.",
     },
     {
-      id: "item-weapon-1",
-      name: "Broken Pocket Knife",
+      name: "Linen of Renewed Vitality",
       description:
-        "A small, sharp pocket knife, its blade glints in the torchlight.",
-      type: "weapon",
-      isUsable: true,
-      isConsumable: false,
-      isQuestItem: false,
-      stats: {
-        damage: 1,
-      },
-      weight: 0.5,
-      value: 10,
-      properties: ["Lightweight and easily concealed"],
-      rarity: "Common",
-      isUnique: false,
-      isMagic: false,
-      statusEffects: [],
-      additionalAttributes: {},
-      requirements: {},
+        "A simple yet finely woven cloth rag infused with healing magic. The fabric is soft to the touch and emanates a gentle warmth, capable of mending wounds and restoring vitality when applied to injuries.",
+      hiddenDetailedStats:
+        "Can be used to cast the *Cure Wounds* spell once per short rest. When used, it restores 2d8 + the user's Wisdom modifier in hit points to a creature touched.",
+      hiddenDetailedStatuses:
+        "When used, the rag emits a soothing light that provides comfort, granting the target advantage on saving throws against being frightened or charmed for 10 minutes after healing.",
+      hiddenDetailedAttributes:
+        "Type: Consumable (Potion)\nRarity: Common\nRequires Attunement: No\nWeight: 0.5 lb.\nValue: 25 gold pieces\nAdditional Attributes: The rag regenerates after a long rest, allowing it to be used again without requiring additional resources.",
     },
     {
-      id: "item-consumable-1",
-      name: "Cloth Bandage",
-      description: "A small tan cloth bandage, slightly wet in a puddle.",
-      type: "consumable",
-      isUsable: true,
-      isConsumable: true,
-      isQuestItem: false,
-      stats: {
-        healing: 1,
-      },
-      weight: 0.1,
-      value: 2,
-      properties: ["Restores a small amount of health when used"],
-      rarity: "Common",
-      isUnique: false,
-      isMagic: false,
-      statusEffects: [],
-      additionalAttributes: {},
-      requirements: {},
+      name: "Linen of Renewed Vitality",
+      description:
+        "A simple yet finely woven cloth rag infused with healing magic. The fabric is soft to the touch and emanates a gentle warmth, capable of mending wounds and restoring vitality when applied to injuries.",
+      hiddenDetailedStats:
+        "Can be used to cast the *Cure Wounds* spell once per short rest. When used, it restores 2d8 + the user's Wisdom modifier in hit points to a creature touched.",
+      hiddenDetailedStatuses:
+        "When used, the rag emits a soothing light that provides comfort, granting the target advantage on saving throws against being frightened or charmed for 10 minutes after healing.",
+      hiddenDetailedAttributes:
+        "Type: Consumable (Potion)\nRarity: Common\nRequires Attunement: No\nWeight: 0.5 lb.\nValue: 25 gold pieces\nAdditional Attributes: The rag regenerates after a long rest, allowing it to be used again without requiring additional resources.",
     },
   ],
   enemies: [],
@@ -217,9 +189,6 @@ export const generateRoom = async (
 
     const roomData = JSON.parse(content);
 
-    // Generate unique IDs for the room and its contents
-    const roomId = `room-${Math.random().toString(36).substring(2, 9)}`;
-
     // Process items
     const items = (roomData.items || []).map((item: any) => ({
       ...item,
@@ -249,28 +218,14 @@ export const generateRoom = async (
     }
 
     return {
-      id: roomId,
       name: roomData.name,
       description: roomData.description,
       items,
       enemies,
-      doors,
-      visited: true,
-      position,
+      connections: roomData.connections,
     };
   } catch (error) {
     console.error("Error generating room:", error);
-    // Fallback to a basic room if generation fails
-    return {
-      id: `room-${Math.random().toString(36).substr(2, 9)}`,
-      name: "Mysterious Chamber",
-      description: "A plain stone chamber with ancient markings on the walls.",
-      items: [],
-      enemies: [],
-      doors: {},
-      visited: true,
-      position,
-    };
   }
 };
 

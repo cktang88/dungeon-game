@@ -32,7 +32,7 @@ Include in your response:
 
 Respond in this JSON format:
 {
-  "name": "string",
+  "name": "string", // this should be very descriptive, but is used as a unique ID so try to make it a unique descriptive phrase
   "description": "string",
   "items": [
     {
