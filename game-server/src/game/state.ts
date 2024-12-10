@@ -135,7 +135,10 @@ export const initializeGameState = async (): Promise<GameState> => {
   };
 
   const newRoom = await generateRoom("dungeon", gameState);
+  // connect room to first location
   gameState.rooms[newRoom.name] = newRoom;
+  gameState.rooms["Entrance Hall"].connections.north.destinationRoomName =
+    newRoom.name;
 
   console.log(gameState);
 

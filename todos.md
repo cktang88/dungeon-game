@@ -8,6 +8,7 @@
 ## technical
 
 - uses predicted outputs and prompt caching already
+- predicted outputs really show tho :(
 
 NOTE: challenging syncing 3 schemas:
 
@@ -25,3 +26,5 @@ NOTE: challenging syncing 3 schemas:
 - using 4o-mini (30x cheaper than 4o, ~10% worse only)
 - generating rooms lazily only when player enters a room
 - generates loot on enemies only when enemies killed
+
+NOTE: grok2 image gen is quite good, especially with detailed dungeon room text

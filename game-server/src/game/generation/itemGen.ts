@@ -2,7 +2,6 @@ import giantItems from "../../../data/items/giant_items.json";
 import smallItems from "../../../data/items/small_items.json";
 import goodItems from "../../../data/items/good_items.json";
 import weirdItems from "../../../data/items/weird_items.json";
-import { Player } from "../../types/game";
 import { getRandomItems } from "./utils";
 
 export type ITEM_TYPES = "giant" | "small" | "good" | "weird";

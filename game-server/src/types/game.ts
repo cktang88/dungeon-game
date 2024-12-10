@@ -5,6 +5,8 @@ export interface DescribedEntity {
   hiddenDetailedStats: string;
   hiddenDetailedStatuses: string;
   hiddenDetailedAttributes: string;
+  // this stores all updates to the item
+  updatedInfo: string[];
 }
 
 export interface Item extends DescribedEntity {}
