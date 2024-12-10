@@ -37,62 +37,16 @@ ${JSON.stringify(player)}
 Examples of monsters we can use as inspiration:
 ${JSON.stringify(getRandomItems(monsters, 10))}
 
+NOTE: when generating enemy's hidden stats, statuses, and attributes, focus on what distinguishes the enemy from other similar enemies, even if it's slight.
+
 Generate an enemy with the following schema:
 {
   "enemy": {
-    "id": "string - should be of form 'enemy-<type>-<id>'",
     "name": "string - name of the enemy",
     "description": "string - description of the enemy",
-    "level": "number - level of the enemy",
-    "isAlive": "boolean - whether the enemy is alive",
-    "isBoss": "boolean (optional) - whether the enemy is a boss",
-    "drops": "array of Item objects (optional) - items that the enemy can drop upon defeat",
-    "baseStats": {
-      "armorClass": "number - armor class of the enemy",
-      "hitPoints": "number - hit points of the enemy",
-      "speed": {
-        "walk": "number (optional) - walking speed of the enemy",
-        "fly": "number (optional) - flying speed of the enemy",
-        "swim": "number (optional) - swimming speed of the enemy"
-      },
-      "abilityScores": "AbilityScores object - ability scores of the enemy"
-    },
-    "currentStats": {
-      "armorClass": "number - current armor class (modified by status effects, game actions, etc.)",
-      "hitPoints": "number - current hit points (modified by damage, healing, etc.)",
-      "speed": {
-        "walk": "number (optional) - current walking speed",
-        "fly": "number (optional) - current flying speed",
-        "swim": "number (optional) - current swimming speed"
-      },
-      "abilityScores": "AbilityScores object - current ability scores (modified by status effects, game actions, etc.)"
-    },
-    "actions": [
-      {
-        "name": "string - name of the action",
-        "description": "string - description of the action",
-        "damage": {
-          "amount": "number - amount of damage dealt by the action",
-          "type": "string - type of damage (e.g., 'fire', 'ice', 'physical')"
-        }
-      }
-    ],
-    "legendaryActions": [
-      {
-        "name": "string - name of the legendary action",
-        "description": "string - description of the legendary action",
-        "damage": {
-          "amount": "number - amount of damage dealt by the legendary action",
-          "type": "string - type of damage (e.g., 'lightning', 'poison')"
-        }
-      }
-    ],
-    "resistances": "array of strings - damage types the enemy is resistant to",
-    "weaknesses": "array of strings - damage types the enemy is weak to",
-    "immunities": "array of strings - damage types the enemy is immune to",
-    "languages": "string - languages the enemy can understand or speak",
-    "cr": "number - challenge rating of the enemy",
-    "statusEffects": "array of StatusEffect objects (optional) - status effects currently affecting the enemy"
+    "hiddenDetailedStats": "string - long, detailed description of the hidden stats of the enemy",
+    "hiddenDetailedStatuses": "string - long, detailed description of the hidden statuses of the enemy",
+    "hiddenDetailedAttributes": "string - long, detailed description of the hidden attributes of the enemy",
   }
 }
 

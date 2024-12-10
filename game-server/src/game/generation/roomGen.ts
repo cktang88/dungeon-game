@@ -8,7 +8,7 @@ export default function generateRoomPrompt(
 ) {
   const itemType = Math.random() < 0.3 ? "good" : "weird";
 
-  return `You are a professional game master for a text-based dungeon crawler RPG. Generate a detailed dungeon room. The environment is themed: ${theme}.
+  return `You are a professional game master for a text-based dungeon crawler RPG. Your role is to generate a detailed dungeon room. The environment is themed: ${theme}.
 
 Generate a room that feels like a natural progression from the previous rooms, and fits the current theme.
 Monsters and items should be appropriate for the player's current level and past experiences.
@@ -44,13 +44,11 @@ Respond in this JSON format:
       // each of these is an Enemy object, Enemy format is below
     }
   ],
-  "doors": {
+  "connections": {
     "north": {
-      "id": "string",
+      "name": "string",
       "description": "string",
-      "isLocked": boolean,
-      "requiredKeyId": "string (optional)",
-      "destinationRoomId": "string"
+      "destinationRoomName": "string"
     },
     "south": {...},
     "east": {...},
@@ -59,10 +57,10 @@ Respond in this JSON format:
 }
 
 Item format:
-see ${generateItemPrompt(theme, itemType, gameState.player)}
+${generateItemPrompt(theme, itemType, gameState.player)}
 
 Enemy format:
-see ${generateMonsterPrompt(theme, gameState.player)}
+${generateMonsterPrompt(theme, gameState.player)}
 
-Make it atmospheric and interesting, with potential for player interaction.`;
+Make this room atmospheric and interesting, with potential for player interaction.`;
 }

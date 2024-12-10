@@ -60,7 +60,7 @@ Effects can include:
 - Effects on enemies (enemy health, giving enemy status effects, etc.)
 - Enemy reactions (think from enemy's point of view, based on their abilities, current stats, statuses, senses)
 
-Think step by step, and consider all the possible effects of an action.
+Think step by step what will happen, and consider all the possible effects of an action.
 
 For item modifications, you can:
 - Change an item's description to reflect its new state
@@ -89,89 +89,16 @@ Respond with a JSON object in this format, and action followed by a LIST of all 
   },
   "effects": [
     {
-      "type": "string (e.g. STAT_CHANGE, STATUS_EFFECT, ITEM_MODIFICATION, GAIN_ITEM, LOSE_ITEM, DESTROY_ITEM, MOVE_WITHIN_ROOM, MOVE_BETWEEN_ROOMS, KNOWLEDGE_GAIN, USE_ITEM, ATTACK, and more.)",
-      "description": "string explaining the effect",
-      "targetId": "string specifying what is affected",
-      "statChange": {
-        "statAffectedName": "optional string specifying what is affected",
-        "magnitude": "optional number for the size of the effect",
-      },
-        "statusEffect": {
-            "name": "string - short name of the status effect, e.g., 'poisoned', 'frightened', 'stunned', 'blinded', 'confused', 'ashamed', etc.",
-            "description": "string - description of the status effect",
-            "source": "string - who initiated the status effect, should be of form 'item-<type>-<id>' or 'enemy-<type>-<id>' or 'player-<id>', etc.",
-            "target": "string - identifier of the entity affected by the status effect",
-            "duration": "number (optional) - number of turns the status effect lasts",
-            "isActive": "boolean - whether the status effect is currently active",
-            "isPermanent": "boolean - whether the status effect is permanent",
-            "id": "string - unique identifier for the status effect, format 'status-effect-<id>'",
-            "startTurn": "number (optional) - the turn number when the status effect was applied",
-            "statsApplied": "boolean (optional) - whether the status effect has applied its stat modifiers",
-            "statModifiers": [
-            {
-                "strength": "number (optional) - modifier for strength",
-                "dexterity": "number (optional) - modifier for dexterity",
-                "constitution": "number (optional) - modifier for constitution",
-                "intelligence": "number (optional) - modifier for intelligence",
-                "wisdom": "number (optional) - modifier for wisdom",
-                "charisma": "number (optional) - modifier for charisma"
-            }
-            ],
-            "derivedStatsModifiers": [
-            {
-                "healthRegen": "number (optional) - modifier for health regeneration",
-                "manaRegen": "number (optional) - modifier for mana regeneration",
-                // Add other derived stats as needed
-            }
-            ],
-            "shouldRevert": "boolean (optional) - whether the status effect should revert the stat changes after it ends"
-        },
-      "itemModified": {
-        {
-          "id": "string - id of the item, eg. 'item-<type>-<id>'",
-          "name": "string - new altered name of the item",
-          "description": "string - new altered description of the item",
-          "type": "string - type of the item (e.g., 'weapon', 'armor', 'key', 'consumable', 'quest', 'misc', 'treasure', 'material')",
-          "state": "optional string - new altered state of the item (e.g., 'lit', 'unlit', 'broken')",
-          "isUsable": "optional boolean - whether the item can still be used",
-          "stats": {
-            "damage": "optional number - new altered damage of the item",
-            "defense": "optional number - new altered defense of the item",
-            "healing": "optional number - new altered healing of the item"
-          },
-          "statusEffects": [
-            {
-              "name": "string - name of the status effect",
-              "duration": "number - duration of the status effect",
-              "magnitude": "number - magnitude of the status effect"
-            }
-          ],
-        }
-      },
-      "itemsMoved": [
-        "itemId": "string - id of the item, eg. 'item-<type>-<id>'",
-        "from": "string - location of the item (e.g., 'player', 'enemy', 'room', 'environment')",
-        "fromSpecificId": "optional string - specific ID of enemy, chest, etc. eg. 'enemy-<type>-<id>' or 'item-<type>-<id>' or 'room-<name>-<id>', etc.",
-        "to": "string - location of the item (e.g., 'player', 'enemy', 'room', 'environment')",
-        "toSpecificId": "optional string -specific ID of enemy, chest, etc. eg. 'enemy-<type>-<id>' or 'item-<type>-<id>' or 'room-<name>-<id>', etc.",
-      ],
-      "conditions": {
-        "requires": ["optional array of required items/states"],
-        "consumes": ["optional array of items consumed"]
-      },
-      "knowledge": {
-        "id": "string - id of the knowledge",
-        "type": "string - type of the knowledge (e.g., 'fact', 'rumor', 'lore')",
-        "description": "string - description of the knowledge",
-        "timestamp": "number - timestamp of the knowledge",
-        "target": "string - what entity the knowledge is about, should be of form 'enemy-<type>-<id>' or 'item-<type>-<id>' or 'room-<name>-<id>', etc.",
-        "isFact": "boolean - whether the knowledge is a fact",
-        "isRumor": "boolean - whether the knowledge is a rumor",
-        "isLore": "boolean - whether the knowledge is a lore"
-      }
+        "name": "string - a short phrase describing the effect",
+        "description": "string - long description of the effect",
+        "targetName": "string - what is being affected",
+        "targetType": "string - type of the target",
+        "targetHiddenStats": "string - the updated hidden stats of the target",
+        "targetHiddenStatuses": "string - the updated hidden statuses of the target",
+        "targetHiddenAttributes": "string - the updated hidden attributes of the target",
     }
   ],
-  "message": "string describing what happens"
+  "message": "descriptive string describing what happens, summarizing all the effects"
 }`;
 
 var goodAndBadResponses = `Good DM Action Responses

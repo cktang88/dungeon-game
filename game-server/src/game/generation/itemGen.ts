@@ -62,43 +62,19 @@ export function generateItemPrompt(
     Examples of weird items:
     ${JSON.stringify(getRandomItems(weirdItems, 10))}
     
+    NOTE: when generating item's hidden stats, statuses, and attributes, focus on what distinguishes the item from other similar items, even if it's slight.
     Generate an item with the following schema:
 {
   "item": {
     "name": "string - name of the item, e.g., 'Sword of Flames', 'Healing Potion'",
-    "type": "string - type/category of the item, e.g., 'weapon', 'armor', 'potion', 'accessory'",
-    "rarity": "string - rarity level of the item, e.g., 'common', 'uncommon', 'rare', 'epic', 'legendary'",
-    "description": "string - a thorough description of the item, detailing its appearance, effects, and lore",
-    "properties": [
-      "string - list of special properties or abilities the item possesses, e.g., 'fire damage', 'healing', 'stealth enhancement'"
-    ],
-    "requirements": {
-      "attunement": "string - attunement requirement, e.g., 'requires attunement by a sorcerer'",
-      "class": "string - class requirement, e.g., 'available to warriors and rogues'",
-      "abilityScores": {
-        "strength": "number - minimum strength required to use the item",
-        "dexterity": "number - minimum dexterity required to use the item",
-        "constitution": "number - minimum constitution required to use the item",
-        "intelligence": "number - minimum intelligence required to use the item",
-        "wisdom": "number - minimum wisdom required to use the item",
-        "charisma": "number - minimum charisma required to use the item"
-      }
-    },
-    "weight": "string - weight of the item, e.g., '2 lbs', '5 kg'",
-    "value": "number - monetary value of the item in the game's currency, e.g., 150",
-    "additionalAttributes": {
-      "armorClass": "number - additional armor class provided by the item (if applicable)",
-      "damage": {
-        "amount": "string - base damage amount",
-        "type": "string - type of damage, e.g., 'slashing', 'fire', 'piercing'"
-      },
-      "spellLevels": "number - spell level associated with the item (if it's a spellcasting item)",
-      "charges": "number - number of charges the item holds (if it's a rechargeable item)"
-    }
+    "description": "string - long description of the item, detailing its appearance, effects, and lore",
+    "hiddenDetailedStats": "string - long, detailed description of the hidden stats of the item",
+    "hiddenDetailedStatuses": "string - long, detailed description of the hidden statuses of the item",
+    "hiddenDetailedAttributes": "string - long, detailed description of the hidden attributes of the item",
   }
 }
 
-
+The hidden detailed stats and statuses of the item may include such stats as the following. The purposes of this field is so that the LLM can "remember" the stats and statuses of the item when it is used in an action.
 Detailed Breakdown of Item Stats
 a. Name
 Purpose: Identifies the item uniquely.
