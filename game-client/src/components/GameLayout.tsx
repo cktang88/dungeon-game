@@ -9,10 +9,12 @@ import PlayerStats from "./PlayerStats";
 import ChatBox from "./ChatBox";
 import { GameMap } from "./GameMap";
 import { gameApi } from "@/lib/api";
+import { Loader2 } from "lucide-react";
 
 export default function GameLayout() {
   const queryClient = useQueryClient();
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [isProcessingAction, setIsProcessingAction] = useState(false);
   const [messageHistory, setMessageHistory] = useState<string[]>([
     "Welcome to the Dungeon! Type 'help' to see available commands.",
   ]);
@@ -39,9 +41,9 @@ export default function GameLayout() {
       if (!sessionId) throw new Error("No session ID");
       return gameApi.getGameState(sessionId);
     },
-    enabled: !!sessionId,
-    refetchInterval: 10000, // Poll every 10 seconds
-    retry: false, // Don't retry on failure
+    enabled: !!sessionId && !isProcessingAction,
+    refetchInterval: 10000,
+    retry: false,
   });
 
   // Send action mutation
@@ -52,16 +54,23 @@ export default function GameLayout() {
   >({
     mutationFn: ({ sessionId, action }) =>
       gameApi.sendAction(sessionId, action),
+    onMutate: () => {
+      setIsProcessingAction(true);
+    },
     onSuccess: (data) => {
       if (data.message) {
         setMessageHistory((prev) => [...prev, data.message!]);
       }
       if (data.gameState && sessionId) {
         queryClient.setQueryData(["gameState", sessionId], data.gameState);
+        setTimeout(() => {
+          setIsProcessingAction(false);
+        }, 1000);
       }
     },
     onError: (error) => {
       setMessageHistory((prev) => [...prev, `Error: ${error.message}`]);
+      setIsProcessingAction(false);
     },
   });
 
@@ -81,7 +90,8 @@ export default function GameLayout() {
 
   if (startGameMutation.isPending) {
     return (
-      <div className="h-screen flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center flex-col gap-4">
+        <Loader2 className="h-8 w-8 animate-spin" />
         <p className="text-lg">Starting new game...</p>
       </div>
     );
@@ -105,7 +115,8 @@ export default function GameLayout() {
 
   if (isLoading || !gameState) {
     return (
-      <div className="h-screen flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center flex-col gap-4">
+        <Loader2 className="h-8 w-8 animate-spin" />
         <p className="text-lg">Loading game state...</p>
       </div>
     );

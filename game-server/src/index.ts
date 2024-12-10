@@ -31,9 +31,9 @@ function isValidGameState(state: any): boolean {
   );
 }
 
-app.post("/api/game/start", (req, res) => {
+app.post("/api/game/start", async (req, res) => {
   const sessionId = Math.random().toString(36).substring(7);
-  const initialState = initializeGameState();
+  const initialState = await initializeGameState();
 
   if (!isValidGameState(initialState)) {
     console.error("Invalid initial game state generated");
@@ -45,7 +45,7 @@ app.post("/api/game/start", (req, res) => {
   console.log("New game started:", {
     sessionId,
     currentRoomId: initialState.player.currentRoomId,
-    rooms: Object.keys(initialState.rooms),
+    rooms: initialState.rooms,
   });
   res.json({ sessionId, gameState: initialState });
 });
@@ -99,7 +99,7 @@ app.get("/api/game/state/:sessionId", (req, res) => {
   console.log("Game state retrieved:", {
     sessionId,
     currentRoomId: state.player.currentRoomId,
-    rooms: Object.keys(state.rooms),
+    rooms: state.rooms,
   });
   res.json({ gameState: state });
 });

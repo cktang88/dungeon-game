@@ -248,6 +248,8 @@ export const takeItem = (gameState: GameState, itemId: string): GameState => {
   // Remove item from room
   const [takenItem] = currentRoom.items.splice(itemIndex, 1);
 
+  gameState.rooms[gameState.player.currentRoomId] = currentRoom;
+
   // Add item to player inventory
   return {
     ...gameState,
@@ -257,7 +259,6 @@ export const takeItem = (gameState: GameState, itemId: string): GameState => {
     },
     rooms: {
       ...gameState.rooms,
-      [currentRoom.id]: currentRoom,
     },
   };
 };
@@ -275,6 +276,8 @@ export const dropItem = (gameState: GameState, itemId: string): GameState => {
   // Remove item from inventory
   const [droppedItem] = gameState.player.inventory.splice(itemIndex, 1);
 
+  gameState.rooms[gameState.player.currentRoomId].items.push(droppedItem);
+
   // Add item to current room
   return {
     ...gameState,
@@ -284,10 +287,6 @@ export const dropItem = (gameState: GameState, itemId: string): GameState => {
     },
     rooms: {
       ...gameState.rooms,
-      [currentRoom.id]: {
-        ...currentRoom,
-        items: [...currentRoom.items, droppedItem],
-      },
     },
   };
 };

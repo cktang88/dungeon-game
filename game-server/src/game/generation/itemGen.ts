@@ -7,7 +7,7 @@ import { getRandomItems } from "./utils";
 
 export type ITEM_TYPES = "giant" | "small" | "good" | "weird";
 
-export function generateItem(
+export function generateItemPrompt(
   theme: string,
   itemType: ITEM_TYPES,
   player: Player
@@ -63,38 +63,41 @@ export function generateItem(
     ${JSON.stringify(getRandomItems(weirdItems, 10))}
     
     Generate an item with the following schema:
-    {
-  "name": "String",
-  "type": "String",
-  "rarity": "String",
-  "description": "String, fairly thorough description",
-  "properties": [
-    "String"
-  ],
-  "requirements": {
-    "attunement": "String",
-    "class": "String",
-    "abilityScores": {
-      "strength": "Number",
-      "dexterity": "Number",
-      "constitution": "Number",
-      "intelligence": "Number",
-      "wisdom": "Number",
-      "charisma": "Number"
-    }
-  },
-  "weight": "String",
-  "value": "Number",
-  "additionalAttributes": {
-    "armorClass": "Number",
-    "damage": {
-      "dice": "String",
-      "type": "String"
+{
+  "item": {
+    "name": "string - name of the item, e.g., 'Sword of Flames', 'Healing Potion'",
+    "type": "string - type/category of the item, e.g., 'weapon', 'armor', 'potion', 'accessory'",
+    "rarity": "string - rarity level of the item, e.g., 'common', 'uncommon', 'rare', 'epic', 'legendary'",
+    "description": "string - a thorough description of the item, detailing its appearance, effects, and lore",
+    "properties": [
+      "string - list of special properties or abilities the item possesses, e.g., 'fire damage', 'healing', 'stealth enhancement'"
+    ],
+    "requirements": {
+      "attunement": "string - attunement requirement, e.g., 'requires attunement by a sorcerer'",
+      "class": "string - class requirement, e.g., 'available to warriors and rogues'",
+      "abilityScores": {
+        "strength": "number - minimum strength required to use the item",
+        "dexterity": "number - minimum dexterity required to use the item",
+        "constitution": "number - minimum constitution required to use the item",
+        "intelligence": "number - minimum intelligence required to use the item",
+        "wisdom": "number - minimum wisdom required to use the item",
+        "charisma": "number - minimum charisma required to use the item"
+      }
     },
-    "spellLevels": "Number",
-    "charges": "Number"
+    "weight": "string - weight of the item, e.g., '2 lbs', '5 kg'",
+    "value": "number - monetary value of the item in the game's currency, e.g., 150",
+    "additionalAttributes": {
+      "armorClass": "number - additional armor class provided by the item (if applicable)",
+      "damage": {
+        "amount": "string - base damage amount",
+        "type": "string - type of damage, e.g., 'slashing', 'fire', 'piercing'"
+      },
+      "spellLevels": "number - spell level associated with the item (if it's a spellcasting item)",
+      "charges": "number - number of charges the item holds (if it's a rechargeable item)"
+    }
   }
 }
+
 
 Detailed Breakdown of Item Stats
 a. Name

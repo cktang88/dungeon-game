@@ -189,7 +189,7 @@ export interface Position {
 export interface GameState {
   player: Player;
   currentFloor: Floor;
-  rooms: Record<string, Room>;
+  rooms: Room[];
   messageHistory: string[];
   currentRoomId: string;
   previousRoomId: string | null;

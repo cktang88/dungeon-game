@@ -1,14 +1,18 @@
 import { GameState } from "../../types/game";
+import { generateItemPrompt } from "./itemGen";
+import { generateMonsterPrompt } from "./monsterGen";
 
 export default function generateRoomPrompt(
   theme: string,
   gameState: GameState
 ) {
-  return `You are  a humorous game master for a text-based dungeon crawler RPG. Generate a detailed dungeon room. The environment is themed: ${theme}.
+  const itemType = Math.random() < 0.3 ? "good" : "weird";
+
+  return `You are a professional game master for a text-based dungeon crawler RPG. Generate a detailed dungeon room. The environment is themed: ${theme}.
 
 Generate a room that feels like a natural progression from the previous rooms, and fits the current theme.
 Monsters and items should be appropriate for the player's current level and past experiences.
-However, at the same time, the room should feel unique, challenging, and memorable, and UNEXPECTED.
+However, at the same time, the room should feel unique, challenging, and MEMORABLE.
 
 Current game state: ${JSON.stringify(gameState)}.
 
@@ -32,24 +36,12 @@ Respond in this JSON format:
   "description": "string",
   "items": [
     {
-      "id": "string",
-      "name": "string",
-      "description": "string",
-      "type": "weapon" | "armor" | "key" | "consumable" | "quest"
+      // each of these is an Item object, Item format is below
     }
   ],
   "enemies": [
     {
-      "id": "string",
-      "name": "string",
-      "description": "string",
-      "health": number,
-      "maxHealth": number,
-      "level": number,
-      "damage": number,
-      "defense": number,
-      "isAlive": true,
-      "isBoss": boolean
+      // each of these is an Enemy object, Enemy format is below
     }
   ],
   "doors": {
@@ -65,6 +57,12 @@ Respond in this JSON format:
     "west": {...}
   }
 }
+
+Item format:
+see ${generateItemPrompt(theme, itemType, gameState.player)}
+
+Enemy format:
+see ${generateMonsterPrompt(theme, gameState.player)}
 
 Make it atmospheric and interesting, with potential for player interaction.`;
 }

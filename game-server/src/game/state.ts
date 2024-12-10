@@ -118,7 +118,7 @@ const createStartingRoom = (): Room => ({
   },
 });
 
-export const initializeGameState = (): GameState => {
+export const initializeGameState = async (): Promise<GameState> => {
   const startingRoom = createStartingRoom();
   const sessionId = `session_${Math.random().toString(36).substring(2, 9)}`;
 
@@ -148,7 +148,7 @@ export const initializeGameState = (): GameState => {
     floorDepth: 1,
   };
 
-  return {
+  const gameState: GameState = {
     player: {
       id: `player-${Math.random().toString(36).substring(2, 9)}`,
       name: "Adventurer",
@@ -173,9 +173,7 @@ export const initializeGameState = (): GameState => {
       sessionId, // Add session ID
     },
     currentFloor: floor,
-    rooms: {
-      "room-start": startingRoom,
-    },
+    rooms: [startingRoom],
     messageHistory: [
       "Welcome to the AI Dungeon! You find yourself in a mysterious entrance hall.",
       'Type "look" to examine your surroundings, or "help" for available commands.',
@@ -184,6 +182,18 @@ export const initializeGameState = (): GameState => {
     currentRoomId: "room-start",
     previousRoomId: null,
   };
+
+  gameState.rooms.push(
+    await generateRoom("dungeon", gameState, {
+      x: 0,
+      y: 1,
+      floorDepth: 1,
+    })
+  );
+
+  console.log(gameState);
+
+  return gameState;
 };
 
 export const generateRoom = async (
@@ -191,6 +201,7 @@ export const generateRoom = async (
   gameState: GameState,
   position: Position
 ): Promise<Room> => {
+  console.log("Generating room...");
   const prompt = generateRoomPrompt(theme, gameState);
 
   try {
@@ -212,13 +223,13 @@ export const generateRoom = async (
     // Process items
     const items = (roomData.items || []).map((item: any) => ({
       ...item,
-      id: `${item.type}_${Math.random().toString(36).substring(2, 9)}`,
+      id: `item-${Math.random().toString(36).substring(2, 9)}`,
     }));
 
     // Process enemies
     const enemies = (roomData.enemies || []).map((enemy: any) => ({
       ...enemy,
-      id: `enemy_${Math.random().toString(36).substring(2, 9)}`,
+      id: `enemy-${Math.random().toString(36).substring(2, 9)}`,
     }));
 
     // Process doors
@@ -227,11 +238,12 @@ export const generateRoom = async (
       if (door) {
         doors[direction] = {
           ...door,
-          id: `door_${Math.random().toString(36).substring(2, 9)}`,
+          id: `door-${Math.random().toString(36).substring(2, 9)}`,
           destinationRoomId: `room-${Math.random()
             .toString(36)
             .substring(2, 9)}`,
           isOpen: false,
+          isLocked: false, // TODO: make some locked doors
         };
       }
     }
