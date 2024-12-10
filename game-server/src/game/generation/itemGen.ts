@@ -7,11 +7,7 @@ import { getRandomItems } from "./utils";
 
 export type ITEM_TYPES = "giant" | "small" | "good" | "weird";
 
-export function generateItemPrompt(
-  theme: string,
-  itemType: ITEM_TYPES,
-  player: Player
-) {
+export function generateItemPrompt(theme: string, itemType: ITEM_TYPES) {
   let itemExamples = ``;
   if (itemType === "giant") {
     itemExamples = `
@@ -64,10 +60,6 @@ export function generateItemPrompt(
     
     Limit Attunement Slots:
     Be mindful of the maximum number of items that require attunement to prevent characters from becoming too powerful.
-
-
-  The player state is:
-  ${JSON.stringify(player)}
 
   The type of item we want to generate is: ${itemType}
 

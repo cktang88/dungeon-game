@@ -1,8 +1,7 @@
 import monsters from "../../../data/monsters/monsters.json";
-import { Player } from "../../types/game";
 import { getRandomItems } from "./utils";
 
-export const generateMonsterPrompt = (theme: string, player: Player) => {
+export const generateMonsterPrompt = (theme: string) => {
   const prompt = `Generate an enemy that is related to the theme of ${theme}. 
 
 You can take inspiration from the examples of enemies below to get a sense of the type of enemy you should generate, but you may generate a new enemy as well, or a variation of one of the below enemies.
@@ -30,9 +29,6 @@ Tips for Creating Balanced and Engaging Enemy Stats
     
   - **Include Weaknesses and Resistances:**
     Adding vulnerabilities or resistances can encourage diverse strategies and interactions.
-
-The player state is:
-${JSON.stringify(player)}
 
 Examples of monsters we can use as inspiration:
 ${JSON.stringify(getRandomItems(monsters, 5))}

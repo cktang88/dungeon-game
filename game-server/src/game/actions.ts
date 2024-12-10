@@ -347,7 +347,8 @@ Player action: "${action}"`;
   console.log("Prompt sent to LLM:", prompt);
 
   const response = await openai.chat.completions.create({
-    model: "gpt-4o-2024-11-20",
+    // model: "gpt-4o-2024-11-20",
+    model: "gpt-4o-mini",
     messages: [
       { role: "system", content: ACTION_PROMPT },
       { role: "user", content: prompt },

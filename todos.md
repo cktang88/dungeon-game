@@ -19,3 +19,9 @@ NOTE: challenging syncing 3 schemas:
 
 - each generated item has a state, constantly updated, injected into prompt
 - each item has lots of hidden state that's not displayed, but lets LLM make consistent object descriptions/actions
+
+### optimizations
+
+- using 4o-mini (30x cheaper than 4o, ~10% worse only)
+- generating rooms lazily only when player enters a room
+- generates loot on enemies only when enemies killed

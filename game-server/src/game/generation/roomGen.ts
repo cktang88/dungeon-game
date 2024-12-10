@@ -30,13 +30,23 @@ Include in your response:
 5. Any puzzles, mysterious signs, or interactive elements. Make these interesting and relevant to the theme. Take into account the puzzles, mysterious signs, or interactive elements of previous rooms.
 6. Available exits (0-4 doors/passages/tunnels in any direction)
 
+When generating a dungeon room's details, focus on what distinguishes the room from other similar rooms, even if it's slight. 
+Incorporate small features, environmental effects, interactive elements, properties, sounds, smells, or unique lore elements that make the room stand out from other rooms of its type. 
+Emphasize any unique environmental features, traps, hidden mechanisms, or thematic elements that are specific to this particular room.
+Describe any furniture, decorations, water, fire, fog, or artifacts on the ceiling, walls, floor, or other surfaces.
+IT IS VERY IMPORTANT to include small details that differentiate this room from others of its type. 
+For common rooms, these differences might be purely visual, environmental effects, or minor interactive elements, without delving into high-level magical or legendary attributes.
+
+
+Each room may have up to 4 doors/passages/tunnels that lead to other rooms (north, south, east, west). They might also have no exits other than the original room the player came from.
+
 Respond in this JSON format:
 {
   "name": "string", // this should be very descriptive, but is used as a unique ID so try to make it a unique descriptive phrase
   "description": "string",
-  "hiddenDetailedStats": "string - long, comma separated list of the dnd 5e stats and ability scores of the room",
-  "hiddenDetailedStatuses": "string - long, specific detailed description of the statuses of the room",
-  "hiddenDetailedAttributes": "string - long, specific detailed description of the attributes of the room",
+  "hiddenDetailedStats": "string - long, specific detailed statistics that encompass unique environmental features, minor advantages or disadvantages, special room traits, or subtle variations in standard room metrics that set this room apart from others. This may include specific dimensions, lighting conditions, temperature variations, or structural peculiarities that influence the room's interaction with adventurers.",
+  "hiddenDetailedStatuses": "string - long, specific detailed description of specific conditions, environmental effects, or status phenomena present within the room. This highlights unique interactions, tendencies, or ongoing effects that affect creatures or objects inside the room. Examples include ambient sounds, lingering smells, persistent fog, fluctuating temperatures, or recurring visual effects that create a distinct atmosphere.",
+  "hiddenDetailedAttributes": "string - long, specific detailed description of additional attributes that cover the room's rarity, preferred dungeon levels, lore snippets, unique charms or curses (if a high rarity room), and any other distinguishing features. This may include historical significance,architectural styles, presence of artifacts or decorations, and any thematic elements that contribute to the room's uniqueness within the dungeon.",
   "items": [
     {
       // each of these is an Item object, Item format is below
@@ -60,10 +70,10 @@ Respond in this JSON format:
 }
 
 Item format:
-${generateItemPrompt(theme, itemType, gameState.player)}
+${generateItemPrompt(theme, itemType)}
 
 Enemy format:
-${generateMonsterPrompt(theme, gameState.player)}
+${generateMonsterPrompt(theme)}
 
 Make this room atmospheric and interesting, with potential for player interaction.`;
 }

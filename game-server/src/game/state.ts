@@ -151,8 +151,15 @@ export const generateRoom = async (
 
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4o-2024-11-20",
-      messages: [{ role: "system", content: prompt }],
+      // model: "gpt-4o-2024-11-20",
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: prompt },
+        {
+          role: "user",
+          content: `Game state: ${JSON.stringify(gameState)}`,
+        },
+      ],
       temperature: 0.8,
       response_format: { type: "json_object" },
     });
@@ -241,7 +248,8 @@ Be creative but consistent with the game's mechanics and theme. Consider how eff
   const modifiedGameStateJson = JSON.stringify(modifiedGameState);
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4o-2024-11-20",
+      // model: "gpt-4o-2024-11-20",
+      model: "gpt-4o-mini",
       messages: [
         { role: "system", content: prompt },
         {
