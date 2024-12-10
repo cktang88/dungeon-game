@@ -7,6 +7,7 @@ import {
 } from "../types/game";
 import { openai } from "../lib/openai";
 import generateRoomPrompt from "./generation/roomGen";
+import { isValidGameState } from "..";
 
 // Calculate ability score modifier (D&D style)
 const getAbilityModifier = (score: number): number =>
@@ -148,7 +149,6 @@ export const generateRoom = async (
 ): Promise<Room> => {
   console.log("Generating room...");
   const prompt = generateRoomPrompt(theme, gameState);
-  console.log(prompt);
 
   try {
     const response = await openai.chat.completions.create({
@@ -194,6 +194,88 @@ export const generateRoom = async (
     };
   } catch (error) {
     console.error("Error generating room:", error);
+    throw error;
+  }
+};
+
+export const applyEffects = async (
+  effects: string[],
+  gameState: GameState
+): Promise<{ gameState: GameState; messages: string[] }> => {
+  console.log("Applying effects:", effects);
+
+  const prompt = `You are a game master for a text-based dungeon crawler RPG, and an expert JSON diff calculator and editor. Your role is to apply the following effects to the current game state and determine the outcome.
+
+Current game state: ${JSON.stringify(gameState)}
+
+Process effects sequentially, one at a time.
+Reason through intermediate state after each effect, step by step.
+Effects to apply: ${JSON.stringify(effects)}
+
+Consider:
+1. How each effect modifies the player's stats, status effects, or inventory
+2. How each effect modifies the current room's state, items, or enemies
+3. How each effect modifies the enemies in the room
+4. Any changes to hidden stats or attributes for any entities, trying to preserve as much information as possible.
+5. Any secondary effects that might occur as a result
+6. Any other changes to the world.
+
+Calculate JSON changes as accurate numerically and as surgically precise as possible.
+
+Respond in this JSON format:
+{
+  "updatedGameState": GameState, // The full updated game state after applying all effects
+  "messages": string[], // Array of messages describing what happened
+  "explanation": string // A detailed explanation of what changes were made and why
+}
+
+Be creative but consistent with the game's mechanics and theme. Consider how effects might interact with each other and the current state of the game.`;
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-2024-11-20",
+      messages: [{ role: "system", content: prompt }],
+      temperature: 1, // deterministic
+      response_format: { type: "json_object" },
+    });
+
+    const content = response.choices[0].message.content;
+    if (!content) throw new Error("No response from LLM");
+
+    const result = JSON.parse(content) as {
+      updatedGameState: GameState;
+      messages: string[];
+      explanation: string;
+    };
+
+    console.log(
+      "Effects applied, will check validity later:",
+      result.messages,
+      result.explanation
+    );
+
+    // Validate the updated game state
+    if (!result.updatedGameState.player || !result.updatedGameState.rooms) {
+      throw new Error("Invalid game state returned from LLM");
+    }
+
+    if (!isValidGameState(result.updatedGameState)) {
+      throw new Error("Invalid game state returned from LLM");
+    }
+
+    // Ensure we preserve the session ID and other critical fields
+    result.updatedGameState.sessionId = gameState.sessionId;
+    result.updatedGameState.messageHistory = [
+      ...gameState.messageHistory,
+      ...result.messages,
+    ];
+
+    return {
+      gameState: result.updatedGameState,
+      messages: result.messages,
+    };
+  } catch (error) {
+    console.error("Error applying effects:", error);
     throw error;
   }
 };

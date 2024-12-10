@@ -21,7 +21,7 @@ app.use(express.json());
 const gameStates: Record<string, GameState> = {};
 
 // Validate game state
-function isValidGameState(state: any): boolean {
+export function isValidGameState(state: any): boolean {
   return (
     state &&
     state.player &&
@@ -32,6 +32,7 @@ function isValidGameState(state: any): boolean {
 }
 
 app.post("/api/game/start", async (req, res) => {
+  console.log("START GAME CALLED");
   const sessionId = `session_${Math.random().toString(36).substring(2, 9)}`;
   const initialState = await initializeGameState();
 

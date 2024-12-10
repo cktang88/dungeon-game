@@ -335,14 +335,6 @@ export async function processAction(
     const result = await applyEffects(newState, interpretation, Date.now());
     newState = result.newState;
 
-    // Process enemy actions if any are present
-    if (newState.rooms[newState.player.currentRoomName].enemies.length > 0) {
-      console.log("\n--- Processing Enemy Actions ---");
-      const enemyActions = processEnemyActions(newState);
-      result.message += "\n" + enemyActions.message;
-      newState = enemyActions.newState;
-    }
-
     // Add response to message history
     newState.messageHistory.push(result.message);
 
@@ -423,16 +415,9 @@ function calculateDerivedStats(
   const dexMod = Math.floor((abilityScores.dexterity - 10) / 2);
   const strMod = Math.floor((abilityScores.strength - 10) / 2);
 
-  // Calculate max carry capacity and current weight
-  const maxCarryCapacity = abilityScores.strength * 15; // Each point of STR = 15 lbs capacity
-  const currentWeight = calculateInventoryWeight(inventory);
-
   return {
     hitPoints: (10 + conMod) * level, // Base HP + CON mod per level
     armorClass: 10 + dexMod, // Base AC + DEX mod
     initiative: dexMod, // Initiative is based on DEX mod
-    carryCapacity: maxCarryCapacity,
-    currentWeight: currentWeight,
-    isEncumbered: currentWeight > maxCarryCapacity,
   };
 }

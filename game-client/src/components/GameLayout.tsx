@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { GameResponse, StartGameResponse } from "@/types/client";
 import { GameState } from "@/types/game";
@@ -15,6 +15,7 @@ export default function GameLayout() {
   const queryClient = useQueryClient();
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [isProcessingAction, setIsProcessingAction] = useState(false);
+  const hasStartedGame = useRef(false);
   const [messageHistory, setMessageHistory] = useState<string[]>([
     "Welcome to the Dungeon! Type 'help' to see available commands.",
   ]);
@@ -76,8 +77,9 @@ export default function GameLayout() {
 
   useEffect(() => {
     // Start a new game immediately when component mounts
-    if (!sessionId && !startGameMutation.isPending) {
+    if (!sessionId && !startGameMutation.isPending && !hasStartedGame.current) {
       console.log("Starting new game...");
+      hasStartedGame.current = true;
       startGameMutation.mutate();
     }
   }, [sessionId]);
