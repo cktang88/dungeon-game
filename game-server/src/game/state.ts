@@ -1,73 +1,47 @@
-import {
-  GameState,
-  Room,
-  AbilityScores,
-  DerivedStats,
-  Door,
-} from "../types/game";
+import { GameState } from "../types/game";
 import { openai } from "../lib/openai";
 import generateRoomPrompt from "./generation/roomGen";
 import { isValidGameState } from "..";
-
-// Calculate ability score modifier (D&D style)
-const getAbilityModifier = (score: number): number =>
-  Math.floor((score - 10) / 2);
-
-// Calculate derived stats from ability scores
-const calculateDerivedStats = (
-  abilityScores: AbilityScores,
-  level: number,
-  inventory: any[]
-): DerivedStats => {
-  const constitutionModifier = getAbilityModifier(abilityScores.constitution);
-  const dexterityModifier = getAbilityModifier(abilityScores.dexterity);
-
-  return {
-    hitPoints: (10 + constitutionModifier) * level, // Base HP + CON modifier per level
-    armorClass: 10 + dexterityModifier, // Base AC + DEX modifier
-    initiative: dexterityModifier,
-  };
-};
 
 const createStartingRoom = (): Room => ({
   name: "Entrance Hall",
   description:
     "You wake up, finding yourself in a dimly lit entrance hall where cool air carries the scent of damp earth and aged stone. Ancient stone walls, cloaked in moss and faintly glowing runes, tower above them, while intermittently flickering torches cast dancing shadows that seem alive. The vaulted ceiling is supported by intricately carved stone pillars depicting forgotten deities and mythical creatures. Beneath their feet, a worn mosaic floor portrays a celestial map aligned with the night sky, with some tiles feeling cold and others slightly warm, hinting at hidden magical properties. Minimal torchlight creates pockets of brightness and deep, almost palpable shadows in the corners, lending an eerie ambiance. Faint echoes of dripping water and the soft scuttling of unseen creatures resonate from deeper within the dungeon, occasionally accompanied by a distant, hollow thud that makes it seem as if the dungeon itself is breathing.",
-  hiddenDetailedStats: "regular stats",
-  hiddenDetailedStatuses: "regular statuses",
-  hiddenDetailedAttributes: "regular attributes",
+  detailedStats: "regular stats",
+  detailedStatuses: "regular statuses",
+  detailedAttributes: "regular attributes",
   items: [
     {
       name: "Wooden Torch",
       description:
         "A simple wooden torch that can be lit to provide light in dark areas. It's made from sturdy wood wrapped in cloth to sustain a flame.",
-      hiddenDetailedStats:
+      detailedStats:
         "The wooden torch emits bright light in a 20-foot radius and dim light for an additional 20 feet. It burns for approximately 1 hour before needing to be relit. As an improvised weapon, it deals 1d4 bludgeoning damage on a successful hit. The torch's wood is treated with a natural resin, making it slightly more resistant to burning out in damp conditions, extending its effective burn time by an additional 15 minutes when in humid environments.",
-      hiddenDetailedStatuses:
+      detailedStatuses:
         "When lit, the torch illuminates the surrounding area but lacks any magical properties. It can be extinguished by strong winds or heavy rain, requiring the user to relight it if necessary. Due to the resin treatment, the torch is less likely to extinguish in light rain, providing a slight reliability advantage during inclement weather.",
-      hiddenDetailedAttributes:
+      detailedAttributes:
         "Type: Tool (Torch)\nRarity: Common\nRequires Attunement: No\nWeight: 1 lb.\nValue: 5 gold pieces\nAdditional Attributes: The torch can be used to start fires, light up dark environments during nighttime adventures, or signal for help in emergencies. Its resin-treated wood leaves a faint, pleasant scent when burned, which can help mask other odors during stealth operations.",
     },
     {
       name: "Basic Dagger",
       description:
         "A plain steel dagger with a simple handle, suitable for combat and everyday tasks. It's lightweight and easy to carry.",
-      hiddenDetailedStats:
+      detailedStats:
         "The dagger deals 1d4 piercing damage. It possesses the Finesse and Light properties, allowing it to be used effectively in both melee and ranged combat with a throwing range of 20 feet normally and up to 60 feet with disadvantage. The handle is slightly ergonomically shaped, granting a +1 bonus to grip-related checks such as climbing or grappling when held in one hand.",
-      hiddenDetailedStatuses:
+      detailedStatuses:
         "The dagger does not have any magical properties or special effects. However, the ergonomically shaped handle provides a more secure grip, reducing the chance of slipping during combat or when performing tasks that require precision. It is reliable for both combat situations and utility purposes such as cutting ropes or preparing food.",
-      hiddenDetailedAttributes:
+      detailedAttributes:
         "Type: Weapon (Dagger)\nRarity: Common\nRequires Attunement: No\nWeight: 1 lb.\nValue: 10 gold pieces\nAdditional Attributes: Being lightweight and easily concealable, the dagger is a versatile tool for adventurers, useful in a variety of scenarios both in and out of combat. The unique handle design allows for better balance, making it slightly easier to throw accurately compared to standard daggers.",
     },
     {
       name: "Healing Bandage",
       description:
         "A set of basic cloth bandages used to treat wounds and provide minor healing. They are easy to apply and carry.",
-      hiddenDetailedStats:
+      detailedStats:
         "When applied, the healing bandage restores 1d4 hit points to the injured creature. It can also be used to stabilize a dying character, preventing death until further healing can be administered. The fabric is woven with a subtle, moisture-wicking thread, allowing the bandage to dry quickly and reducing the risk of infection by 10% compared to standard bandages.",
-      hiddenDetailedStatuses:
+      detailedStatuses:
         "The bandage has no magical properties. However, the moisture-wicking thread helps keep the wound dry, promoting faster healing and reducing the chances of infection. This makes the bandage more effective in damp or humid environments where standard bandages might retain moisture.",
-      hiddenDetailedAttributes:
+      detailedAttributes:
         "Type: Consumable (Bandage)\nRarity: Common\nRequires Attunement: No\nWeight: 0.5 lb.\nValue: 5 gold pieces\nAdditional Attributes: Each bandage is single-use and must be replenished after a long rest. They can be used to stop bleeding, cover wounds to prevent infection, and provide basic first aid in the field. The moisture-wicking property makes these bandages particularly useful for adventurers traveling through wet or marshy areas.",
     },
   ],
@@ -78,11 +52,11 @@ const createStartingRoom = (): Room => ({
       destinationRoomName: "room-1",
       description:
         "A simple wooden door made of plain oak, with no adornments or special features. It looks sturdy and functional.",
-      hiddenDetailedStats:
+      detailedStats:
         "The door has an Armor Class (AC) of 10 and 20 hit points. It is susceptible to damage and can be opened with a standard DC 10 Strength (Athletics) or Dexterity (Thieves' Tools) check if locked.",
-      hiddenDetailedStatuses:
+      detailedStatuses:
         "When closed, the door separates two areas, allowing minimal passage of sound and light. It has no magical properties and does not provide any special protections.",
-      hiddenDetailedAttributes:
+      detailedAttributes:
         "Type: Standard Door\nRarity: Common\nRequires Attunement: No\nWeight: 50 lbs.\nValue: 50 gold pieces\nAdditional Attributes: The door can be locked with a basic key or a simple locking mechanism.",
     },
   },
@@ -119,9 +93,9 @@ export const initializeGameState = async (): Promise<GameState> => {
       roomsVisitedHistory: [],
       description:
         "Your name is Liam. You stand tall at six feet, your muscular build honed from years of rigorous training and countless battles. Your sun-kissed skin bears numerous scars, each telling a story of survival and valor. Your piercing emerald eyes reflect a mix of determination and weariness, hinting at the burdens you carry. Your dark, tousled hair is often kept short for practicality in combat, and a neatly trimmed beard frames your strong jawline.",
-      hiddenDetailedStats: "",
-      hiddenDetailedStatuses: "",
-      hiddenDetailedAttributes: "",
+      detailedStats: "",
+      detailedStatuses: "",
+      detailedAttributes: "",
     },
     rooms: {
       "Entrance Hall": startingRoom,
@@ -197,9 +171,9 @@ export const generateRoom = async (
       items,
       enemies,
       connections: doors,
-      hiddenDetailedStats: roomData.hiddenDetailedStats,
-      hiddenDetailedStatuses: roomData.hiddenDetailedStatuses,
-      hiddenDetailedAttributes: roomData.hiddenDetailedAttributes,
+      detailedStats: roomData.detailedStats,
+      detailedStatuses: roomData.detailedStatuses,
+      detailedAttributes: roomData.detailedAttributes,
     };
   } catch (error) {
     console.error("Error generating room:", error);

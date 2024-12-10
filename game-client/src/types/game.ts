@@ -2,9 +2,9 @@ export interface DescribedEntity {
   name: string;
   description: string;
   // these three hidden fields are used to store lots more information about the entity, so that the LLM can "remember" the stats and statuses of the entity over a long period of time
-  hiddenDetailedStats: string;
-  hiddenDetailedStatuses: string;
-  hiddenDetailedAttributes: string;
+  detailedStats: string;
+  detailedStatuses: string;
+  detailedAttributes: string;
 }
 
 export interface Item extends DescribedEntity {}

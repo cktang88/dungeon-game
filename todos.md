@@ -10,12 +10,6 @@
 - uses predicted outputs and prompt caching already
 - predicted outputs really show tho :(
 
-NOTE: challenging syncing 3 schemas:
-
-- backend TS types
-- frontend TS types
-- json schema pass to the LLM prompt
-
 ### innovations (as compared to regular chatgpt)
 
 - each generated item has a state, constantly updated, injected into prompt
@@ -28,3 +22,15 @@ NOTE: challenging syncing 3 schemas:
 - generates loot on enemies only when enemies killed
 
 NOTE: grok2 image gen is quite good, especially with detailed dungeon room text
+
+### NOTES:
+
+- even with just 4o (regular) in openAI playground online, consistency falls apart after a few rooms.
+
+  - You can throw dagger multiple times, rooms aren't the same, etc.
+
+- but o1-mini and 4o can record all actions and is pretty consistent w inventory (though shorter prompt) in openAI's public chatgpt
+- shorter system prompts work BETTER b/c takes up less of context
+
+- i did like the the humorous tone in the "main" branch, somehow not as humorous in the easy and super-easy branches...
+- also 4o is not humorous because it's not a "humorous game master" system prompt, i put that in the first user message.

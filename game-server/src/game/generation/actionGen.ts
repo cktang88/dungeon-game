@@ -90,9 +90,9 @@ ${goodAndBadResponses}
 
 
 There are three "hidden" fields in the JSON object:
-- hiddenDetailedStats: a string describing all stats of the target
-- hiddenDetailedStatuses: a string describing all statuses of the target
-- hiddenDetailedAttributes: a string describing all attributes of the target
+- detailedStats: a string describing all stats of the target
+- detailedStatuses: a string describing all statuses of the target
+- detailedAttributes: a string describing all attributes of the target
 
 It's critical that these three fields are updated whenever the stats, statuses, or attributes of the target change. This allows the item state to be "stored" for future item interactions. This is the primary way the LLM "remembers" the state of an item.
 
