@@ -46,14 +46,17 @@ Emphasize any unique behaviors, abilities, weaknesses, or mysterious traits that
 IT IS VERY IMPORTANT to include small details that differentiate this monster from others of its type. For common monsters, these differences might be purely visual, behavioral, or based on minor abilities, without delving into high-level magical or legendary attributes.
 
 Generate an enemy with the following schema:
+
 {
-  "enemy": {
     "name": "string - name of the enemy",
+    
     "description": "string - description of the enemy",
-    "hiddenDetailedStats": "string - long, comma separated list of statistics that include unique abilities, minor bonuses or penalties, special traits, or slight variations in standard stats that set this monster apart.",
-    "hiddenDetailedStatuses": "string - long, specific detailed description of specific conditions, behaviors, or status effects the monster can impose or is subject to, highlighting any unique interactions or tendencies.",
-    "hiddenDetailedAttributes": "string - long, specific detailed description that cover rarity, habitat preferences, lore snippets, unique weaknesses or resistances, and any other distinguishing features.",
-  }
+    
+    "hiddenDetailedStats": "A comprehensive string that includes specific and detailed statistics about the enemy. This encompasses unique physical characteristics, minor bonuses or disadvantages, special traits, or subtle variations in standard monster metrics that distinguish it from base creatures of the same type. Examples include strength, health, size, attack power, armor class, move speed, damage types, special abilities, resistances, vulnerabilities, and any other quantitative or measurable attributes that influence the enemy's interaction with adventurers. Focus on what's different about this current instance of the enemy, that DIFFERS from the base creature.",
+    
+    "hiddenDetailedStatuses": "A detailed string that provides a detailed description of the enemy's current conditions, environmental effects, or status phenomena. This highlights unique interactions, behavioral tendencies, or ongoing effects that the enemy may have on creatures or other objects within the area. Examples include elemental properties, enchantments, auras, magical effects, behavioral patterns, environmental adaptations, or any other status-related features that create a distinct presence for the enemy. Focus on what's different about this current instance of the enemy, that DIFFERS from the base creature.",
+    
+    "hiddenDetailedAttributes": "A detailed string that outlines additional attributes covering the enemy's materials, build quality, rarity, habitat preferences, lore snippets, unique weaknesses or resistances, and any other distinguishing features. This may include how formidable or ancient the enemy is, unique biological or magical traits, inscriptions or symbols, thematic elements, social structure, and any other characteristics that set it apart from other enemies of the same type. For higher rarity enemies, this can also encompass unique abilities, curses, blessings, or legendary backstories. Focus on what's different about this current instance of the enemy, that DIFFERS from the base creature."
 }
 
 
