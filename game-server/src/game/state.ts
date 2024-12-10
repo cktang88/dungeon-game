@@ -33,9 +33,9 @@ const createStartingRoom = (): Room => ({
   name: "Entrance Hall",
   description:
     "You wake up, finding yourself in a dimly lit entrance hall where cool air carries the scent of damp earth and aged stone. Ancient stone walls, cloaked in moss and faintly glowing runes, tower above them, while intermittently flickering torches cast dancing shadows that seem alive. The vaulted ceiling is supported by intricately carved stone pillars depicting forgotten deities and mythical creatures. Beneath their feet, a worn mosaic floor portrays a celestial map aligned with the night sky, with some tiles feeling cold and others slightly warm, hinting at hidden magical properties. Minimal torchlight creates pockets of brightness and deep, almost palpable shadows in the corners, lending an eerie ambiance. Faint echoes of dripping water and the soft scuttling of unseen creatures resonate from deeper within the dungeon, occasionally accompanied by a distant, hollow thud that makes it seem as if the dungeon itself is breathing.",
-  hiddenDetailedStats: "",
-  hiddenDetailedStatuses: "",
-  hiddenDetailedAttributes: "",
+  hiddenDetailedStats: "regular stats",
+  hiddenDetailedStatuses: "regular statuses",
+  hiddenDetailedAttributes: "regular attributes",
   items: [
     {
       name: "Everburning Torch",
@@ -229,11 +229,17 @@ Consider:
 Calculate JSON changes as accurate numerically and as surgically precise as possible.
 DO NOT remove or omit any existing fields from the game state.
 
-Respond in the JSON format consistent with the provided game state.
+ONLY respond in the JSON format consistent with the provided game state. Do not say any additional text before or after the JSON.
 
 Be creative but consistent with the game's mechanics and theme. Consider how effects might interact with each other and the current state of the game.`;
 
-  const gameStateJson = JSON.stringify(gameState);
+  const modifiedGameState = { ...gameState };
+  // remove all rooms from modifiedGameState except for the current room
+  // we do this for performance and accuracy reasons
+  modifiedGameState.rooms = {
+    [gameState.currentRoomId]: gameState.rooms[gameState.currentRoomId],
+  };
+  const modifiedGameStateJson = JSON.stringify(modifiedGameState);
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-4o-2024-11-20",
@@ -241,7 +247,7 @@ Be creative but consistent with the game's mechanics and theme. Consider how eff
         { role: "system", content: prompt },
         {
           role: "user",
-          content: gameStateJson,
+          content: modifiedGameStateJson,
         },
         {
           role: "user",
@@ -251,7 +257,7 @@ Be creative but consistent with the game's mechanics and theme. Consider how eff
       temperature: 1, // deterministic
       prediction: {
         type: "content",
-        content: gameStateJson,
+        content: modifiedGameStateJson,
       },
     });
 
@@ -261,6 +267,12 @@ Be creative but consistent with the game's mechanics and theme. Consider how eff
     console.log(content);
     // strip ```json and ```
     let updatedGameState = JSON.parse(content.replace(/```json|```/g, ""));
+
+    // add back all rooms
+    updatedGameState.rooms = {
+      ...gameState.rooms,
+      ...updatedGameState.rooms,
+    };
 
     // Validate the updated game state
     if (!updatedGameState.player || !updatedGameState.rooms) {
