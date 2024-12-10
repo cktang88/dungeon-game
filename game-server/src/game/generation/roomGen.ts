@@ -34,6 +34,9 @@ Respond in this JSON format:
 {
   "name": "string", // this should be very descriptive, but is used as a unique ID so try to make it a unique descriptive phrase
   "description": "string",
+  "hiddenDetailedStats": "string - long, comma separated list of the dnd 5e stats and ability scores of the room",
+  "hiddenDetailedStatuses": "string - long, specific detailed description of the statuses of the room",
+  "hiddenDetailedAttributes": "string - long, specific detailed description of the attributes of the room",
   "items": [
     {
       // each of these is an Item object, Item format is below

@@ -12,6 +12,29 @@ export function generateItemPrompt(
   itemType: ITEM_TYPES,
   player: Player
 ) {
+  let itemExamples = ``;
+  if (itemType === "giant") {
+    itemExamples = `
+    Examples of giant items:
+    ${JSON.stringify(getRandomItems(giantItems, 10))}
+  `;
+  } else if (itemType === "small") {
+    itemExamples = `
+    Examples of small items:
+    ${JSON.stringify(getRandomItems(smallItems, 10))}
+  `;
+  } else if (itemType === "good") {
+    itemExamples = `
+    Examples of good items:
+    ${JSON.stringify(getRandomItems(goodItems, 10))}
+  `;
+  } else if (itemType === "weird") {
+    itemExamples = `
+    Examples of weird items:
+    ${JSON.stringify(getRandomItems(weirdItems, 10))}
+  `;
+  }
+
   const prompt = `Generate an item that is related to the theme of ${theme}. 
   
   You can take inspiration from the examples of items below to get a sense of the type of item you should generate, but you may generate a new item as well, or a variation of one of the below items.
@@ -50,17 +73,7 @@ export function generateItemPrompt(
 
   Examples of items we can use as inspiration:
 
-    Examples of giant items:
-    ${JSON.stringify(getRandomItems(giantItems, 10))}
-
-    Examples of small items:
-    ${JSON.stringify(getRandomItems(smallItems, 10))}
-    
-    Examples of good items:
-    ${JSON.stringify(getRandomItems(goodItems, 10))}
-    
-    Examples of weird items:
-    ${JSON.stringify(getRandomItems(weirdItems, 10))}
+    ${itemExamples}
     
     NOTE: when generating item's hidden stats, statuses, and attributes, focus on what distinguishes the item from other similar items, even if it's slight.
     Generate an item with the following schema:

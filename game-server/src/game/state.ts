@@ -48,15 +48,15 @@ const createStartingRoom = (): Room => ({
         "Type: Wondrous Item\nRarity: Common\nRequires Attunement: No\nWeight: 1 lb.\nValue: 50 gold pieces\nAdditional Attributes: Can be used as a melee weapon dealing 1d4 fire damage on a successful hit.",
     },
     {
-      name: "Linen of Renewed Vitality",
+      name: "Shadowfang Dagger",
       description:
-        "A simple yet finely woven cloth rag infused with healing magic. The fabric is soft to the touch and emanates a gentle warmth, capable of mending wounds and restoring vitality when applied to injuries.",
+        "A sleek, black-bladed dagger with intricate silver runes etched along its blade. The hilt is wrapped in dark leather, providing a firm grip, and the dagger seems to absorb surrounding light, making it blend into the shadows.",
       hiddenDetailedStats:
-        "Can be used to cast the *Cure Wounds* spell once per short rest. When used, it restores 2d8 + the user's Wisdom modifier in hit points to a creature touched.",
+        "Deals 1d4 piercing damage plus 1d2 necrotic damage. Grants a +1 bonus to attack and damage rolls. When attacking from stealth, the dagger deals an additional 1d4 damage.",
       hiddenDetailedStatuses:
-        "When used, the rag emits a soothing light that provides comfort, granting the target advantage on saving throws against being frightened or charmed for 10 minutes after healing.",
+        "The dagger grants the wielder advantage on Dexterity (Stealth) checks. It also bestows a shadowy aura that can momentarily obscure the wielder, providing a +2 bonus to AC against the first attack made each round.",
       hiddenDetailedAttributes:
-        "Type: Consumable (Potion)\nRarity: Common\nRequires Attunement: No\nWeight: 0.5 lb.\nValue: 25 gold pieces\nAdditional Attributes: The rag regenerates after a long rest, allowing it to be used again without requiring additional resources.",
+        "Type: Weapon (Dagger)\nRarity: Uncommon\nRequires Attunement: Yes\nWeight: 1 lb.\nValue: 150 gold pieces\nAdditional Attributes: Can be thrown with a range of 20/60 feet. Returns to the wielder's hand immediately after being thrown.",
     },
     {
       name: "Linen of Renewed Vitality",
@@ -118,6 +118,9 @@ export const initializeGameState = async (): Promise<GameState> => {
       roomsVisitedHistory: [],
       description:
         "Liam stands tall at 6 feet with a muscular build honed from years of rigorous training and countless battles. His sun-kissed skin bears numerous scars, each telling a story of survival and valor. His piercing emerald eyes reflect a mix of determination and weariness, hinting at the burdens he carries. Liam's dark, tousled hair is often kept short for practicality in combat, and a neatly trimmed beard frames his strong jawline.",
+      hiddenDetailedStats: "",
+      hiddenDetailedStatuses: "",
+      hiddenDetailedAttributes: "",
     },
     rooms: {
       "Entrance Hall": startingRoom,
@@ -131,7 +134,8 @@ export const initializeGameState = async (): Promise<GameState> => {
     previousRoomId: null,
   };
 
-  gameState.rooms["room-1"] = await generateRoom("dungeon", gameState);
+  const newRoom = await generateRoom("dungeon", gameState);
+  gameState.rooms[newRoom.name] = newRoom;
 
   console.log(gameState);
 
@@ -144,6 +148,7 @@ export const generateRoom = async (
 ): Promise<Room> => {
   console.log("Generating room...");
   const prompt = generateRoomPrompt(theme, gameState);
+  console.log(prompt);
 
   try {
     const response = await openai.chat.completions.create({
@@ -189,5 +194,6 @@ export const generateRoom = async (
     };
   } catch (error) {
     console.error("Error generating room:", error);
+    throw error;
   }
 };

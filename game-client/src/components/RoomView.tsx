@@ -47,9 +47,7 @@ export default function RoomView({ gameState }: RoomViewProps) {
     );
   }
 
-  const currentRoom = gameState.rooms.find(
-    (room) => room.name === gameState.player.currentRoomName
-  );
+  const currentRoom = gameState.rooms[gameState.player.currentRoomName];
 
   if (!currentRoom) {
     return (

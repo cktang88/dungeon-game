@@ -2,9 +2,9 @@ export interface DescribedEntity {
   name: string;
   description: string;
   // these three hidden fields are used to store lots more information about the entity, so that the LLM can "remember" the stats and statuses of the entity over a long period of time
-  hiddenDetailedStats?: string;
-  hiddenDetailedStatuses?: string;
-  hiddenDetailedAttributes?: string;
+  hiddenDetailedStats: string;
+  hiddenDetailedStatuses: string;
+  hiddenDetailedAttributes: string;
 }
 
 export interface Item extends DescribedEntity {}
@@ -68,7 +68,7 @@ export interface Player extends DescribedEntity {
 
 export interface GameState {
   player: Player;
-  rooms: Room[];
+  rooms: Record<string, Room>; // name -> room
   messageHistory: string[];
   currentRoomId: string;
   previousRoomId: string | null;

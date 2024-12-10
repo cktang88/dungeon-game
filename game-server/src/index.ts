@@ -32,7 +32,7 @@ function isValidGameState(state: any): boolean {
 }
 
 app.post("/api/game/start", async (req, res) => {
-  const sessionId = Math.random().toString(36).substring(7);
+  const sessionId = `session_${Math.random().toString(36).substring(2, 9)}`;
   const initialState = await initializeGameState();
 
   if (!isValidGameState(initialState)) {
