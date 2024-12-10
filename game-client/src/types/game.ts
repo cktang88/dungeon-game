@@ -41,7 +41,7 @@ export interface Item {
       [key in keyof AbilityScores]?: number;
     };
   };
-  weight: string;
+  weight: number;
   value: number;
   properties?: string[];
   rarity?: string;

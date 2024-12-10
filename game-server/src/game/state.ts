@@ -46,7 +46,7 @@ const createStartingRoom = (): Room => ({
       isConsumable: false,
       isQuestItem: true,
       stats: {},
-      weight: "1 lb.",
+      weight: 1,
       value: 5,
       properties: ["Provides light in dark areas"],
       rarity: "Common",
@@ -68,7 +68,7 @@ const createStartingRoom = (): Room => ({
       stats: {
         damage: 1,
       },
-      weight: "0.5 lb.",
+      weight: 0.5,
       value: 10,
       properties: ["Lightweight and easily concealed"],
       rarity: "Common",
@@ -89,7 +89,7 @@ const createStartingRoom = (): Room => ({
       stats: {
         healing: 1,
       },
-      weight: "0.1 lb.",
+      weight: 0.1,
       value: 2,
       properties: ["Restores a small amount of health when used"],
       rarity: "Common",

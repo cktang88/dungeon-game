@@ -41,7 +41,7 @@ export interface Item {
       [key in keyof AbilityScores]?: number;
     };
   };
-  weight: string;
+  weight: number; // in pounds
   value: number;
   properties?: string[];
   rarity?: string;
@@ -134,7 +134,7 @@ export interface DerivedStats {
   armorClass: number; // Based on dexterity and armor
   initiative: number; // Based on dexterity
   carryCapacity: number; // Based on strength
-  currentWeight: number; // Current weight of all carried items
+  currentWeight: number; // Current weight of all carried items, in pounds
   isEncumbered: boolean; // Whether the player is carrying too much weight
 }
 

@@ -1,12 +1,14 @@
 import { GameState, Enemy, Item } from "@/types/game";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { ItemPopover } from "./ItemPopover";
+import { PopoverContent } from "./ui/popover";
 
 interface RoomViewProps {
   gameState?: GameState;
@@ -16,82 +18,6 @@ interface RoomViewProps {
 const formatModifier = (modifier: number): string => {
   return modifier >= 0 ? `+${modifier}` : `${modifier}`;
 };
-
-function ItemPopover({ item }: { item: Item }) {
-  return (
-    <PopoverContent className="w-80">
-      <div className="space-y-2">
-        <div className="flex items-center justify-between">
-          <h4 className="font-medium">{item.name}</h4>
-          <Badge variant="outline" className="capitalize">
-            {item.type}
-          </Badge>
-        </div>
-        <p className="text-sm text-muted-foreground">{item.description}</p>
-
-        {/* Stats */}
-        {item.stats && (
-          <div className="space-y-1">
-            {item.stats.damage && (
-              <div className="flex justify-between text-sm">
-                <span>Damage</span>
-                <Badge variant="destructive">+{item.stats.damage}</Badge>
-              </div>
-            )}
-            {item.stats.defense && (
-              <div className="flex justify-between text-sm">
-                <span>Defense</span>
-                <Badge variant="secondary">+{item.stats.defense}</Badge>
-              </div>
-            )}
-            {item.stats.healing && (
-              <div className="flex justify-between text-sm">
-                <span>Healing</span>
-                <Badge variant="default">+{item.stats.healing}</Badge>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Properties */}
-        {item.properties && item.properties.length > 0 && (
-          <div className="flex flex-wrap gap-1">
-            {item.properties.map((prop, i) => (
-              <Badge key={i} variant="outline" className="text-xs">
-                {prop}
-              </Badge>
-            ))}
-          </div>
-        )}
-
-        {/* Additional Info */}
-        <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
-          {item.weight && <div>Weight: {item.weight}</div>}
-          {item.value && <div>Value: {item.value} gold</div>}
-          {item.rarity && <div>Rarity: {item.rarity}</div>}
-        </div>
-
-        {/* Status Effects */}
-        {item.statusEffects && item.statusEffects.length > 0 && (
-          <div className="space-y-1">
-            <div className="text-sm font-medium">Status Effects:</div>
-            <div className="flex flex-wrap gap-1">
-              {item.statusEffects.map((effect, i) => (
-                <Badge
-                  key={i}
-                  variant={effect.magnitude > 0 ? "default" : "destructive"}
-                  className="text-xs"
-                >
-                  {effect.name} ({effect.duration})
-                </Badge>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </PopoverContent>
-  );
-}
 
 function EnemyPopover({ enemy }: { enemy: Enemy }) {
   return (
@@ -247,17 +173,19 @@ export default function RoomView({ gameState }: RoomViewProps) {
             <h3 className="font-semibold mb-2">Items:</h3>
             <div className="flex flex-wrap gap-2">
               {currentRoom.items.map((item) => (
-                <Popover key={item.id}>
-                  <PopoverTrigger asChild>
+                <HoverCard key={item.id} openDelay={200} closeDelay={200}>
+                  <HoverCardTrigger>
                     <Badge
                       variant="outline"
                       className="text-base py-1.5 px-4 cursor-pointer hover:bg-accent"
                     >
                       {item.name}
                     </Badge>
-                  </PopoverTrigger>
-                  <ItemPopover item={item} />
-                </Popover>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80">
+                    <ItemPopover item={item} />
+                  </HoverCardContent>
+                </HoverCard>
               ))}
             </div>
           </div>
@@ -269,8 +197,8 @@ export default function RoomView({ gameState }: RoomViewProps) {
             <h3 className="font-semibold mb-2">Enemies:</h3>
             <div className="space-y-2">
               {currentRoom.enemies.map((enemy) => (
-                <Popover key={enemy.id}>
-                  <PopoverTrigger asChild>
+                <HoverCard key={enemy.id} openDelay={200} closeDelay={200}>
+                  <HoverCardTrigger asChild>
                     <div className="flex items-center justify-between p-2 border rounded cursor-pointer hover:bg-accent">
                       <div className="space-y-1">
                         <p className="font-medium">{enemy.name}</p>
@@ -311,9 +239,11 @@ export default function RoomView({ gameState }: RoomViewProps) {
                         </Badge>
                       </div>
                     </div>
-                  </PopoverTrigger>
-                  <EnemyPopover enemy={enemy} />
-                </Popover>
+                  </HoverCardTrigger>
+                  <HoverCardContent>
+                    <EnemyPopover enemy={enemy} />
+                  </HoverCardContent>
+                </HoverCard>
               ))}
             </div>
           </div>
