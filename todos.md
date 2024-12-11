@@ -31,6 +31,7 @@ NOTE: grok2 image gen is quite good, especially with detailed dungeon room text
 
 - but o1-mini and 4o can record all actions and is pretty consistent w inventory (though shorter prompt) in openAI's public chatgpt
 - shorter system prompts work BETTER b/c takes up less of context
+- however it lets you do anything you want like combining dumb items to make a magical superweapon
 
 - i did like the the humorous tone in the "main" branch, somehow not as humorous in the easy and super-easy branches...
 - also 4o is not humorous because it's not a "humorous game master" system prompt, i put that in the first user message.
