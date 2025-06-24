@@ -1,4 +1,10 @@
-## LLM text-based dungeon crawler
+# LLM text-based dungeon crawler
+
+## TODOS (June 2025)
+- use BAML
+- update to use latest models, maybe reasoning models?
+
+## Description
 
 Generally room by room, you can do any action to any object.
 
