@@ -8,7 +8,6 @@ import express from "express";
 import cors from "cors";
 import { initializeGameState } from "./game/state";
 import { processAction } from "./game/actions";
-import { openai } from "./lib/openai";
 import { GameState } from "./types/game";
 
 const app = express();

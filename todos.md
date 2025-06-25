@@ -17,7 +17,7 @@
 
 ### optimizations
 
-- using 4o-mini (30x cheaper than 4o, ~10% worse only)
+- using gemini-2.5-flash (fast and cost-effective)
 - generating rooms lazily only when player enters a room
 - generates loot on enemies only when enemies killed
 

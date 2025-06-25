@@ -1,18 +1,8 @@
-import {
-  GameState,
-  Item,
-  Enemy,
-  Room,
-  Player,
-  StatusEffect,
-  Equipment,
-  AbilityScores,
-  DerivedStats,
-  Knowledge,
-} from "../types/game";
-import { applyEffects, generateRoom, handleItemsMoved } from "./state";
-import { openai } from "../lib/openai";
+import { GameState, Player, Item, Enemy, StatusEffect, AbilityScores, DerivedStats } from "../types/game";
+import { applyEffects, generateRoom } from "./state";
+import { generateContent, generateStructuredContent } from "../lib/gemini";
 import { ACTION_PROMPT } from "./generation/actionGen";
+import { actionResponseSchema } from "../lib/schemas";
 
 interface LLMResponse {
   action: {
@@ -24,158 +14,158 @@ interface LLMResponse {
   message: string;
 }
 
-const EFFECT_DURATIONS = {
-  TEMPORARY: 3,
-  SHORT: 5,
-  MEDIUM: 10,
-  LONG: 20,
-};
+// const EFFECT_DURATIONS = {
+//   TEMPORARY: 3,
+//   SHORT: 5,
+//   MEDIUM: 10,
+//   LONG: 20,
+// };
 
-function processStatusEffects(state: GameState, turnNumber: number): GameState {
-  const newState = { ...state };
+// function processStatusEffects(state: GameState, turnNumber: number): GameState {
+//   const newState = { ...state };
 
-  // Process player status effects
-  if (newState.player.statusEffects) {
-    const activeEffects: StatusEffect[] = [];
-    const expiredEffects: StatusEffect[] = [];
+//   // Process player status effects
+//   if (newState.player.statusEffects) {
+//     const activeEffects: StatusEffect[] = [];
+//     const expiredEffects: StatusEffect[] = [];
 
-    newState.player.statusEffects.forEach((effect) => {
-      if (!effect.isActive) return;
+//     newState.player.statusEffects.forEach((effect) => {
+//       if (!effect.isActive) return;
 
-      // Check if effect has expired
-      if (!effect.isPermanent && effect.duration !== undefined) {
-        if (!effect.startTurn) {
-          effect.startTurn = turnNumber;
-        }
+//       // Check if effect has expired
+//       if (!effect.isPermanent && effect.duration !== undefined) {
+//         if (!effect.startTurn) {
+//           effect.startTurn = turnNumber;
+//         }
 
-        const elapsedTurns = turnNumber - effect.startTurn;
-        if (elapsedTurns >= effect.duration) {
-          expiredEffects.push(effect);
-          return;
-        }
-      }
+//         const elapsedTurns = turnNumber - effect.startTurn;
+//         if (elapsedTurns >= effect.duration) {
+//           expiredEffects.push(effect);
+//           return;
+//         }
+//       }
 
-      activeEffects.push(effect);
+//       activeEffects.push(effect);
 
-      // Apply stat modifications if not already applied
-      if (!effect.statsApplied) {
-        // Apply ability score modifiers
-        if (effect.statModifiers) {
-          effect.statModifiers.forEach((modifiers) => {
-            Object.entries(modifiers).forEach(([stat, value]) => {
-              const abilityScoreStat = stat as keyof AbilityScores;
-              newState.player.currentAbilityScores[abilityScoreStat] += value;
-            });
-          });
-        }
+//       // Apply stat modifications if not already applied
+//       if (!effect.statsApplied) {
+//         // Apply ability score modifiers
+//         if (effect.statModifiers) {
+//           effect.statModifiers.forEach((modifiers) => {
+//             Object.entries(modifiers).forEach(([stat, value]) => {
+//               const abilityScoreStat = stat as keyof AbilityScores;
+//               newState.player.currentAbilityScores[abilityScoreStat] += value;
+//             });
+//           });
+//         }
 
-        // Apply derived stat modifiers
-        if (effect.derivedStatsModifiers) {
-          effect.derivedStatsModifiers.forEach((modifiers) => {
-            Object.entries(modifiers).forEach(([stat, value]) => {
-              const derivedStat = stat as keyof DerivedStats;
-              newState.player.currentDerivedStats[derivedStat] += value;
-            });
-          });
-        }
+//         // Apply derived stat modifiers
+//         if (effect.derivedStatsModifiers) {
+//           effect.derivedStatsModifiers.forEach((modifiers) => {
+//             Object.entries(modifiers).forEach(([stat, value]) => {
+//               const derivedStat = stat as keyof DerivedStats;
+//               newState.player.currentDerivedStats[derivedStat] += value;
+//             });
+//           });
+//         }
 
-        effect.statsApplied = true;
-      }
-    });
+//         effect.statsApplied = true;
+//       }
+//     });
 
-    // Handle expired effects
-    expiredEffects.forEach((effect) => {
-      if (effect.startTurn && effect.shouldRevert) {
-        const turnsActive = turnNumber - effect.startTurn;
+//     // Handle expired effects
+//     expiredEffects.forEach((effect) => {
+//       if (effect.startTurn && effect.shouldRevert) {
+//         const turnsActive = turnNumber - effect.startTurn;
 
-        // Revert ability score modifiers
-        if (effect.statModifiers) {
-          effect.statModifiers.forEach((modifiers) => {
-            Object.entries(modifiers).forEach(([stat, value]) => {
-              const abilityScoreStat = stat as keyof AbilityScores;
-              const totalChange = value * turnsActive;
-              newState.player.currentAbilityScores[abilityScoreStat] -=
-                totalChange;
-            });
-          });
-        }
+//         // Revert ability score modifiers
+//         if (effect.statModifiers) {
+//           effect.statModifiers.forEach((modifiers) => {
+//             Object.entries(modifiers).forEach(([stat, value]) => {
+//               const abilityScoreStat = stat as keyof AbilityScores;
+//               const totalChange = value * turnsActive;
+//               newState.player.currentAbilityScores[abilityScoreStat] -=
+//                 totalChange;
+//             });
+//           });
+//         }
 
-        // Revert derived stat modifiers
-        if (effect.derivedStatsModifiers) {
-          effect.derivedStatsModifiers.forEach((modifiers) => {
-            Object.entries(modifiers).forEach(([stat, value]) => {
-              const derivedStat = stat as keyof DerivedStats;
-              const totalChange = value * turnsActive;
-              newState.player.currentDerivedStats[derivedStat] -= totalChange;
-            });
-          });
-        }
-      }
-    });
+//         // Revert derived stat modifiers
+//         if (effect.derivedStatsModifiers) {
+//           effect.derivedStatsModifiers.forEach((modifiers) => {
+//             Object.entries(modifiers).forEach(([stat, value]) => {
+//               const derivedStat = stat as keyof DerivedStats;
+//               const totalChange = value * turnsActive;
+//               newState.player.currentDerivedStats[derivedStat] -= totalChange;
+//             });
+//           });
+//         }
+//       }
+//     });
 
-    // Update status effects list
-    newState.player.statusEffects = activeEffects;
-  }
+//     // Update status effects list
+//     newState.player.statusEffects = activeEffects;
+//   }
 
-  // Process enemy status effects
-  const currentRoom = newState.rooms[newState.player.currentRoomName];
-  if (currentRoom.enemies) {
-    currentRoom.enemies.forEach((enemy) => {
-      if (enemy.statusEffects) {
-        const activeEffects: StatusEffect[] = [];
+//   // Process enemy status effects
+//   const currentRoom = newState.rooms[newState.player.currentRoomName];
+//   if (currentRoom.enemies) {
+//     currentRoom.enemies.forEach((enemy) => {
+//       if (enemy.statusEffects) {
+//         const activeEffects: StatusEffect[] = [];
 
-        enemy.statusEffects.forEach((effect) => {
-          if (!effect.isActive) return;
+//         enemy.statusEffects.forEach((effect) => {
+//           if (!effect.isActive) return;
 
-          // Check if effect has expired
-          if (!effect.isPermanent && effect.duration !== undefined) {
-            if (!effect.startTurn) {
-              effect.startTurn = turnNumber;
-            }
+//           // Check if effect has expired
+//           if (!effect.isPermanent && effect.duration !== undefined) {
+//             if (!effect.startTurn) {
+//               effect.startTurn = turnNumber;
+//             }
 
-            const elapsedTurns = turnNumber - effect.startTurn;
-            if (elapsedTurns >= effect.duration) {
-              // Handle stat modifications reversion if needed
-              if (
-                effect.startTurn &&
-                effect.shouldRevert &&
-                effect.statModifiers
-              ) {
-                const turnsActive = turnNumber - effect.startTurn;
-                effect.statModifiers.forEach((modifiers) => {
-                  Object.entries(modifiers).forEach(([stat, value]) => {
-                    const abilityScoreStat = stat as keyof AbilityScores;
-                    const totalChange = value * turnsActive;
-                    enemy.currentStats.abilityScores[abilityScoreStat] -=
-                      totalChange;
-                  });
-                });
-              }
-              return;
-            }
-          }
+//             const elapsedTurns = turnNumber - effect.startTurn;
+//             if (elapsedTurns >= effect.duration) {
+//               // Handle stat modifications reversion if needed
+//               if (
+//                 effect.startTurn &&
+//                 effect.shouldRevert &&
+//                 effect.statModifiers
+//               ) {
+//                 const turnsActive = turnNumber - effect.startTurn;
+//                 effect.statModifiers.forEach((modifiers) => {
+//                   Object.entries(modifiers).forEach(([stat, value]) => {
+//                     const abilityScoreStat = stat as keyof AbilityScores;
+//                     const totalChange = value * turnsActive;
+//                     enemy.currentStats.abilityScores[abilityScoreStat] -=
+//                       totalChange;
+//                   });
+//                 });
+//               }
+//               return;
+//             }
+//           }
 
-          activeEffects.push(effect);
+//           activeEffects.push(effect);
 
-          // Apply stat modifications if not already applied
-          if (!effect.statsApplied && effect.statModifiers) {
-            effect.statModifiers.forEach((modifiers) => {
-              Object.entries(modifiers).forEach(([stat, value]) => {
-                const abilityScoreStat = stat as keyof AbilityScores;
-                enemy.currentStats.abilityScores[abilityScoreStat] += value;
-              });
-            });
-            effect.statsApplied = true;
-          }
-        });
+//           // Apply stat modifications if not already applied
+//           if (!effect.statsApplied && effect.statModifiers) {
+//             effect.statModifiers.forEach((modifiers) => {
+//               Object.entries(modifiers).forEach(([stat, value]) => {
+//                 const abilityScoreStat = stat as keyof AbilityScores;
+//                 enemy.currentStats.abilityScores[abilityScoreStat] += value;
+//               });
+//             });
+//             effect.statsApplied = true;
+//           }
+//         });
 
-        enemy.statusEffects = activeEffects;
-      }
-    });
-  }
+//         enemy.statusEffects = activeEffects;
+//       }
+//     });
+//   }
 
-  return newState;
-}
+//   return newState;
+// }
 
 // Helper function to find an item in either room or inventory
 function findItem(
@@ -335,49 +325,49 @@ async function interpretAction(
   action: string,
   state: GameState
 ): Promise<LLMResponse> {
-  const currentRoom = state.rooms[state.player.currentRoomName];
-
+  // For now, using simplified game state since full types are missing
   const prompt = `
 Current game state:
-Room: ${JSON.stringify(currentRoom)}
 Player: ${JSON.stringify(state.player)}
+Message History: ${JSON.stringify(state.messageHistory.slice(-5))}
 
 Player action: "${action}"`;
 
   console.log("Prompt sent to LLM:", prompt);
 
-  const response = await openai.chat.completions.create({
-    // model: "gpt-4o-2024-11-20",
-    model: "gpt-4o-mini",
-    messages: [
-      { role: "system", content: ACTION_PROMPT },
-      { role: "user", content: prompt },
-    ],
-    temperature: 0.7,
-    response_format: { type: "json_object" },
-  });
+  const fullPrompt = `${ACTION_PROMPT}
 
+${prompt}`;
+  
   try {
-    const content = response.choices[0].message.content;
-    if (!content) throw new Error("No response from LLM");
-
-    console.log("Raw LLM Response:", content);
-
-    const parsedResponse = JSON.parse(content) as LLMResponse;
-    return parsedResponse;
+    const response = await generateStructuredContent<LLMResponse>(
+      fullPrompt,
+      actionResponseSchema
+    );
+    
+    console.log("Structured LLM Response:", JSON.stringify(response, null, 2));
+    return response;
   } catch (error) {
-    console.error("Failed to parse LLM response:\n", error);
-    throw new Error("Failed to interpret action");
+    console.error("Failed to get structured response from LLM:\n", error);
+    // Fallback to unstructured generation
+    try {
+      const content = await generateContent(fullPrompt + "\n\nRespond ONLY with valid JSON.");
+      if (!content) throw new Error("No response from LLM");
+      return JSON.parse(content) as LLMResponse;
+    } catch (fallbackError) {
+      console.error("Fallback also failed:", fallbackError);
+      throw new Error("Failed to interpret action");
+    }
   }
 }
 
-// Add helper function to calculate total inventory weight
-function calculateInventoryWeight(inventory: Item[]): number {
-  return inventory.reduce((total, item) => total + (item.weight || 0), 0);
-}
+// // Add helper function to calculate total inventory weight
+// function calculateInventoryWeight(inventory: Item[]): number {
+//   return inventory.reduce((total, item) => total + (item.weight || 0), 0);
+// }
 
 // Add helper function to calculate derived stats
-function calculateDerivedStats(
+export function calculateDerivedStats(
   abilityScores: AbilityScores,
   level: number,
   inventory: Item[] = []

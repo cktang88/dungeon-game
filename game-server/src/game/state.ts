@@ -1,7 +1,9 @@
-import { GameState } from "../types/game";
-import { openai } from "../lib/openai";
+import { GameState, Room, AbilityScores, DerivedStats, Item, Enemy, StatusEffect, Door } from "../types/game";
+import { generateContent, generateStructuredContent } from "../lib/gemini";
+import { roomSchema, itemSchema, enemySchema, gameStateSchema } from "../lib/schemas";
 import generateRoomPrompt from "./generation/roomGen";
 import { isValidGameState } from "..";
+import { calculateDerivedStats } from "./actions";
 
 const createStartingRoom = (): Room => ({
   name: "Entrance Hall",
@@ -111,8 +113,10 @@ export const initializeGameState = async (): Promise<GameState> => {
   const newRoom = await generateRoom("dungeon", gameState);
   // connect room to first location
   gameState.rooms[newRoom.name] = newRoom;
-  gameState.rooms["Entrance Hall"].connections.north.destinationRoomName =
-    newRoom.name;
+  if (gameState.rooms["Entrance Hall"].connections.north) {
+    gameState.rooms["Entrance Hall"].connections.north.destinationRoomName =
+      newRoom.name;
+  }
 
   console.log(gameState);
 
@@ -127,24 +131,11 @@ export const generateRoom = async (
   const prompt = generateRoomPrompt(theme, gameState);
 
   try {
-    const response = await openai.chat.completions.create({
-      // model: "gpt-4o-2024-11-20",
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: prompt },
-        {
-          role: "user",
-          content: `Game state: ${JSON.stringify(gameState)}`,
-        },
-      ],
-      temperature: 0.8,
-      response_format: { type: "json_object" },
-    });
+    const fullPrompt = `${prompt}
 
-    const content = response.choices[0].message.content;
-    if (!content) throw new Error("No response from LLM");
-
-    const roomData = JSON.parse(content) as Room;
+Game state: ${JSON.stringify(gameState)}`;
+    
+    const roomData = await generateStructuredContent<Room>(fullPrompt, roomSchema);
 
     // Process items
     const items = roomData.items || [];
@@ -224,33 +215,17 @@ Be creative but consistent with the game's mechanics and theme. Consider how eff
   };
   const modifiedGameStateJson = JSON.stringify(modifiedGameState);
   try {
-    const response = await openai.chat.completions.create({
-      // model: "gpt-4o-2024-11-20",
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: prompt },
-        {
-          role: "user",
-          content: modifiedGameStateJson,
-        },
-        {
-          role: "user",
-          content: `${JSON.stringify(effects)}`,
-        },
-      ],
-      temperature: 1, // deterministic
-      prediction: {
-        type: "content",
-        content: modifiedGameStateJson,
-      },
-    });
+    const fullPrompt = `${prompt}
 
-    const content = response.choices[0].message.content;
-    if (!content) throw new Error("No response from LLM");
+Current game state:
+${modifiedGameStateJson}
 
-    console.log(content);
-    // strip ```json and ```
-    let updatedGameState = JSON.parse(content.replace(/```json|```/g, ""));
+Effects to apply:
+${JSON.stringify(effects)}
+
+Respond ONLY with the updated game state as valid JSON.`;
+    
+    let updatedGameState = await generateStructuredContent<GameState>(fullPrompt, gameStateSchema);
 
     // add back all rooms
     updatedGameState.rooms = {

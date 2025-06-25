@@ -2,7 +2,7 @@
 
 ## TODOS (June 2025)
 - use BAML
-- update to use latest models, maybe reasoning models?
+- use Zep or Mem0 for memory storage that updates itself :)
 
 ## Description
 

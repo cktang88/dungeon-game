@@ -1,19 +1,42 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-// load with dotenv
-import dotenv from "dotenv";
-import path from "path";
-dotenv.config({ path: path.resolve(__dirname, "../../.env") });
+import { GoogleGenAI, Type } from "@google/genai";
 
-const geminiApiKey = process.env.GEMINI_API_KEY!;
-const genAI = new GoogleGenerativeAI(geminiApiKey);
+const geminiApiKey = process.env.GEMINI_API_KEY;
 
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
-const prompt =
-  "Write a screenplay for a movie about a robot that can travel through time";
-
-async function main() {
-  const result = await model.generateContent(prompt);
-  console.log(result.response.text());
+if (!geminiApiKey) {
+  throw new Error("GEMINI_API_KEY is not set");
 }
 
-main();
+const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+
+export async function generateContent(prompt: string): Promise<string> {
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: prompt,
+  });
+
+  if (!response.text) {
+    throw new Error("No text response received from Gemini");
+  }
+  
+  return response.text;
+}
+
+export async function generateStructuredContent<T>(
+  prompt: string,
+  schema: any
+): Promise<T> {
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: prompt,
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: schema
+    }
+  });
+
+  if (!response.text) {
+    throw new Error("No text response received from Gemini");
+  }
+  
+  return JSON.parse(response.text) as T;
+}
