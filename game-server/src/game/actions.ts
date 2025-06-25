@@ -325,11 +325,11 @@ async function interpretAction(
   action: string,
   state: GameState
 ): Promise<LLMResponse> {
-  // For now, using simplified game state since full types are missing
+  const currentRoom = state.rooms[state.player.currentRoomName];
   const prompt = `
 Current game state:
+Current room: ${JSON.stringify(currentRoom)}
 Player: ${JSON.stringify(state.player)}
-Message History: ${JSON.stringify(state.messageHistory.slice(-5))}
 
 Player action: "${action}"`;
 
