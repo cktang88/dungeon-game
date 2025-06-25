@@ -37,60 +37,43 @@ export default function AbilityScores({ player }: AbilityScoresProps) {
   }
 
   return (
-    <div className="space-y-4">
-      {/* Ability Scores */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Ability Scores</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 gap-4">
-            {Object.entries(player.currentAbilityScores).map(
-              ([stat, value]) => {
-                const baseValue =
-                  player.baseAbilityScores[
-                    stat as keyof typeof player.baseAbilityScores
-                  ];
-                const diff = formatDifference(value, baseValue);
-                const modifier = getAbilityModifier(value);
-                const baseModifier = getAbilityModifier(baseValue);
-                const modifierDiff = modifier - baseModifier;
+    <Card>
+      <CardHeader className="pb-3">
+        <CardTitle className="text-base">Ability Scores</CardTitle>
+      </CardHeader>
+      <CardContent className="pt-0">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+          {Object.entries(player.currentAbilityScores).map(
+            ([stat, value]) => {
+              const baseValue =
+                player.baseAbilityScores[
+                  stat as keyof typeof player.baseAbilityScores
+                ];
+              const diff = value - baseValue;
+              const modifier = getAbilityModifier(value);
 
-                return (
-                  <div key={stat} className="p-4 bg-muted rounded-lg">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="space-y-1">
-                        <div className="text-lg font-medium capitalize">
-                          {stat}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          Base: {baseValue} ({formatModifier(baseModifier)})
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold">
-                          {value}
-                          <span className="text-lg ml-2">
-                            ({formatModifier(modifier)})
-                          </span>
-                        </div>
-                        {diff && (
-                          <div className="text-sm text-muted-foreground">
-                            {diff}
-                            {modifierDiff !== 0 &&
-                              ` (${formatModifier(modifierDiff)} modifier)`}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    <Progress value={(value / 20) * 100} className="h-2" />
-                  </div>
-                );
-              }
-            )}
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+              return (
+                <div key={stat} className="flex items-center justify-between">
+                  <span className="font-medium capitalize text-muted-foreground">
+                    {stat.slice(0, 3).toUpperCase()}
+                  </span>
+                  <span className="font-mono">
+                    {value}
+                    <span className="text-muted-foreground ml-1">
+                      ({formatModifier(modifier)})
+                    </span>
+                    {diff !== 0 && (
+                      <span className={`ml-1 text-xs ${diff > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                        {diff > 0 ? '+' : ''}{diff}
+                      </span>
+                    )}
+                  </span>
+                </div>
+              );
+            }
+          )}
+        </div>
+      </CardContent>
+    </Card>
   );
 }
